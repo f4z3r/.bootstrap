@@ -1,0 +1,3 @@
+[submodule "nvim/lsps/java-language-server"]
+	path = nvim/lsps/java-language-server
+	url = https://github.com/georgewfraser/java-language-server.git
