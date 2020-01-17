@@ -19,7 +19,9 @@ full: configure-vim configure-git configure-fish
 
 .PHONY: configure-git
 configure-git:
-	@echo "[-] TODO implement git configure"
+	@if [ ! -L $(HOME)/.gitconfig ]; then ln -s $(CURRENT_DIR)/git/.gitconfig $(HOME)/.gitconfig; fi
+	@if [ ! -L $(HOME)/.gitignore ]; then ln -s $(CURRENT_DIR)/git/.gitignore $(HOME)/.gitignore; fi
+	@echo "[+] Linked git configuration"
 
 .PHONY: configure-fish
 configure-fish:
