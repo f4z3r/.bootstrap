@@ -16,6 +16,7 @@ info:
 .PHONY: full
 full: configure-vim configure-git configure-fish
 	@echo "Bootstrap finished !"
+	$(MAKE) launch-dein-install
 
 .PHONY: configure-git
 configure-git:
@@ -28,9 +29,22 @@ configure-fish:
 	@echo "[-] TODO implement fish configure"
 
 .PHONY: configure-vim
-configure-vim: install-vim install-javals black yamllint vint pyls proselint
+configure-vim: install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
+
+.PHONY: install-fzf
+install-fzf:
+	fish installs/install_fzf.fish
+
+.PHONY: install-dein
+install-dein:
+	@sh tools/install-dein.sh ~/.cache/dein > /dev/null
+	@echo "[+] Dein installed"
+
+.PHONY: launch-dein-install
+launch-dein-install:
+	nvim -c "call dein#install()" assets/vim-welcome.md
 
 .PHONY: install-javals
 install-javals: install-maven

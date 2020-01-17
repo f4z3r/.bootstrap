@@ -1,3 +1,4 @@
 (A) 2020-01-17 configure fish +fish
-(A) 2020-01-17 install dein and call dein#install +vim
-(A) 2020-01-17 install fzf +vim
+x 2020-01-17 2020-01-17 install dein and call dein#install +vim
+x 2020-01-17 2020-01-17 install fzf +vim
+(C) 2020-01-17 provide super minimal setup that does not install external applications for vim +vim
