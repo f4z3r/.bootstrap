@@ -8,16 +8,25 @@ CURRENT_DIR := $(shell pwd)
 
 .PHONY: info
 info:
-	@echo Operating system $(OS_TYPE)
-	@echo Current directory $(CURRENT_DIR)
-	@echo Home directory $(HOME)
+	@echo "Operating system:   $(OS_TYPE)"
+	@echo
+	@echo "Current directory:  $(CURRENT_DIR)"
+	@echo "Home directory:     $(HOME)"
 
 .PHONY: full
-full: black yamllint vint pyls proselint configure-vim
+full: configure-vim configure-git configure-fish
 	@echo "Bootstrap finished !"
 
+.PHONY: configure-git
+configure-git:
+	@echo "[-] TODO implement git configure"
+
+.PHONY: configure-fish
+configure-fish:
+	@echo "[-] TODO implement fish configure"
+
 .PHONY: configure-vim
-configure-vim: install-vim install-javals
+configure-vim: install-vim install-javals black yamllint vint pyls proselint
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
 
@@ -34,7 +43,7 @@ install-java-13:
 	fish installs/java-13_$(OS_TYPE).fish
 
 .PHONY: install-vim
-install-vim: install-fish
+install-vim: install-fish install-python
 	fish installs/vim_$(OS_TYPE).fish
 
 .PHONY: black
