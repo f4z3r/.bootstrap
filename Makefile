@@ -17,8 +17,21 @@ full: black yamllint vint pyls proselint configure-vim
 	@echo "Bootstrap finished !"
 
 .PHONY: configure-vim
-configure-vim: install-vim
-	-ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim
+configure-vim: install-vim install-javals
+	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
+	@echo "[+] Linked vim configuration"
+
+.PHONY: install-javals
+install-javals: install-maven
+	fish installs/install_javals.fish
+
+.PHONY: install-maven
+install-maven: install-java-13
+	fish installs/maven_$(OS_TYPE).fish
+
+.PHONY: install-java-13
+install-java-13:
+	fish installs/java-13_$(OS_TYPE).fish
 
 .PHONY: install-vim
 install-vim: install-fish
