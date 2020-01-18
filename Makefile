@@ -16,7 +16,7 @@ info:
 .PHONY: full
 full: configure-vim configure-git configure-fish
 	@echo "Bootstrap finished !"
-	$(MAKE) launch-dein-install
+	nvim -c "call dein#install()" assets/vim-welcome.md
 
 .PHONY: configure-git
 configure-git:
@@ -29,9 +29,16 @@ configure-fish:
 	@echo "[-] TODO implement fish configure"
 
 .PHONY: configure-vim
-configure-vim: install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint
+configure-vim: install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
+
+.PHONY: configure-vale
+configure-vale:
+	@if [ ! -L $(HOME)/.vale.ini ]; then ln -s $(CURRENT_DIR)/conf/.vale.ini $(HOME)/.vale.ini; fi
+	@if [ ! -L $(HOME)/.vale.d ]; then ln -s $(CURRENT_DIR)/conf/.vale.d $(HOME)/.vale.d; fi
+	@echo "[+] Linked vale configuration"
+	@echo "[-] Please install vale from their release page from Github"
 
 .PHONY: install-fzf
 install-fzf:
@@ -41,10 +48,6 @@ install-fzf:
 install-dein:
 	@sh tools/install-dein.sh ~/.cache/dein > /dev/null
 	@echo "[+] Dein installed"
-
-.PHONY: launch-dein-install
-launch-dein-install:
-	nvim -c "call dein#install()" assets/vim-welcome.md
 
 .PHONY: install-javals
 install-javals: install-maven
