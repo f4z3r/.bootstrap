@@ -4,7 +4,8 @@
    echo "[+] fzf already initialised"
  else
   git submodule update --init tools/fzf
-  cd tools/fzf && install --bin;
+  cd tools/fzf
+  ./install --bin;
   if test -d ~/.fzf
     echo "[-] WARN: ~/.fzf already exists, deleting it"
     rm -rf ~/.fzf

@@ -1,9 +1,6 @@
 [submodule "nvim/lsps/java-language-server"]
 	path = nvim/lsps/java-language-server
 	url = https://github.com/georgewfraser/java-language-server.git
-[submodule "nvim/lsps/javals"]
-	path = nvim/lsps/javals
-	url = https://github.com/georgewfraser/java-language-server.git
 [submodule "tools/fzf"]
 	path = tools/fzf
 	url = https://github.com/junegunn/fzf.git

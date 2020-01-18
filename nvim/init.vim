@@ -620,7 +620,7 @@ if executable('pyls')
         \ })
   augroup END
 endif
-let g:ale_java_javalsp_executable='/home/jakob/.config/nvim/lsps/javals/dist/lang_server_linux.sh'
+let g:ale_java_javalsp_executable='/home/jakob/.config/nvim/lsps/java-language-server/dist/lang_server_linux.sh'
 "
 " ================= Yank Highlight =================
 let g:highlightedyank_highlight_duration = 200

@@ -30,6 +30,7 @@ configure-fish:
 
 .PHONY: configure-vim
 configure-vim: install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale
+	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
 
