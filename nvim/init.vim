@@ -660,22 +660,14 @@ augroup CAndCppFileGroup
 augroup END
 "
 " ================= CameelCaseMotion =================
-noremap <silent> W w
-noremap <silent> B b
-noremap <silent> E e
-noremap <silent> gE ge
+map <silent> W <Plug>CamelCaseMotion_w
+map <silent> B <Plug>CamelCaseMotion_b
+map <silent> E <Plug>CamelCaseMotion_e
+map <silent> gE <Plug>CamelCaseMotion_ge
 sunmap W
 sunmap B
 sunmap E
 sunmap gE
-map <silent> w <Plug>CamelCaseMotion_w
-map <silent> b <Plug>CamelCaseMotion_b
-map <silent> e <Plug>CamelCaseMotion_e
-map <silent> ge <Plug>CamelCaseMotion_ge
-sunmap w
-sunmap b
-sunmap e
-sunmap ge
 " ============================================
 " ============================================
 " ================= Security =================
