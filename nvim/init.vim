@@ -134,8 +134,9 @@ if dein#load_state('~/.cache/dein')
     \ 'crystal',
     \]})
 
-  " Pomodoro support for airline
   call dein#add('bling/vim-airline')
+
+  call dein#add('bkad/camelcasemotion')
 
   call dein#end()
   call dein#save_state()
@@ -657,8 +658,24 @@ command! MapCAndCppBShortCuts call s:MapCAndCpp()
 augroup CAndCppFileGroup
   autocmd Filetype c,cpp MapCAndCppBShortCuts
 augroup END
-
-
+"
+" ================= CameelCaseMotion =================
+noremap <silent> W w
+noremap <silent> B b
+noremap <silent> E e
+noremap <silent> gE ge
+sunmap W
+sunmap B
+sunmap E
+sunmap gE
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+map <silent> ge <Plug>CamelCaseMotion_ge
+sunmap w
+sunmap b
+sunmap e
+sunmap ge
 " ============================================
 " ============================================
 " ================= Security =================
