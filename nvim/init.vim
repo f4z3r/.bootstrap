@@ -202,7 +202,7 @@ nnoremap <leader>sc :noh<enter>
 
 " ==> Terminal (System)
 " open (t)erminal
-nnoremap <leader>tt :terminal<enter>a
+nnoremap <leader>tt :tabnew<enter>:terminal<enter>a
 " open (t)erminal on (s)split
 nnoremap <leader>ts :split<enter>:terminal<enter>a
 " open (t)erminal on (v)ertical split
