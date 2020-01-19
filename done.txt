@@ -1,2 +1,3 @@
 x 2020-01-17 2020-01-17 install dein and call dein#install +vim
 x 2020-01-17 2020-01-17 install fzf +vim
+x 2020-01-19 2020-01-17 configure fish +fish
