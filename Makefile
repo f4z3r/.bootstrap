@@ -14,7 +14,7 @@ info:
 	@echo "Home directory:     $(HOME)"
 
 .PHONY: full
-full: configure-vim configure-git configure-fish install-skim install-ag configure-screen configure-kitty heal-pinky
+full: configure-vim configure-git configure-fish install-skim install-ag configure-screen configure-kitty heal-pinky configure-xscreensaver
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#install()" assets/vim-welcome.md
 
@@ -80,6 +80,23 @@ configure-kitty: generate-config-dir install-kitty
 .PHONY: install-kitty
 install-kitty: install-fish
 	fish installs/kitty_$(OS_TYPE).fish
+
+.PHONY: configure-xscreensaver
+configure-xscreensaver: install-xscreensaver ~/.Xresources
+	@if [ ! -L $(HOME)/.xscreensaver ]; then ln -s $(CURRENT_DIR)/conf/.xscreensaver $(HOME)/.xscreensaver; fi
+	@echo "[+] Linked xscreensaver configuration"
+
+~/.Xresources: conf/.Xresources
+	@cp conf/.Xresources ~/.Xresources
+	@echo "[+] Copied Xresources configuration"
+	@echo "[-] Modify ~/.Xresources and add:"
+	@echo "[-]   Xtf.dpi: 144"
+	@echo "[-] or 192 for even higher DPI screens. Then run:"
+	@echo "[-]   xrdb -merge ~/.Xresources"
+
+.PHONY: install-xscreensaver
+install-xscreensaver: install-fish
+	fish installs/xscreensaver_$(OS_TYPE).fish
 
 .PHONY: install-screen
 install-screen: install-fish
