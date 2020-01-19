@@ -18,6 +18,11 @@ full: configure-vim configure-git configure-fish install-utils heal-pinky config
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#install()" assets/vim-welcome.md
 
+.PHONY: min
+min: minimal-vim
+	@echo "Minimal bootstrap finished !"
+	nvim -c "call dein#install()" assets/vim-welcome.md
+
 .PHONY: install-utils
 install-utils: install-ag install-skim configure-screen install-htop configure-kitty install-mupdf install-bluez
 	@echo "[+] Installed common utilities"
@@ -38,6 +43,12 @@ configure-vim: generate-config-dir install-vim install-dein install-javals insta
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
+
+.PHONY: minimal-vim
+minimal-vim: generate-config-dir install-dein install-fzf
+	bash installs/link_min_vim.bash $(CURRENT_DIR)
+	@echo "[+] Linked minimal vim configuration"
+	@echo "[-] Remove the source from .vimrc and .config/nvim/init.vim when done"
 
 .PHONY: configure-vale
 configure-vale:
