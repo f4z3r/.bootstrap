@@ -14,9 +14,18 @@ info:
 	@echo "Home directory:     $(HOME)"
 
 .PHONY: full
-full: configure-vim configure-git configure-fish install-skim install-ag configure-screen configure-kitty heal-pinky configure-xscreensaver
+full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#install()" assets/vim-welcome.md
+
+.PHONY: install-utils
+install-utils: install-ag install-skim configure-screen install-htop configure-kitty
+	@echo "[+] Installed common utilities"
+
+.PHONY: pacman
+pacman:
+	@if [ -f /etc/pacman.conf ]; then sudo rm /etc/pacman.conf; fi
+	@if [ ! -L /etc/pacman.conf ]; then sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf; fi
 
 .PHONY: configure-git
 configure-git:
@@ -105,6 +114,10 @@ install-screen: install-fish
 .PHONY: install-ag
 install-ag: install-fish
 	fish installs/ag_$(OS_TYPE).fish
+
+.PHONY: install-htop
+install-htop: install-fish
+	fish installs/htop_$(OS_TYPE).fish
 
 .PHONY: black
 black: install-pipx

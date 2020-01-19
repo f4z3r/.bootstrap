@@ -8,6 +8,12 @@ This fully supports both Arch linux and Ubuntu.
 
 The two dependencies for the bootstrap are `make` and `bash`.
 
+## Configuring `pacman`
+
+Configure pacman by running:
+
+    make pacman
+
 ## Full Bootstrap
 
 Before running the full setup, please make sure to have the correct information showing when
@@ -21,7 +27,7 @@ Then, run the full boostrap:
 
 ## Minimal Boostrap
 
-The minimal boostrap will only install:
+The minimal boostrap will install:
 
 - full Vim setup.
 - full fish configuration.

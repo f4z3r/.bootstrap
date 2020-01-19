@@ -1,5 +1,6 @@
-(A) 2020-01-17 configure fish +fish
+x 2020-01-19 2020-01-17 configure fish +fish
 (B) 2020-01-18 change vim configuration to use ftplugins for langauge based mappings +vim 
 (B) 2020-01-18 provide install for vale +vim
 (B) 2020-01-18 provide install for clangd +vim
+(B) 2020-01-19 add pacman.d folder for pacman configuration +pacman
 (C) 2020-01-17 provide super minimal setup that does not install external applications for vim +vim
