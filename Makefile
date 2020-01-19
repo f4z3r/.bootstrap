@@ -14,7 +14,7 @@ info:
 	@echo "Home directory:     $(HOME)"
 
 .PHONY: full
-full: configure-vim configure-git configure-fish install-skim install-ag configure-screen configure-kitty
+full: configure-vim configure-git configure-fish install-skim install-ag configure-screen configure-kitty heal-pinky
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#install()" assets/vim-welcome.md
 
@@ -130,6 +130,11 @@ configure-fish:
 .PHONY: install-fish
 install-fish:
 	bash installs/fish_$(OS_TYPE).sh
+
+.PHONY: heal-pinky
+heal-pinky:
+	@if [ ! -L $(HOME)/.xmodmap ]; then ln -s $(CURRENT_DIR)/conf/.xmodmap $(HOME)/.xmodmap; fi
+	@echo "[+] Linked xmodmap configuration"
 
 .PHONY: generate-config-dir
 generate-config-dir:
