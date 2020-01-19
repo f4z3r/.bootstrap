@@ -19,7 +19,7 @@ full: configure-vim configure-git configure-fish install-utils heal-pinky config
 	nvim -c "call dein#install()" assets/vim-welcome.md
 
 .PHONY: install-utils
-install-utils: install-ag install-skim configure-screen install-htop configure-kitty install-mupdf
+install-utils: install-ag install-skim configure-screen install-htop configure-kitty install-mupdf install-bluez
 	@echo "[+] Installed common utilities"
 
 .PHONY: pacman
@@ -78,6 +78,10 @@ install-skim: install-fish
 .PHONY: install-mupdf
 install-mupdf: install-fish
 	fish installs/mupdf_$(OS_TYPE).fish
+
+.PHONY: install-bluez
+install-bluez: install-fish
+	fish installs/bluez_$(OS_TYPE).fish
 
 .PHONY: configure-screen
 configure-screen: install-screen
