@@ -197,10 +197,14 @@ nnoremap <leader>sc :noh<enter>
 " (sC) search commands
 " (sS) search search history
 " (sh) search command history
-" (sk) search keymappings
-" TODO move to error next (en)
-" (sn) search next error
-" (sN) search previous error
+" (sk) search keymapping
+" (s)earch (c)lear (highlighting)
+
+" ==> Errors
+" (e)rrors (s)how
+nnoremap <leader>es :messages<enter>
+" (en) search next error
+" (eN) search previous error
 
 " ==> Terminal (System)
 " open (t)erminal
@@ -601,10 +605,10 @@ nnoremap <leader>sd :ALEGoToDefinition<enter>
 nnoremap <leader>sr :ALEFindReferences<enter>
 " (s)earch (s)ymbol
 nnoremap <leader>ss :ALESymbolSearch 
-" (s)earch (n)ext error
-nnoremap <silent> <leader>sn :ALENextWrap<enter>
-" (s)earch (N)previous error
-nnoremap <silent> <leader>sN :ALEPreviousWrap<enter>
+" (e)rror (n)ext
+nnoremap <silent> <leader>en :ALENextWrap<enter>
+" (e)rror (N)previous
+nnoremap <silent> <leader>eN :ALEPreviousWrap<enter>
 " fix everything
 nnoremap <leader>== :ALEFix<enter>
 " disable some linters 

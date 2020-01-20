@@ -28,7 +28,7 @@ Then, run the full boostrap:
 ## Minimal Boostrap
 
 The minimal boostrap will install a full vim configuration. It will do so without affecting
-already installed configurations. Note that it will not install a fish shell or configure git in
+already installed configurations. Note that it won't install a fish shell or configure git in
 any way.
 
 Run it using
