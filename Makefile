@@ -14,7 +14,7 @@ info:
 	@echo "Home directory:     $(HOME)"
 
 .PHONY: full
-full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver
+full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-rclocal
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#install()" assets/vim-welcome.md
 
@@ -113,6 +113,11 @@ install-kitty: install-fish
 configure-xscreensaver: install-xscreensaver ~/.Xresources
 	@if [ ! -L $(HOME)/.xscreensaver ]; then ln -s $(CURRENT_DIR)/conf/.xscreensaver $(HOME)/.xscreensaver; fi
 	@echo "[+] Linked xscreensaver configuration"
+
+.PHONY: configure-rclocal
+configure-rclocal:
+	@if [ ! -L /etc/rc.local ]; then sudo ln -s $(CURRENT_DIR)/conf/.rclocal /etc/rc.local; fi
+	@echo "[+] Linked rc.local configuration"
 
 ~/.Xresources: conf/.Xresources
 	@cp conf/.Xresources ~/.Xresources

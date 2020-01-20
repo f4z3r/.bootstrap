@@ -167,6 +167,8 @@ nnoremap <c-h> _
 nnoremap <c-l> $
 vnoremap <c-h> _
 vnoremap <c-l> $
+onoremap <c-h> _
+onoremap <c-l> $
 
 " Leader update
 let maplocalleader = '\'
