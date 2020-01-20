@@ -236,7 +236,7 @@ nnoremap <leader>gd :Gdiffsplit<enter>
 
 " ==> Files
 " (f)ile (s)ave
-nnoremap <leader>fs :w<enter>
+nnoremap <leader>fs :update<enter>
 " (f)ile (n)ew (in buffer's dir)
 nnoremap <leader>fn :e %:p:h/
 " (f)ile (N)ew in project root
