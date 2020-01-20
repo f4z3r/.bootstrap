@@ -15,3 +15,4 @@ x 2020-01-20 2020-01-20 5 configure fish as default shell
 x 2020-01-20 2020-01-20 6 install skim 
 x 2020-01-20 2020-01-20 7 install asdf 
 x 2020-01-20 2020-01-20 install fira code nerd font
+x 2020-01-20 2020-01-18 change vim configuration to use ftplugins for langauge based mappings +vim 

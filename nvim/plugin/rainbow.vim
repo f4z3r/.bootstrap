@@ -33,6 +33,7 @@ let g:rainbow_conf = {
 \    }
 \}
 " enable by default
+let g:rainbow_active = 1
 augroup RainbowGroup
-  autocmd BufRead * RainbowToggleOn
+  autocmd BufRead,BufEnter * RainbowToggleOn
 augroup END

@@ -4,6 +4,6 @@
 "
 " ==== Bindings =========================================================={{{
 " (l)anguage (h)eader toggle
-nnoremap <leader>lh :A<enter>
+nnoremap <buffer> <leader>lh :A<enter>
 " }}}
 

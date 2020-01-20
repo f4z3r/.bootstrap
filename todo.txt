@@ -1,4 +1,3 @@
-(B) 2020-01-18 change vim configuration to use ftplugins for langauge based mappings +vim 
 (B) 2020-01-18 provide install for clangd +vim
 (B) 2020-01-18 provide install for vale +vim
 (B) 2020-01-19 add music setup to configuration +ncmpcpp
