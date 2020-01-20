@@ -2,3 +2,16 @@ x 2020-01-17 2020-01-17 install dein and call dein#install +vim
 x 2020-01-17 2020-01-17 install fzf +vim
 x 2020-01-19 2020-01-17 configure fish +fish
 x 2020-01-19 2020-01-17 provide super minimal setup that does not install external applications for vim +vim
+x 2020-01-20 2020-01-19 add awesomeWM install to configuration
+x 2020-01-20 2020-01-20 move xmodmap into rc.local should only be executed once
+x 2020-01-20 2020-01-20 install fzf should only depend on bash for minimal install
+x 2020-01-20 2020-01-20 requirements are git and make
+x 2020-01-20 2020-01-20 1 install awesome
+x 2020-01-20 2020-01-20 2 copy desktop file
+x 2020-01-20 2020-01-20 3 copy awesome config
+x 2020-01-20 2020-01-20 verify mupdf defaults for arch
+x 2020-01-20 2020-01-20 4 install fish
+x 2020-01-20 2020-01-20 5 configure fish as default shell
+x 2020-01-20 2020-01-20 6 install skim 
+x 2020-01-20 2020-01-20 7 install asdf 
+x 2020-01-20 2020-01-20 install fira code nerd font

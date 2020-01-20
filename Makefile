@@ -14,7 +14,7 @@ info:
 	@echo "Home directory:     $(HOME)"
 
 .PHONY: full
-full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-rclocal
+full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-rclocal configure-awesome
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#update()" assets/vim-welcome.md
 
@@ -24,7 +24,7 @@ min: minimal-vim
 	nvim -c "call dein#update()" assets/vim-welcome.md
 
 .PHONY: install-utils
-install-utils: install-ag install-skim configure-screen install-htop configure-kitty install-mupdf install-bluez
+install-utils: install-ag install-skim configure-screen install-htop install-mupdf install-bluez
 	@echo "[+] Installed common utilities"
 
 .PHONY: pacman
@@ -43,6 +43,21 @@ configure-vim: generate-config-dir install-vim install-dein install-javals insta
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
+
+# TODO add other required applications here
+.PHONY: configure-awesome
+configure-awesome: install-fish configure-kitty install-awesome
+	@if [ -d $(HOME)/.config/awesome ]; then rm -rf $(HOME)/.config/awesome; fi
+	@if [ ! -L $(HOME)/.config/awesome ]; then ln -s $(CURRENT_DIR)/awesome/ $(HOME)/.config/awesome; fi
+	@echo "[+] Linked awesome configuration"
+
+.PHONY: install-awesome
+install-awesome: install-fish install-mpd
+	fish installs/awesome_$(OS_TYPE).fish
+
+.PHONY: install-mpd
+install-mpd: install-fish
+	@echo [-] install mpd skipped
 
 .PHONY: minimal-vim
 minimal-vim: generate-config-dir install-dein install-fzf
