@@ -8,6 +8,7 @@ set -g theme_project_dir_length 1
 set -g theme_display_k8s_context yes
 set -g theme_display_virtualenv yes
 set -g theme_display_user ssh
+set -g theme_nerd_fonts yes
 set -g theme_display_hostname ssh
 set -g theme_color_scheme dark
 set -g theme_display_cmd_duration yes
