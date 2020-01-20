@@ -3,11 +3,11 @@
 DIR="$1"
 
 INJECTION="
-let s:bootstrap#nvim_init_file = '$DIR/nvim/init.vim'
-if filereadable(s:bootstrap#nvim_init_file)
-  source s:bootstrap#nvim_init_file
+if filereadable('$DIR/nvim/init.vim')
+  source $DIR/nvim/init.vim
 endif
 "
 
+mkdir -p $HOME/.config/nvim/
 echo "$INJECTION" >> $HOME/.config/nvim/init.vim
 echo "$INJECTION" >> $HOME/.vimrc
