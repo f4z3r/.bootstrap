@@ -14,7 +14,11 @@ set -g theme_color_scheme dark
 set -g theme_display_cmd_duration yes
 set -g theme_newline_prompt 'fish> '
 
-set PATH /home/jakob/.local/bin/ . $PATH
+if [ -d ~/.local/bin/ ]
+  set PATH /home/jakob/.local/bin/ $PATH
+end
+
+set PATH . $PATH
 set -g VISUAL vim
 
 kitty + complete setup fish | source
@@ -23,4 +27,7 @@ set -x TERM xterm-256color
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x FZF_DEFAULT_COMMAND 'command ag --hidden --ignore .git --ignore .cache -g ""'
 
-source ~/.asdf/asdf.fish
+# source only if file exists
+if [ -f ~/.asdf/asdf.fish ]
+  source ~/.asdf/asdf.fish
+end
