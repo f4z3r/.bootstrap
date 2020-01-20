@@ -7,8 +7,8 @@
 (B) 2020-01-19 add power management installation and default configuration to setup
 (B) 2020-01-19 add wifi management to configuration
 (C) 2020-01-19 think about adding openconnect to setup
-(B) 2020-01-20 move xmodmap into rc.local should only be executed once
-(C) 2020-01-20 install fzf should only depend on bash for minimal install
+x 2020-01-20 2020-01-20 move xmodmap into rc.local should only be executed once
+x 2020-01-20 2020-01-20 install fzf should only depend on bash for minimal install
 (C) 2020-01-20 requirements are git and make
 (C) 2020-01-20 1 install awesome
 (C) 2020-01-20 2 copy desktop file

@@ -59,7 +59,7 @@ configure-vale:
 
 .PHONY: install-fzf
 install-fzf:
-	fish installs/install_fzf.fish
+	bash installs/install_fzf.bash
 
 .PHONY: install-dein
 install-dein:
@@ -116,7 +116,7 @@ configure-xscreensaver: install-xscreensaver ~/.Xresources
 
 .PHONY: configure-rclocal
 configure-rclocal:
-	@if [ ! -L /etc/rc.local ]; then sudo ln -s $(CURRENT_DIR)/conf/.rclocal /etc/rc.local; fi
+	@if [ ! -L /etc/rc.local ]; then sudo ln -s $(CURRENT_DIR)/conf/rc.local /etc/rc.local; fi
 	@echo "[+] Linked rc.local configuration"
 
 ~/.Xresources: conf/.Xresources

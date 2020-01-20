@@ -1,15 +1,15 @@
-#!/usr/bin/env fish
+#!/usr/bin/env bash
 
- if test -e tools/fzf/bin/fzf-tmux
+ if [ -e tools/fzf/bin/fzf-tmux ]; then
    echo "[+] fzf already initialised"
  else
   git submodule update --init tools/fzf
   cd tools/fzf
   ./install --bin;
-  if test -d ~/.fzf
+  if [ -d ~/.fzf ]; then
     echo "[-] WARN: ~/.fzf already exists, deleting it"
     rm -rf ~/.fzf
-  end
-  ln -s (pwd)/ $HOME/.fzf
+  fi
+  ln -s $(pwd)/ $HOME/.fzf
   echo "[+] fzf initialised"
-end
+fi
