@@ -14,7 +14,7 @@ info:
 	@echo "Home directory:     $(HOME)"
 
 .PHONY: full
-full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-rclocal configure-awesome
+full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-awesome
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#update()" assets/vim-welcome.md
 
@@ -141,18 +141,13 @@ configure-xscreensaver: install-xscreensaver ~/.Xresources
 	@if [ ! -L $(HOME)/.xscreensaver ]; then ln -s $(CURRENT_DIR)/conf/.xscreensaver $(HOME)/.xscreensaver; fi
 	@echo "[+] Linked xscreensaver configuration"
 
-.PHONY: configure-rclocal
-configure-rclocal:
-	@if [ ! -L /etc/rc.local ]; then sudo ln -s $(CURRENT_DIR)/conf/rc.local /etc/rc.local; fi
-	@echo "[+] Linked rc.local configuration"
-
-~/.Xresources: conf/.Xresources
+~/.Xresources: conf/.Xresources conf/.xinitrc
+	@if [ ! -L $(HOME)/.xinitrc ]; then ln -s $(CURRENT_DIR)/conf/.xinitrc $(HOME)/.xinitrc; fi
 	@cp conf/.Xresources ~/.Xresources
 	@echo "[+] Copied Xresources configuration"
 	@echo "[-] Modify ~/.Xresources and add:"
-	@echo "[-]   Xtf.dpi: 144"
-	@echo "[-] or 192 for even higher DPI screens. Then run:"
-	@echo "[-]   xrdb -merge ~/.Xresources"
+	@echo "[-]   Xft.dpi: 144"
+	@echo "[-] or 192 for even higher DPI screens. Then restart awesome."
 
 .PHONY: install-xscreensaver
 install-xscreensaver: install-fish
@@ -214,8 +209,8 @@ install-fish:
 
 .PHONY: heal-pinky
 heal-pinky:
-	@if [ ! -L $(HOME)/.xmodmap ]; then ln -s $(CURRENT_DIR)/conf/.xmodmap $(HOME)/.xmodmap; fi
-	@echo "[+] Linked xmodmap configuration"
+	@if [ ! -L $(HOME)/.Xmodmap ]; then ln -s $(CURRENT_DIR)/conf/.Xmodmap $(HOME)/.Xmodmap; fi
+	@echo "[+] Linked Xmodmap configuration"
 
 .PHONY: generate-config-dir
 generate-config-dir:
