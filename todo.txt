@@ -9,13 +9,13 @@
 (C) 2020-01-19 think about adding openconnect to setup
 x 2020-01-20 2020-01-20 move xmodmap into rc.local should only be executed once
 x 2020-01-20 2020-01-20 install fzf should only depend on bash for minimal install
-(C) 2020-01-20 requirements are git and make
+x 2020-01-20 2020-01-20 requirements are git and make
 (C) 2020-01-20 1 install awesome
 (C) 2020-01-20 2 copy desktop file
 (C) 2020-01-20 3 copy awesome config
-(C) 2020-01-20 4 install fish
-(C) 2020-01-20 5 configure fish as default shell
-(C) 2020-01-20 6 install skim 
-(C) 2020-01-20 7 install asdf 
-(C) 2020-01-20 install fira code nerd font
+x 2020-01-20 2020-01-20 4 install fish
+x 2020-01-20 2020-01-20 5 configure fish as default shell
+x 2020-01-20 2020-01-20 6 install skim 
+x 2020-01-20 2020-01-20 7 install asdf 
+x 2020-01-20 2020-01-20 install fira code nerd font
 

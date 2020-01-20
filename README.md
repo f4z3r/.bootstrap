@@ -6,7 +6,7 @@ This fully supports both Arch linux and Ubuntu.
 
 ## Dependencies
 
-The two dependencies for the bootstrap are `make` and `bash`.
+The two dependencies for the bootstrap are `git`, `make` and `bash`.
 
 ## Configuring `pacman`
 
@@ -27,25 +27,10 @@ Then, run the full boostrap:
 
 ## Minimal Boostrap
 
-The minimal boostrap will install:
-
-- full Vim setup.
-- full fish configuration.
-- full git configuration.
+The minimal boostrap will install a full vim configuration. It will do so without affecting
+already installed configurations. Note that it will not install a fish shell or configure git in
+any way.
 
 Run it using
 
     make min
-
-## Super Minimal
-
-The super minimal bootstrap will bootstrap a full Vim setup and nothing more. Note this still
-install quite some packages, such as `python3`, several language servers, `fzf`, etc.
-
-Run it using:
-
-    make super
-
-This will not change the git configuration, or fish configuration. It's ment as a quick IDE
-setup when time is of the essence. Should the target machine be affected as little as
-possible, this is still undesirable.

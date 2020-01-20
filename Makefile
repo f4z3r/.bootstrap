@@ -16,12 +16,12 @@ info:
 .PHONY: full
 full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-rclocal
 	@echo "Bootstrap finished !"
-	nvim -c "call dein#install()" assets/vim-welcome.md
+	nvim -c "call dein#update()" assets/vim-welcome.md
 
 .PHONY: min
 min: minimal-vim
 	@echo "Minimal bootstrap finished !"
-	nvim -c "call dein#install()" assets/vim-welcome.md
+	nvim -c "call dein#update()" assets/vim-welcome.md
 
 .PHONY: install-utils
 install-utils: install-ag install-skim configure-screen install-htop configure-kitty install-mupdf install-bluez
@@ -75,8 +75,12 @@ install-maven: install-java-13
 	fish installs/maven_$(OS_TYPE).fish
 
 .PHONY: install-java-13
-install-java-13:
+install-java-13: install-fish
 	fish installs/java-13_$(OS_TYPE).fish
+
+.PHONY: install-skim
+install-skim: install-fish
+	fish installs/skim_$(OS_TYPE).fish
 
 .PHONY: install-vim
 install-vim: install-fish install-python
@@ -85,6 +89,10 @@ install-vim: install-fish install-python
 .PHONY: install-skim
 install-skim: install-fish
 	fish installs/skim_$(OS_TYPE).fish
+
+.PHONY: install-asdf
+install-asdf: install-fish
+	fish installs/install_asdf.fish
 
 .PHONY: install-mupdf
 install-mupdf: install-fish
@@ -100,7 +108,7 @@ configure-screen: install-screen
 	@echo "[+] Linked screen configuration"
 
 .PHONY: configure-kitty
-configure-kitty: generate-config-dir install-kitty
+configure-kitty: generate-config-dir install-kitty install-fura-code
 	@if [ ! -d $(HOME)/.config/kitty/ ]; then mkdir -p $(HOME)/.config/kitty; fi
 	@if [ ! -L $(HOME)/.config/kitty/kitty.conf ]; then ln -s $(CURRENT_DIR)/conf/kitty.conf $(HOME)/.config/kitty/kitty.conf; fi
 	@echo "[+] Linked kitty configuration"
@@ -108,6 +116,10 @@ configure-kitty: generate-config-dir install-kitty
 .PHONY: install-kitty
 install-kitty: install-fish
 	fish installs/kitty_$(OS_TYPE).fish
+
+.PHONY: install-fura-code
+install-fura-code: install-fish
+	fish installs/install_fura.fish
 
 .PHONY: configure-xscreensaver
 configure-xscreensaver: install-xscreensaver ~/.Xresources
