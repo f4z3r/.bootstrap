@@ -19,14 +19,10 @@ let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_enter = 1
 " disable some linters 
 let g:ale_linters = {
-  \ 'python': ['pyls'],  
-  \ 'cpp': ['clangd', 'flawfinder', 'gcc', 'cppcheck', 'cpplint'],  
-  \ 'c': ['clangd', 'flawfinder', 'gcc', 'cppcheck', 'cpplint'],  
+  \ 'python': ['pyls', 'bandit', 'mypy'],
   \}
 let g:ale_fixers = {
-  \ 'python': ['black'],
-  \ 'cpp': ['uncrustify', 'clang-format'],
-  \ 'c': ['uncrustify', 'clang-format'],
+  \ 'python': ['black', 'reorder-python-imports', 'yapf'],
   \}
 if executable('pyls')
   augroup PythonLanguageServer

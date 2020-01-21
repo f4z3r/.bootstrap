@@ -39,7 +39,7 @@ configure-git:
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-vim
-configure-vim: generate-config-dir install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale flawfinder install-uncrustify install-clang-format cpplint install-cppcheck
+configure-vim: generate-config-dir install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale flawfinder install-uncrustify install-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
@@ -200,6 +200,22 @@ flawfinder: install-fish install-pipx
 .PHONY: cpplint
 cpplint: install-fish install-pipx
 	fish installs/pipx/install.fish cpplint
+
+.PHONY: reorder-python-imports
+reorder-python-imports: install-fish install-pipx
+	fish installs/pipx/install.fish reorder-python-imports
+
+.PHONY: bandit
+bandit: install-fish install-pipx
+	fish installs/pipx/install.fish bandit
+
+.PHONY: mypy
+mypy: install-fish install-pipx
+	fish installs/pipx/install.fish mypy
+
+.PHONY: yapf
+yapf: install-fish install-pipx
+	fish installs/pipx/install.fish yapf
 
 .PHONY: install-pipx
 install-pipx: install-pip
