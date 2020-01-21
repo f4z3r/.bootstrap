@@ -39,7 +39,7 @@ configure-git:
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-vim
-configure-vim: generate-config-dir install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale
+configure-vim: generate-config-dir install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale flawfinder install-uncrustify install-clang-format cpplint install-cppcheck
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
@@ -93,6 +93,10 @@ install-maven: install-java-13
 install-java-13: install-fish
 	fish installs/java-13_$(OS_TYPE).fish
 
+.PHONY: install-cppcheck
+install-cppcheck: install-fish
+	fish installs/cppcheck_$(OS_TYPE).fish
+
 .PHONY: install-skim
 install-skim: install-fish
 	fish installs/skim_$(OS_TYPE).fish
@@ -101,9 +105,13 @@ install-skim: install-fish
 install-vim: install-fish install-python
 	fish installs/vim_$(OS_TYPE).fish
 
-.PHONY: install-skim
-install-skim: install-fish
-	fish installs/skim_$(OS_TYPE).fish
+.PHONY: install-uncrustify
+install-uncrustify: install-fish
+	fish installs/uncrustify_$(OS_TYPE).fish
+
+.PHONY: install-clang-format
+install-clang-format: install-fish
+	fish installs/clang-format_$(OS_TYPE).fish
 
 .PHONY: install-asdf
 install-asdf: install-fish
@@ -166,24 +174,32 @@ install-htop: install-fish
 	fish installs/htop_$(OS_TYPE).fish
 
 .PHONY: black
-black: install-pipx
+black: install-pipx install-fish
 	fish installs/pipx/install.fish black
 
 .PHONY: vint
-vint: install-pipx
+vint: install-pipx install-fish
 	fish installs/pipx/vint.fish
 
 .PHONY: proselint
-proselint: install-pipx
+proselint: install-pipx install-fish
 	fish installs/pipx/install.fish proselint
 
 .PHONY: pyls
-pyls: install-pipx
+pyls: install-pipx install-fish
 	fish installs/pipx/pyls.fish
 
 .PHONY: yamllint
-yamllint: install-pipx
+yamllint: install-pipx install-fish
 	fish installs/pipx/install.fish yamllint
+
+.PHONY: flawfinder
+flawfinder: install-fish install-pipx
+	fish installs/pipx/install.fish flawfinder
+
+.PHONY: cpplint
+cpplint: install-fish install-pipx
+	fish installs/pipx/install.fish cpplint
 
 .PHONY: install-pipx
 install-pipx: install-pip

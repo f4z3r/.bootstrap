@@ -1,4 +1,4 @@
-(B) 2020-01-18 provide install for clangd +vim
+(B) 2020-01-21 install clangd +vim
 (B) 2020-01-18 provide install for vale +vim
 (B) 2020-01-19 add music setup to configuration +ncmpcpp
 (B) 2020-01-19 add pacman.d folder for pacman configuration +pacman
