@@ -13,7 +13,7 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-   call dein#add('Shougo/deoplete.nvim')
+  call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
@@ -121,7 +121,7 @@ if dein#load_state('~/.cache/dein')
     \]})
 
   " switch from header to implementation and vice-versa
-  call dein#add('vim-scripts/a.vim',
+  call dein#add('jakobbeckmann/a.vim',
     \{'on_ft': ['c', 'cpp']})
 
   " enable project local vimrcs (.lvimrc)
