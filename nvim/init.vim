@@ -5,6 +5,7 @@ if &compatible
   set nocompatible
 endif
 
+" TODO(jakob): thing
 " Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
@@ -148,6 +149,9 @@ if dein#load_state('~/.cache/dein')
 
   " move through camel or snake case
   call dein#add('bkad/camelcasemotion')
+
+  " pomodoro
+  call dein#add('rmolin88/pomodoro.vim')
 
   call dein#end()
   call dein#save_state()

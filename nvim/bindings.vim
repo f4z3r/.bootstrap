@@ -215,6 +215,12 @@ nnoremap <leader>bb :Buffers<enter>
 " }}}
 
 
+" ==== Organisation ======================================================{{{
+" Simple pasting from default register
+nnoremap <leader>op :PomodoroStart<enter>
+" }}}
+
+
 " ==== Misc =============================================================={{{
 " Simple pasting from default register
 inoremap <c-r> <c-r>"

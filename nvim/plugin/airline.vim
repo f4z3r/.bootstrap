@@ -1,4 +1,4 @@
-scriptencoding utf-8
+ scriptencoding utf-8
 " ===========================================================================
 " ================================ Airline ==================================
 " ===========================================================================
@@ -25,7 +25,12 @@ let g:airline_symbols.maxlinenr = '☰'
 let g:airline_symbols.branch = ''
 let g:airline_symbols.readonly = ''
 let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.space = ' '
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_powerline_fonts = 1
+
+let spc = g:airline_symbols.space
+
+let g:airline_section_z = airline#section#create(['%{PomodoroStatus()}', '%3p%%'.spc, 'linenr', 'maxlinenr', spc.':%3v'])
