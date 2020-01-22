@@ -23,6 +23,9 @@ let g:ale_linters = {
   \}
 let g:ale_fixers = {
   \ 'python': ['black', 'reorder-python-imports', 'yapf'],
+  \ 'java': ['uncrustify'],
+  \ 'cpp': ['clang-format', 'uncrustify'],
+  \ 'c': ['clang-format', 'uncrustify'],
   \}
 if executable('pyls')
   augroup PythonLanguageServer
