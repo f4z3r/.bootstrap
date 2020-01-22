@@ -15,6 +15,12 @@ cnoremap fd <Esc>
 " ==== Folding ==========================================================={{{
 " fold fast
 nnoremap <c-d> zA
+" unmap s in normal mode
+nmap s <nop>
+" Split downwards
+nmap sj :SplitjoinSplit<cr>
+" Join upwards
+nmap sk :SplitjoinJoin<cr>
 " }}}
 
 
