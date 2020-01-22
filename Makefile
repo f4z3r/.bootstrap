@@ -21,7 +21,7 @@ full: configure-vim configure-git configure-fish install-utils heal-pinky config
 .PHONY: min
 min: minimal-vim
 	@echo "Minimal bootstrap finished !"
-	nvim -c "call dein#update()" assets/vim-welcome.md
+	@echo "Please run dein#update() inside (neo)vim to install all plugins"
 
 .PHONY: install-utils
 install-utils: install-ag install-skim configure-screen install-htop install-mupdf install-bluez
