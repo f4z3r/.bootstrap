@@ -36,8 +36,11 @@ set list
 
 
 " ==== Keyword Overrides ================================================={{{
-syn match   myTodo   contained   "\<\(TODO\|FIXME\):"
-hi def link myTodo Todo
+syn match MyTodo contained
+      \ /\<\(FIXME\|TODO\|OPTIMIZE\|NOTE\|NOTE\)\((\w\+)\)\?:\?/
+" hi def link MyTodo Todo
+" hi def link Todo RedrawDebugComposed
+hi MyTodo ctermfg=159
 " }}}
 
 
