@@ -3,7 +3,7 @@
 	email = beckmann_jakob@hotmail.fr
 
 [core]
-	editor = nvim
+	editor = vim
 	excludesfile = ~/.gitignore
 
 # Aliases
@@ -24,10 +24,3 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-
-[merge]
-	tool = nvim -d
-	conflictstyle = diff3
-
-[mergetool]
-	prompt = false
