@@ -26,10 +26,22 @@ let g:pomodoro_notification_cmd = 'notify-send -c POMODORO -i dialog-warning '
 
 function! PomodoroStatus() abort
   let l:pomos = pomo#get_num_pomos_today()
-  let l:pomo_time = pomo#remaining_time()
-  if l:pomo_time ==# '0'
+  let l:status = pomo#status()
+  let l:active = l:status !=# 'Pomodoro inactive'
+  if !l:active 
     return l:pomos." \ue001 "
-  else
-    return l:pomos." \ue001/\ue003 ".l:pomo_time.'m '
   endif
+  let l:short_break = l:status ==# 'Pomodoro short break started'
+  let l:long_break = l:status ==# 'Pomodoro long break started'
+
+  let l:icon = "\ue003"
+
+  if l:short_break
+    let l:icon = "\ue005"
+  elseif l:long_break
+    let l:icon = "\ue006"
+  endif
+
+  let l:pomo_time = pomo#remaining_time()
+  return l:pomos." \ue001/".l:icon.' '.l:pomo_time.'m '
 endfunction
