@@ -32,5 +32,9 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_powerline_fonts = 1
 
 let spc = g:airline_symbols.space
+let arr = g:airline_right_alt_sep
 
-let g:airline_section_z = airline#section#create(['%{PomodoroStatus()}', '%3p%%'.spc, 'linenr', 'maxlinenr', spc.':%3v'])
+call airline#parts#define_function('pomo', 'PomodoroStatus')
+call airline#parts#define_accent('pomo', 'green')
+
+let g:airline_section_z = airline#section#create(['pomo', arr.'%3p%%'.spc, 'linenr', 'maxlinenr', spc.':%3v'])
