@@ -14,6 +14,10 @@ let g:pomodoro_do_log = 0
 " Path to the pomodoro log file (default: /tmp/pomodoro.log)
 let g:pomodoro_log_file = '/tmp/pomodoro.log'
 
+let g:pomodoro_notification_cmd = 'notify-send -c POMODORO -i dialog-warning '
+      \ . '-u critical -t 10000 "Pomodoro Completed" "Return to vim to start '
+      \ . 'a break or skip it."'
+
 function! PomodoroStatus() abort
     if pomo#remaining_time() ==# '0'
         return "\ue001"
