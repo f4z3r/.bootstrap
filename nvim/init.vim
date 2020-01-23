@@ -5,7 +5,6 @@ if &compatible
   set nocompatible
 endif
 
-" TODO(jakob): thing
 " Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
@@ -152,6 +151,9 @@ if dein#load_state('~/.cache/dein')
 
   " pomodoro
   call dein#add('rmolin88/pomodoro.vim')
+
+  " enable colorscheme overrides
+  call dein#add('vim-scripts/AfterColors.vim')
 
   call dein#end()
   call dein#save_state()
