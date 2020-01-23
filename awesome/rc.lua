@@ -103,9 +103,10 @@ local modkey       = "Mod4"
 local altkey       = "Mod1"
 local terminal     = "kitty"
 local editor       = os.getenv("EDITOR") or "nvim"
+local guieditor    = "kitty screen -R vim"
+local gui_editor    = "kitty screen -R vim"
 local browser      = "firefox"
 local music_player = "kitty ncmpcpp"
-local guieditor    = "kitty nvim"
 local scrlocker    = "xscreensaver-command -lock"
 
 -- launch xscreen server
