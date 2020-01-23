@@ -5,6 +5,8 @@ if &compatible
   set nocompatible
 endif
 
+" TODO something
+
 " Add the dein installation directory into runtimepath
 set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
 
@@ -178,6 +180,8 @@ source <sfile>:h/searching.vim
 
 " Load misceleneous
 source <sfile>:h/misc.vim
+
+" FIXME somethig
 
 " Security
 set secure

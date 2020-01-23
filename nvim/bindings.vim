@@ -219,7 +219,11 @@ nnoremap <leader>op :PomodoroStart auto<enter>
 " Open project level to(d)o file
 nnoremap <leader>od :e todo.txt<enter>
 " Open (g)lobal todo file
-nnoremap <leader>tg :e ~/todo.txt<enter>
+nnoremap <leader>og :e ~/todo.txt<enter>
+" (j)ump to next todo/fixme tag in file
+nnoremap <silent> <leader>oj /\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
+" (J)ump to previous todo/fixme tag in file
+nnoremap <silent> <leader>oJ ?\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
 " }}}
 
 
