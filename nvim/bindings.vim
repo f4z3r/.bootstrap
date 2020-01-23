@@ -124,8 +124,6 @@ nnoremap <leader>tl :set colorcolumn=100<enter>
 nnoremap <leader>tg :GoldenRatioToggle<enter>
 " (t)oggle (u)ndo tree
 nnoremap <leader>tu :GundoToggle<enter>
-" (t)oggle (open) to(d)o
-nnoremap <leader>td :e todo.txt<enter>
 " }}}
 
 
@@ -216,8 +214,12 @@ nnoremap <leader>bb :Buffers<enter>
 
 
 " ==== Organisation ======================================================{{{
-" Simple pasting from default register
-nnoremap <leader>op :PomodoroStart<enter>
+" Start (p)omodoro with name auto
+nnoremap <leader>op :PomodoroStart auto<enter>
+" Open project level to(d)o file
+nnoremap <leader>od :e todo.txt<enter>
+" Open (g)lobal todo file
+nnoremap <leader>tg :e ~/todo.txt<enter>
 " }}}
 
 
