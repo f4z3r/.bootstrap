@@ -230,4 +230,7 @@ nnoremap <silent> <leader>oJ ?\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter
 " ==== Misc =============================================================={{{
 " Simple pasting from default register
 inoremap <c-r> <c-r>"
+" Do not store the deleted text in default register when pasting in visual
+" mode.
+xnoremap <silent> p p:let @"=@0<enter>
 " }}}
