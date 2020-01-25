@@ -7,6 +7,11 @@
 syntax on
 set background=dark
 colorscheme gruvbox
+" source syntax override on bugger read or create (required due to lazy
+" loading of polyglot)
+augroup TODO_color_overrides
+  autocmd BufRead,BufCreate * source <sfile>:h/after/colors/gruvbox.vim
+augroup END
 " }}}
 
 
