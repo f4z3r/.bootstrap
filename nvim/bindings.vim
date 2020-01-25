@@ -226,14 +226,10 @@ nnoremap <leader>og :e ~/todo.txt<enter>
 nnoremap <silent> <leader>oj /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
 " (J)ump to previous todo/fixme tag in file
 nnoremap <silent> <leader>oJ ?\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
-" (o)rganisation (q)uickfix (o)open
-nnoremap <leader>oqo :copen<enter>
-" (o)rganisation (q)uickfix (c)lose
-nnoremap <leader>oqc :cclose<enter>
-" (o)rganisation (l)ocation list (o)open
-nnoremap <leader>olo :lopen<enter>
-" (o)rganisation (l)ocation list (c)lose
-nnoremap <leader>olc :lclose<enter>
+" (o)rganisation (q)uickfix open
+nnoremap <leader>oq :copen<enter>
+" (o)rganisation (l)ocation list open
+nnoremap <leader>ol :lopen<enter>
 " (o)rganisation (g)enerate (t)odo location list for current file
 nnoremap <leader>ogt :lvimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<enter>
 " }}}
