@@ -168,6 +168,8 @@ nnoremap <leader>fc :Files<enter>
 nnoremap <leader>ff :Files %:p:h<enter>
 " (f)iles in (h)ome
 nnoremap <leader>fh :Files ~/<enter>
+" (f)ile (r)efresh
+nnoremap <leader>fr :checktime %<enter>
 " }}}
 
 

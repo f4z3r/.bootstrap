@@ -39,4 +39,5 @@ set wildmode=list:longest,full
 
 " ==== Hidden Files ======================================================{{{
 set hidden                   " use hidden files for unsaved buffer switches
+set autoread                 " read changed files into buffers if needed
 " }}}
