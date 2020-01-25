@@ -124,10 +124,6 @@ nnoremap <leader>tL :set colorcolumn=100<enter>
 nnoremap <leader>tg :GoldenRatioToggle<enter>
 " (t)oggle (u)ndo tree
 nnoremap <leader>tu :GundoToggle<enter>
-" (t)oggle (q)uickfix list
-nnoremap <leader>tq :cwindow<enter>
-" (t)oggle (l)ocation list
-nnoremap <leader>tl :lwindow<enter>
 " }}}
 
 
@@ -227,9 +223,19 @@ nnoremap <leader>od :e todo.txt<enter>
 " Open (g)lobal todo file
 nnoremap <leader>og :e ~/todo.txt<enter>
 " (j)ump to next todo/fixme tag in file
-nnoremap <silent> <leader>oj /\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
+nnoremap <silent> <leader>oj /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
 " (J)ump to previous todo/fixme tag in file
-nnoremap <silent> <leader>oJ ?\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
+nnoremap <silent> <leader>oJ ?\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
+" (o)rganisation (q)uickfix (o)open
+nnoremap <leader>oqo :copen<enter>
+" (o)rganisation (q)uickfix (c)lose
+nnoremap <leader>oqc :cclose<enter>
+" (o)rganisation (l)ocation list (o)open
+nnoremap <leader>olo :lopen<enter>
+" (o)rganisation (l)ocation list (c)lose
+nnoremap <leader>olc :lclose<enter>
+" (o)rganisation (g)enerate (t)odo location list for current file
+nnoremap <leader>ogt :lvimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<enter>
 " }}}
 
 
