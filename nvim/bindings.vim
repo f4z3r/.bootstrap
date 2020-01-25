@@ -118,12 +118,16 @@ nnoremap <leader>tv :vsplit<enter>:terminal<enter>a
 
 
 " ==== Toggles ==========================================================={{{
-" (t)oggle colorcolumn (l)ine 
-nnoremap <leader>tl :set colorcolumn=100<enter>
+" (t)oggle colorcolumn (L)ine 
+nnoremap <leader>tL :set colorcolumn=100<enter>
 " (t)oggle (g)olden ratio
 nnoremap <leader>tg :GoldenRatioToggle<enter>
 " (t)oggle (u)ndo tree
 nnoremap <leader>tu :GundoToggle<enter>
+" (t)oggle (q)uickfix list
+nnoremap <leader>tq :cwindow<enter>
+" (t)oggle (l)ocation list
+nnoremap <leader>tl :lwindow<enter>
 " }}}
 
 
