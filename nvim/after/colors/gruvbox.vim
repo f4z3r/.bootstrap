@@ -1,13 +1,16 @@
 
-" Custom highlight for todos
-syntax match MyTodo display
-      \ /.\<\(FIXME\|TODO\|OPTIMIZE\|NOTE\|XXX\)\((@\?\w\+)\)\?:\?/hs=s+1
-      \ containedin=.*Comment,.*CommentTitle
-hi link MyTodo Todo
-hi Todo ctermfg=green guifg=green
-
 " Custom highlight for targeted person
+" Parenthesis required to not include variables such as Exilir's macros.
 syntax match TargetPerson display
-      \ /@\w\+/
-      \ containedin=MyTodo
-hi TargetPerson ctermfg=red guifg=red
+      \ /(@\w\+/hs=s+1
+      \ contained contains=NONE
+highlight TargetPerson ctermfg=red guifg=red
+
+" Custom highlight for todos
+" Dot required to have precedence over keyword TODOs.
+syntax match MyTodo display
+      \ /.\<\(FIXME\|TODO\|OPTIMIZE\|NOTE\|XXX\)\((@\w\+)\)\?:\?/hs=s+1
+      \ contains=TargetPerson containedin=.*Comment,.*CommentTitle contained
+highlight link MyTodo Todo
+highlight Todo ctermfg=green guifg=green
+
