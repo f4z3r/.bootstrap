@@ -4,6 +4,6 @@ Language: Cpp
 # Force pointers to the type
 DerivePointerAlignment: false
 PointerAlignment: Left
-AccessModifierOffset: -2
+AccessModifierOffset: -1
 FixNamespaceComments: true
 NamespaceIndentation: None
