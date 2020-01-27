@@ -5,7 +5,21 @@
 OS_TYPE := $(shell bash installs/get_os.sh)
 CURRENT_DIR := $(shell pwd)
 
+#### Nim installation
+.PHONY: nim
+nim:
+	curl https://nim-lang.org/choosenim/init.sh -sSf > choosenim.sh
+	sh choosenim.sh -y
+	rm -f choosenim.sh
 
+#### Pacman configuration
+.PHONY: pacman
+pacman:
+	@if [ -f /etc/pacman.conf ]; then sudo rm /etc/pacman.conf; fi
+	@if [ ! -L /etc/pacman.conf ]; then sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf; fi
+
+
+#### Information display
 .PHONY: info
 info:
 	@echo "Operating system:   $(OS_TYPE)"
@@ -13,24 +27,23 @@ info:
 	@echo "Current directory:  $(CURRENT_DIR)"
 	@echo "Home directory:     $(HOME)"
 
-.PHONY: full
-full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-awesome
-	@echo "Bootstrap finished !"
-	nvim -c "call dein#update()" assets/vim-welcome.md
 
+#### Minimal Setup
 .PHONY: min
 min: minimal-vim
 	@echo "Minimal bootstrap finished !"
 	@echo "Please run dein#update() inside (neo)vim to install all plugins"
 
+
+#### Full setup
+.PHONY: full
+full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-awesome
+	@echo "Bootstrap finished !"
+	nvim -c "call dein#update()" assets/vim-welcome.md
+
 .PHONY: install-utils
 install-utils: install-ag install-skim configure-screen install-htop install-mupdf install-bluez
 	@echo "[+] Installed common utilities"
-
-.PHONY: pacman
-pacman:
-	@if [ -f /etc/pacman.conf ]; then sudo rm /etc/pacman.conf; fi
-	@if [ ! -L /etc/pacman.conf ]; then sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf; fi
 
 .PHONY: configure-git
 configure-git:

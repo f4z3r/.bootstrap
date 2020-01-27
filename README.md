@@ -34,3 +34,11 @@ any way.
 Run it using
 
     make min
+
+## Additional Installs
+
+### Nim
+
+To install `choosenim` and the `nim` compiler use:
+
+    make nim

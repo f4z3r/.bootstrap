@@ -18,6 +18,10 @@ if [ -d ~/.local/bin/ ]
   set PATH /home/jakob/.local/bin/ $PATH
 end
 
+if [ -d ~/.nimble/bin ]
+  set PATH /home/jakob/.nimble/bin $PATH
+end
+
 set PATH . $PATH
 set -g VISUAL vim
 
