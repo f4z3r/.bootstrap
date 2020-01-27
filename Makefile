@@ -39,7 +39,7 @@ configure-git:
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-vim
-configure-vim: generate-config-dir install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale flawfinder install-uncrustify install-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf
+configure-vim: generate-config-dir install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale flawfinder install-uncrustify configure-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
@@ -108,6 +108,11 @@ install-vim: install-fish install-python
 .PHONY: install-uncrustify
 install-uncrustify: install-fish
 	fish installs/uncrustify_$(OS_TYPE).fish
+
+.PHONY: configure-clang-format
+configure-clang-format: install-clang-format
+	@if [ ! -L $(HOME)/.clang-format ]; then ln -s $(CURRENT_DIR)/conf/.clang-format $(HOME)/.clang-format; fi
+	@echo "[+] Linked clang-format configuration"
 
 .PHONY: install-clang-format
 install-clang-format: install-fish

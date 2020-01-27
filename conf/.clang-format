@@ -1,0 +1,9 @@
+---
+# https://clang.llvm.org/docs/ClangFormatStyleOptions.html
+Language: Cpp
+# Force pointers to the type
+DerivePointerAlignment: false
+PointerAlignment: Left
+AccessModifierOffset: -2
+FixNamespaceComments: true
+NamespaceIndentation: None
