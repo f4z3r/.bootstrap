@@ -231,7 +231,7 @@ nnoremap <leader>oq :copen<enter>
 " (o)rganisation (l)ocation list open
 nnoremap <leader>ol :lopen<enter>
 " (o)rganisation (g)enerate (t)odo location list for current file
-nnoremap <leader>ogt :lvimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<enter>
+nnoremap <leader>ogt :lvimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<enter>:lopen<enter>
 " }}}
 
 
