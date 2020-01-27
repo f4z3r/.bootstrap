@@ -3,7 +3,7 @@
 " ===========================================================================
 "
 " ==== Bindings =========================================================={{{
-" (l)anguage (h)eader toggle
-nnoremap <buffer> <leader>lh :A<enter>
+" (s)witch to from implementation to header and vice-versa
+nnoremap <buffer> <localleader>s :A<enter>
 " }}}
 

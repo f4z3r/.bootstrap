@@ -3,12 +3,12 @@
 " ===========================================================================
 
 " ==== Bindings =========================================================={{{
-" (l)anguage (t)oc
-nnoremap <buffer> <leader>lt :Toc<enter>
-" (l)anguage (f)ormat table
-nnoremap <buffer> <leader>lf :TableFormat<enter>
-" (l)angauge conceal (e)nable
-nnoremap <buffer> <leader>le :set conceallevel=2<enter>
-" (l)angauge conceal (d)isable
-nnoremap <buffer> <leader>ld :set conceallevel=0<enter>
+" (t)able of contents
+nnoremap <buffer> <localleader>t :Toc<enter>
+" (f)ormat table
+nnoremap <buffer> <localleader>f :TableFormat<enter>
+" conceal (e)nable
+nnoremap <buffer> <localleader>e :set conceallevel=2<enter>
+" conceal (d)isable
+nnoremap <buffer> <localleader>d :set conceallevel=0<enter>
 " }}}

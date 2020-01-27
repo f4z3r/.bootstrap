@@ -179,6 +179,9 @@ source <sfile>:h/searching.vim
 " Load misceleneous
 source <sfile>:h/misc.vim
 
+" Load hooks
+source <sfile>:h/hooks.vim
+
 " Security
 set secure
 
