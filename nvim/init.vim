@@ -155,6 +155,9 @@ if dein#load_state('~/.cache/dein')
   " enable colorscheme overrides
   call dein#add('vim-scripts/AfterColors.vim')
 
+  " fix indentation on paste
+  call dein#add('conradirwin/vim-bracketed-paste')
+
   call dein#end()
   call dein#save_state()
 endif
