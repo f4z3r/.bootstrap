@@ -34,8 +34,8 @@ pacman:
 
 .PHONY: configure-git
 configure-git:
-	@if [ ! -L $(HOME)/.gitconfig ]; then ln -s $(CURRENT_DIR)/git/.gitconfig $(HOME)/.gitconfig; fi
-	@if [ ! -L $(HOME)/.gitignore ]; then ln -s $(CURRENT_DIR)/git/.gitignore $(HOME)/.gitignore; fi
+	@if [ ! -L $(HOME)/.gitconfig ]; then ln -s $(CURRENT_DIR)/conf/.gitconfig $(HOME)/.gitconfig; fi
+	@if [ ! -L $(HOME)/.gitignore ]; then ln -s $(CURRENT_DIR)/conf/.gitignore $(HOME)/.gitignore; fi
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-vim
