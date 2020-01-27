@@ -3,7 +3,7 @@
 if test -e tools/nerd-fonts/install.sh
   echo "[+] Fura Code already initialised"
 else
-  git submodule update --init tools/nerd-fonts
+  git submodule update --init --depth 1 tools/nerd-fonts
   cd tools/nerd-fonts
   ./install.sh FiraCode
   echo "[+] Fura Code initialised"
