@@ -25,3 +25,4 @@ x 2020-01-21 2020-01-21 install mypy +vim
 x 2020-01-21 2020-01-21 install yapf +vim
 x 2020-01-21 2020-01-21 install bandit +vim
 x 2020-01-21 2020-01-21 install reorder python imports +vim
+x 2020-01-28 2020-01-23 add travis build setup to repo for testing +test 
