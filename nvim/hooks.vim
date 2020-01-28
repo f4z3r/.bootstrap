@@ -2,7 +2,7 @@
 " =============================== Hooks =====================================
 " ===========================================================================
 
-" Run fixer on writing and loading of all files
+" Run fixer on loading of all files (writing it performed by ALE config)
 augroup all_fixer_group
-  autocmd BufWritePre,BufRead * :ALEFix
+  autocmd BufRead * :ALEFix
 augroup END

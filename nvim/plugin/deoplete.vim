@@ -2,7 +2,6 @@
 " =============================== Deoplete ==================================
 " ===========================================================================
 
-
 " use ale as completion backend for deoplete
 call deoplete#custom#option('sources', {
   \ '_': ['ale'],
