@@ -61,8 +61,12 @@ if dein#load_state('~/.cache/dein')
   " show indent guide
   call dein#add('Yggdroot/indentLine')
 
+  " todo.txt, useful for per project todos
   call dein#add('freitass/todo.txt-vim',
     \{'on_ft': 'todo'})
+
+  " taskwarrior
+  call dein#add('blindfs/vim-taskwarrior')
 
   " required for markdown table formatting
   call dein#add('godlygeek/tabular',
@@ -104,7 +108,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('sjl/gundo.vim',
     \{'on_cmd': 'GundoToggle'})
 
-  " split and join multi line statements 
+  " split and join multi line statements
   call dein#add('andrewradev/splitjoin.vim',
     \{'on_ft': [
     \ 'c',
@@ -187,4 +191,3 @@ source <sfile>:h/hooks.vim
 
 " Security
 set secure
-

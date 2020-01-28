@@ -94,7 +94,7 @@ nnoremap <leader>sd :ALEGoToDefinition<enter>
 " (s)earch (r)eferences
 nnoremap <leader>sr :ALEFindReferences<enter>
 " (s)earch (s)ymbol
-nnoremap <leader>ss :ALESymbolSearch 
+nnoremap <leader>ss :ALESymbolSearch
 " }}}
 
 
@@ -121,7 +121,7 @@ nnoremap <leader>tv :vsplit<enter>:terminal<enter>a
 
 
 " ==== Toggles ==========================================================={{{
-" (t)oggle colorcolumn (L)ine 
+" (t)oggle colorcolumn (L)ine
 nnoremap <leader>tL :set colorcolumn=100<enter>
 " (t)oggle (g)olden ratio
 nnoremap <leader>tg :GoldenRatioToggle<enter>
@@ -146,8 +146,8 @@ nnoremap <leader>ga :Gwrite<enter>
 " (g)it (A)mend
 nnoremap <leader>gA :Git commit --amend<enter>
 " (g)it (m)ove
-nnoremap <leader>gm :Gmove 
-" (g)it (d)iff 
+nnoremap <leader>gm :Gmove
+" (g)it (d)iff
 nnoremap <leader>gd :Gdiffsplit<enter>
 " }}}
 
@@ -158,7 +158,7 @@ nnoremap <leader>fs :update<enter>
 " (f)ile (n)ew (in buffer's dir)
 nnoremap <leader>fn :e %:p:h/
 " (f)ile (N)ew in project root
-nnoremap <leader>fN :e 
+nnoremap <leader>fN :e
 " control-p link
 nnoremap <c-p> :GFiles<enter>
 " (f)iles in (p)roject
@@ -219,10 +219,12 @@ nnoremap <leader>bb :Buffers<enter>
 
 
 " ==== Organisation ======================================================{{{
+" (o)rganisation task(w)arrior
+nnoremap <leader>ow :split<enter>:TW<enter>
 " Start (p)omodoro with name auto
 nnoremap <leader>op :PomodoroStart auto<enter>
-" Open project level to(d)o file
-nnoremap <leader>od :e todo.txt<enter>
+" Open (p)roject level to(d)o file
+nnoremap <leader>op :e todo.txt<enter>
 " Open (g)lobal todo file
 nnoremap <leader>og :e ~/todo.txt<enter>
 " (j)ump to next todo/fixme tag in file
