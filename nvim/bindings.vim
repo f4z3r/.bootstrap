@@ -223,10 +223,6 @@ nnoremap <leader>bb :Buffers<enter>
 nnoremap <leader>ow :split<enter>:TW<enter>
 " Start (p)omodoro with name auto
 nnoremap <leader>op :PomodoroStart auto<enter>
-" Open (p)roject level to(d)o file
-nnoremap <leader>op :e todo.txt<enter>
-" Open (g)lobal todo file
-nnoremap <leader>og :e ~/todo.txt<enter>
 " (j)ump to next todo/fixme tag in file
 nnoremap <silent> <leader>oj /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><enter>:noh<enter>
 " (J)ump to previous todo/fixme tag in file

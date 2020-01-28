@@ -61,12 +61,9 @@ if dein#load_state('~/.cache/dein')
   " show indent guide
   call dein#add('Yggdroot/indentLine')
 
-  " todo.txt, useful for per project todos
-  call dein#add('freitass/todo.txt-vim',
-    \{'on_ft': 'todo'})
-
   " taskwarrior
-  call dein#add('blindfs/vim-taskwarrior')
+  call dein#add('blindfs/vim-taskwarrior',
+    \{'on_cmd': 'TW'})
 
   " required for markdown table formatting
   call dein#add('godlygeek/tabular',
