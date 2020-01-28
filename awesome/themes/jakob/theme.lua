@@ -155,20 +155,6 @@ local memwidget = lain.widget.mem({
     end
 })
 
--- FS
--- local fswidget = lain.widget.fs({
---     settings  = function()
---       local fstext = "home: ".. fs_now["/home"].percentage.. "% (".. fs_now["/home"].free.. " ".. fs_now["/home"].units.. " free)"
---       -- local fstext = "home"
---       widget:set_markup(markup.font(theme.font, "\u{f7c9} " .. fstext))
---     end
--- })
-local fswidget = lain.widget.fs({
-    settings = function()
-        widget:set_text("/home: % (")
-    end
-})
-
 -- Net
 local networkwidget = lain.widget.net({
     settings = function()
@@ -264,8 +250,6 @@ function theme.at_screen_connect(s)
             bottom_bar,
             cpuwidget,
             cputempwidget,
-            bottom_bar,
-            fswidget,
             bottom_bar,
             calendarwidget,
             bottom_bar,
