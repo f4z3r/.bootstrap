@@ -42,7 +42,7 @@ full: configure-vim configure-git configure-fish install-utils heal-pinky config
 	nvim -c "call dein#update()" assets/vim-welcome.md
 
 .PHONY: install-utils
-install-utils: install-ag install-skim configure-screen install-htop install-mupdf install-bluez
+install-utils: install-ag install-skim configure-screen install-htop install-mupdf install-bluez configure-taskwarrior
 	@echo "[+] Installed common utilities"
 
 .PHONY: configure-git
@@ -247,8 +247,19 @@ install-pip: install-python
 install-python: install-fish
 	fish installs/python3_$(OS_TYPE).fish
 
+.PHONY: configure-taskwarrior
+configure-taskwarrior: install-taskwarrior
+	@if [ -d $(HOME)/.config/taskwarrior ]; then rm -rf $(HOME)/.config/taskwarrior; fi
+	@if [ ! -L $(HOME)/.config/taskwarrior ]; then ln -s $(CURRENT_DIR)/conf/taskwarrior $(HOME)/.config/taskwarrior; fi
+	@if [ ! -L $(HOME)/.taskrc ]; then ln -s $(CURRENT_DIR)/conf/.taskrc $(HOME)/.taskrc; fi
+	@echo "[+] Linked taskwarrior configuration"
+
+.PHONY: install-taskwarrior
+install-taskwarrior: install-fish
+	fish installs/taskwarrior_$(OS_TYPE).fish
+
 .PHONY: configure-fish
-configure-fish:
+configure-fish: install-fish
 	@if [ -d $(HOME)/.config/fish ]; then rm -rf $(HOME)/.config/fish; fi
 	@if [ ! -L $(HOME)/.config/fish ]; then ln -s $(CURRENT_DIR)/fish/ $(HOME)/.config/fish; fi
 	@echo "[+] Linked fish configuration"
