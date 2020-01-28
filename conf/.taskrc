@@ -18,6 +18,7 @@ default.due = eom
 
 # Aliases
 alias.a=add
+alias.l=list
 alias.an=annotate
 alias.m=modify
 alias.d=done
