@@ -6,4 +6,5 @@
 (B) 2020-01-21 install clangd +vim
 (B) 2020-01-28 add iabbrev to common replacements +vim
 (B) 2020-01-28 add nimlsp to setup if necessary +vim +nim
+(B) 2020-01-28 use Nerd Font symbols instead of icons in status bar for awesome +awesome
 (C) 2020-01-19 think about adding openconnect to setup
