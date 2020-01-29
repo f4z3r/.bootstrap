@@ -148,8 +148,8 @@ local cputempwidget = lain.widget.temp({
 local memwidget = lain.widget.mem({
     settings = function()
       local memtext = mem_now.used .. "M"
-      if mem_now.used > 1000 then
-        memtext = string.format("%.1fG", (mem_now.used / 1000))
+      if mem_now.used > 1024 then
+        memtext = string.format("%.1fG", (mem_now.used / 1024))
       end
       widget:set_markup(markup.font(theme.font, "\u{f85a} " .. memtext))
     end
@@ -157,8 +157,41 @@ local memwidget = lain.widget.mem({
 
 -- Net
 local networkwidget = lain.widget.net({
+    notify = "off",
+    wifi_state = "on",
+    eth_state = "on",
     settings = function()
-        widget:set_markup(markup.font(theme.font, "\u{f47c} ".. net_now.received.. " \u{f1eb} ".. net_now.sent.. " \u{f47b}"))
+      local icon = "\u{faa9}"
+      local eth0 = net_now.devices.eth0
+      if eth0 then
+        if eth0.ethernet then
+          icon = "\u{f6ff}"
+        end
+      end
+      local wlan0 = net_now.devices.wlan0
+      if wlan0 then
+        if wlan0.wifi then
+          icon = "\u{faa8}"
+        end
+      end
+      local wlp4s0 = net_now.devices.wlp4s0
+      if wlp4s0 then
+        if wlp4s0.wifi then
+          icon = "\u{faa8}"
+        end
+      end
+      -- local icon = "\u{faa8}"
+      local recvkbps = tonumber(net_now.received)
+      local recvtext = recvkbps.."k"
+      if recvkbps > 1024 then
+        recvtext = string.format("%.1fM", (recvkbps / 1024))
+      end
+      local sentkbps = tonumber(net_now.sent)
+      local senttext = sentkbps.."k"
+      if sentkbps > 1024 then
+        senttext = string.format("%.1fM", (sentkbps / 1024))
+      end
+      widget:set_markup(markup.font(theme.font, "\u{f47c} "..recvtext.." "..icon.." "..senttext.." \u{f47b}"))
     end
 })
 
