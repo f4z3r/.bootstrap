@@ -186,5 +186,8 @@ source <sfile>:h/misc.vim
 " Load hooks
 source <sfile>:h/hooks.vim
 
+" Load abbreviation
+source <sfile>:h/abbrev.vim
+
 " Security
 set secure
