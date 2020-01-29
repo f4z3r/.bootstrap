@@ -83,9 +83,9 @@ color.summary.bar=color0 on color2
 color.calendar.due=color0 on color3
 color.calendar.due.today=color0 on color166
 color.calendar.overdue=color0 on color1
-color.calendar.holiday=color0 on color6
+color.calendar.holiday=color2
 color.calendar.today=color0 on color4
-color.calendar.weekend=color14 on color0
+color.calendar.weekend=color8
 color.calendar.weeknumber=color12
 
 # Command: sync
