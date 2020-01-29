@@ -5,6 +5,8 @@
 OS_TYPE := $(shell bash installs/get_os.sh)
 CURRENT_DIR := $(shell pwd)
 
+SHELL := /bin/bash
+
 #### Nim installation
 .PHONY: nim
 nim:
@@ -41,8 +43,9 @@ full: configure-vim configure-git configure-fish install-utils heal-pinky config
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#update()" assets/vim-welcome.md
 
+# TODO(@jakob): add other required applications here
 .PHONY: install-utils
-install-utils: install-ag install-skim configure-screen install-htop install-mupdf install-bluez configure-taskwarrior
+install-utils: install-ag install-skim configure-screen install-htop install-mupdf install-bluez configure-taskwarrior configure-timewarrior
 	@echo "[+] Installed common utilities"
 
 .PHONY: configure-git
@@ -57,7 +60,6 @@ configure-vim: generate-config-dir install-vim install-dein install-javals insta
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
 
-# TODO add other required applications here
 .PHONY: configure-awesome
 configure-awesome: install-fish configure-kitty install-awesome
 	@if [ -d $(HOME)/.config/awesome ]; then rm -rf $(HOME)/.config/awesome; fi
@@ -246,6 +248,17 @@ install-pip: install-python
 .PHONY: install-python
 install-python: install-fish
 	fish installs/python3_$(OS_TYPE).fish
+
+.PHONY: configure-timewarrior
+configure-timewarrior: install-timewarrior
+	@if [ ! -d $(HOME)/.task/hooks ]; then mkdir -p $(HOME)/.task/hooks; fi
+	@if [ ! -f $(HOME)/.task/hooks/on-modify.timewarrior ]; then cp /usr/share/doc/timewarrior/ext/on-modify.timewarrior $(HOME)/.task/hooks; fi
+	@if [[ ! -x $(HOME)/.task/hooks/on-modify.timewarrior ]]; then chmod +x $(HOME)/.task/hooks/on-modify.timewarrior; fi
+	@echo "[+] Copied timewarrior configuration hook"
+
+.PHONY: install-timewarrior
+install-timewarrior: install-fish
+	fish installs/timewarrior_$(OS_TYPE).fish
 
 .PHONY: configure-taskwarrior
 configure-taskwarrior: install-taskwarrior
