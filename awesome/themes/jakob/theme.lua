@@ -164,22 +164,22 @@ local networkwidget = lain.widget.net({
     eth_state = "on",
     settings = function()
       local icon = "\u{faa9}"
-      local wlan0 = net_now.devices.wlan0
-      if wlan0 then
-        if wlan0.wifi then
-          icon = "\u{faa8}"
+      local wifi_ifaces = {"wlan0", "wlp4s0"}
+      for _, iface in ipairs(wifi_ifaces) do
+        local interface = net_now.devices[iface]
+        if interface then
+          if interface.wifi then
+            icon = "\u{faa8}"
+          end
         end
       end
-      local wlp4s0 = net_now.devices.wlp4s0
-      if wlp4s0 then
-        if wlp4s0.wifi then
-          icon = "\u{faa8}"
-        end
-      end
-      local eth0 = net_now.devices.eth0
-      if eth0 then
-        if eth0.ethernet then
-          icon = "\u{f6ff}"
+      local eth_ifaces = {"eth0", "enp4s0"}
+      for _, iface in ipairs(eth_ifaces) do
+        local interface = net_now.devices[iface]
+        if interface then
+          if interface.ethernet then
+            icon = "\u{f6ff}"
+          end
         end
       end
       local recvkbps = tonumber(net_now.received)
