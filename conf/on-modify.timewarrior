@@ -27,7 +27,6 @@
 import json
 import os
 import sys
-from typing import List
 
 # Hook should extract all of the following for use as Timewarrior tags:
 #   UUID
@@ -41,16 +40,19 @@ old = json.loads(sys.stdin.readline())
 new = json.loads(sys.stdin.readline())
 print(json.dumps(new))
 
-# Extract attributes for use as tags.
-combined = f"'{new['description']}'"
+# timew tags to use, in order of preference:
+#   - project name
+#   - task tags
+#   - placeholder
+
+combined = "other"
 
 if "project" in new:
-    combined += f" 'project:{new['project']}'"
-
-if "tags" in new:
-    combined += " " + " ".join([f"'+{tag}'" for tag in new["tags"]])
-
-combined = combined.strip()
+    combined = f"'{new['project']}'"
+    if "tags" in new:
+        combined += " " + " ".join([f"'zz+{tag}'" for tag in new["tags"]])
+elif "tags" in new:
+    combined = " ".join([f"'zz+{tag}'" for tag in new["tags"]])
 
 # Started task.
 if "start" in new and not "start" in old:
