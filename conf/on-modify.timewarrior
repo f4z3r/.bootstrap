@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 ################################################################################
 #
 # Copyright 2015 - 2016, Paul Beckingham, Federico Hernandez.
@@ -27,6 +27,7 @@
 import json
 import os
 import sys
+from typing import List
 
 # Hook should extract all of the following for use as Timewarrior tags:
 #   UUID
@@ -41,20 +42,20 @@ new = json.loads(sys.stdin.readline())
 print(json.dumps(new))
 
 # Extract attributes for use as tags.
-tags = [new["description"]]
+combined = f"'{new['description']}'"
 
 if "project" in new:
-    tags.append(new["project"])
+    combined += f" 'project:{new['project']}'"
 
 if "tags" in new:
-    tags.extend(new["tags"])
+    combined += " " + " ".join([f"'+{tag}'" for tag in new["tags"]])
 
-combined = " ".join(['"%s"' % tag for tag in tags]).encode("utf-8").strip()
+combined = combined.strip()
 
 # Started task.
 if "start" in new and not "start" in old:
-    os.system("timew start " + str(combined) + " :yes")
+    os.system(f"timew start {combined} :yes")
 
 # Stopped task.
 elif not "start" in new and "start" in old:
-    os.system("timew stop " + str(combined) + " :yes")
+    os.system(f"timew stop {combined} :yes")

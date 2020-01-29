@@ -58,15 +58,12 @@ let mapleader = "\<Space>"
 
 
 " ==== Quit =============================================================={{{
-" Push vim to background (this does not actually quit vim)
-" Can be reopened with `fg` command.
-nnoremap <leader>qq <c-z>
-" (q)uit and (s)ave
-nnoremap <leader>qs :wqa<enter>
+" (q)uit
+nnoremap <leader>qq :qa<enter>
+" (q)uit and (s)uspend
+nnoremap <leader>qs <c-z>
 " hard (Q)uit
-nnoremap <leader>qQ :qa<enter>
-" very hard (Q)uit
-nnoremap <leader>QQ :qa!<enter>
+nnoremap <leader>qQ :qa!<enter>
 " }}}
 
 

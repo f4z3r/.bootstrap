@@ -253,7 +253,9 @@ install-python: install-fish
 configure-timewarrior: install-timewarrior
 	@if [ ! -d $(HOME)/.task/hooks ]; then mkdir -p $(HOME)/.task/hooks; fi
 	@if [ ! -L $(HOME)/.task/hooks/on-modify.timewarrior ]; then ln -s $(CURRENT_DIR)/conf/on-modify.timewarrior $(HOME)/.task/hooks/on-modify.timewarrior; fi
-	@echo "[+] Copied timewarrior configuration hook"
+	@if [ ! -d $(HOME)/.timewarrior ]; then mkdir -p $(HOME)/.timewarrior; fi
+	@if [ ! -L $(HOME)/.timewarrior/timewarrior.cfg ]; then ln -s $(CURRENT_DIR)/conf/timewarrior.cfg $(HOME)/.timewarrior/timewarrior.cfg; fi
+	@echo "[+] Linked timewarrior configuration and hook"
 
 .PHONY: install-timewarrior
 install-timewarrior: install-fish
