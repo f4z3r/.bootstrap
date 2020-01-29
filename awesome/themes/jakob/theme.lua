@@ -164,12 +164,6 @@ local networkwidget = lain.widget.net({
     eth_state = "on",
     settings = function()
       local icon = "\u{faa9}"
-      local eth0 = net_now.devices.eth0
-      if eth0 then
-        if eth0.ethernet then
-          icon = "\u{f6ff}"
-        end
-      end
       local wlan0 = net_now.devices.wlan0
       if wlan0 then
         if wlan0.wifi then
@@ -182,7 +176,12 @@ local networkwidget = lain.widget.net({
           icon = "\u{faa8}"
         end
       end
-      -- local icon = "\u{faa8}"
+      local eth0 = net_now.devices.eth0
+      if eth0 then
+        if eth0.ethernet then
+          icon = "\u{f6ff}"
+        end
+      end
       local recvkbps = tonumber(net_now.received)
       local recvtext = recvkbps.."k"
       if recvkbps > 1024 then
