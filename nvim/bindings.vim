@@ -193,13 +193,13 @@ nnoremap <leader>wv :vsplit<enter>
 " (w)indow (s)plit
 nnoremap <leader>ws :split<enter>
 " (w)indow focus l
-nnoremap <leader>wl <c-w>l
+nnoremap <leader>wl <c-w>lzH
 " (w)indow focus h
-nnoremap <leader>wh <c-w>h
+nnoremap <leader>wh <c-w>hzH
 " (w)indow focus j
-nnoremap <leader>wj <c-w>j
+nnoremap <leader>wj <c-w>jzH
 " (w)indow focus k
-nnoremap <leader>wk <c-w>k
+nnoremap <leader>wk <c-w>kzH
 " }}}
 
 
