@@ -47,6 +47,7 @@ theme.musicplr = string.format("%s ncmpcpp", awful.util.terminal)
 local markup = lain.util.markup
 local blue   = "#80CCE6"
 local red    = "#DF0101"
+local yellow = "#CCCC00"
 
 -- Clock
 local clockwidget = wibox.widget.textclock(markup("#FFFFFF", "\u{f64f} %H:%M " .. markup.font("Fira Code 4", " ")))
@@ -104,6 +105,7 @@ local bat = lain.widget.bat({
       elseif bat_now.perc > 40 then
         bat_header = "\u{f242} "
       elseif bat_now.perc > 20 then
+        color = yellow
         bat_header = "\u{f243} "
       else
         color = red
