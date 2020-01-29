@@ -88,4 +88,8 @@ report.recurring_full.filter=+PARENT or +CHILD
 report.recurring_full.sort=parent,due
 #}}}
 
+context.work=-home -self
+context.home=+home
+context=work
+
 # vim:ft=conf:foldlevel=0:tw=100:
