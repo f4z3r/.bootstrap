@@ -164,23 +164,21 @@ local networkwidget = lain.widget.net({
     eth_state = "on",
     settings = function()
       local icon = "\u{faa9}"
-      local wifi_ifaces = {"wlan0", "wlp4s0"}
-      for _, iface in ipairs(wifi_ifaces) do
-        local interface = net_now.devices[iface]
-        if interface then
-          if interface.wifi then
-            icon = "\u{faa8}"
-          end
+      local wifi = false
+      local signal = -100
+      local eth = false
+      for _, iface in pairs(net_now.devices) do
+        if iface.wifi then
+          wifi = true
+          signal = (iface.signal > signal and iface.signal or signal)
+        elseif iface.ethernet then
+          eth = true
         end
       end
-      local eth_ifaces = {"eth0", "enp4s0"}
-      for _, iface in ipairs(eth_ifaces) do
-        local interface = net_now.devices[iface]
-        if interface then
-          if interface.ethernet then
-            icon = "\u{f6ff}"
-          end
-        end
+      if eth then
+        icon = "\u{f6ff}"
+      elseif wifi then
+        icon = string.format("\u{faa8} %d dBm \u{faa8}", signal)
       end
       local recvkbps = tonumber(net_now.received)
       local recvtext = recvkbps.."k"

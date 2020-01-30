@@ -192,6 +192,8 @@ nnoremap <leader>wd :q<enter>
 nnoremap <leader>wv :vsplit<enter>
 " (w)indow (s)plit
 nnoremap <leader>ws :split<enter>
+" (w)indow (r)esize (balances all windows)
+nnoremap <leader>wr <c-w>=
 " (w)indow focus l
 nnoremap <leader>wl <c-w>lzH
 " (w)indow focus h
