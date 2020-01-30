@@ -34,7 +34,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('morhetz/gruvbox')
 
   " comment things
-  call dein#add('tpope/vim-commentary')
+  call dein#add('preservim/nerdcommenter')
 
   " git support
   call dein#add('tpope/vim-fugitive')
