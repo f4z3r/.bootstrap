@@ -47,6 +47,7 @@ theme.musicplr = string.format("%s ncmpcpp", awful.util.terminal)
 local markup = lain.util.markup
 local blue   = "#80CCE6"
 local red    = "#DF0101"
+local green  = "#00B700"
 local yellow = "#CCCC00"
 
 -- Clock
@@ -99,6 +100,7 @@ local bat = lain.widget.bat({
         bat_p = bat_p .. " \u{fba3}"
       end
       if bat_now.perc > 80 then
+        color = green
         bat_header = "\u{f240} "
       elseif bat_now.perc > 60 then
         bat_header = "\u{f241} "
@@ -167,6 +169,7 @@ local networkwidget = lain.widget.net({
       local wifi = false
       local signal = -100
       local eth = false
+      local color = red
       for _, iface in pairs(net_now.devices) do
         if iface.wifi then
           wifi = true
@@ -176,9 +179,19 @@ local networkwidget = lain.widget.net({
         end
       end
       if eth then
+        color = green
         icon = "\u{f6ff}"
       elseif wifi then
-        icon = string.format("\u{faa8} %d dBm \u{faa8}", signal)
+        icon = "\u{faa8}"
+        if signal > -53 then
+          color = green
+        elseif signal > -70 then
+          color = blue
+        elseif signal > -83 then
+          color = yellow
+        else
+          color = red
+        end
       end
       local recvkbps = tonumber(net_now.received)
       local recvtext = recvkbps.."k"
@@ -190,7 +203,8 @@ local networkwidget = lain.widget.net({
       if sentkbps > 1024 then
         senttext = string.format("%.1fM", (sentkbps / 1024))
       end
-      widget:set_markup(markup.font(theme.font, "\u{f47c} "..recvtext.." "..icon.." "..senttext.." \u{f47b}"))
+      widget:set_markup(markup.font(theme.font, "\u{f47c} "..recvtext.." "..markup(color,icon)..
+        " "..senttext.." \u{f47b}"))
     end
 })
 
