@@ -39,7 +39,7 @@ min: minimal-vim
 
 #### Full setup
 .PHONY: full
-full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-awesome
+full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-awesome install-power-management
 	@echo "Bootstrap finished !"
 	nvim -c "call dein#update()" assets/vim-welcome.md
 
@@ -47,6 +47,10 @@ full: configure-vim configure-git configure-fish install-utils heal-pinky config
 .PHONY: install-utils
 install-utils: install-ag install-skim configure-screen install-htop install-mupdf install-bluez configure-taskwarrior configure-timewarrior
 	@echo "[+] Installed common utilities"
+
+.PHONY: install-power-management
+install-power-management: install-powertop install-brightnessctl install-tlp
+	@echo "[+] Installed power management utilities"
 
 .PHONY: configure-git
 configure-git:
@@ -72,7 +76,7 @@ install-awesome: install-fish install-mpd
 
 .PHONY: install-mpd
 install-mpd: install-fish
-	@echo [-] install mpd skipped
+	@echo "[-] install mpd skipped"
 
 .PHONY: minimal-vim
 minimal-vim: generate-config-dir install-dein install-fzf
@@ -271,6 +275,18 @@ configure-taskwarrior: install-taskwarrior
 .PHONY: install-taskwarrior
 install-taskwarrior: install-fish
 	fish installs/taskwarrior_$(OS_TYPE).fish
+
+.PHONY: install-powertop
+install-powertop: install-fish
+	fish installs/powertop_$(OS_TYPE).fish
+
+.PHONY: install-brightnessctl
+install-brightnessctl: install-fish
+	fish installs/brightnessctl_$(OS_TYPE).fish
+
+.PHONY: install-tlp
+install-tlp: install-fish
+	fish installs/tlp_$(OS_TYPE).fish
 
 .PHONY: configure-fish
 configure-fish: install-fish
