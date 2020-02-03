@@ -160,9 +160,9 @@ nnoremap <leader>fN :e
 " control-p link
 nnoremap <c-p> :GFiles<cr>
 " (f)iles in (p)roject
-nnoremap <leader>fp :GFiles<cr>
-" (f)iles in all files in (P)roject
-nnoremap <leader>fP :Files<cr>
+nnoremap <leader>fp :Files<cr>
+" (f)iles in git files in (P)roject
+nnoremap <leader>fP :GFiles<cr>
 " (f)iles in (c)urrent working directory (not same as project)
 nnoremap <leader>fc :Files<cr>
 " (f)ind (f)ile (in buffer's dir)
