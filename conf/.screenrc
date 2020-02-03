@@ -5,4 +5,4 @@ bind l focus right
 startup_message off
 altscreen on
 term xterm-256color
-defscrollback 500
+defscrollback 2000
