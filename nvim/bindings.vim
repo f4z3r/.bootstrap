@@ -221,6 +221,8 @@ nnoremap <leader>bb :Buffers<cr>
 " ==== Organisation ======================================================{{{
 " (o)rganisation task(w)arrior
 nnoremap <leader>ow :TW<cr>
+" (o)rganisation (s)ummary
+nnoremap <leader>os :TW summary<cr>
 " Start (p)omodoro with name auto
 nnoremap <leader>op :PomodoroStart auto<cr>
 " (j)ump to next todo/fixme tag in file
