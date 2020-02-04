@@ -145,6 +145,8 @@ nnoremap <leader>ga :Gwrite<cr>
 nnoremap <leader>gA :Git commit --amend<cr>
 " (g)it (m)ove
 nnoremap <leader>gm :Gmove
+" (g)it (b)lame
+nnoremap <leader>gb :Gblame<cr>
 " (g)it (d)iff
 nnoremap <leader>gd :Gdiffsplit<cr>
 " }}}
