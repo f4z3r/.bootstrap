@@ -28,3 +28,14 @@ alias tws='timew summary :week'
 alias twlw='timew summary :lastweek'
 alias twd='timew summary :day'
 ```
+
+
+# Haskell
+
+Install:
+
+- stack (pacman or installer)
+- hdevtools (stack)
+- brittany (stack)
+- stylish-haskell (stack or pacman)
+- (haskell IDE engine? hie)

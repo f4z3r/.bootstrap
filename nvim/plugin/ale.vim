@@ -29,6 +29,7 @@ let g:ale_linters = {
 let g:ale_fixers = {
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],
   \ 'python': ['black', 'reorder-python-imports', 'yapf'],
+  \ 'haskell': ['brittany', 'stylish-haskell'],
   \ 'java': ['uncrustify'],
   \ 'cpp': ['clang-format', 'uncrustify'],
   \ 'c': ['clang-format', 'uncrustify'],
