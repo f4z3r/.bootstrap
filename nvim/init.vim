@@ -21,11 +21,19 @@ if dein#load_state('~/.cache/dein')
   let g:deoplete#enable_at_startup = 1
 
 " ================= Plugins =================
+  " python completion
+  call dein#add('davidhalter/jedi-vim',
+    \{'on_ft': 'python'})
+
+  " autocomplete for python
+  call dein#add('deoplete-plugins/deoplete-jedi',
+    \{'on_ft': 'python'})
+
   " nice icon set for tabs and status line
   call dein#add('ryanoasis/vim-devicons')
 
   " asynchronous linting (and fixing) engine
-  call dein#add('dense-analysis/ale')
+  call dein#add('w0rp/ale')
 
   " netrw in buffer nagivation
   call dein#add('tpope/vim-vinegar')

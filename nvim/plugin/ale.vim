@@ -3,6 +3,9 @@ scriptencoding utf-8
 " ================================== ALE ====================================
 " ===========================================================================
 
+
+" manual omnifunc for completion
+set omnifunc=ale#completion#OmniFunc
 " airline support
 let g:airline#extensions#ale#enabled = 1
 " automatic pipenv on python projects
@@ -45,7 +48,7 @@ if executable('pyls')
 endif
 let g:ale_java_javalsp_executable='/home/jakob/.config/nvim/lsps/java-language-server/dist/lang_server_linux.sh'
 " symbol overrides
-  let g:ale_completion_symbols = {
+let g:ale_completion_symbols = {
   \ 'text': '',
   \ 'method': '',
   \ 'function': '',
