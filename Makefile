@@ -59,7 +59,7 @@ configure-git:
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-vim
-configure-vim: generate-config-dir install-vim install-dein install-fzf black yamllint vint pydocstyle proselint configure-vale flawfinder install-uncrustify configure-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf
+configure-vim: generate-config-dir install-vim install-dein install-fzf black yamllint vint pydocstyle proselint configure-vale flawfinder install-uncrustify configure-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf install-node
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
@@ -115,6 +115,10 @@ install-cppcheck: install-fish
 .PHONY: install-skim
 install-skim: install-fish
 	fish installs/skim_$(OS_TYPE).fish
+
+.PHONY: install-node
+install-node: install-fish
+	fish installs/node_$(OS_TYPE).fish
 
 .PHONY: install-vim
 install-vim: install-fish install-python
