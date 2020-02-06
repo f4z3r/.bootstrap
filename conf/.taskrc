@@ -69,6 +69,6 @@ report.simple.filter=status:pending
 
 context.work=+work
 context.home=+home
-context=home
 
 # vim:ft=conf:foldlevel=0:tw=100:
+context=work

@@ -13,4 +13,3 @@ syntax match MyTodo display
       \ contains=TargetPerson containedin=.*Comment,.*CommentTitle contained
 highlight link MyTodo Todo
 highlight Todo ctermfg=green guifg=green
-

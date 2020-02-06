@@ -13,21 +13,19 @@ if dein#load_state('~/.cache/dein')
   call dein#begin('~/.cache/dein')
 
   call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
-  call dein#add('Shougo/deoplete.nvim')
   if !has('nvim')
     call dein#add('roxma/nvim-yarp')
     call dein#add('roxma/vim-hug-neovim-rpc')
   endif
-  let g:deoplete#enable_at_startup = 1
 
 " ================= Plugins =================
-  " python completion
-  call dein#add('davidhalter/jedi-vim',
-    \{'on_ft': 'python'})
+  " auto completion
+  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
 
-  " autocomplete for python
-  call dein#add('deoplete-plugins/deoplete-jedi',
-    \{'on_ft': 'python'})
+  " python autocompletion
+  call dein#add('davidhalter/jedi-vim',
+        \{'on_ft': 'python'})
+
 
   " nice icon set for tabs and status line
   call dein#add('ryanoasis/vim-devicons')
@@ -50,18 +48,18 @@ if dein#load_state('~/.cache/dein')
   " fuzzy search everything
   call dein#add('~/.fzf')
   call dein#add('junegunn/fzf.vim',
-    \{'on_cmd': [
-    \    'Buffers',
-    \    'GFiles',
-    \    'Files',
-    \    'Commits',
-    \    'Commands',
-    \    'History',
-    \    'Lines',
-    \    'BLines',
-    \    'Ag',
-    \    'Maps',
-    \]})
+        \{'on_cmd': [
+        \    'Buffers',
+        \    'GFiles',
+        \    'Files',
+        \    'Commits',
+        \    'Commands',
+        \    'History',
+        \    'Lines',
+        \    'BLines',
+        \    'Ag',
+        \    'Maps',
+        \]})
 
   " provide nice surround commands
   call dein#add('tpope/vim-surround')
@@ -71,18 +69,18 @@ if dein#load_state('~/.cache/dein')
 
   " taskwarrior
   call dein#add('blindfs/vim-taskwarrior',
-    \{'on_cmd': 'TW'})
+        \{'on_cmd': 'TW'})
 
   " required for markdown table formatting
   call dein#add('godlygeek/tabular',
-    \{'on_cmd': 'TableFormat'})
+        \{'on_cmd': 'TableFormat'})
 
   " Language support (should be lazy by default)
   call dein#add('sheerun/vim-polyglot')
 
   " polyglot does not come with a java syntax highlightling
   call dein#add('uiiaoo/java-syntax.vim',
-    \{'on_ft': 'java'})
+        \{'on_ft': 'java'})
 
   " rainbow parentheses
   call dein#add('luochen1990/rainbow')
@@ -107,31 +105,31 @@ if dein#load_state('~/.cache/dein')
 
   " golden ratio
   call dein#add('roman/golden-ratio',
-    \{'on_cmd': 'GoldenRatioToggle'})
+        \{'on_cmd': 'GoldenRatioToggle'})
 
   " undo tree
   call dein#add('sjl/gundo.vim',
-    \{'on_cmd': 'GundoToggle'})
+        \{'on_cmd': 'GundoToggle'})
 
   " split and join multi line statements
   call dein#add('andrewradev/splitjoin.vim',
-    \{'on_ft': [
-    \ 'c',
-    \ 'cpp',
-    \ 'elixir',
-    \ 'python',
-    \ 'rust',
-    \ 'tex',
-    \ 'vim',
-    \ 'yaml',
-    \ 'lua',
-    \ 'perl',
-    \ 'go',
-    \]})
+        \{'on_ft': [
+        \ 'c',
+        \ 'cpp',
+        \ 'elixir',
+        \ 'python',
+        \ 'rust',
+        \ 'tex',
+        \ 'vim',
+        \ 'yaml',
+        \ 'lua',
+        \ 'perl',
+        \ 'go',
+        \]})
 
   " switch from header to implementation and vice-versa
   call dein#add('jakobbeckmann/a.vim',
-    \{'on_ft': ['c', 'cpp']})
+        \{'on_ft': ['c', 'cpp']})
 
   " enable project local vimrcs (.lvimrc)
   call dein#add('embear/vim-localvimrc')
@@ -141,16 +139,16 @@ if dein#load_state('~/.cache/dein')
 
   " add closing ends upon opening
   call dein#add('tpope/vim-endwise',
-    \{'on_ft': [
-    \ 'c',
-    \ 'cpp',
-    \ 'bash',
-    \ 'elixir',
-    \ 'vim',
-    \ 'lua',
-    \ 'make',
-    \ 'crystal',
-    \]})
+        \{'on_ft': [
+        \ 'c',
+        \ 'cpp',
+        \ 'bash',
+        \ 'elixir',
+        \ 'vim',
+        \ 'lua',
+        \ 'make',
+        \ 'crystal',
+        \]})
 
   " provide nice status line
   call dein#add('bling/vim-airline')
