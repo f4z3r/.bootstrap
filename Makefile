@@ -7,6 +7,8 @@ CURRENT_DIR := $(shell pwd)
 
 SHELL := /bin/bash
 
+FREE_SPACE := $(shell df -H --output=target,avail | grep '^/\s' | head -n1 | perl -ne 'print((split /\s+/, $$_)[1])' -)
+
 #### Nim installation
 .PHONY: nim
 nim:
@@ -28,6 +30,7 @@ info:
 	@echo
 	@echo "Current directory:  $(CURRENT_DIR)"
 	@echo "Home directory:     $(HOME)"
+	@echo "Free space on /:    $(FREE_SPACE)"
 
 
 #### Minimal Setup
@@ -59,7 +62,7 @@ configure-git:
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-vim
-configure-vim: generate-config-dir install-vim install-dein install-fzf black yamllint vint pydocstyle proselint configure-vale flawfinder install-uncrustify configure-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf install-node
+configure-vim: generate-config-dir install-vim install-dein install-fzf black yamllint vint pydocstyle proselint configure-vale flawfinder install-uncrustify configure-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf install-yarn
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
@@ -115,6 +118,10 @@ install-cppcheck: install-fish
 .PHONY: install-skim
 install-skim: install-fish
 	fish installs/skim_$(OS_TYPE).fish
+
+.PHONY: install-yarn
+install-yarn: install-node
+	fish installs/yarn_$(OS_TYPE).fish
 
 .PHONY: install-node
 install-node: install-fish
