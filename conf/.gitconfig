@@ -6,6 +6,9 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 
+[log]
+  date = format:%Y-%m-%d %H:%M
+
 # Aliases
 [alias]
 	f = fetch -q
@@ -13,7 +16,7 @@
 	cm = commit -m
 	co = checkout
 	st = status -sb
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ac = !git add -A && git commit -m
 	ph = push -q
 	phf = push -q --force-with-lease
