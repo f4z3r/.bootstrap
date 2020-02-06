@@ -59,7 +59,7 @@ configure-git:
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-vim
-configure-vim: generate-config-dir install-vim install-dein install-javals install-fzf black yamllint vint pyls proselint configure-vale flawfinder install-uncrustify configure-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf
+configure-vim: generate-config-dir install-vim install-dein install-fzf black yamllint vint pydocstyle proselint configure-vale flawfinder install-uncrustify configure-clang-format cpplint install-cppcheck reorder-python-imports bandit mypy yapf
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
@@ -100,17 +100,13 @@ install-dein:
 	@sh tools/install-dein.sh ~/.cache/dein > /dev/null
 	@echo "[+] Dein installed"
 
-.PHONY: install-javals
-install-javals: install-maven
-	fish installs/install_javals.fish
-
 .PHONY: install-maven
-install-maven: install-java-13
+install-maven: install-java
 	fish installs/maven_$(OS_TYPE).fish
 
-.PHONY: install-java-13
-install-java-13: install-fish
-	fish installs/java-13_$(OS_TYPE).fish
+.PHONY: install-java
+install-java: install-fish
+	fish installs/java_$(OS_TYPE).fish
 
 .PHONY: install-cppcheck
 install-cppcheck: install-fish
@@ -209,9 +205,9 @@ vint: install-pipx install-fish
 proselint: install-pipx install-fish
 	fish installs/pipx/install.fish proselint
 
-.PHONY: pyls
-pyls: install-pipx install-fish
-	fish installs/pipx/pyls.fish
+.PHONY: pydocstyle
+pydocstyle: install-pipx install-fish
+	fish installs/pipx/install.fish pydocstyle
 
 .PHONY: yamllint
 yamllint: install-pipx install-fish

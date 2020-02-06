@@ -17,7 +17,7 @@
       "unit": "unit",
       "value": "val",
       "enum": "",
-      "keyword": "keyword",
+      "keyword": "kw",
       "snippet": "",
       "color": "color",
       "file": "",
@@ -26,51 +26,14 @@
       "enumMember": "",
       "constant": "",
       "struct": "",
-      "event": "event",
+      "event": "evnt",
       "operator": "",
-      "typeParameter": "type param",
+      "typeParameter": "tp",
       "default": "v"
   },
   "python.jediEnabled": false,
   "python.linting.enabled" : false,
   "languageserver": {
-    "python": {
-      "command": "python",
-      "args": [
-        "-mpyls",
-        "-vv",
-        "--log-file",
-        "/tmp/lsp_python.log"
-      ],
-      "trace.server": "verbose",
-      "filetypes": [
-        "python"
-      ],
-      "settings": {
-        "pyls": {
-          "enable": true,
-          "trace": {
-            "server": "verbose"
-          },
-          "commandPath": "",
-          "configurationSources": [
-            "pycodestyle"
-          ],
-          "plugins": {
-            "mccabe": {
-              "enabled": true,
-              "threshold": 15
-            },
-            "preload": {
-              "enabled": true
-            },
-            "yapf": {
-              "enabled": true
-            }
-          }
-        }
-      }
-    },
     "clangd": {
       "command": "clangd",
       "args": ["--background-index"],

@@ -37,14 +37,3 @@ let g:ale_fixers = {
       \ 'cpp': ['clang-format', 'uncrustify'],
       \ 'c': ['clang-format', 'uncrustify'],
       \}
-" if executable('pyls')
-"   augroup PythonLanguageServer
-"     autocmd User lsp_setup call lsp#register_server({
-"           \ 'name': 'pyls',
-"           \ 'cmd': {server_info->['pyls']},
-"           \ 'whitelist': ['python'],
-"           \ })
-"   augroup END
-" endif
-let g:ale_java_javalsp_executable='/home/jakob/.config/nvim/lsps/java-language-server/dist/lang_server_linux.sh'
-" symbol overrides
