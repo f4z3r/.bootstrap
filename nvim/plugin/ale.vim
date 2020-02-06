@@ -27,7 +27,7 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 1
 " disable some linters
 let g:ale_linters = {
-      \ 'python': ['pyls', 'bandit', 'mypy'],
+      \ 'python': ['bandit', 'mypy'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -37,42 +37,14 @@ let g:ale_fixers = {
       \ 'cpp': ['clang-format', 'uncrustify'],
       \ 'c': ['clang-format', 'uncrustify'],
       \}
-if executable('pyls')
-  augroup PythonLanguageServer
-    autocmd User lsp_setup call lsp#register_server({
-          \ 'name': 'pyls',
-          \ 'cmd': {server_info->['pyls']},
-          \ 'whitelist': ['python'],
-          \ })
-  augroup END
-endif
+" if executable('pyls')
+"   augroup PythonLanguageServer
+"     autocmd User lsp_setup call lsp#register_server({
+"           \ 'name': 'pyls',
+"           \ 'cmd': {server_info->['pyls']},
+"           \ 'whitelist': ['python'],
+"           \ })
+"   augroup END
+" endif
 let g:ale_java_javalsp_executable='/home/jakob/.config/nvim/lsps/java-language-server/dist/lang_server_linux.sh'
 " symbol overrides
-let g:ale_completion_symbols = {
-      \ 'text': '',
-      \ 'method': '',
-      \ 'function': '',
-      \ 'constructor': '',
-      \ 'field': '',
-      \ 'variable': '',
-      \ 'class': '',
-      \ 'interface': '',
-      \ 'module': '',
-      \ 'property': '',
-      \ 'unit': 'unit',
-      \ 'value': 'val',
-      \ 'enum': '',
-      \ 'keyword': 'keyword',
-      \ 'snippet': '',
-      \ 'color': 'color',
-      \ 'file': '',
-      \ 'reference': 'ref',
-      \ 'folder': '',
-      \ 'enum member': '',
-      \ 'constant': '',
-      \ 'struct': '',
-      \ 'event': 'event',
-      \ 'operator': '',
-      \ 'type_parameter': 'type param',
-      \ '<default>': 'v'
-      \ }
