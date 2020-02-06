@@ -10,6 +10,9 @@ set sidescrolloff=5
 
 
 " ==== Allow Folding ====================================================={{{
+set foldcolumn=1
 set foldenable
+set foldlevel=1
+set foldlevelstart=1
 set foldmethod=indent
 " }}}

@@ -13,7 +13,9 @@ cnoremap fd <Esc>
 
 
 " ==== Folding ==========================================================={{{
-" fold fast
+" reduce foldlevel
+nnoremap <c-s> za
+" increase foldlevel
 nnoremap <c-d> zA
 " unmap s in normal mode
 nmap s <nop>

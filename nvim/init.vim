@@ -27,7 +27,6 @@ if dein#load_state('~/.cache/dein')
   call dein#add('davidhalter/jedi-vim',
         \{'on_ft': 'python'})
 
-
   " nice icon set for tabs and status line
   call dein#add('ryanoasis/vim-devicons')
 
