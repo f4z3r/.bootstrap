@@ -20,29 +20,13 @@ set shortmess+=c
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+inoremap <silent><expr> <tab>
+      \ pumvisible() ? "\<c-n>" :
+      \ <SID>check_back_space() ? "\<tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
 
 " Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
@@ -50,24 +34,14 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
+nnoremap <silent> K :call <SID>show_documentation()<cr>
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
 
 " Highlight symbol under cursor on CursorHold
 augroup CocCursorHold
   autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup END
-
-" Remap for rename current word
-" TODO(@jakob): remap this properly
-nmap <leader>rn <Plug>(coc-rename)
-
-" Create mappings for function text object, requires document symbols feature of languageserver.
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-
-" TODO(@jakob):
-"  - fix error with completeopt change on insert mode
-"  - document what to install
-"    - node
-"    - CocInstall blablabla

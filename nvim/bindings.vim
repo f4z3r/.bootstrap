@@ -26,6 +26,19 @@ nmap sk :SplitjoinJoin<cr>
 " }}}
 
 
+" ==== AutoComplete ======================================================{{{
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+" see plugin/coc.vim for documentation showing
+" }}}
+
+
+" ==== Refactorings ======================================================{{{
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+" }}}
+
+
 " ==== Movement =========================================================={{{
 " Fast scrolling
 nnoremap <c-j> 10j
@@ -48,6 +61,20 @@ sunmap W
 sunmap B
 sunmap E
 sunmap gE
+" coc goto overrides
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+" }}}
+
+
+" ==== Text Objects ======================================================{{{
+" Create mappings for function text objects
+xmap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap if <Plug>(coc-funcobj-i)
+omap af <Plug>(coc-funcobj-a)
 " }}}
 
 
