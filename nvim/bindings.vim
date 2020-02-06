@@ -30,6 +30,8 @@ nmap sk :SplitjoinJoin<cr>
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 " see plugin/coc.vim for documentation showing
+" Use <C-j> for both expand and jump (make expand higher priority.)
+imap <c-j> <Plug>(coc-snippets-expand-jump)
 " }}}
 
 
