@@ -20,7 +20,8 @@ if dein#load_state('~/.cache/dein')
 
 " ================= Plugins =================
   " auto completion
-  call dein#add('neoclide/coc.nvim', {'merged':0, 'rev': 'release'})
+  call dein#add('neoclide/coc.nvim',
+        \{'merged': 0, 'rev': 'release'})
 
   " python autocompletion
   call dein#add('davidhalter/jedi-vim',

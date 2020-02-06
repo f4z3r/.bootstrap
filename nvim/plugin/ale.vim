@@ -11,6 +11,9 @@ let g:ale_python_mypy_auto_pipenv = 1
 let g:ale_python_pyls_auto_pipenv = 1
 let g:ale_python_bandit_auto_pipenv = 1
 let g:ale_python_black_auto_pipenv = 1
+" ale sign update
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 " set error message format
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
