@@ -15,7 +15,9 @@
 	b = branch
 	cm = commit -m
 	co = checkout
-	st = status -sb
+	s = status -sb
+	st = stash list
+	sh = stash show --full-diff
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
 	ac = !git add -A && git commit -m
 	ph = push -q
