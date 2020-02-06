@@ -5,7 +5,6 @@
   "diagnostic.displayByAle": true,
   "suggest.completionItemKindLabels": {
       "text": "",
-      "method": "",
       "function": "",
       "constructor": "",
       "field": "",

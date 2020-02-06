@@ -82,6 +82,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('uiiaoo/java-syntax.vim',
         \{'on_ft': 'java'})
 
+  call dein#add('neoclide/jsonc.vim',
+        \{'on_ft': 'json'})
+
   " rainbow parentheses
   call dein#add('luochen1990/rainbow')
 
