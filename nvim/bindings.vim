@@ -63,7 +63,6 @@ nnoremap <leader>lc :lclose<cr>
 " }}}
 
 
-
 " ==== AutoComplete ======================================================{{{
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
@@ -84,7 +83,7 @@ nnoremap <c-h> zH_
 nnoremap <c-l> $
 vnoremap <c-h> zH_
 vnoremap <c-l> $
-onoremap <c-h> _zH
+onoremap <c-h> _
 onoremap <c-l> $
 " Enable camelCase inner word motion with WORD
 map <silent> W <Plug>CamelCaseMotion_w
