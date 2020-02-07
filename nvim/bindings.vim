@@ -2,6 +2,13 @@
 " ==================== General Bindings Multi-Language ======================
 " ===========================================================================
 
+" ==== Leader ============================================================{{{
+" Leader update
+let maplocalleader = '\'
+nnoremap <Space> <Nop>
+let mapleader = "\<Space>"
+" }}}
+
 
 " ==== ESC remaps ========================================================{{{
 " <Esc> remaps
@@ -26,18 +33,30 @@ nmap sk :SplitjoinJoin<cr>
 " }}}
 
 
+" ==== Refactoring ======================================================={{{
+" (r)efactor (r)ename
+nmap <leader>rr <Plug>(coc-rename)
+" }}}
+
+
+" ==== Quickfix =========================================================={{{
+" (q)uickfix (n)ext
+nnoremap <leader>qn :cnext<cr>
+" (q)uickfix (p)revious
+nnoremap <leader>qp :cprevious<cr>
+" (q)uickfix (o)pen
+nnoremap <leader>qo :copen<cr>
+" (q)uickfix (l)ocation list open
+nnoremap <leader>ql :lopen<cr>
+" }}}
+
+
 " ==== AutoComplete ======================================================{{{
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 " see plugin/coc.vim for documentation showing
 " Use <C-j> for both expand and jump (make expand higher priority.)
 imap <c-j> <Plug>(coc-snippets-expand-jump)
-" }}}
-
-
-" ==== Refactorings ======================================================{{{
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
 " }}}
 
 
@@ -48,11 +67,11 @@ nnoremap <c-k> 10k
 vnoremap <c-j> 10j
 vnoremap <c-k> 10k
 " Fast front back line movement
-nnoremap <c-h> _
+nnoremap <c-h> zH_
 nnoremap <c-l> $
-vnoremap <c-h> _
+vnoremap <c-h> zH_
 vnoremap <c-l> $
-onoremap <c-h> _
+onoremap <c-h> _zH
 onoremap <c-l> $
 " Enable camelCase inner word motion with WORD
 map <silent> W <Plug>CamelCaseMotion_w
@@ -77,24 +96,6 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-" }}}
-
-
-" ==== Leader ============================================================{{{
-" Leader update
-let maplocalleader = '\'
-nnoremap <Space> <Nop>
-let mapleader = "\<Space>"
-" }}}
-
-
-" ==== Quit =============================================================={{{
-" (q)uit
-nnoremap <leader>qq :qa<cr>
-" (q)uit and (s)uspend
-nnoremap <leader>qs <c-z>
-" hard (Q)uit
-nnoremap <leader>qQ :qa!<cr>
 " }}}
 
 
@@ -139,13 +140,19 @@ nnoremap <leader>== :ALEFix<cr>
 " }}}
 
 
-" ==== System ============================================================{{{
-" open (t)erminal
-nnoremap <leader>tt :tabnew<cr>:terminal<cr>a
-" open (t)erminal on (s)split
-nnoremap <leader>ts :split<cr>:terminal<cr>a
-" open (t)erminal on (v)ertical split
-nnoremap <leader>tv :vsplit<cr>:terminal<cr>a
+" ==== General System ===================================================={{{
+" (g)eneral open (t)erminal
+nnoremap <leader>gt :tabnew<cr>:terminal<cr>a
+" (g)eneral open terminal on (s)split
+nnoremap <leader>gs :split<cr>:terminal<cr>a
+" (g)eneral open terminal on (v)ertical split
+nnoremap <leader>gv :vsplit<cr>:terminal<cr>a
+" (g)eneral (q)uit
+nnoremap <leader>gq :qa<cr>
+" (g)eneral (s)uspend
+nnoremap <leader>gs <c-z>
+" (g)eneral hard (Q)uit
+nnoremap <leader>gQ :qa!<cr>
 " }}}
 
 
@@ -207,18 +214,6 @@ nnoremap <leader>fr :checktime %<cr>
 " }}}
 
 
-" ==== Tabs =============================================================={{{
-" nagivation
-nnoremap <leader>t1 1gt
-nnoremap <leader>t2 2gt
-nnoremap <leader>t3 3gt
-nnoremap <leader>t4 4gt
-nnoremap <leader>t5 5gt
-" (t)ab (n)ew
-nnoremap <leader>tn :tabnew<cr>
-" }}}
-
-
 " ==== Windows ==========================================================={{{
 " (w)indow (d)elete
 nnoremap <leader>wd :q<cr>
@@ -236,6 +231,8 @@ nnoremap <leader>wh <c-w>hzH
 nnoremap <leader>wj <c-w>jzH
 " (w)indow focus k
 nnoremap <leader>wk <c-w>kzH
+" (w)indow (t)ab new
+nnoremap <leader>wt :$tabnew<cr>
 " }}}
 
 
@@ -262,12 +259,8 @@ nnoremap <leader>op :PomodoroStart auto<cr>
 nnoremap <silent> <leader>oj /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
 " (J)ump to previous todo/fixme tag in file
 nnoremap <silent> <leader>oJ ?\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
-" (o)rganisation (q)uickfix open
-nnoremap <leader>oq :copen<cr>
-" (o)rganisation (l)ocation list open
-nnoremap <leader>ol :lopen<cr>
-" (o)rganisation (g)enerate (t)odo location list for current file
-nnoremap <leader>ogt :vimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<cr>:copen<cr>
+" (o)rganisation generate (t)odo quickfix for current file
+nnoremap <leader>ot :vimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<cr>:copen<cr>
 " }}}
 
 
