@@ -46,9 +46,22 @@ nnoremap <leader>qn :cnext<cr>
 nnoremap <leader>qp :cprevious<cr>
 " (q)uickfix (o)pen
 nnoremap <leader>qo :copen<cr>
-" (q)uickfix (l)ocation list open
-nnoremap <leader>ql :lopen<cr>
+" (q)uickfix (c)lose
+nnoremap <leader>qc :cclose<cr>
 " }}}
+
+
+" ==== Locations ========================================================={{{
+" (l)ocation list (n)ext
+nnoremap <leader>ln :lnext<cr>
+" (l)ocation list (o)pen
+nnoremap <leader>lp :lprevious<cr>
+" (l)ocation list (o)open
+nnoremap <leader>lo :lopen<cr>
+" (l)ocation list (c)lose
+nnoremap <leader>lc :lclose<cr>
+" }}}
+
 
 
 " ==== AutoComplete ======================================================{{{
