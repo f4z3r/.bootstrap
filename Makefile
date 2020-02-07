@@ -19,7 +19,7 @@ nim:
 
 #### Haskell installation
 .PHONY: haskell
-haskell: install-stack
+haskell: install-stack install-brittany install-floskell install-hlint install-stylish-haskell install-hdevtools
 	fish installs/install_hie.fish
 	@echo "[+] Haskell ready to use"
 
@@ -113,6 +113,26 @@ install-dein:
 .PHONY: install-stack
 install-stack: install-fish
 	fish installs/stack_$(OS_TYPE).fish
+
+.PHONY: install-brittany
+install-brittany: install-stack install-fish
+	fish installs/stack_install.fish brittany
+
+.PHONY: install-floskell
+install-floskell: install-stack install-fish
+	fish installs/stack_install.fish floskell
+
+.PHONY: install-stylish-haskell
+install-stylish-haskell: install-stack install-fish
+	fish installs/stack_install.fish stylish-haskell
+
+.PHONY: install-hdevtools
+install-hdevtools: install-stack install-fish
+	fish installs/stack_install.fish hdevtools
+
+.PHONY: install-hlint
+install-hlin: install-stack install-fish
+	fish installs/stack_install.fish hlint
 
 .PHONY: install-maven
 install-maven: install-java

@@ -28,12 +28,13 @@ let g:ale_fix_on_save = 1
 " disable some linters
 let g:ale_linters = {
       \ 'python': ['bandit', 'mypy'],
+      \ 'haskell': ['hlint', 'stack-build', 'hdevtools'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'python': ['black', 'reorder-python-imports', 'yapf'],
-      \ 'haskell': ['brittany', 'stylish-haskell'],
       \ 'java': ['uncrustify'],
+      \ 'haskell': ['floskell', 'brittany', 'stylish-haskell'],
       \ 'cpp': ['clang-format', 'uncrustify'],
       \ 'c': ['clang-format', 'uncrustify'],
       \}
