@@ -15,6 +15,13 @@ nim:
 	curl https://nim-lang.org/choosenim/init.sh -sSf > choosenim.sh
 	sh choosenim.sh -y
 	rm -f choosenim.sh
+	@echo "[+] Nim ready to use"
+
+#### Haskell installation
+.PHONY: haskell
+haskell: install-stack
+	fish installs/install_hie.fish
+	@echo "[+] Haskell ready to use"
 
 #### Pacman configuration
 .PHONY: pacman
@@ -102,6 +109,10 @@ install-fzf:
 install-dein:
 	@sh tools/install-dein.sh ~/.cache/dein > /dev/null
 	@echo "[+] Dein installed"
+
+.PHONY: install-stack
+install-stack: install-fish
+	fish installs/stack_$(OS_TYPE).fish
 
 .PHONY: install-maven
 install-maven: install-java

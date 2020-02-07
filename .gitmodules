@@ -7,3 +7,6 @@
 [submodule "tools/nerd-fonts"]
 	path = tools/nerd-fonts
 	url = https://github.com/ryanoasis/nerd-fonts.git
+[submodule "tools/hie"]
+	path = tools/hie
+	url = https://github.com/haskell/haskell-ide-engine.git

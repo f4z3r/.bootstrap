@@ -4,31 +4,31 @@
   "diagnostic.infoSign": "",
   "diagnostic.displayByAle": true,
   "suggest.completionItemKindLabels": {
-      "text": "",
-      "function": "",
-      "constructor": "",
-      "field": "",
-      "variable": "",
-      "class": "",
-      "interface": "",
-      "module": "",
-      "property": "",
-      "unit": "unit",
-      "value": "val",
-      "enum": "",
-      "keyword": "kw",
-      "snippet": "",
-      "color": "color",
-      "file": "",
-      "reference": "ref",
-      "folder": "",
-      "enumMember": "",
-      "constant": "",
-      "struct": "",
-      "event": "evnt",
-      "operator": "",
-      "typeParameter": "tp",
-      "default": "v"
+    "text": "",
+    "function": "",
+    "constructor": "",
+    "field": "",
+    "variable": "",
+    "class": "",
+    "interface": "",
+    "module": "",
+    "property": "",
+    "unit": "unit",
+    "value": "val",
+    "enum": "",
+    "keyword": "kw",
+    "snippet": "",
+    "color": "color",
+    "file": "",
+    "reference": "ref",
+    "folder": "",
+    "enumMember": "",
+    "constant": "",
+    "struct": "",
+    "event": "evnt",
+    "operator": "",
+    "typeParameter": "tp",
+    "default": "v"
   },
   "python.jediEnabled": false,
   "python.linting.enabled" : false,
@@ -39,6 +39,25 @@
       "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
       "filetypes": ["c", "cpp", "objc", "objcpp"],
       "disableDiagnostics": true
+    },
+    "haskell": {
+      "command": "hie-wrapper",
+      "args": ["--lsp"],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml"
+      ],
+      "filetypes": [
+        "hs",
+        "lhs",
+        "haskell"
+      ],
+      "initializationOptions": {
+        "languageServerHaskell": {
+        }
+      }
     }
   }
 }
