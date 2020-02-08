@@ -8,7 +8,6 @@ let g:airline#extensions#ale#enabled = 1
 " automatic pipenv on python projects
 let g:ale_python_auto_pipenv = 1
 let g:ale_python_mypy_auto_pipenv = 1
-let g:ale_python_pyls_auto_pipenv = 1
 let g:ale_python_bandit_auto_pipenv = 1
 let g:ale_python_black_auto_pipenv = 1
 " ale sign update
@@ -25,10 +24,14 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 " fix on save
 let g:ale_fix_on_save = 1
-" disable some linters
+" disable some linters (clangd, hie) and enable others (mypy)
 let g:ale_linters = {
       \ 'python': ['bandit', 'mypy'],
       \ 'haskell': ['hlint', 'stack-build', 'hdevtools'],
+      \ 'cpp': ['cppcheck', 'cpplint', 'flawfinder'],
+      \ 'c': ['cppcheck', 'cpplint', 'flawfinder'],
+      \ 'objc': ['cppcheck', 'cpplint', 'flawfinder'],
+      \ 'objcpp': ['cppcheck', 'cpplint', 'flawfinder'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
