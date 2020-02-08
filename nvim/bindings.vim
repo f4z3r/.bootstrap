@@ -36,6 +36,17 @@ nmap sk :SplitjoinJoin<cr>
 " ==== Refactoring ======================================================={{{
 " (r)efactor (r)ename
 nmap <leader>rr <Plug>(coc-rename)
+" (r)efactor (f)ix
+nnoremap <leader>rf :ALEFix<cr>
+" (r)efactor (s)uggest fixes
+nnoremap <leader>rs :ALEFixSuggest<cr>
+" (r)efactor (l)int
+nnoremap <leader>rl :ALELint<cr>
+" coc goto overrides
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
 " }}}
 
 
@@ -94,11 +105,6 @@ sunmap W
 sunmap B
 sunmap E
 sunmap gE
-" coc goto overrides
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
 " }}}
 
 
@@ -130,25 +136,7 @@ nnoremap <leader>sh :History :<cr>
 nnoremap <leader>sl :BLines<cr>
 " (s)earch all (L)ines (across all buffers)
 nnoremap <leader>sL :Lines<cr>
-" (s)earch (d)definition
-nnoremap <leader>sd :ALEGoToDefinition<cr>
-" (s)earch (r)eferences
-nnoremap <leader>sr :ALEFindReferences<cr>
-" (s)earch (s)ymbol
-nnoremap <leader>ss :ALESymbolSearch
 " see plugin/grep-operator.vim (ss)
-" }}}
-
-
-" ==== Errors ============================================================{{{
-" (e)rrors (s)how
-nnoremap <leader>es :messages<cr>
-" (e)rror (n)ext
-nnoremap <silent> <leader>en :ALENextWrap<cr>
-" (e)rror (N)previous
-nnoremap <silent> <leader>eN :ALEPreviousWrap<cr>
-" fix everything
-nnoremap <leader>== :ALEFix<cr>
 " }}}
 
 
