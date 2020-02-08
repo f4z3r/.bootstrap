@@ -12,3 +12,9 @@ nnoremap <buffer> <localleader>e :set conceallevel=2<enter>
 " conceal (d)isable
 nnoremap <buffer> <localleader>d :set conceallevel=0<enter>
 " }}}
+
+
+" ==== Conceal ==========================================================={{{
+setlocal conceallevel=2
+setlocal concealcursor=n
+" }}}

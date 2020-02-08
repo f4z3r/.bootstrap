@@ -59,4 +59,3 @@ augroup LineNumberGroup
   autocmd InsertLeave * :set rnu
 augroup END
 " }}}
-

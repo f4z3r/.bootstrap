@@ -36,8 +36,8 @@ if dein#load_state('~/.cache/dein')
   " netrw in buffer nagivation
   call dein#add('tpope/vim-vinegar')
 
-  " nice theme
-  call dein#add('morhetz/gruvbox')
+  " nice theme (not original for true haskell support)
+  call dein#add('dkasak/gruvbox')
 
   " comment things
   call dein#add('preservim/nerdcommenter')
