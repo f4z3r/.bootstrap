@@ -23,6 +23,19 @@ haskell: install-stack install-brittany install-floskell install-hlint install-s
 	fish installs/install_hie.fish
 	@echo "[+] Haskell ready to use"
 
+.PHONY: haskell-help
+haskell-help:
+	@echo "Please run 'make install-stack' first"
+	@echo "Please enter the following into your $$HOME/.stack/global-project/stack.yaml once stack is installed:"
+	@echo
+	@echo "extra-deps:"
+	@echo "- monad-dijkstra-0.1.1.2@sha256:4bca3eca6358f916b06501f82c7bfa4c59236af0ac8cac551854c2e928e78c37,1962"
+	@echo "- HsYAML-0.2.1.0@sha256:e4677daeba57f7a1e9a709a1f3022fe937336c91513e893166bd1f023f530d68,5311"
+	@echo "- HsYAML-aeson-0.2.0.0@sha256:04796abfc01cffded83f37a10e6edba4f0c0a15d45bef44fc5bb4313d9c87757,1791"
+	@echo
+	@echo "Then run 'make haskell'"
+
+
 #### Pacman configuration
 .PHONY: pacman
 pacman:
@@ -51,7 +64,8 @@ min: minimal-vim
 .PHONY: full
 full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-awesome install-power-management
 	@echo "Bootstrap finished !"
-	nvim -c "call dein#update()" assets/vim-welcome.md
+	@echo "Please run dein#update() inside (neo)vim to install all plugins"
+	nvim assets/vim-welcome.md
 
 # TODO(@jakob): add other required applications here
 .PHONY: install-utils

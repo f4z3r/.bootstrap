@@ -152,19 +152,17 @@ nnoremap <leader>== :ALEFix<cr>
 " }}}
 
 
-" ==== General System ===================================================={{{
-" (g)eneral open (t)erminal
-nnoremap <leader>gt :tabnew<cr>:terminal<cr>a
-" (g)eneral open terminal on (s)split
-nnoremap <leader>gs :split<cr>:terminal<cr>a
-" (g)eneral open terminal on (v)ertical split
-nnoremap <leader>gv :vsplit<cr>:terminal<cr>a
-" (g)eneral (q)uit
-nnoremap <leader>gq :qa<cr>
-" (g)eneral (s)uspend
-nnoremap <leader>gs <c-z>
-" (g)eneral hard (Q)uit
-nnoremap <leader>gQ :qa!<cr>
+" ==== Machine (System) =================================================={{{
+" (m)achine open terminal on (s)split
+nnoremap <leader>ms :split<cr>:terminal<cr>a
+" (m)achine open terminal on (v)ertical split
+nnoremap <leader>mv :vsplit<cr>:terminal<cr>a
+" (m)achine vim (q)uit
+nnoremap <leader>mq :qa<cr>
+" (m)achine vim suspend (sleep zzz)
+nnoremap <leader>mz <c-z>
+" (m)achine vim hard (Q)uit
+nnoremap <leader>mQ :qa!<cr>
 " }}}
 
 

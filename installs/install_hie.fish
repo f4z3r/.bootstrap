@@ -1,6 +1,6 @@
 #!/usr/bin/env fish
 
-if test -e tools/hie/stack.yaml
+if [ (which hie 2> /dev/null) ]
   echo "[+] HIE already initialised"
 else
   git submodule update --init --recursive --depth 1 tools/hie
