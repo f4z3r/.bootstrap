@@ -37,7 +37,7 @@ let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
       \ 'python': ['black', 'reorder-python-imports', 'yapf'],
       \ 'java': ['uncrustify'],
-      \ 'haskell': ['floskell', 'brittany', 'stylish-haskell'],
+      \ 'haskell': ['floskell', 'stylish-haskell'],
       \ 'cpp': ['clang-format', 'uncrustify'],
       \ 'c': ['clang-format', 'uncrustify'],
       \}
