@@ -42,6 +42,14 @@ nnoremap <leader>rf :ALEFix<cr>
 nnoremap <leader>rs :ALEFixSuggest<cr>
 " (r)efactor (l)int
 nnoremap <leader>rl :ALELint<cr>
+" (r)efactor (c)oc (d)isable
+nnoremap <leader>rcd :CocDisable<cr>
+" (r)efactor (c)oc (e)nable
+nnoremap <leader>rce :CocEnable<cr>
+" (r)efactor (a)le (d)isable
+nnoremap <leader>rad :ALEDisable<cr>
+" (r)efactor (a)le (e)nable
+nnoremap <leader>rae :ALEEnable<cr>
 " coc goto overrides
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
