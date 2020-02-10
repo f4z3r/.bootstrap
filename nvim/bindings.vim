@@ -150,7 +150,7 @@ nnoremap <leader>sL :Lines<cr>
 
 " ==== Machine (System) =================================================={{{
 " (m)achine open terminal in (t)ab
-nnoremap <leader>mt :$tabnew<cr>:terminal<cr>a
+nnoremap <leader>mt :tabnew<cr>:terminal<cr>a
 " (m)achine open terminal on (s)split
 nnoremap <leader>ms :split<cr>:terminal<cr>a
 " (m)achine open terminal on (v)ertical split
