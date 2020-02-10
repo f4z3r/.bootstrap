@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $(which fish 2> /dev/null) ]; then
+if [ $(command -v fish) ]; then
   echo "[+] fish already installed"
 else
   sudo apt install -y fish
@@ -10,4 +10,3 @@ else
   sudo chsh -s /usr/bin/fish
   echo "[+] fish installed"
 fi
-

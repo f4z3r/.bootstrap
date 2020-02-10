@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-if [ $(which fish 2> /dev/null) ]; then
+if [ $(command -v fish) ]; then
   echo "[+] fish already installed"
 else
   sudo pacman -S --noconfirm fish

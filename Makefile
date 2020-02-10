@@ -35,6 +35,11 @@ haskell-help:
 	@echo
 	@echo "Then run 'make haskell'"
 
+#### Perl installation
+.PHONY: perl
+perl: install-critic install-tidy
+	@echo "[+] Installed perlcritic and perltidy"
+
 
 #### Pacman configuration
 .PHONY: pacman
@@ -335,6 +340,14 @@ install-brightnessctl: install-fish
 .PHONY: install-tlp
 install-tlp: install-fish
 	fish installs/tlp_$(OS_TYPE).fish
+
+.PHONY: install-critic
+install-critic:
+	if [ ! $$(command -v perlcritic) ]; then sudo cpan -i Perl::Critic; fi
+
+.PHONY: install-tidy
+install-tidy:
+	if [ ! $$(command -v perltidy) ]; then sudo cpan -i Perl::Tidy; fi
 
 .PHONY: configure-fish
 configure-fish: install-fish
