@@ -9,18 +9,20 @@ SHELL := /bin/bash
 
 FREE_SPACE := $(shell df -H --output=target,avail | grep '^/\s' | head -n1 | perl -ne 'print((split /\s+/, $$_)[1])' -)
 
+PERL_BIN := $(shell which perl | head -n1)
+
 #### Nim installation
 .PHONY: nim
 nim:
-	curl https://nim-lang.org/choosenim/init.sh -sSf > choosenim.sh
-	sh choosenim.sh -y
-	rm -f choosenim.sh
+	@curl https://nim-lang.org/choosenim/init.sh -sSf > choosenim.sh
+	@sh choosenim.sh -y
+	@rm -f choosenim.sh
 	@echo "[+] Nim ready to use"
 
 #### Haskell installation
 .PHONY: haskell
 haskell: install-stack  install-floskell install-hlint install-stylish-haskell install-hdevtools
-	fish installs/install_hie.fish
+	@fish installs/install_hie.fish
 	@echo "[+] Haskell ready to use"
 
 .PHONY: haskell-help
@@ -56,6 +58,7 @@ info:
 	@echo "Current directory:  $(CURRENT_DIR)"
 	@echo "Home directory:     $(HOME)"
 	@echo "Free space on /:    $(FREE_SPACE)"
+	@echo "Perl install:       $(PERL_BIN)"
 
 
 #### Minimal Setup
@@ -70,7 +73,10 @@ min: minimal-vim
 full: configure-vim configure-git configure-fish install-utils heal-pinky configure-xscreensaver configure-awesome install-power-management
 	@echo "Bootstrap finished !"
 	@echo "Please run dein#update() inside (neo)vim to install all plugins"
-	nvim assets/vim-welcome.md
+	@echo
+	@echo "Run:"
+	@echo "  nvim assets/vim-welcome.md"
+	@echo
 
 # TODO(@jakob): add other required applications here
 .PHONY: install-utils
@@ -101,28 +107,28 @@ configure-awesome: install-fish configure-kitty install-awesome
 
 .PHONY: install-awesome
 install-awesome: install-fish install-mpd
-	fish installs/awesome_$(OS_TYPE).fish
+	@fish installs/awesome_$(OS_TYPE).fish
 
 .PHONY: install-mpd
 install-mpd: install-fish
-	@echo "[-] install mpd skipped"
+	@echo "[---] install mpd skipped"
 
 .PHONY: minimal-vim
 minimal-vim: generate-config-dir install-dein install-fzf
 	bash installs/link_min_vim.bash $(CURRENT_DIR)
 	@echo "[+] Linked minimal vim configuration"
-	@echo "[-] Remove the source from .vimrc and .config/nvim/init.vim when done"
+	@echo "[---] Remove the source from .vimrc and .config/nvim/init.vim when done"
 
 .PHONY: configure-vale
 configure-vale:
 	@if [ ! -L $(HOME)/.vale.ini ]; then ln -s $(CURRENT_DIR)/conf/.vale.ini $(HOME)/.vale.ini; fi
 	@if [ ! -L $(HOME)/.vale.d ]; then ln -s $(CURRENT_DIR)/conf/.vale.d $(HOME)/.vale.d; fi
 	@echo "[+] Linked vale configuration"
-	@echo "[-] Please install vale from their release page from Github"
+	@if [ ! $$(command -v vale) ]; then echo "[---] Please install vale from their release page from Github"; fi
 
 .PHONY: install-fzf
 install-fzf:
-	bash installs/install_fzf.bash
+	@bash installs/install_fzf.bash
 
 .PHONY: install-dein
 install-dein:
@@ -131,55 +137,55 @@ install-dein:
 
 .PHONY: install-stack
 install-stack: install-fish
-	fish installs/stack_$(OS_TYPE).fish
+	@fish installs/stack_$(OS_TYPE).fish
 
 .PHONY: install-floskell
 install-floskell: install-stack install-fish
-	fish installs/stack_install.fish floskell
+	@fish installs/stack_install.fish floskell
 
 .PHONY: install-stylish-haskell
 install-stylish-haskell: install-stack install-fish
-	fish installs/stack_install.fish stylish-haskell
+	@fish installs/stack_install.fish stylish-haskell
 
 .PHONY: install-hdevtools
 install-hdevtools: install-stack install-fish
-	fish installs/stack_install.fish hdevtools
+	@fish installs/stack_install.fish hdevtools
 
 .PHONY: install-hlint
 install-hlin: install-stack install-fish
-	fish installs/stack_install.fish hlint
+	@fish installs/stack_install.fish hlint
 
 .PHONY: install-maven
 install-maven: install-java
-	fish installs/maven_$(OS_TYPE).fish
+	@perl installs/install-basic.pl mvn maven maven
 
 .PHONY: install-java
-install-java: install-fish
-	fish installs/java_$(OS_TYPE).fish
+install-java: install-perl
+	@perl installs/install-basic.pl java jdk-openjdk openjdk-13-jdk
 
 .PHONY: install-cppcheck
-install-cppcheck: install-fish
-	fish installs/cppcheck_$(OS_TYPE).fish
+install-cppcheck: install-perl
+	@perl installs/install-basic.pl cppcheck cppcheck cppcheck
 
 .PHONY: install-skim
 install-skim: install-fish
-	fish installs/skim_$(OS_TYPE).fish
+	@fish installs/skim_$(OS_TYPE).fish
 
 .PHONY: install-yarn
-install-yarn: install-node
-	fish installs/yarn_$(OS_TYPE).fish
+install-yarn: install-node install-fish
+	@fish installs/yarn_$(OS_TYPE).fish
 
 .PHONY: install-node
-install-node: install-fish
-	fish installs/node_$(OS_TYPE).fish
+install-node: install-perl
+	@perl installs/install-basic.pl node nodejs nodejs
 
 .PHONY: install-vim
-install-vim: install-fish install-python
-	fish installs/vim_$(OS_TYPE).fish
+install-vim: install-perl install-python
+	@perl installs/install-basic.pl nvim neovim neovim
 
 .PHONY: install-uncrustify
-install-uncrustify: install-fish
-	fish installs/uncrustify_$(OS_TYPE).fish
+install-uncrustify: install-perl
+	@perl installs/install-basic.pl uncrustify uncrustify uncrustify
 
 .PHONY: configure-clang-format
 configure-clang-format: install-clang-format
@@ -187,20 +193,21 @@ configure-clang-format: install-clang-format
 	@echo "[+] Linked clang-format configuration"
 
 .PHONY: install-clang-format
-install-clang-format: install-fish
-	fish installs/clang-format_$(OS_TYPE).fish
+install-clang-format: install-perl
+	@perl installs/install-basic.pl clang-format clang clang-format
 
 .PHONY: install-asdf
 install-asdf: install-fish
-	fish installs/install_asdf.fish
+	@fish installs/install_asdf.fish
 
 .PHONY: install-mupdf
-install-mupdf: install-fish
-	fish installs/mupdf_$(OS_TYPE).fish
+install-mupdf: install-perl
+	@perl installs/install-basic.pl mupdf mupdf-gl mupdf
+	@xdg-mime default mupdf.desktop application/pdf
 
 .PHONY: install-bluez
-install-bluez: install-fish
-	fish installs/bluez_$(OS_TYPE).fish
+install-bluez: install-perl
+	@perl installs/install-basic.pl bluetoothctl "bluez bluez-utils" bluez
 
 .PHONY: configure-screen
 configure-screen: install-screen
@@ -214,12 +221,12 @@ configure-kitty: generate-config-dir install-kitty install-fura-code
 	@echo "[+] Linked kitty configuration"
 
 .PHONY: install-kitty
-install-kitty: install-fish
-	fish installs/kitty_$(OS_TYPE).fish
+install-kitty: install-perl
+	@perl installs/install-basic.pl kitty kitty kitty
 
 .PHONY: install-fura-code
 install-fura-code: install-fish
-	fish installs/install_fura.fish
+	@fish installs/install_fura.fish
 
 .PHONY: configure-xscreensaver
 configure-xscreensaver: install-xscreensaver ~/.Xresources
@@ -230,81 +237,81 @@ configure-xscreensaver: install-xscreensaver ~/.Xresources
 	@if [ ! -L $(HOME)/.xinitrc ]; then ln -s $(CURRENT_DIR)/conf/.xinitrc $(HOME)/.xinitrc; fi
 	@cp conf/.Xresources ~/.Xresources
 	@echo "[+] Copied Xresources configuration"
-	@echo "[-] Modify ~/.Xresources and add:"
-	@echo "[-]   Xft.dpi: 144"
-	@echo "[-] or 192 for even higher DPI screens. Then restart awesome."
+	@echo "[---] Modify ~/.Xresources and add:"
+	@echo "[---]   Xft.dpi: 144"
+	@echo "[---] or 192 for even higher DPI screens. Then restart awesome."
 
 .PHONY: install-xscreensaver
 install-xscreensaver: install-fish
-	fish installs/xscreensaver_$(OS_TYPE).fish
+	@perl installs/install-basic.pl xscreensaver xscreensaver xscreensaver
 
 .PHONY: install-screen
-install-screen: install-fish
-	fish installs/screen_$(OS_TYPE).fish
+install-screen: install-perl
+	@perl installs/install-basic.pl screen screen screen
 
 .PHONY: install-ag
-install-ag: install-fish
-	fish installs/ag_$(OS_TYPE).fish
+install-ag: install-perl
+	@perl installs/install-basic.pl ag the_silver_searcher silversearcher-ag
 
 .PHONY: install-htop
-install-htop: install-fish
-	fish installs/htop_$(OS_TYPE).fish
+install-htop: install-perl
+	@perl installs/install-basic.pl htop htop htop
 
 .PHONY: black
 black: install-pipx install-fish
-	fish installs/pipx/install.fish black
+	@fish installs/pipx/install.fish black
 
 .PHONY: vint
 vint: install-pipx install-fish
-	fish installs/pipx/vint.fish
+	@fish installs/pipx/vint.fish
 
 .PHONY: proselint
 proselint: install-pipx install-fish
-	fish installs/pipx/install.fish proselint
+	@fish installs/pipx/install.fish proselint
 
 .PHONY: pydocstyle
 pydocstyle: install-pipx install-fish
-	fish installs/pipx/install.fish pydocstyle
+	@fish installs/pipx/install.fish pydocstyle
 
 .PHONY: yamllint
 yamllint: install-pipx install-fish
-	fish installs/pipx/install.fish yamllint
+	@fish installs/pipx/install.fish yamllint
 
 .PHONY: flawfinder
 flawfinder: install-fish install-pipx
-	fish installs/pipx/install.fish flawfinder
+	@fish installs/pipx/install.fish flawfinder
 
 .PHONY: cpplint
 cpplint: install-fish install-pipx
-	fish installs/pipx/install.fish cpplint
+	@fish installs/pipx/install.fish cpplint
 
 .PHONY: reorder-python-imports
 reorder-python-imports: install-fish install-pipx
-	fish installs/pipx/install.fish reorder-python-imports
+	@fish installs/pipx/install.fish reorder-python-imports
 
 .PHONY: bandit
 bandit: install-fish install-pipx
-	fish installs/pipx/install.fish bandit
+	@fish installs/pipx/install.fish bandit
 
 .PHONY: mypy
 mypy: install-fish install-pipx
-	fish installs/pipx/install.fish mypy
+	@fish installs/pipx/install.fish mypy
 
 .PHONY: yapf
 yapf: install-fish install-pipx
-	fish installs/pipx/install.fish yapf
+	@fish installs/pipx/install.fish yapf
 
 .PHONY: install-pipx
 install-pipx: install-pip
-	fish installs/pipx_$(OS_TYPE).fish
+	@if [ ! $$(command -v pipx) ]; then pip3 install --user pipx; fi
 
 .PHONY: install-pip
 install-pip: install-python
-	fish installs/pip3_$(OS_TYPE).fish
+	@perl installs/install-basic.pl pip3 python-pip python3-pip
 
 .PHONY: install-python
-install-python: install-fish
-	fish installs/python3_$(OS_TYPE).fish
+install-python: install-perl
+	@perl installs/install-basic.pl python3 python python3
 
 .PHONY: configure-timewarrior
 configure-timewarrior: install-timewarrior
@@ -315,8 +322,8 @@ configure-timewarrior: install-timewarrior
 	@echo "[+] Linked timewarrior configuration and hook"
 
 .PHONY: install-timewarrior
-install-timewarrior: install-fish
-	fish installs/timewarrior_$(OS_TYPE).fish
+install-timewarrior: install-perl
+	@perl installs/install-basic.pl timew timew timewarrior
 
 .PHONY: configure-taskwarrior
 configure-taskwarrior: install-taskwarrior
@@ -326,28 +333,32 @@ configure-taskwarrior: install-taskwarrior
 	@echo "[+] Linked taskwarrior configuration"
 
 .PHONY: install-taskwarrior
-install-taskwarrior: install-fish
-	fish installs/taskwarrior_$(OS_TYPE).fish
+install-taskwarrior: install-perl
+	@perl installs/install-basic.pl task taskwarrior taskwarrior
 
 .PHONY: install-powertop
-install-powertop: install-fish
-	fish installs/powertop_$(OS_TYPE).fish
+install-powertop: install-perl
+	@perl installs/install-basic.pl powertop powertop powertop
 
 .PHONY: install-brightnessctl
-install-brightnessctl: install-fish
-	fish installs/brightnessctl_$(OS_TYPE).fish
+install-brightnessctl: install-perl
+	@perl installs/install-basic.pl brightnessctl brightnessctl brightnessctl
 
 .PHONY: install-tlp
 install-tlp: install-fish
-	fish installs/tlp_$(OS_TYPE).fish
+	@fish installs/tlp_$(OS_TYPE).fish
 
 .PHONY: install-critic
 install-critic:
-	if [ ! $$(command -v perlcritic) ]; then sudo cpan -i Perl::Critic; fi
+	@if [ ! $$(command -v perlcritic) ]; then sudo cpan -i Perl::Critic; fi
 
 .PHONY: install-tidy
 install-tidy:
-	if [ ! $$(command -v perltidy) ]; then sudo cpan -i Perl::Tidy; fi
+	@if [ ! $$(command -v perltidy) ]; then sudo cpan -i Perl::Tidy; fi
+
+.PHONY: install-perl
+install-perl:
+	@if [ ! $$(command -v perl) ]; then echo "[---] Please install perl and cpan"; exit 1; fi
 
 .PHONY: configure-fish
 configure-fish: install-fish
@@ -357,7 +368,7 @@ configure-fish: install-fish
 
 .PHONY: install-fish
 install-fish:
-	bash installs/fish_$(OS_TYPE).sh
+	@bash installs/fish_$(OS_TYPE).sh
 
 .PHONY: heal-pinky
 heal-pinky:

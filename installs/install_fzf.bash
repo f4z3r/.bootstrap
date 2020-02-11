@@ -7,7 +7,7 @@
   cd tools/fzf
   ./install --bin;
   if [ -d ~/.fzf ]; then
-    echo "[-] WARN: ~/.fzf already exists, deleting it"
+    echo "[---] WARN: ~/.fzf already exists, deleting it"
     rm -rf ~/.fzf
   fi
   ln -s $(pwd)/ $HOME/.fzf
