@@ -122,17 +122,17 @@ local bat = lain.widget.bat({
 theme.volume = lain.widget.alsabar({
     notification_preset = { font = "Monospace 9"},
     --togglechannel = "IEC958,3",
-    width = dpi(80), height = dpi(10), border_width = dpi(0),
+    width = dpi(100), height = dpi(2), border_width = dpi(0),
     colors = {
         background = "#383838",
         unmute     = "#80CCE6",
-        mute       = "#FF9F9F"
+        mute       = "red"
     },
 })
 theme.volume.bar.paddings = dpi(0)
-theme.volume.bar.margins = dpi(5)
+theme.volume.bar.margins = dpi(6)
 local volumewidget = theme.volume.bar
-volumewidget = wibox.container.margin(volumewidget, dpi(0), dpi(0), dpi(5), dpi(5))
+volumewidget = wibox.container.margin(volumewidget, dpi(0), dpi(0), dpi(6), dpi(6))
 
 -- CPU
 local cpuwidget = lain.widget.cpu({
@@ -213,7 +213,7 @@ local mylauncher = awful.widget.button({ image = theme.awesome_icon_launcher })
 mylauncher:connect_signal("button::press", function() awful.util.mymainmenu:toggle() end)
 
 -- Separators
-local first = wibox.widget.textbox('<span font="Fira Code 5"> </span>')
+local first = wibox.widget.textbox('<span font="Fira Code 12" color="red"> \u{f303} </span>')
 local last = wibox.widget.textbox('<span font="Fira Code 5">  </span>')
 local bottom_bar = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f6d8} </span>")
 
@@ -245,13 +245,13 @@ function theme.at_screen_connect(s)
     s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, { bg_focus = barcolor })
 
     mytaglistcont = wibox.container.background(s.mytaglist, theme.bg_focus, gears.shape.rectangle)
-    s.mytag = wibox.container.margin(mytaglistcont, dpi(0), dpi(0), dpi(5), dpi(5))
+    s.mytag = wibox.container.margin(mytaglistcont, dpi(0), dpi(0), dpi(2), dpi(2))
 
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons, { bg_focus = theme.bg_focus, shape = gears.shape.rectangle, shape_border_width = 5, shape_border_color = theme.tasklist_bg_normal, align = "center" })
+    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons, { bg_focus = theme.bg_focus, shape = gears.shape.rectangle, shape_border_width = 5, shape_border_color = theme.tasklist_bg_normal, align = "center"})
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(32) })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(25) })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
