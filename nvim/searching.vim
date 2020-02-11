@@ -6,5 +6,4 @@ set ignorecase
 set incsearch
 set smartcase
 set hlsearch
-set nowrapscan
-
+set wrapscan
