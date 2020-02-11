@@ -54,6 +54,27 @@ let g:airline_symbols.whitespace = 'Ξ'
 let g:airline_skip_empty_sections = 1
 let g:airline_powerline_fonts = 1
 let g:airline_section_c = '%t'
+let g:airline_mode_map = {
+      \ '__'     : '-',
+      \ 'c'      : '',
+      \ 'i'      : '奈',
+      \ 'ic'     : '奈',
+      \ 'ix'     : '奈',
+      \ 'n'      : '',
+      \ 'multi'  : 'ﯟ',
+      \ 'ni'     : '',
+      \ 'no'     : '',
+      \ 'R'      : 'זּ',
+      \ 'Rv'     : 'זּ',
+      \ 's'      : '',
+      \ 'S'      : '',
+      \ ''     : '',
+      \ 't'      : '',
+      \ 'v'      : '麗',
+      \ 'V'      : '麗',
+      \ ''     : '麗',
+      \ }
+
 
 let spc = g:airline_symbols.space
 let arr = g:airline_right_alt_sep
