@@ -74,7 +74,7 @@ select 0
 #                              the rest of the caption string is justified
 #                              against the right edge of the screen.
 #                              NOTE: doesn't appear to truncate previous text.
-caption always           "%?%F%{= Kk}%:%{= kR}%?  %h%-035=%t %-023=%{+b} %c %D %d %M %Y%{= dd} "
+caption always           "%?%F%{= Kk}%:%{= kR}%?  %h%-035=%t %-023=%{+b} %c %D %d %M %Y%{= dd}"
 
 # use the hardstatus line for the window list
 #    alwayslastline      - always display the hardstatus as the last line of the
@@ -105,4 +105,4 @@ backtick   2 30 0 uname -o
 backtick   3  1 1 cat /proc/loadavg
 backtick   4 30 0 nproc
 hardstatus alwaysfirstline
-hardstatus string       "%{= Kk} %-Lw%{=b kR} %n%f %t %{-}%+Lw %-080=%S %-070=%4`p %-066=%3` %-034=%2`%-024=%{= Kk}%{+b} %1`@%H%=%{= dd} "
+hardstatus string       "%{= Kk} %-Lw%{=b kR} %n%f %t %{-}%+Lw %-080=%S %-070=%4`p %-066=%3` %-034=%2`%-024=%{= Kk}%{+b} %1`@%H%=%{= dd}"
