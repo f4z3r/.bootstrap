@@ -15,11 +15,15 @@ set -g theme_display_cmd_duration yes
 set -g theme_newline_prompt 'fish> '
 
 if [ -d ~/.local/bin/ ]
-  set PATH /home/jakob/.local/bin/ $PATH
+  set PATH ~/.local/bin/ $PATH
 end
 
 if [ -d ~/.nimble/bin ]
-  set PATH /home/jakob/.nimble/bin $PATH
+  set PATH ~/.nimble/bin $PATH
+end
+
+if [ -d ~/.cargo/bin ]
+  set PATH ~/.cargo/bin $PATH
 end
 
 set PATH . $PATH

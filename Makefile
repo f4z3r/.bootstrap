@@ -19,6 +19,12 @@ nim:
 	@rm -f choosenim.sh
 	@echo "[+] Nim ready to use"
 
+#### Rust installation
+.PHONY: rust
+rust:
+	@curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	@echo "[+] Rust ready to use"
+
 #### Haskell installation
 .PHONY: haskell
 haskell: install-stack  install-floskell install-hlint install-stylish-haskell install-hdevtools
