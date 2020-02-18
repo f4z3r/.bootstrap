@@ -55,8 +55,10 @@
         "lhs",
         "haskell"
       ],
-      "initializationOptions": {
+      "settings": {
         "languageServerHaskell": {
+          "maxNumberOfProblems": 10,
+          "completionSnippetsOn": true,
         }
       }
     }

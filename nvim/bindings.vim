@@ -36,20 +36,28 @@ nmap sk :SplitjoinJoin<cr>
 " ==== Refactoring ======================================================={{{
 " (r)efactor (r)ename
 nmap <leader>rr <Plug>(coc-rename)
+" (r)efactor (n)ext error
+nnoremap <leader>rn <plug>(ale_next_wrap_error)
+" (r)efactor (p)revious error
+nnoremap <leader>rp <plug>(ale_previous_wrap_error)
+" (r)efactor (w)arnings (n)ext
+nnoremap <leader>rwn <plug>(ale_next_wrap_warning)
+" (r)efactor (w)arnings (p)revious
+nnoremap <leader>rwp <plug>(ale_previous_wrap_warning)
 " (r)efactor (f)ix
-nnoremap <leader>rf :ALEFix<cr>
+nnoremap <leader>rf <plug>(ale_fix)
 " (r)efactor (s)uggest fixes
 nnoremap <leader>rs :ALEFixSuggest<cr>
 " (r)efactor (l)int
-nnoremap <leader>rl :ALELint<cr>
+nnoremap <leader>rl <plug>(ale_lint)
 " (r)efactor (c)oc (d)isable
 nnoremap <leader>rcd :CocDisable<cr>
 " (r)efactor (c)oc (e)nable
 nnoremap <leader>rce :CocEnable<cr>
 " (r)efactor (a)le (d)isable
-nnoremap <leader>rad :ALEDisable<cr>
+nnoremap <leader>rad <plug>(ale_disable)
 " (r)efactor (a)le (e)nable
-nnoremap <leader>rae :ALEEnable<cr>
+nnoremap <leader>rae <plug>(ale_enable)
 " coc goto overrides
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
