@@ -7,6 +7,7 @@ Then install the following `coc` plugins:
  - coc-vimlsp
  - coc-json
  - coc-snippets
+ - coc-rls
 
 > `coc` extensions can be installed using `CocInstall <extension>`.
 
