@@ -23,7 +23,7 @@ let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 " fix on save
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 " disable some linters (clangd, hie) and enable others (mypy)
 let g:ale_linters = {
       \ 'python': ['bandit', 'mypy'],

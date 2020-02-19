@@ -261,6 +261,8 @@ nnoremap <leader>bd :Bd<cr>
 nnoremap <leader><tab> :b#<cr>
 " (b)uffer fuzzy search
 nnoremap <leader>bb :Buffers<cr>
+" (b)uffer (f)ix
+nnoremap <leader>bf :ALEFix<cr>
 " Navigate to buffer count within tab
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
