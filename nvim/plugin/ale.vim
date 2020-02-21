@@ -32,6 +32,7 @@ let g:ale_linters = {
       \ 'c': ['cppcheck', 'cpplint', 'flawfinder'],
       \ 'objc': ['cppcheck', 'cpplint', 'flawfinder'],
       \ 'objcpp': ['cppcheck', 'cpplint', 'flawfinder'],
+      \ 'text': ['vale', 'proselint'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
