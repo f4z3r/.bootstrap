@@ -71,4 +71,3 @@ context.work=+work
 context.home=+home
 
 # vim:ft=conf:foldlevel=0:tw=100:
-context=home

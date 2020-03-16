@@ -33,6 +33,7 @@ let g:ale_linters = {
       \ 'objc': ['cppcheck', 'cpplint', 'flawfinder'],
       \ 'objcpp': ['cppcheck', 'cpplint', 'flawfinder'],
       \ 'text': ['vale', 'proselint'],
+      \ 'rust': ['cargo'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -41,4 +42,8 @@ let g:ale_fixers = {
       \ 'haskell': ['floskell', 'stylish-haskell'],
       \ 'cpp': ['clang-format', 'uncrustify'],
       \ 'c': ['clang-format', 'uncrustify'],
+      \ 'rust': ['rustfmt'],
       \}
+" rust options
+let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
+
