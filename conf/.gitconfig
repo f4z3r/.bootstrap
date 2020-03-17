@@ -14,15 +14,14 @@
 	f = fetch -q
 	b = branch
 	a = add .
-	cm = commit -m
-	ca = commit --amend -C HEAD
-  cae = commit --amend -m
+	cc = commit -m
+	ce = commit --amend -C HEAD
+  ca = commit --amend -m
 	co = checkout
 	s = status -sb
 	st = stash list
 	sh = stash show --full-diff
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
-	ac = !git add -A && git commit -m
 	ph = push -q
 	phf = push -q --force-with-lease
 	pl = pull -q
