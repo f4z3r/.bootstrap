@@ -121,6 +121,14 @@ sunmap W
 sunmap B
 sunmap E
 sunmap gE
+
+" Easy movement in insert mode
+" delete word and char already default <c-w> and <c-h> respectively
+" <c-a> pastes default register
+" move to end of line
+inoremap <c-e> <c-o>A
+" move to beginning of line
+inoremap <c-b> <c-o>I
 " }}}
 
 
