@@ -36,14 +36,14 @@ nmap sk :SplitjoinJoin<cr>
 " ==== Refactoring ======================================================={{{
 " (r)efactor (r)ename
 nmap <leader>rr <Plug>(coc-rename)
-" (r)efactor (n)ext error
-nnoremap <leader>rn <plug>(ale_next_wrap_error)
-" (r)efactor (p)revious error
-nnoremap <leader>rp <plug>(ale_previous_wrap_error)
-" (r)efactor (w)arnings (n)ext
-nnoremap <leader>rwn <plug>(ale_next_wrap_warning)
-" (r)efactor (w)arnings (p)revious
-nnoremap <leader>rwp <plug>(ale_previous_wrap_warning)
+" refactor (n)ext error
+nmap ]e <plug>(ale_next_wrap_error)
+" refactor (p)revious error
+nmap [e <plug>(ale_previous_wrap_error)
+" refactor (w)arnings (n)ext
+nmap ]w <plug>(ale_next_wrap_warning)
+" refactor (w)arnings (p)revious
+nmap [w <plug>(ale_previous_wrap_warning)
 " (r)efactor (f)ix
 nnoremap <leader>rf <plug>(ale_fix)
 " (r)efactor (s)uggest fixes
@@ -68,9 +68,9 @@ nmap <silent> gr <Plug>(coc-references)
 
 " ==== Quickfix =========================================================={{{
 " (q)uickfix (n)ext
-nnoremap <leader>qn :cnext<cr>
+nnoremap ]q :cnext<cr>
 " (q)uickfix (p)revious
-nnoremap <leader>qp :cprevious<cr>
+nnoremap [q :cprevious<cr>
 " (q)uickfix (o)pen
 nnoremap <leader>qo :copen<cr>
 " (q)uickfix (c)lose
@@ -80,9 +80,9 @@ nnoremap <leader>qc :cclose<cr>
 
 " ==== Locations ========================================================={{{
 " (l)ocation list (n)ext
-nnoremap <leader>ln :lnext<cr>
+nnoremap ]l :lnext<cr>
 " (l)ocation list (o)pen
-nnoremap <leader>lp :lprevious<cr>
+nnoremap [l :lprevious<cr>
 " (l)ocation list (o)open
 nnoremap <leader>lo :lopen<cr>
 " (l)ocation list (c)lose
@@ -283,8 +283,8 @@ nmap <leader>6 <Plug>AirlineSelectTab6
 nmap <leader>7 <Plug>AirlineSelectTab7
 nmap <leader>8 <Plug>AirlineSelectTab8
 nmap <leader>9 <Plug>AirlineSelectTab9
-nmap <leader>- <Plug>AirlineSelectPrevTab
-nmap <leader>+ <Plug>AirlineSelectNextTab
+nmap [t <Plug>AirlineSelectPrevTab
+nmap ]t <Plug>AirlineSelectNextTab
 " }}}
 
 
@@ -296,9 +296,9 @@ nnoremap <leader>os :TW summary<cr>
 " Start (p)omodoro with name auto
 nnoremap <leader>op :PomodoroStart auto<cr>
 " (j)ump to next todo/fixme tag in file
-nnoremap <silent> <leader>oj /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
+nnoremap <silent> ]o /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
 " (J)ump to previous todo/fixme tag in file
-nnoremap <silent> <leader>oJ ?\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
+nnoremap <silent> [o ?\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
 " (o)rganisation generate (t)odo quickfix for current file
 nnoremap <leader>ot :vimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<cr>:copen<cr>
 " }}}
