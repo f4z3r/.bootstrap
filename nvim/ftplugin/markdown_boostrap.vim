@@ -22,7 +22,7 @@ setlocal concealcursor=n
 
 " ==== Wrapping =========================================================={{{
 setlocal textwidth=100
-setlocal formatoptions=tancqj
+setlocal formatoptions=nqjtc
 setlocal nojoinspaces
 " }}}
 

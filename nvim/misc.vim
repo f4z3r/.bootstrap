@@ -22,6 +22,7 @@ set laststatus=2
 
 " ==== Wrapping =========================================================={{{
 set nowrap
+set formatoptions+=q
 " }}}
 
 
