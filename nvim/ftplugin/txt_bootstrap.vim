@@ -19,3 +19,8 @@ setlocal textwidth=100
 setlocal formatoptions=tancqj
 setlocal nojoinspaces
 " }}}
+
+
+" ==== Spelling =========================================================={{{
+setlocal spell
+" }}}
