@@ -3,8 +3,10 @@
 " ===========================================================================
 
 " ==== Bindings =========================================================={{{
-" (t)able of contents
-nnoremap <buffer> <localleader>t :Toc<enter>
+" (t)able of contents (g)enerate
+nnoremap <buffer> <localleader>g :GenTocGFM<enter>
+" (t)able of contents (s)how
+nnoremap <buffer> <localleader>s :Toc<enter>
 " (f)ormat table
 nnoremap <buffer> <localleader>f :TableFormat<enter>
 " conceal (e)nable

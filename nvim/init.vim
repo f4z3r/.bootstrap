@@ -75,6 +75,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('godlygeek/tabular',
         \{'on_cmd': 'TableFormat'})
 
+  " support TOC generation for markdown
+  call dein#add('mzlogin/vim-markdown-toc',
+        \{'on_ft': 'markdown'})
+
   " Language support (should be lazy by default)
   call dein#add('sheerun/vim-polyglot')
 
