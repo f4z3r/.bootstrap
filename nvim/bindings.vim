@@ -217,8 +217,6 @@ nnoremap <leader>gd :Gdiffsplit<cr>
 " ==== Files ============================================================={{{
 " (f)ile (s)ave
 nnoremap <leader>fs :update<cr>
-" (f)ile (S)ave as super user
-nnoremap <leader>fS :write !sudo tee % > /dev/null<cr>
 " (f)ile (n)ew (in buffer's dir)
 nnoremap <leader>fn :e %:p:h/
 " (f)ile (N)ew in project root

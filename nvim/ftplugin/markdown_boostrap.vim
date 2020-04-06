@@ -18,3 +18,10 @@ nnoremap <buffer> <localleader>d :set conceallevel=0<enter>
 setlocal conceallevel=2
 setlocal concealcursor=n
 " }}}
+
+
+" ==== Wrapping =========================================================={{{
+setlocal textwidth=100
+setlocal formatoptions=tancqj
+setlocal nojoinspaces
+" }}}
