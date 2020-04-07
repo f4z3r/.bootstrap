@@ -90,9 +90,10 @@ local altkey       = "Mod1"
 local terminal     = "kitty"
 local editor       = os.getenv("EDITOR") or "nvim"
 local guieditor    = "kitty screen -R vim"
-local gui_editor    = "kitty screen -R vim"
+local gui_editor   = "kitty screen -R vim"
 local browser      = "firefox"
 local music_player = "kitty ncmpcpp"
+local htop         = "kitty htop"
 local scrlocker    = "xscreensaver-command -lock"
 
 -- launch xscreen server
@@ -516,6 +517,9 @@ globalkeys = my_table.join(
 
     awful.key({ modkey }, "m", function () awful.spawn(music_player) end,
       {description = "run music player", group = "launcher"}),
+
+    awful.key({ modkey }, "i", function () awful.spawn(htop) end,
+      {description = "show system information", group = "launcher"}),
 
     -- Default
     awful.key({ modkey }, "p", function() menubar.show() end,
