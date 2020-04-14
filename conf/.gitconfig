@@ -13,11 +13,13 @@
 [alias]
 	f = fetch -q
 	b = branch
-	a = add .
+	aa = add .
+	a = add
 	cc = commit -m
 	ce = commit --amend -C HEAD
   ca = commit --amend -m
 	co = checkout
+	r = reset
 	s = status -sb
 	st = stash list
 	sh = stash show --full-diff
