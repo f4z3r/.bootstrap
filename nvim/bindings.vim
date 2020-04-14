@@ -308,4 +308,10 @@ inoremap <c-r> <c-r>"
 " Do not store the deleted text in default register when pasting in visual
 " mode.
 xnoremap <silent> p p:let @"=@0<cr>
+" Copy default register contents to system copy clipboard
+function g:BootstrapCopyToSystem()
+  let @+=@"
+  echom 'Vim default register (>' . @" . '<) copied to system clipbard.'
+endfunction
+nnoremap <silent> <leader>yy :call BootstrapCopyToSystem()<cr>
 " }}}
