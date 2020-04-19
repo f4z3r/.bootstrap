@@ -271,6 +271,10 @@ nnoremap <leader><tab> :b#<cr>
 nnoremap <leader>bb :Buffers<cr>
 " (b)uffer (f)ix
 nnoremap <leader>bf :ALEFix<cr>
+" close all buffers except current
+command! Bk execute '%bdelete|edit #|normal `"'
+" (b)uffer only (k)eep current
+nnoremap <leader>bk :Bk<cr>
 " Navigate to buffer count within tab
 nmap <leader>1 <Plug>AirlineSelectTab1
 nmap <leader>2 <Plug>AirlineSelectTab2
