@@ -61,6 +61,10 @@
           "completionSnippetsOn": true,
         }
       }
+    },
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim"]
     }
   }
 }

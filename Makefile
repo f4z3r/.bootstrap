@@ -13,11 +13,18 @@ PERL_BIN := $(shell which perl | head -n1)
 
 #### Nim installation
 .PHONY: nim
-nim:
+nim: nim-lang nimlsp
+	@echo "[+] Nim ready to use"
+
+.PHONY: nim-lang
+nim-lang:
 	@curl https://nim-lang.org/choosenim/init.sh -sSf > choosenim.sh
 	@sh choosenim.sh -y
 	@rm -f choosenim.sh
-	@echo "[+] Nim ready to use"
+
+.PHONY: nimlsp
+nimlsp:
+	nimble install nimlsp
 
 #### Rust installation
 .PHONY: rust
