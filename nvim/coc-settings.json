@@ -41,27 +41,6 @@
       "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
       "filetypes": ["c", "cpp", "objc", "objcpp"],
     },
-    "hie": {
-      "command": "hie-wrapper",
-      "args": ["--lsp"],
-      "rootPatterns": [
-        "*.cabal",
-        "stack.yaml",
-        "cabal.project",
-        "package.yaml"
-      ],
-      "filetypes": [
-        "hs",
-        "lhs",
-        "haskell"
-      ],
-      "settings": {
-        "languageServerHaskell": {
-          "maxNumberOfProblems": 10,
-          "completionSnippetsOn": true,
-        }
-      }
-    },
     "nim": {
       "command": "nimlsp",
       "filetypes": ["nim"]

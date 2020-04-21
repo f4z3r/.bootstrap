@@ -36,23 +36,6 @@ rust:
 	@curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 	@echo "[+] Rust ready to use"
 
-#### Haskell installation
-.PHONY: haskell
-haskell: install-stack  install-floskell install-hlint install-stylish-haskell install-hdevtools
-	@fish installs/install_hie.fish
-	@echo "[+] Haskell ready to use"
-
-.PHONY: haskell-help
-haskell-help:
-	@echo "Please run 'make install-stack' first"
-	@echo "Please enter the following into your $$HOME/.stack/global-project/stack.yaml once stack is installed:"
-	@echo
-	@echo "extra-deps:"
-	@echo "- monad-dijkstra-0.1.1.2@sha256:4bca3eca6358f916b06501f82c7bfa4c59236af0ac8cac551854c2e928e78c37,1962"
-	@echo "- HsYAML-0.2.1.0@sha256:e4677daeba57f7a1e9a709a1f3022fe937336c91513e893166bd1f023f530d68,5311"
-	@echo "- HsYAML-aeson-0.2.0.0@sha256:04796abfc01cffded83f37a10e6edba4f0c0a15d45bef44fc5bb4313d9c87757,1791"
-	@echo
-	@echo "Then run 'make haskell'"
 
 #### Perl installation
 .PHONY: perl
@@ -151,26 +134,6 @@ install-fzf:
 install-dein:
 	@sh tools/install-dein.sh ~/.cache/dein > /dev/null
 	@echo "[+] Dein installed"
-
-.PHONY: install-stack
-install-stack: install-fish
-	@fish installs/stack_$(OS_TYPE).fish
-
-.PHONY: install-floskell
-install-floskell: install-stack install-fish
-	@fish installs/stack_install.fish floskell
-
-.PHONY: install-stylish-haskell
-install-stylish-haskell: install-stack install-fish
-	@fish installs/stack_install.fish stylish-haskell
-
-.PHONY: install-hdevtools
-install-hdevtools: install-stack install-fish
-	@fish installs/stack_install.fish hdevtools
-
-.PHONY: install-hlint
-install-hlin: install-stack install-fish
-	@fish installs/stack_install.fish hlint
 
 .PHONY: install-maven
 install-maven: install-java
