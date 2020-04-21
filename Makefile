@@ -7,7 +7,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-fish configure-kitty configure-git configure-awesome configure-pinky
+configure: configure-vim configure-fish configure-kitty configure-git configure-awesome configure-pinky configure-pacman
 
 .PHONY: configure-git
 configure-git:
@@ -38,6 +38,11 @@ configure-kitty:
 	@if [ ! -d $(HOME)/.config/kitty/ ]; then mkdir -p $(HOME)/.config/kitty; fi
 	@if [ ! -L $(HOME)/.config/kitty/kitty.conf ]; then ln -s $(CURRENT_DIR)/conf/kitty.conf $(HOME)/.config/kitty/kitty.conf; fi
 	@echo "[+] Linked kitty configuration"
+
+.PHONY: pacman
+configure-pacman:
+	@if [ -f /etc/pacman.conf ]; then sudo rm /etc/pacman.conf; fi
+	@if [ ! -L /etc/pacman.conf ]; then sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf; fi
 	
 
 #### Installs

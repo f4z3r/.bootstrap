@@ -16,7 +16,7 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/jakob/icons"
-theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/jakob/wall-arch-dark.jpeg"
+theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/jakob/manjaro.jpg"
 theme.font                                      = "FuraCode Nerd Font Bold 8"
 theme.taglist_font                              = "FuraCode Nerd Font Regular 8"
 theme.fg_normal                                 = "#FFFFFF"
@@ -34,8 +34,8 @@ theme.tasklist_fg_focus                         = "#4CB7DB"
 theme.menu_height                               = dpi(20)
 theme.menu_width                                = dpi(160)
 theme.menu_icon_size                            = dpi(32)
-theme.awesome_icon                              = theme.icon_dir .. "/awesome_icon_white.png"
-theme.awesome_icon_launcher                     = theme.icon_dir .. "/awesome_icon.png"
+theme.awesome_icon                              = theme.icon_dir .. "/manjaro_icon.png"
+theme.awesome_icon_launcher                     = theme.icon_dir .. "/manjaro_icon_round.png"
 theme.taglist_squares_sel                       = theme.icon_dir .. "/square_sel.png"
 theme.taglist_squares_unsel                     = theme.icon_dir .. "/square_unsel.png"
 theme.tasklist_plain_task_name                  = true
@@ -213,7 +213,7 @@ local mylauncher = awful.widget.button({ image = theme.awesome_icon_launcher })
 mylauncher:connect_signal("button::press", function() awful.util.mymainmenu:toggle() end)
 
 -- Separators
-local first = wibox.widget.textbox('<span font="Fira Code 12" color="red"> \u{f303} </span>')
+local first = wibox.widget.textbox('<span font="Fira Code 12" color="green"> \u{f312} </span>')
 local last = wibox.widget.textbox('<span font="Fira Code 5">  </span>')
 local bottom_bar = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f6d8} </span>")
 
