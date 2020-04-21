@@ -1,12 +1,9 @@
-# Kubuntu
+# Manjaro
 
-I want to make Kubuntu my default driver. This will document every change I made to make the system
+I want to make Manjaro my default driver. This will document every change I made to make the system
 exactly behave the way I want.
 
 > This means this repository will undergo massive changes in order to accustom this.
-
-The final goal is to allow a user to install (K)ubuntu, and run some script to perform a full
-install of the desired software.
 
 This will provide a Makefile, but only to setup a minimal development setup.
 
@@ -58,7 +55,6 @@ $ ssh-keygen -t rsa -b 4096
 Link configuration files.
 
 ```sh
-$ sudo apt install make
 $ cd ~/.bootstrap/
 $ make configure
 ```
@@ -68,7 +64,7 @@ $ make configure
 Install fish and configure it enough to make it usable on Konsole.
 
 ```sh
-$ sudo apt install fish curl
+$ sudo pacman -S fish
 $ curl -L https://get.oh-my.fish | fish
 $ fish -c "omf install bobthefish"
 $ chsh -s /usr/bin/fish
@@ -87,22 +83,21 @@ $ ./install.sh FiraCode
 ### Install `kitty`
 
 ```sh
-$ curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-$ ln -s ~/.local/kitty.app/bin/kitty ~/.local/bin/
+$ sudo pacman -S kitty
 ```
 
 
 ### Install `awesome`
 
 ```sh
-$ sudo apt install dmenu mpc scrot unclutter xsel
-$ sudo apt install awesome
+$ sudo pacman -S dmenu mpc scrot unclutter xsel
+$ sudo pacman -S awesome
 ```
 
 ### Install utilities
 
 ```sh
-$ sudo apt install silversearcher-ag mupdf htop screen neovim
+$ sudo pacman -S the_silver_searcher mupdf-gl htop screen neovim
 ```
 
 Install `fzf` locally for `neovim`.
