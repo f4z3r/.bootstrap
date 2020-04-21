@@ -1,94 +1,99 @@
-# Bootstrap
+# Manjaro Bootstrap
 
-Bootstrap my entire setup.
+This document explains how to bootstrap a full development environment running on Manjaro from
+scratch.
 
-This fully supports both Arch linux and Ubuntu.
+## TOC
 
-## Dependencies
+<!-- vim-markdown-toc GFM -->
 
-The two dependencies for the bootstrap are `git`, `make` and `bash`.
+* [Base Installation](#base-installation)
+* [Setup](#setup)
+  - [Install `fish`](#install-fish)
+  - [Install Fura Code](#install-fura-code)
+  - [Install `awesome`](#install-awesome)
+  - [Install utilities](#install-utilities)
+* [Music](#music)
 
-## Configuring `pacman`
+<!-- vim-markdown-toc -->
 
-Configure pacman by running:
+## Base Installation
 
-    make pacman
+Download the Xfce iso from their official website. Then create a
+bootable USB drive.
 
-## Full Bootstrap
+```sh
+$ lsblk
+$ sudo dd bs=4M if=/path/to/iso of=/path/to/dev
+$ sync
+```
 
-Before running the full setup, please make sure to have the correct information showing when
-running
+## Setup
 
-    make
+Install `git` to clone this repository. Also generate ssh keys.
 
-Then, run the full boostrap:
+```sh
+$ ssh-keygen -t rsa -b 4096
+```
 
-    make full
+Link configuration files.
 
-## Minimal Boostrap
+```sh
+$ cd ~/.bootstrap/
+$ make configure
+```
 
-The minimal boostrap will install a full vim configuration. It will do so without affecting
-already installed configurations. Note that it won't install a fish shell or configure git in
-any way.
+### Install `fish`
 
-Run it using
+Install fish and configure it enough to make it usable on Konsole.
 
-    make min
+```sh
+$ sudo pacman -S fish
+$ curl -L https://get.oh-my.fish | fish
+$ fish -c "omf install bobthefish"
+$ chsh -s /usr/bin/fish
+$ sudo chsh -s /usr/bin/fish
+```
 
-## Additional Installs
+### Install Fura Code
 
-### Nim
+```sh
+$ cd ~/.bootstrap
+$ git submodule update --init --depth 1 tools/nerd-fonts
+$ cd tools/nerd-fonts
+$ ./install.sh FiraCode
+```
 
-To install `choosenim` and the `nim` compiler use:
+### Install `awesome`
 
-    make nim
+Install awesome and its main dependencies.
+
+```sh
+$ sudo pacman -S dmenu mpc scrot unclutter xsel kitty
+$ sudo pacman -S awesome
+```
+
+### Install utilities
+
+```sh
+$ sudo pacman -S the_silver_searcher mupdf-gl htop screen neovim
+```
+
+Install `fzf` locally for `neovim`.
+
+```sh
+$ cd ~/.bootstrap/
+$ git submodule update --init --depth 1 /tools/fzf
+$ cd ~/.boostrap/tools/fzf
+$ ./install --bin
+$ ln -s (pwd)/ $HOME/.fzf
 
 
-## Full Setup Description
+TODO: explain how to install xscreensaver.
+```
 
-The full setup includes:
+## Music
 
-1. AwesomeWM as a window manager (with full support for Fira Code Nerd Font).
-2. `neovim` for any form of editing. This uses the following external dependencies:
-   - `bandit`: for security analysis of python code
-   - `black`: python code formatter
-   - `yapf`: python code formatter
-   - `mypy`: python type checker
-   - `pyls`: python language server
-   - `reorder-python-imports`: python import sorter
-   - `flawfinder`: security scanner for C/C++
-   - `cpplint`: C/C++ linter
-   - `cppcheck`: C/C++ static analyser
-   - `clang-format`: C/C++ code formatter
-   - `clangd`: C/C++ langauge server
-   - `uncrustify`: C/C++/C#/D/Java/Pawn source code beautifier
-   - `java-language-server`: Java language server
-   - `proselint`: prose linter
-   - `vale`: prose linter (deprecates `proselint` in the future)
-   - `vint`: vimL linter
-   - `yamllint`: yaml linter
-   - `fzf`: fuzzy finder
-3. `skim` for fuzzy finding on the entire machine.
-4. `ag` for content grepping (also used by `neovim`).
-5. `task` (TaskWarrior) for ToDo management (also used by `neovim`).
-6. `timew` (TimeWarrior) for time management (also used by TaskWarrior).
-7. `screen` for terminal multiplexing on remote machines.
-8. `htop` for system monitoring.
-9. `mupdf` for performant PDF traversal.
-10. `nmcpcpp` as a music client.
-11. `mpd` as a music server.
-12. `fish` as a friendly shell.
-13. `kitty` as a terminal emulator.
-14. `xscreensaver` for screen locking.
-15. `bluez` (and utils) for bluetooth device management.
+In order to add proper music support to the distribution, install `mpd` and `ncmcpcpp`. Note that
+`mpc` should already have been installed as a dependency for `awesome`.
 
-> Many of these include other dependencies (such as `java-language-server` also installing
-> OpenJDK 13 and Maven).
-
-As optional software, the following is available:
-
-1. `openconnect` as a VPN.
-2. Power management tools:
-   - `powertop`: for system power monitoring
-   - `tlp`: for power saving configuration
-   - `brightnessctl`: for brightness control
