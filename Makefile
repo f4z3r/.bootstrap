@@ -18,13 +18,17 @@ nim: nim-lang nimlsp
 
 .PHONY: nim-lang
 nim-lang:
-	@curl https://nim-lang.org/choosenim/init.sh -sSf > choosenim.sh
-	@sh choosenim.sh -y
-	@rm -f choosenim.sh
+	@if [ ! $$(command -v nim) ]; then                                 \
+		curl https://nim-lang.org/choosenim/init.sh -sSf > choosenim.sh; \
+		sh choosenim.sh -y;                                              \
+		rm -f choosenim.sh;                                              \
+	fi
 
 .PHONY: nimlsp
 nimlsp:
-	nimble install nimlsp
+	@if [ ! $$(command -v nimlsp) ]; then                \
+		nimble install nimlsp;                             \
+	fi
 
 #### Rust installation
 .PHONY: rust
