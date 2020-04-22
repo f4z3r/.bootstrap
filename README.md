@@ -14,6 +14,7 @@ scratch.
   - [Install `awesome`](#install-awesome)
   - [Install utilities](#install-utilities)
 * [Install other](#install-other)
+  - [yay](#yay)
 
 <!-- vim-markdown-toc -->
 
@@ -112,3 +113,14 @@ call dein#install()
 
 Other tools and utilities can be installed and configured. In order to have a better idea on how the
 how to install and configure some of those tools, see `doc` directory.
+
+### yay
+
+Install `yay` for AUR support.
+
+```sh
+$ git clone https://aur.archlinux.org/yay.git
+$ cd yay
+$ makepkg -si
+$ rm -rf yay
+```
