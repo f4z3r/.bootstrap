@@ -1,12 +1,6 @@
-[submodule "nvim/lsps/java-language-server"]
-	path = nvim/lsps/java-language-server
-	url = https://github.com/georgewfraser/java-language-server.git
 [submodule "tools/fzf"]
 	path = tools/fzf
 	url = https://github.com/junegunn/fzf.git
 [submodule "tools/nerd-fonts"]
 	path = tools/nerd-fonts
 	url = https://github.com/ryanoasis/nerd-fonts.git
-[submodule "tools/hie"]
-	path = tools/hie
-	url = https://github.com/haskell/haskell-ide-engine.git

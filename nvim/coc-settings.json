@@ -35,12 +35,6 @@
   "python.jediEnabled": false,
   "python.linting.enabled" : false,
   "languageserver": {
-    "clangd": {
-      "command": "clangd",
-      "args": ["--background-index"],
-      "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".git/", ".hg/"],
-      "filetypes": ["c", "cpp", "objc", "objcpp"],
-    },
     "nim": {
       "command": "nimlsp",
       "filetypes": ["nim"]
