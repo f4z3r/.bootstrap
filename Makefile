@@ -1,7 +1,5 @@
 # run with bash for consistency
 
-.DEFAULT_GOAL := info
-
 SHELL := /bin/bash
 
 CURRENT_DIR := $(shell pwd)
@@ -16,7 +14,7 @@ configure-git:
 	@echo "[+] Linked git configuration"
 	
 .PHONY: configure-vim
-configure-vim: install-dein install-fzf
+configure-vim: install-dein
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
 	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
 	@echo "[+] Linked vim configuration"
@@ -51,10 +49,6 @@ configure-xscreensaver:
 	@echo "[+] Linked xscreensaver configuration"
 
 #### Installs
-
-.PHONY: install-fzf
-install-fzf:
-	@bash installs/install_fzf.bash
 
 .PHONY: install-dein
 install-dein:
