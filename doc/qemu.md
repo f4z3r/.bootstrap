@@ -12,6 +12,7 @@ Create a directory to hold all VMs.
 
 ```sh
 $ mkdir ~/vms/
+$ mkdir ~/vms/share
 ```
 
 ### Windows Setup
@@ -75,6 +76,7 @@ qemu-system-x86_64 \
   -smp 2 \
   -soundhw hda \
   -vga virtio \
+  -virtfs local,id=vmshare,path=/home/jakob/vms/share/,security_model=mapped,mount_tag=vmshare \
   "$@" \
 ;
 ```
@@ -83,3 +85,12 @@ qemu-system-x86_64 \
 
 Run the `ubuntu-18.04.sh` script and install Ubuntu. The second time the script is run, it will
 normally boot into Ubuntu.
+
+## Shared Folders
+
+In the script from Ubuntu, `-virtfs` defines the shared virtual filesystem. In order to mount it in
+the guest OS, use the following command.
+
+```sh
+sudo mount -t 9p -o trans=virtio,version=9p2000.L vmshare /home/jakob/share
+```

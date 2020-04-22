@@ -37,13 +37,6 @@ Install `git` to clone this repository. Also generate ssh keys.
 $ ssh-keygen -t rsa -b 4096
 ```
 
-Link configuration files.
-
-```sh
-$ cd ~/.bootstrap/
-$ make configure
-```
-
 ### Install `fish`
 
 Install fish and configure it enough to make it usable on Konsole.
@@ -54,6 +47,13 @@ $ curl -L https://get.oh-my.fish | fish
 $ fish -c "omf install bobthefish"
 $ chsh -s /usr/bin/fish
 $ sudo chsh -s /usr/bin/fish
+```
+
+Link configuration all files.
+
+```sh
+$ cd ~/.bootstrap/
+$ make configure
 ```
 
 ### Install Fura Code
