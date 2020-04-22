@@ -92,5 +92,6 @@ In the script from Ubuntu, `-virtfs` defines the shared virtual filesystem. In o
 the guest OS, use the following command.
 
 ```sh
-sudo mount -t 9p -o trans=virtio,version=9p2000.L vmshare /home/jakob/share
+$ mkdir ~/share
+$ sudo mount -t 9p -o trans=virtio,version=9p2000.L vmshare /home/jakob/share
 ```
