@@ -81,6 +81,16 @@ $ sudo pacman -S awesome
 $ sudo pacman -S the_silver_searcher mupdf-gl htop screen neovim xscreensaver
 ```
 
+Configure them for filetypes.
+
+```sh
+$ xdg-mime default mupdf.desktop application/pdf
+$ xdg-mime default nvim.desktop text/x-tex text/plain text/x-makefile text/rust text/x-log \
+                                text/markdown application/x-perl text/x-python text/x-java \
+                                application/json application/x-yaml text/x-csrc text/x-c++src \
+                                text/x-chdr text/x-c++hdr
+```
+
 Install `fzf` locally for `neovim`.
 
 ```sh
