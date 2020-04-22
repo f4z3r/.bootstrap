@@ -5,8 +5,7 @@
 * [Installation](#installation)
 * [General Setup](#general-setup)
   - [Windows Setup](#windows-setup)
-  - [Ubuntu](#ubuntu)
-    + [Setup](#setup)
+  - [Ubuntu Setup](#ubuntu-setup)
 * [Run](#run)
   - [Return Focus](#return-focus)
 * [Shared Folders](#shared-folders)
@@ -30,9 +29,70 @@ $ mkdir ~/vms/share
 
 ### Windows Setup
 
-### Ubuntu
+Download the ISO of choice from Ubuntu's download page.
 
-#### Setup
+Make directory to hold Ubuntu VM.
+
+```sh
+$ mkdir -p ~/vms/windows-10
+```
+
+Create a script `windows-10.sh`, and update the `iso` parameter to contain the name of the ISO
+file. Moreover, change the `-m` flags for more memory, and change the installer command for more
+storage. See the help pages for more customizability.
+
+```sh
+#!/usr/bin/env bash
+
+# Creates an image using 8G memory, 120G storage, and 2 CPUs.
+
+set -eux
+
+# Parameters.
+id=Win10_1909_EnglishInternational_x64
+disk_img="${id}.img.qcow2"
+disk_img_snapshot="${id}.snapshot.qcow2"
+iso="${id}.iso"
+
+# Go through installer manually.
+if [ ! -f "$disk_img" ]; then
+  qemu-img create -f qcow2 "$disk_img" 120G
+  qemu-system-x86_64 \
+    -cdrom "$iso" \
+    -drive "file=${disk_img},format=qcow2" \
+    -enable-kvm \
+    -m 8G \
+    -smp 2 \
+    -cpu host \
+  ;
+fi
+
+# Snapshot the installation.
+if [ ! -f "$disk_img_snapshot" ]; then
+  qemu-img \
+    create \
+    -b "$disk_img" \
+    -f qcow2 \
+    "$disk_img_snapshot" \
+  ;
+fi
+
+# Run the installed image.
+qemu-system-x86_64 \
+  -drive "file=${disk_img_snapshot},format=qcow2" \
+  -enable-kvm \
+  -m 8G \
+  -smp 2 \
+  -cpu host \
+  -soundhw hda \
+  -vga virtio \
+  -virtfs local,id=mvshare,path=/home/jakob/vms/share/,security_model=mapped,mount_tag=vmshare \
+  "$@" \
+;
+
+```
+
+### Ubuntu Setup
 
 Download the ISO of choice from Ubuntu's download page.
 
