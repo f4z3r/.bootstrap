@@ -34,6 +34,7 @@ $ sync
 Install `git` to clone this repository. Also generate ssh keys.
 
 ```sh
+$ sudo pacman -Syu
 $ ssh-keygen -t rsa -b 4096
 ```
 
@@ -79,7 +80,7 @@ $ sudo pacman -S awesome
 ### Install utilities
 
 ```sh
-$ sudo pacman -S the_silver_searcher mupdf-gl htop screen neovim xscreensaver
+$ sudo pacman -S the_silver_searcher mupdf-gl screen neovim xscreensaver
 ```
 
 Configure them for filetypes.
@@ -122,5 +123,6 @@ Install `yay` for AUR support.
 $ git clone https://aur.archlinux.org/yay.git
 $ cd yay
 $ makepkg -si
+$ cd ..
 $ rm -rf yay
 ```
