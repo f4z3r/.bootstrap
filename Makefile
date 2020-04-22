@@ -7,7 +7,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-fish configure-kitty configure-git configure-awesome configure-pinky configure-pacman
+configure: configure-vim configure-fish configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver
 
 .PHONY: configure-git
 configure-git:
@@ -43,7 +43,12 @@ configure-kitty:
 configure-pacman:
 	@if [ -f /etc/pacman.conf ]; then sudo rm /etc/pacman.conf; fi
 	@if [ ! -L /etc/pacman.conf ]; then sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf; fi
-	
+
+.PHONY: configure-xscreensaver
+configure-xscreensaver:
+	@if [ ! -L $(HOME)/.xscreensaver ]; then ln -s $(CURRENT_DIR)/conf/.xscreensaver $(HOME)/.xscreensaver; fi
+	@if [ ! -L $(HOME)/.Xresources ]; then ln -s $(CURRENT_DIR)/conf/.Xresources $(HOME)/.Xresources; fi
+	@echo "[+] Linked xscreensaver configuration"
 
 #### Installs
 

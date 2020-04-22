@@ -1,13 +1,5 @@
 ! xscreensaver ---------------------------------------------------------------
 
-!font settings
-! xscreensaver.Dialog.headingFont:        -misc-fira code-bold-r-normal-*-17-*-*-*-*-*-*-uni
-! xscreensaver.Dialog.bodyFont:           -misc-fira code medium-medium-r-normal-*-17-*-*-*-*-*-*-uni
-! xscreensaver.Dialog.labelFont:          -misc-fira code medium-medium-r-normal-*-17-*-*-*-*-*-*-uni
-! xscreensaver.Dialog.unameFont:          -misc-fira code medium-medium-r-normal-*-17-*-*-*-*-*-*-uni
-! xscreensaver.Dialog.buttonFont:         -misc-fira code-bold-r-normal-*-17-*-*-*-*-*-*-uni
-! xscreensaver.Dialog.dateFont:           -misc-fira code medium-medium-r-normal-*-17-*-*-*-*-*-*-uni
-! xscreensaver.passwd.passwdFont:         -misc-fira code-bold-r-normal-*-17-*-*-*-*-*-*-uni
 !general dialog box (affects main hostname, username, password text)
 xscreensaver.Dialog.foreground:         #ffffff
 xscreensaver.Dialog.background:         #ff0000

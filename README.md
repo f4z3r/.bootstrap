@@ -13,7 +13,7 @@ scratch.
   - [Install Fura Code](#install-fura-code)
   - [Install `awesome`](#install-awesome)
   - [Install utilities](#install-utilities)
-* [Music](#music)
+* [Install other](#install-other)
 
 <!-- vim-markdown-toc -->
 
@@ -57,6 +57,8 @@ $ sudo chsh -s /usr/bin/fish
 
 ### Install Fura Code
 
+Install Fura Code nerd font for proper handling of ligatures and icons.
+
 ```sh
 $ cd ~/.bootstrap
 $ git submodule update --init --depth 1 tools/nerd-fonts
@@ -76,7 +78,7 @@ $ sudo pacman -S awesome
 ### Install utilities
 
 ```sh
-$ sudo pacman -S the_silver_searcher mupdf-gl htop screen neovim
+$ sudo pacman -S the_silver_searcher mupdf-gl htop screen neovim xscreensaver
 ```
 
 Install `fzf` locally for `neovim`.
@@ -87,13 +89,16 @@ $ git submodule update --init --depth 1 /tools/fzf
 $ cd ~/.boostrap/tools/fzf
 $ ./install --bin
 $ ln -s (pwd)/ $HOME/.fzf
-
-
-TODO: explain how to install xscreensaver.
 ```
 
-## Music
+In order to use `neovim`, install packages with `dein`. Launch `neovim` and call the install
+function.
 
-In order to add proper music support to the distribution, install `mpd` and `ncmcpcpp`. Note that
-`mpc` should already have been installed as a dependency for `awesome`.
+```viml
+call dein#install()
+```
 
+## Install other
+
+Other tools and utilities can be installed and configured. In order to have a better idea on how the
+how to install and configure some of those tools, see `doc` directory.
