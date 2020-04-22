@@ -1,5 +1,18 @@
 # QEMU
 
+<!-- vim-markdown-toc GFM -->
+
+* [Installation](#installation)
+* [General Setup](#general-setup)
+  - [Windows Setup](#windows-setup)
+  - [Ubuntu](#ubuntu)
+    + [Setup](#setup)
+* [Run](#run)
+  - [Return Focus](#return-focus)
+* [Shared Folders](#shared-folders)
+
+<!-- vim-markdown-toc -->
+
 ## Installation
 
 ```sh
@@ -81,10 +94,16 @@ qemu-system-x86_64 \
 ;
 ```
 
-#### Run
+## Run
 
-Run the `ubuntu-18.04.sh` script and install Ubuntu. The second time the script is run, it will
-normally boot into Ubuntu.
+Run the `ubuntu-18.04.sh` or `windows-10.sh` script and install Ubuntu/Windows. The second time the
+script is run, it will normally boot into Ubuntu/Windows.
+
+### Return Focus
+
+In order to return focus to host, press `Ctrl` + `Alt` + `G`. Note that some guests OS do not fully
+capture input methods. When in Ubuntu VM, simply press `Host` + `<num>` to switch to another
+workspace in the host OS, which needing to escape focus.
 
 ## Shared Folders
 
@@ -95,3 +114,4 @@ the guest OS, use the following command.
 $ mkdir ~/share
 $ sudo mount -t 9p -o trans=virtio,version=9p2000.L vmshare /home/jakob/share
 ```
+

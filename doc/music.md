@@ -21,10 +21,10 @@ $ mkdir -p ~/.config/mpd/playlists
 Link the configuration files.
 
 ```sh
-$ sudo ln -s ~/.bootstrap/conf/mpd.conf /etc/mod.conf
+$ sudo ln -s ~/.bootstrap/conf/mpd.conf /etc/mpd.conf
 $ sudo ln -s ~/.bootstrap/conf/default.pa /etc/pulse/default.pa
 $ sudo ln -s ~/.bootstrap/conf/client.conf /etc/pulse/client.conf
-$ sudo ln -s ~/.bootstrap/conf/ncmpcpp ~/.ncmpcpp/
+$ sudo ln -s ~/.bootstrap/conf/ncmpcpp ~/.ncmpcpp
 ```
 
 Then restart `pulseaudio`.
@@ -43,11 +43,11 @@ install.
 $ sudo systemctl start mpd
 ```
 
-Launch `ncmpcpp` as a client to listen to music.
+Launch `ncmpcpp` as a client to listen to music. Press `u` to update the database and import songs.
 
 ## Playlist synchrosization
 
-Create a symbolic link to sync playlists at all times.
+Create a symbolic link to always sync playlists.
 
 ```sh
 $ ln -s ~/.bootstrap/conf/playlists ~/.config/mpd/playlists
