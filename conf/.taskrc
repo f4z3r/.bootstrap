@@ -18,6 +18,8 @@ calendar.holidays = sparse
 # Default due date for 'add' command
 default.due = eom
 
+dateformat = D/M
+
 # Aliases
 alias.a=add
 alias.s=summary
@@ -34,34 +36,21 @@ alias.c=context
 # Color theme
 include ~/.config/taskwarrior/gruvbox-dark-256.theme
 
-# Bugwarrior configuration
-# include ~/.config/taskwarrior/bugwarrior.rc
-
-# tasksh configuration
-# include ~/.config/taskwarrior/tasksh.rc
-
-# Personal contexts settings
-# include ~/.config/taskwarrior/context.rc
-
-# {{{ User Defined Attributes (UDA)
 # Estimated time in hours
-# [1]: https://taskwarrior.org/docs/udas.html
 uda.estimate.type=duration
-uda.estimate.label=Est
-
-# }}}
+uda.estimate.label=est
+uda.estimate.default=1h
 
 # {{{ Reports
-report.next.columns=id,urgency,start.age,entry.age,depends,priority,estimate,scheduled.countdown,due.relative,until.remaining,project,tags,description.count
-report.next.labels=ID,Urg,Active,Age,Deps,P,Est,S,Due,Until,Project,Tag,Description
-# report.next.filter=-trac # bugwarrior is messy
+report.next.columns=id,due.relative,priority,start.age,entry,depends,scheduled.countdown,estimate,until.remaining,project,tags,description.count
+report.next.labels=id,due,p,actv,crtd,deps,schdld,est,until,project,tag,descr
 
 report.list.columns=id,project,tags,scheduled,due.relative,urgency,description
-report.list.labels=ID,Project,Tags,Scheduled,Due,Score,Description
+report.list.labels=id,project,tags,schdld,due,score,descr
 
 report.simple.description=Simple list of open tasks by project
 report.simple.columns=id,project,description.count
-report.simple.labels=ID,Proj,Desc
+report.simple.labels=id,proj,desc
 report.simple.sort=project+/,entry+
 report.simple.filter=status:pending
 
