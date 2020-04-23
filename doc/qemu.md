@@ -206,6 +206,10 @@ $ mkdir ~/share
 $ sudo mount -t 9p -o trans=virtio,version=9p2000.L vmshare /home/jakob/share
 ```
 
+> A convenient script is provided [in the `tools` directory][1].
+
+[1]: ../tools/ubuntu_guest_mount_fs.sh
+
 ## Run
 
 Run the `ubuntu-18.04.sh` or `windows-10.sh` script and install Ubuntu/Windows. The second time the
