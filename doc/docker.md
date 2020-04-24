@@ -8,6 +8,7 @@
   - [Data Sharing](#data-sharing)
   - [Persistency](#persistency)
 * [Containers](#containers)
+  - [Commit to Image](#commit-to-image)
 
 <!-- vim-markdown-toc -->
 
@@ -69,3 +70,12 @@ $ docker run --name prusti-dev --mount source=myvol,target=path/container -it ub
 
 To start a stopped or exited container, use the `start` command. You can then attach to the
 container using `attach`. The default detach key sequence is `ctrl-p ctrl-q`.
+
+### Commit to Image
+
+It is possible to save the state of a container to an image, allowing to run it from said state over
+and over.
+
+```sh
+$ docker commit <container-name/id> <image-name>
+```
