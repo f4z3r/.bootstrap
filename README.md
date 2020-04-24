@@ -80,7 +80,7 @@ $ sudo pacman -S awesome
 ### Install utilities
 
 ```sh
-$ sudo pacman -S the_silver_searcher mupdf-gl screen neovim xscreensaver
+$ sudo pacman -S the_silver_searcher mupdf-gl screen neovim xscreensaver skim
 ```
 
 Configure defaults for filetypes.

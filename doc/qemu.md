@@ -1,5 +1,11 @@
 # QEMU
 
+> Note that most operations for cross-distro work can be performed via docker. In such cases
+> installing a fully blown Ubuntu VM is overkill. This is true for any work that can be fully
+> perfomed on the command line.
+>
+> However, the VM might still be useful for some types of work.
+
 <!-- vim-markdown-toc GFM -->
 
 * [Installation](#installation)
