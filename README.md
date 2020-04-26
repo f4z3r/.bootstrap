@@ -123,7 +123,7 @@ how to install and configure some of those tools, see `doc` directory.
 
 ### yay
 
-Install `yay` for AUR support.
+Install `yay` for AUR support. Either install from git as show below, or install with `pacman`.
 
 ```sh
 $ git clone https://aur.archlinux.org/yay.git
