@@ -161,6 +161,8 @@ nnoremap <leader>sl :BLines<cr>
 " (s)earch all (L)ines (across all buffers)
 nnoremap <leader>sL :Lines<cr>
 " see plugin/grep-operator.vim (ss)
+" search for visual selection using //
+vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
 " }}}
 
 

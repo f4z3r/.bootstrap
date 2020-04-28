@@ -6,6 +6,8 @@
 # Files
 data.location=~/.task
 
+editor=nvim
+
 weekstart = Monday
 
 confirmation = no
@@ -42,17 +44,20 @@ uda.estimate.label=est
 uda.estimate.default=1h
 
 # {{{ Reports
-report.next.columns=id,due.relative,priority,start.age,entry,depends,scheduled.countdown,estimate,until.remaining,project,tags,description.count
-report.next.labels=id,due,p,actv,crtd,deps,schdld,est,until,project,tag,descr
+report.next.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,until.remaining,start.active,project,tags,description.count
+report.next.labels=id,due,p,deps,schdld,est,until,s,project,tag,descr
 
-report.list.columns=id,project,tags,scheduled,due.relative,urgency,description
-report.list.labels=id,project,tags,schdld,due,score,descr
+report.sch.description=List of scheduled tasks
+report.sch.columns=id,scheduled,estimate,start.active,depends.indicator,project,description.count
+report.sch.labels=id,schdld,est,s,d,proj,desc
+report.sch.sort=scheduled+,project+/,entry+
+report.sch.filter=status:pending
 
-report.simple.description=Simple list of open tasks by project
-report.simple.columns=id,project,description.count
-report.simple.labels=id,proj,desc
-report.simple.sort=project+/,entry+
-report.simple.filter=status:pending
+report.age.description=List of created tasks
+report.age.columns=id,entry,start.active,project,description.count
+report.age.labels=id,created,s,proj,desc
+report.age.sort=entry+,project+/,entry+
+report.age.filter=status:pending
 
 #}}}
 
