@@ -45,7 +45,7 @@ uda.estimate.default=1h
 
 # {{{ Reports
 report.next.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,until.remaining,start.active,project,tags,description.count
-report.next.labels=id,due,p,deps,schdld,est,until,s,project,tag,descr
+report.next.labels=id,due,p,d,schdld,est,until,s,project,tag,descr
 
 report.sch.description=List of scheduled tasks
 report.sch.columns=id,scheduled,estimate,start.active,depends.indicator,project,description.count
