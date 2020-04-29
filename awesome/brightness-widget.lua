@@ -1,20 +1,9 @@
 local wibox = require("wibox")
-local awful = require("awful")
 require("string")
 
 local Brightness = { mt = {}, wmt = {} }
 Brightness.wmt.__index = Brightness
 Brightness.__index = Brightness
-
-config = awful.util.getdir("config")
-
-function Brightness:isXBacklightInstalled()
-  local prog = io.popen("xbacklight")
-  prog:read('*all')
-  local result = {prog:close()}
-
-  return result[3] == 0
-end
 
 local function run(command)
   local prog = io.popen(command)
@@ -26,19 +15,19 @@ end
 function Brightness:new(args)
   local obj = setmetatable({}, Brightness)
 
-  obj.step = 10
-  obj.cmd = "xbacklight"
-  obj.inc = "-inc"
-  obj.dec = "-dec"
-  obj.set = "-set"
-  obj.get = "-get"
+  obj.step = 5
+  obj.cmd = "brightnessctl -c 'backlight' -d '*backlight*'"
+  obj.inc = "set +"..obj.step.."%"
+  obj.dec = "set "..obj.step.."%-"
+  obj.get = "get"
+  obj.max = "max"
 
   -- Create imagebox widget
   obj.widget = wibox.widget.textbox()
   obj.widget:set_font(args.font)
 
-  -- Check the brightness every 10 seconds
-  obj.timer = timer({ timeout = 10 })
+  -- Check the brightness every 30 seconds
+  obj.timer = timer({ timeout = 30 })
   obj.timer:connect_signal("timeout", function() obj:update({}) end)
   obj.timer:start()
 
@@ -48,9 +37,7 @@ function Brightness:new(args)
 end
 
 function Brightness:tooltipText()
-  local text = self:getBrightness()
-  local subbed = string.gsub(text, ".000000\n", "")
-  return subbed.."%"
+  return string.format("%.0f%%", self:getBrightness())
 end
 
 function Brightness:update(status)
@@ -59,22 +46,19 @@ function Brightness:update(status)
 end
 
 function Brightness:up()
-  run(self.cmd.." "..self.inc.." "..self.step)
+  run(self.cmd.." "..self.inc)
   self:update({})
 end
 
 function Brightness:down()
-  run(self.cmd.." "..self.dec.." "..self.step)
-  self:update({})
-end
-
-function Brightness:set(val)
-  run(self.cmd.." "..self.set.." "..val)
+  run(self.cmd.." "..self.dec)
   self:update({})
 end
 
 function Brightness:getBrightness()
-  return run(self.cmd.." "..self.get)
+  local current = run(self.cmd.." "..self.get)
+  local max = run(self.cmd.." "..self.max)
+  return tonumber(current) / tonumber(max) * 100
 end
 
 function Brightness.mt:__call(...)

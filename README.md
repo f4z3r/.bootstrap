@@ -3,29 +3,6 @@
 This document explains how to bootstrap a full development environment running on Manjaro from
 scratch.
 
-## Base Installation
-
-Download the Xfce iso from their official website. Then create a
-bootable USB drive.
-
-```sh
-$ lsblk
-$ sudo dd bs=4M if=/path/to/iso of=/path/to/dev
-$ sync
-```
-
-<!-- vim-markdown-toc GFM -->
-
-* [Setup](#setup)
-  - [Install `fish`](#install-fish)
-  - [Install Fura Code](#install-fura-code)
-  - [Install `awesome`](#install-awesome)
-  - [Install utilities](#install-utilities)
-* [Install other](#install-other)
-  - [yay](#yay)
-  - [Other Utilities](#other-utilities)
-
-<!-- vim-markdown-toc -->
 ## Setup
 
 Install `git` to clone this repository. Also generate ssh keys.
@@ -37,6 +14,15 @@ $ ssh-keygen -t rsa -b 4096
 
 ### Install `fish`
 
+<!-- vim-markdown-toc GFM -->
+
+  - [Install Fura Code](#install-fura-code)
+  - [Install `awesome`](#install-awesome)
+  - [Install utilities](#install-utilities)
+* [Install other](#install-other)
+  - [yay](#yay)
+
+<!-- vim-markdown-toc -->
 Install fish and configure it enough to make it usable on Konsole.
 
 ```sh
@@ -70,7 +56,7 @@ $ ./install.sh FiraCode
 Install awesome and its main dependencies.
 
 ```sh
-$ sudo pacman -S dmenu mpc scrot unclutter xsel xorg-xbacklight kitty
+$ sudo pacman -S dmenu mpc scrot unclutter xsel brightnessctl kitty
 $ sudo pacman -S awesome
 ```
 
@@ -131,7 +117,3 @@ $ makepkg -si
 $ cd ..
 $ rm -rf yay
 ```
-
-### Other Utilities
-
-1. `brightnessctl`: allows for more fine-grained control over all devices than `xbacklight`.
