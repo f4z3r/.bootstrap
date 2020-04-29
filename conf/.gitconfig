@@ -16,8 +16,8 @@
 	aa = add .
 	a = add
 	cc = commit -m
-	ce = commit --amend -C HEAD
-  ca = commit --amend -m
+	ca = commit --amend -C HEAD
+  ce = commit --amend -m
 	co = checkout
 	r = reset
 	s = status -sb
