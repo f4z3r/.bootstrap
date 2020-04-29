@@ -19,6 +19,7 @@ local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/jakob/icons"
 theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/jakob/leather.jpg"
+theme.font_base                                 = "FuraCode Nerd Font Bold"
 theme.font                                      = "FuraCode Nerd Font Bold 8"
 theme.taglist_font                              = "FuraCode Nerd Font Regular 8"
 theme.fg_normal                                 = "#FFFFFF"
@@ -40,6 +41,7 @@ theme.awesome_icon                              = theme.icon_dir .. "/manjaro_ic
 theme.awesome_icon_launcher                     = theme.icon_dir .. "/manjaro_icon_round.png"
 theme.taglist_squares_sel                       = theme.icon_dir .. "/square_sel.png"
 theme.taglist_squares_unsel                     = theme.icon_dir .. "/square_unsel.png"
+theme.taskwarrior_icon                          = theme.icon_dir .. "/taskwarrior.png"
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.useless_gap                               = dpi(0)
@@ -125,8 +127,8 @@ local bat = lain.widget.bat({
 local taskwidget = wibox.widget.textbox('<span font="Fira Code 12" color="cyan">\u{f4a0}</span>')
 lain.widget.contrib.task.attach(taskwidget, {
   notification_preset = {
-    font = theme.font,
-    icon = "\u{f4a0}"
+    font = theme.font_base.." 14",
+    icon = theme.taskwarrior_icon
   },
   followtag = true
 })
