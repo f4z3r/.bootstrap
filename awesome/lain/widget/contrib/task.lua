@@ -52,13 +52,22 @@ end
 
 function task.prompt()
     awful.prompt.run {
-        prompt       = task.prompt_text,
+        prompt       = "<b>"..task.prompt_text.."</b>",
         textbox      = awful.screen.focused().mypromptbox.widget,
+        hooks        = {
+          {{},'Return', function(cmd)
+            if (not cmd) then
+              return "next"
+            else
+              return cmd
+            end
+          end},
+        },
         exe_callback = function(t)
-            helpers.async(t, function(f)
+            helpers.async("task "..t, function(f)
                 naughty.notify {
                     preset = task.notification_preset,
-                    title  = t,
+                    title  = "task "..t,
                     text   = markup.font(task.notification_preset.font,
                              awful.util.escape(f:gsub("\n*$", "")))
                 }
