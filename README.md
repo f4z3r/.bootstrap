@@ -3,21 +3,6 @@
 This document explains how to bootstrap a full development environment running on Manjaro from
 scratch.
 
-## TOC
-
-<!-- vim-markdown-toc GFM -->
-
-* [Base Installation](#base-installation)
-* [Setup](#setup)
-  - [Install `fish`](#install-fish)
-  - [Install Fura Code](#install-fura-code)
-  - [Install `awesome`](#install-awesome)
-  - [Install utilities](#install-utilities)
-* [Install other](#install-other)
-  - [yay](#yay)
-
-<!-- vim-markdown-toc -->
-
 ## Base Installation
 
 Download the Xfce iso from their official website. Then create a
@@ -29,6 +14,18 @@ $ sudo dd bs=4M if=/path/to/iso of=/path/to/dev
 $ sync
 ```
 
+<!-- vim-markdown-toc GFM -->
+
+* [Setup](#setup)
+  - [Install `fish`](#install-fish)
+  - [Install Fura Code](#install-fura-code)
+  - [Install `awesome`](#install-awesome)
+  - [Install utilities](#install-utilities)
+* [Install other](#install-other)
+  - [yay](#yay)
+  - [Other Utilities](#other-utilities)
+
+<!-- vim-markdown-toc -->
 ## Setup
 
 Install `git` to clone this repository. Also generate ssh keys.
@@ -73,9 +70,11 @@ $ ./install.sh FiraCode
 Install awesome and its main dependencies.
 
 ```sh
-$ sudo pacman -S dmenu mpc scrot unclutter xsel kitty
+$ sudo pacman -S dmenu mpc scrot unclutter xsel xorg-xbacklight kitty
 $ sudo pacman -S awesome
 ```
+
+In order to allow some widget keys, also install `task`. See [taskwarrior](doc/task.md).
 
 ### Install utilities
 
@@ -132,3 +131,7 @@ $ makepkg -si
 $ cd ..
 $ rm -rf yay
 ```
+
+### Other Utilities
+
+1. `brightnessctl`: allows for more fine-grained control over all devices than `xbacklight`.

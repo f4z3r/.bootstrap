@@ -414,11 +414,15 @@ globalkeys = my_table.join(
     awful.key({ altkey, }, "w", function () if beautiful.weather then beautiful.weather.show(7) end end,
               {description = "show weather", group = "widgets"}),
 
+    -- TaskWarrior
+    awful.key({ altkey, }, "t", function () lain.widget.contrib.task.show() end,
+              {description = "show next tasks", group = "widgets"}),
+
     -- Brightness
-    --awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
-    --          {description = "+10%", group = "hotkeys"}),
-    --awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
-    --          {description = "-10%", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () beautiful.brightness:up() end,
+             {description = "+10% brightness", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessDown", function () beautiful.brightness:down() end,
+             {description = "-10% brightness", group = "hotkeys"}),
 
     -- ALSA volume control
     awful.key({ altkey }, "Up",

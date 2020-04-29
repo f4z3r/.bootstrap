@@ -10,6 +10,8 @@ local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
 
+local brightness_widget = require("brightness-widget")
+
 local string, os = string, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
@@ -66,6 +68,8 @@ theme.cal = lain.widget.cal({
     }
 })
 
+-- Brightness
+theme.brightness = brightness_widget:new({font = theme.font})
 
 -- MPD
 local mpd_icon = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f885} </span>")
@@ -117,6 +121,15 @@ local bat = lain.widget.bat({
     end
   })
 
+-- Taskwarrior
+local taskwidget = wibox.widget.textbox('<span font="Fira Code 12" color="cyan">\u{f4a0}</span>')
+lain.widget.contrib.task.attach(taskwidget, {
+  notification_preset = {
+    font = theme.font,
+    icon = "\u{f4a0}"
+  },
+  followtag = true
+})
 
 -- ALSA volume bar
 theme.volume = lain.widget.alsabar({
@@ -263,6 +276,8 @@ function theme.at_screen_connect(s)
             bottom_bar,
             bat.widget,
             bottom_bar,
+            taskwidget,
+            bottom_bar,
             s.mypromptbox,
         },
         nil, -- Middle widget
@@ -296,6 +311,8 @@ function theme.at_screen_connect(s)
             bottom_bar,
             cpuwidget,
             cputempwidget,
+            bottom_bar,
+            theme.brightness,
             bottom_bar,
             calendarwidget,
             bottom_bar,
