@@ -24,17 +24,6 @@ local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 
 
--- only require debian.menu when running debian
-local handle = io.popen("uname -r")
-local result = handle:read("*a")
-handle:close()
-
-local debian = nil
-if string.find(result, "generic") then
-  debian = require("debian.menu")
-end
--- }}}
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -69,6 +58,13 @@ local function run_once(cmd_arr)
 end
 
 run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
+
+local function run(command)
+  local prog = io.popen(command)
+  local result = prog:read('*all')
+  prog:close()
+  return result
+end
 
 -- This function implements the XDG autostart specification
 --[[
@@ -477,7 +473,12 @@ globalkeys = my_table.join(
         {description = "mpc next", group = "widgets"}),
     awful.key({ altkey }, "q",
         function ()
-            awful.spawn.with_shell("notify-send -t 5000 'Next queued song' (mpc queue)")
+            local next_song = run("mpc queue")
+            naughty.notify {
+                title = "\u{f885} next queued song \u{f885}",
+                text = next_song,
+                timeout = 7
+            }
         end,
         {description = "show next song", group = "widgets"}),
     awful.key({ altkey }, "0",

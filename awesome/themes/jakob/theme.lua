@@ -128,7 +128,8 @@ local taskwidget = wibox.widget.textbox('<span font="Fira Code 12" color="cyan">
 lain.widget.contrib.task.attach(taskwidget, {
   notification_preset = {
     font = theme.font_base.." 14",
-    icon = theme.taskwarrior_icon
+    icon = theme.taskwarrior_icon,
+    timeout = 20
   },
   followtag = true
 })
