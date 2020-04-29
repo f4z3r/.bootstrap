@@ -60,7 +60,8 @@ $ sudo pacman -S dmenu mpc scrot unclutter xsel brightnessctl kitty
 $ sudo pacman -S awesome
 ```
 
-In order to allow some widget keys, also install `task`. See [taskwarrior](doc/task.md).
+In order to allow some widget keys, also install `task`, and `timew`. See [taskwarrior](doc/task.md)
+and [timewarrior](doc/timew.md).
 
 ### Install utilities
 

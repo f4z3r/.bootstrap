@@ -12,6 +12,13 @@ local naughty = require("naughty")
 local mouse   = mouse
 local string  = string
 
+local function run(command)
+  local prog = io.popen(command)
+  local result = prog:read('*all')
+  prog:close()
+  return result
+end
+
 -- Taskwarrior notification
 -- lain.widget.contrib.task
 local task = {}
@@ -54,15 +61,6 @@ function task.prompt()
     awful.prompt.run {
         prompt       = "<b>"..task.prompt_text.."</b>",
         textbox      = awful.screen.focused().mypromptbox.widget,
-        hooks        = {
-          {{},'Return', function(cmd)
-            if (not cmd) then
-              return "next"
-            else
-              return cmd
-            end
-          end},
-        },
         exe_callback = function(t)
             helpers.async("task "..t, function(f)
                 naughty.notify {
@@ -77,6 +75,15 @@ function task.prompt()
     }
 end
 
+function task.update()
+  local timew_active = not (run("timew"):gsub("\n*$", "") == "There is no active time tracking.")
+  local color = "cyan"
+  if timew_active then
+    color = "red"
+  end
+  task.widget.markup = '<span font="Fira Code 12" color="'..color..'">\u{f4a0}</span>'
+end
+
 function task.attach(widget, args)
     local args               = args or {}
     task.show_cmd            = args.show_cmd or "task next"
@@ -84,6 +91,10 @@ function task.attach(widget, args)
     task.followtag           = args.followtag or false
     task.notification_preset = args.notification_preset
     task.widget              = widget
+    task.widget.markup       = '<span font="Fira Code 12" color="cyan">\u{f4a0}</span>'
+    task.timer               = timer({ timeout = 10 })
+    task.timer:connect_signal("timeout", function () task.update() end)
+    task.timer:start()
 
     if not task.notification_preset then
         task.notification_preset = {

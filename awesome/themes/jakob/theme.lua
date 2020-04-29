@@ -42,6 +42,7 @@ theme.awesome_icon_launcher                     = theme.icon_dir .. "/manjaro_ic
 theme.taglist_squares_sel                       = theme.icon_dir .. "/square_sel.png"
 theme.taglist_squares_unsel                     = theme.icon_dir .. "/square_unsel.png"
 theme.taskwarrior_icon                          = theme.icon_dir .. "/taskwarrior.png"
+theme.taskwarrior_notif_preset                  = { font = theme.font_base.." 14", icon = theme.taskwarrior_icon, timeout = 20 }
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.useless_gap                               = dpi(0)
@@ -126,11 +127,7 @@ local bat = lain.widget.bat({
 -- Taskwarrior
 local taskwidget = wibox.widget.textbox('<span font="Fira Code 12" color="cyan">\u{f4a0}</span>')
 lain.widget.contrib.task.attach(taskwidget, {
-  notification_preset = {
-    font = theme.font_base.." 14",
-    icon = theme.taskwarrior_icon,
-    timeout = 20
-  },
+  notification_preset = theme.taskwarrior_notif_preset,
   followtag = true
 })
 

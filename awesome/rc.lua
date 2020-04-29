@@ -16,6 +16,7 @@ local wibox         = require("wibox")
 local beautiful     = require("beautiful")
 local naughty       = require("naughty")
 local lain          = require("lain")
+local helpers       = require("lain.helpers")
 local menubar       = require("menubar")
 local freedesktop   = require("freedesktop")
 local hotkeys_popup = require("awful.hotkeys_popup").widget
@@ -187,6 +188,38 @@ lain.layout.cascade.tile.ncol          = 2
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 -- }}}
+
+
+-- {{{ TimeWarrior
+local function timew_prompt()
+    awful.prompt.run {
+        prompt       = "<b>Enter timew command: </b>",
+        textbox      = awful.screen.focused().mypromptbox.widget,
+        hooks        = {
+          {{},'Return', function(cmd)
+            if (not cmd) or cmd == '' then
+              return "summary"
+            else
+              return cmd
+            end
+          end},
+        },
+        exe_callback = function(t)
+            helpers.async("timew "..t, function(f)
+                naughty.notify {
+                    preset = beautiful.taskwarrior_notif_preset,
+                    title  = "timew "..t,
+                    text   = lain.util.markup.font(beautiful.taskwarrior_notif_preset.font,
+                             awful.util.escape(f:gsub("\n*$", "")))
+                }
+            end)
+            lain.widget.contrib.task.update()
+        end,
+        history_path = awful.util.getdir("cache") .. "/history_timew"
+    }
+end
+-- }}}
+
 
 -- {{{ Menu
 local myawesomemenu = {
@@ -392,10 +425,22 @@ globalkeys = my_table.join(
     awful.key({ altkey, }, "t", lain.widget.contrib.task.show,
               {description = "show next tasks", group = "widgets"}),
 
+    -- TimeWarrior
+    awful.key({ altkey, "Control" }, "i", timew_prompt,
+              {description = "run in timew prompt", group = "widgets"}),
+    awful.key({ altkey, }, "i",
+      function ()
+        local time_tracked = run("timew")
+        naughty.notify {
+          preset = beautiful.taskwarrior_notif_preset,
+          title = "Time Warrior",
+          text = time_tracked,
+          timeout = 7
+        }
+      end,
+      {description = "show current time tracking", group = "widgets"}),
 
     -- Widgets popups
-    awful.key({ altkey, }, "t", function () lain.widget.contrib.task.show() end,
-              {description = "show next tasks", group = "widgets"}),
     awful.key({ altkey, }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
               {description = "show calendar", group = "widgets"}),
 
