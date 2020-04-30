@@ -35,6 +35,8 @@ alias.D=delete
 alias.e=edit
 alias.cal=calendar
 alias.c=context
+alias.b=burndown.daily
+alias.h=ghistory
 
 # Color theme
 include ~/.config/taskwarrior/gruvbox-dark-256.theme
