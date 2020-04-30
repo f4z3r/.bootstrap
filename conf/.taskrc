@@ -17,8 +17,9 @@ regex = yes
 
 calendar.holidays = sparse
 
-# Default due date for 'add' command
-default.due = eom
+# Default values tasks
+default.due = 1wk
+default.scheduled = tomorrow
 
 dateformat = D/M
 
@@ -41,11 +42,29 @@ include ~/.config/taskwarrior/gruvbox-dark-256.theme
 # Estimated time in hours
 uda.estimate.type=duration
 uda.estimate.label=est
-uda.estimate.default=1h
+uda.estimate.default=1hr
+
+# Priority (Critical/High/Medium/Low)
+uda.priority.label=priority
+uda.priority.type=string
+uda.priority.values=C,H,M,L
+uda.priority.default=M
+urgency.uda.priority.C.coefficient=10.0
+urgency.uda.priority.H.coefficient=6.0
+urgency.uda.priority.M.coefficient=3.9
+urgency.uda.priority.L.coefficient=1.8
 
 # {{{ Reports
 report.next.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,until.remaining,start.active,project,tags,description.count
 report.next.labels=id,due,p,d,schdld,est,until,s,project,tag,descr
+
+report.today.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,until.remaining,start.active,project,tags,description.count
+report.today.labels=id,due,p,d,schdld,est,until,s,project,tag,descr
+report.today.filter=status:pending and (due.before:2days or schedule.before:tomorrow)
+
+report.high.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,until.remaining,start.active,project,tags,description.count
+report.high.labels=id,due,p,d,schdld,est,until,s,project,tag,descr
+report.high.filter=status:pending priority.not:L priority.not:M
 
 report.sch.description=List of scheduled tasks
 report.sch.columns=id,scheduled,estimate,start.active,depends.indicator,project,description.count
