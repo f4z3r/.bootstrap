@@ -32,6 +32,15 @@ set undofile
 " }}}
 
 
+" ==== Sessions =========================================================={{{
+if ! isdirectory(expand('~/.vim/sessions/'))
+  call mkdir(expand('~/.vim/sessions/'), 'p')
+endif
+set sessionoptions-=options    " do not store global and local values in a session
+set sessionoptions-=folds      " do not store folds
+" }}}
+
+
 " ==== Wild Menu ========================================================={{{
 set wildmenu
 set wildmode=list:longest,full

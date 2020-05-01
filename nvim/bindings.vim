@@ -305,6 +305,12 @@ nnoremap <silent> ]o /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
 nnoremap <silent> [o ?\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
 " (o)rganisation generate (t)odo quickfix for current file
 nnoremap <leader>ot :vimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<cr>:copen<cr>
+" (o)rganisation (S)ession (c)reate
+nnoremap <leader>oSc :mksession ~/.vim/sessions/
+" (o)rganisation (S)ession (l)oad
+nnoremap <leader>oSl :source ~/.vim/sessions/
+" (o)rganisation (S)ession (m)anage
+nnoremap <leader>oSm :e ~/.vim/sessions/<cr>
 " }}}
 
 
