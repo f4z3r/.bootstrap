@@ -19,6 +19,9 @@ if dein#load_state('~/.cache/dein')
   endif
 
 " ================= Plugins =================
+  " splash screen
+  call dein#add('mhinz/vim-startify')
+
   " auto completion
   call dein#add('neoclide/coc.nvim',
         \{'merged': 0, 'rev': 'release'})

@@ -26,7 +26,7 @@ $ ssh-keygen -t rsa -b 4096
 Install fish and configure it enough to make it usable on Konsole.
 
 ```sh
-$ sudo pacman -S fish
+$ sudo pacman -S fish fortune-mod
 $ curl -L https://get.oh-my.fish | fish
 $ fish -c "omf install bobthefish"
 $ chsh -s /usr/bin/fish
