@@ -5,13 +5,19 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-fish configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver
+configure: configure-vim configure-zsh configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver
 
 .PHONY: configure-git
 configure-git:
 	@if [ ! -L $(HOME)/.gitconfig ]; then ln -s $(CURRENT_DIR)/conf/.gitconfig $(HOME)/.gitconfig; fi
 	@if [ ! -L $(HOME)/.gitignore ]; then ln -s $(CURRENT_DIR)/conf/.gitignore $(HOME)/.gitignore; fi
 	@echo "[+] Linked git configuration"
+
+.PHONY: configure-zsh
+configure-zsh:
+	@if [ ! -L $(HOME)/.zshrc ]; then ln -s $(CURRENT_DIR)/zsh/.zshrc $(HOME)/.zshrc; fi
+	@if [ ! -L $(HOME)/.config/zsh ]; then ln -s $(CURRENT_DIR)/zsh/zsh $(HOME)/.config/zsh; fi
+	@echo "[+] Linked zsh configuration"
 	
 .PHONY: configure-vim
 configure-vim: install-dein
@@ -25,12 +31,6 @@ configure-awesome:
 	@if [ ! -L $(HOME)/.config/awesome ]; then ln -s $(CURRENT_DIR)/awesome/ $(HOME)/.config/awesome; fi
 	@echo "[+] Linked awesome configuration"
 	
-.PHONY: configure-fish
-configure-fish:
-	@if [ -d $(HOME)/.config/fish ]; then rm -rf $(HOME)/.config/fish; fi
-	@if [ ! -L $(HOME)/.config/fish ]; then ln -s $(CURRENT_DIR)/fish/ $(HOME)/.config/fish; fi
-	@echo "[+] Linked fish configuration"
-
 .PHONY: configure-kitty
 configure-kitty:
 	@if [ ! -d $(HOME)/.config/kitty/ ]; then mkdir -p $(HOME)/.config/kitty; fi
