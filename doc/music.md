@@ -34,6 +34,13 @@ pulseaudio -k       # NOT AS ROOT
 pulseaudio --start
 ```
 
+Set it to accept bluetooth connections. Connect to bluetooth then
+
+```sh
+pactl list sinks short
+pacmd "set-default-sink bluez_sink...."
+```
+
 ## Usage
 
 Start the `mpd` service. Perform the troubleshoot when starting `mpd` right after an update or
