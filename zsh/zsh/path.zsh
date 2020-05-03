@@ -2,16 +2,8 @@
 #============================================== Path =============================================
 #=================================================================================================
 
-if [ -d "$HOME/.local/bin/" ]; then
-  PATH="$HOME/.local/bin/:$PATH"
-fi
-
-if [ -d "$HOME/.nimble/bin" ]; then
-  PATH="$HOME/.nimble/bin:$PATH"
-fi
-
-if [ -d "$HOME/.cargo/bin" ]; then
-  PATH="$HOME/.cargo/bin:$PATH"
-fi
+[ -d "$HOME/.local/bin/" ] && PATH="$HOME/.local/bin/:$PATH"
+[ -d "$HOME/.nimble/bin" ] && PATH="$HOME/.nimble/bin:$PATH"
+[ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
 
 export PATH=".:$PATH"
