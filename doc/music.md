@@ -5,7 +5,7 @@
 Ensure all required programs are installed.
 
 ```sh
-$ sudo pacman -S mpd ncmpcpp
+sudo pacman -S mpd ncmpcpp
 ```
 
 The `mpc` client should already have been installed as a dependency to `awesome`.
@@ -15,23 +15,23 @@ The `mpc` client should already have been installed as a dependency to `awesome`
 Create the required directories for mpd.
 
 ```sh
-$ mkdir -p ~/.config/mpd/playlists
+mkdir -p ~/.config/mpd/playlists
 ```
 
 Link the configuration files.
 
 ```sh
-$ sudo ln -s ~/.bootstrap/conf/mpd.conf /etc/mpd.conf
-$ sudo ln -s ~/.bootstrap/conf/default.pa /etc/pulse/default.pa
-$ sudo ln -s ~/.bootstrap/conf/client.conf /etc/pulse/client.conf
-$ sudo ln -s ~/.bootstrap/conf/ncmpcpp ~/.ncmpcpp
+sudo ln -s ~/.bootstrap/conf/mpd.conf /etc/mpd.conf
+sudo ln -s ~/.bootstrap/conf/default.pa /etc/pulse/default.pa
+sudo ln -s ~/.bootstrap/conf/client.conf /etc/pulse/client.conf
+sudo ln -s ~/.bootstrap/conf/ncmpcpp ~/.ncmpcpp
 ```
 
 Then restart `pulseaudio`.
 
 ```sh
-$ pulseaudio -k       # NOT AS ROOT
-$ pulseaudio --start
+pulseaudio -k       # NOT AS ROOT
+pulseaudio --start
 ```
 
 ## Usage
@@ -40,7 +40,7 @@ Start the `mpd` service. Perform the troubleshoot when starting `mpd` right afte
 install.
 
 ```sh
-$ sudo systemctl start mpd
+sudo systemctl start mpd
 ```
 
 Launch `ncmpcpp` as a client to listen to music. Press `u` to update the database and import songs.
@@ -50,7 +50,7 @@ Launch `ncmpcpp` as a client to listen to music. Press `u` to update the databas
 Create a symbolic link to always sync playlists.
 
 ```sh
-$ ln -s ~/.bootstrap/conf/playlists ~/.config/mpd/playlists
+ln -s ~/.bootstrap/conf/playlists ~/.config/mpd/playlists
 ```
 
 ## Troubleshoot
@@ -61,5 +61,7 @@ Now remove the user in
 
 to be `root`. Then restart `mpd` daemon:
 
-    sudo systemctl daemon-reload
-    sudo systemctl restart mpd
+```sh
+sudo systemctl daemon-reload
+sudo systemctl restart mpd
+```

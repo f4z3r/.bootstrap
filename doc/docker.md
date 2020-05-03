@@ -4,6 +4,7 @@
 
 * [Installation](#installation)
 * [Images](#images)
+  - [Dangling Images](#dangling-images)
 * [Volume Management](#volume-management)
   - [Data Sharing](#data-sharing)
   - [Persistency](#persistency)
@@ -20,19 +21,19 @@ Then add your user to the docker group to run without requiring root privileges 
 ensure a `docker` group exists.
 
 ```sh
-$ cat /etc/group | grep docker
+cat /etc/group | grep docker
 ```
 
 Then add the current user to the group.
 
 ```sh
-$ sudo gpasswd -a (whoami) docker
+sudo gpasswd -a (whoami) docker
 ```
 
 Reboot and then run the following to ensure everything is fine.
 
 ```sh
-$ docker run --rm -it archlinux bash -c "echo hello jakob"
+docker run --rm -it archlinux bash -c "echo hello jakob"
 ```
 
 ## Images
@@ -47,6 +48,20 @@ The `debian:stable-slim` image provides nice a Debian image for testing.
 
 The `ubuntu:bionic` image provides nice an Ubuntu image for testing.
 
+### Dangling Images
+
+Remove dangling images using:
+
+```sh
+docker rmi $(docker images -f "dangling=true" -q)
+```
+
+Or with `<none>` names:
+
+```sh
+docker rmi $(docker images | grep "<none>")
+```
+
 ## Volume Management
 
 ### Data Sharing
@@ -54,7 +69,7 @@ The `ubuntu:bionic` image provides nice an Ubuntu image for testing.
 To share a folder between a docker container and the host use the `-v` flag.
 
 ```sh
-$ docker run --name prusti-dev -v /home/jakob/prog:path/container -it ubuntu:bionic bash
+docker run --name prusti-dev -v /home/jakob/prog:path/container -it ubuntu:bionic bash
 ```
 
 ### Persistency
@@ -63,7 +78,7 @@ Use `docker volume create <name>` to create a volume. A container can then be st
 `--mount` flag to attach the volume.
 
 ```sh
-$ docker run --name prusti-dev --mount source=myvol,target=path/container -it ubuntu:bionic bash
+docker run --name prusti-dev --mount source=myvol,target=path/container -it ubuntu:bionic bash
 ```
 
 ## Containers
@@ -77,5 +92,5 @@ It is possible to save the state of a container to an image, allowing to run it 
 and over.
 
 ```sh
-$ docker commit <container-name/id> <image-name>
+docker commit <container-name/id> <image-name>
 ```

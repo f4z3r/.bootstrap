@@ -23,7 +23,7 @@ First, ensure `coc` is properly set up.
 Install `nim` via `choosenim`.
 
 ```sh
-$ curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
 ```
 
 This will also install the latest stable version of `nim` and `nimble` automatically.
@@ -33,6 +33,6 @@ This will also install the latest stable version of `nim` and `nimble` automatic
 Install the LSP via `nimble`.
 
 ```sh
-$ nimble install nimlsp
+nimble install nimlsp
 ```
 

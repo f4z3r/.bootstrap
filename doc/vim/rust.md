@@ -23,7 +23,7 @@ CocInstall coc-rls
 Install `rust` via `rustup`.
 
 ```sh
-$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
 This will automatically install the stable version of `rust`. The installation of `rls` will be

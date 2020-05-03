@@ -24,6 +24,6 @@ Make sure `yay` is installed. Then install `vale` from the AUR.
 Configure vale.
 
 ```sh
-$ ln -s ~/.bootstrap/conf/.vale.ini ~/.vale.ini
-$ ln -s ~/.bootstrap/conf/.vale.d ~/.vale.d
+ln -s ~/.bootstrap/conf/.vale.ini ~/.vale.ini
+ln -s ~/.bootstrap/conf/.vale.d ~/.vale.d
 ```
