@@ -2,7 +2,7 @@
 #=========================================== Completion ==========================================
 #=================================================================================================
 
-fpath=($HOME/.config/zsh/completion $fpath)
+fpath=($HOME/.config/zsh/completions $fpath)
 autoload -Uz compinit
 compinit -u
 #autoload -U ~/.zsh/completion/*(:t)
