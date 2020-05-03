@@ -15,7 +15,7 @@ The `mpc` client should already have been installed as a dependency to `awesome`
 Create the required directories for mpd.
 
 ```sh
-mkdir -p ~/.config/mpd/playlists
+mkdir -p ~/.config/mpd/
 ```
 
 Link the configuration files.
