@@ -56,21 +56,26 @@ urgency.uda.priority.H.coefficient=6.0
 urgency.uda.priority.M.coefficient=3.9
 urgency.uda.priority.L.coefficient=1.8
 
-# {{{ Reports
-report.next.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,until.remaining,start.active,project,tags,description.count
-report.next.labels=id,due,p,d,schdld,est,until,s,project,tag,descr
+# Total time spent
+uda.totalactivetime.type=duration
+uda.totalactivetime.label=totact
+uda.totalactivetime.values=''
 
-report.today.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,until.remaining,start.active,project,tags,description.count
-report.today.labels=id,due,p,d,schdld,est,until,s,project,tag,descr
+# {{{ Reports
+report.next.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
+report.next.labels=id,due,p,d,schdld,est,act,until,s,project,tag,descr
+
+report.today.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
+report.today.labels=id,due,p,d,schdld,est,act,until,s,project,tag,descr
 report.today.filter=status:pending and (due.before:2days or schedule.before:tomorrow)
 
-report.high.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,until.remaining,start.active,project,tags,description.count
-report.high.labels=id,due,p,d,schdld,est,until,s,project,tag,descr
+report.high.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
+report.high.labels=id,due,p,d,schdld,est,act,until,s,project,tag,descr
 report.high.filter=status:pending priority.not:L priority.not:M
 
 report.sch.description=List of scheduled tasks
-report.sch.columns=id,scheduled,estimate,start.active,depends.indicator,project,description.count
-report.sch.labels=id,schdld,est,s,d,proj,desc
+report.sch.columns=id,scheduled,estimate,atc,start.active,depends.indicator,project,description.count
+report.sch.labels=id,schdld,est,act,s,d,proj,desc
 report.sch.sort=scheduled+,project+/,entry+
 report.sch.filter=status:pending
 
@@ -80,7 +85,12 @@ report.age.labels=id,created,s,proj,desc
 report.age.sort=entry+,project+/,entry+
 report.age.filter=status:pending
 
-#}}}
+taskd.certificate=~/.task/keys/private.certificate.pem
+taskd.key=~/.task/keys/private.key.pem
+taskd.ca=~/.task/keys/ca.cert.pem
+taskd.server=taskwarrior.inthe.am:53589
+taskd.credentials=inthe_am/cirusthevirus130212/48b95eb5-e5fc-4569-aff9-7ad78251343b
+taskd.trust=ignore hostname
 
 context.work=+work
 context.home=+home
