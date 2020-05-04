@@ -180,6 +180,8 @@ nnoremap <leader>mq :qa<cr>
 nnoremap <leader>mz <c-z>
 " (m)achine vim hard (Q)uit
 nnoremap <leader>mQ :qa!<cr>
+" (m)achine set (c)wd for (l)ocal file
+nnoremap <leader>mcl :lcd %:p:h<cr>
 " }}}
 
 
