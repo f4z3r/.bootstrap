@@ -9,6 +9,7 @@ bindkey "fd" vi-cmd-mode
 bindkey -a "^H" vi-beginning-of-line
 bindkey -a "^L" vi-end-of-line
 
+
 typeset -A key
 
 key[Home]=${terminfo[khome]}

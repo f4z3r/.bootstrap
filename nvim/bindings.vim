@@ -12,10 +12,11 @@ let mapleader = "\<Space>"
 
 " ==== ESC remaps ========================================================{{{
 " <Esc> remaps
-nnoremap fd <Esc>
-inoremap fd <Esc>
-vnoremap fd <Esc>
-cnoremap fd <Esc>
+nnoremap fd <esc>
+inoremap fd <esc>
+vnoremap fd <esc>
+cnoremap fd <esc>
+tnoremap <esc> <c-\><c-N>
 " }}}
 
 
@@ -251,12 +252,16 @@ nnoremap <leader>ws :split<cr>
 nnoremap <leader>wr <c-w>=
 " (w)indow focus l
 nnoremap <leader>wl <c-w>lzH
+tnoremap <leader>wl <c-\><c-N><c-w>lzH
 " (w)indow focus h
 nnoremap <leader>wh <c-w>hzH
+tnoremap <leader>wh <c-\><c-N><c-w>hzH
 " (w)indow focus j
 nnoremap <leader>wj <c-w>jzH
+tnoremap <leader>wj <c-\><c-N><c-w>jzH
 " (w)indow focus k
 nnoremap <leader>wk <c-w>kzH
+tnoremap <leader>wk <c-\><c-N><c-w>kzH
 " (w)indow (t)ab new
 nnoremap <leader>wt :$tabnew<cr>
 " }}}
