@@ -79,6 +79,12 @@ let g:airline_mode_map = {
 let spc = g:airline_symbols.space
 let arr = g:airline_right_alt_sep
 
+let g:airline#extensions#term#enabled = 0
+
+let g:airline#extensions#wordcount#formatter = 'kilo'
+let g:airline#extensions#wordcount#formatter#kilo#fmt = '%s w'
+let g:airline#extensions#wordcount#formatter#kilo#fmt_short = '%s'
+
 call airline#parts#define_function('pomo', 'PomodoroStatus')
 call airline#parts#define_accent('pomo', 'green')
 
