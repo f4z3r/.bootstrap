@@ -334,5 +334,5 @@ function g:BootstrapCopyToSystem()
 endfunction
 nnoremap <silent> <leader>yy :call BootstrapCopyToSystem()<cr>
 " change last written word to UPPER_CASE
-imap <c-j> <esc>bcruA
+imap <c-i> <esc>bcruA
 " }}}
