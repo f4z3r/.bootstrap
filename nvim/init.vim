@@ -66,9 +66,9 @@ if dein#load_state('~/.cache/dein')
   " show indent guide
   call dein#add('Yggdroot/indentLine')
 
-  " taskwarrior
+  " taskwarrior (allow lazy loading but place airline extension into autoload)
   call dein#add('blindfs/vim-taskwarrior',
-        \{'on_cmd': 'TW'})
+        \{'on_cmd': ['TW', 'TWSync']})
 
   " required for markdown table formatting
   call dein#add('godlygeek/tabular',
@@ -157,7 +157,7 @@ if dein#load_state('~/.cache/dein')
         \]})
 
   " provide nice status line
-  call dein#add('jakobbeckmann/vim-airline')
+  call dein#add('bling/vim-airline')
 
   " move through camel or snake case
   call dein#add('bkad/camelcasemotion')

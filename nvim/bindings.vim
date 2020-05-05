@@ -302,8 +302,10 @@ nmap ]t <Plug>AirlineSelectNextTab
 " ==== Organisation ======================================================{{{
 " (o)rganisation task(w)arrior
 nnoremap <leader>ow :TW<cr>
-" (o)rganisation (s)ummary
-nnoremap <leader>os :TW summary<cr>
+" (o)rganisation (r)eport
+nnoremap <leader>or :TW summary<cr>
+" (o)rganisation (S)ync
+nnoremap <leader>oS :TWSync<cr>
 " Start (p)omodoro with name auto
 nnoremap <leader>op :PomodoroStart auto<cr>
 " (j)ump to next todo/fixme tag in file
@@ -312,12 +314,12 @@ nnoremap <silent> ]o /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
 nnoremap <silent> [o ?\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\><cr>:noh<cr>
 " (o)rganisation generate (t)odo quickfix for current file
 nnoremap <leader>ot :vimgrep /\C\<\(TODO\\|FIXME\\|XXX\\|OPTIMIZE\\|NOTE\)\>/g %<cr>:copen<cr>
-" (o)rganisation (S)ession (c)reate
-nnoremap <leader>oSc :mksession ~/.vim/sessions/
-" (o)rganisation (S)ession (l)oad
-nnoremap <leader>oSl :source ~/.vim/sessions/
-" (o)rganisation (S)ession (m)anage
-nnoremap <leader>oSm :e ~/.vim/sessions/<cr>
+" (o)rganisation (s)ession (c)reate
+nnoremap <leader>osc :mksession ~/.vim/sessions/
+" (o)rganisation (s)ession (l)oad
+nnoremap <leader>osl :source ~/.vim/sessions/
+" (o)rganisation (s)ession (m)anage
+nnoremap <leader>osm :e ~/.vim/sessions/<cr>
 " }}}
 
 
