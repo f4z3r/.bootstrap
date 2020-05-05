@@ -27,7 +27,7 @@ function! PomodoroStatus() abort
   let l:status = pomo#status()
   let l:active = l:status !=# 'Pomodoro inactive'
   if !l:active 
-    return l:pomos_today." \ue001 "
+    return l:pomos_today."\ue001 "
   endif
   let l:short_break = l:status ==# 'Pomodoro short break started'
   let l:long_break = l:status ==# 'Pomodoro long break started'
@@ -41,5 +41,5 @@ function! PomodoroStatus() abort
   endif
 
   let l:pomo_time = pomo#remaining_time()
-  return l:pomos_today." \ue001/".l:icon.' '.l:pomo_time.'m '
+  return l:pomos_today.'+'.l:icon.' '.l:pomo_time.'m '
 endfunction

@@ -198,7 +198,7 @@ local function timew_prompt()
         hooks        = {
           {{},'Return', function(cmd)
             if (not cmd) or cmd == '' then
-              return "summary"
+              return "summary :ids"
             else
               return cmd
             end

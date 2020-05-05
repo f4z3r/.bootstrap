@@ -61,6 +61,15 @@ function task.prompt()
     awful.prompt.run {
         prompt       = "<b>"..task.prompt_text.."</b>",
         textbox      = awful.screen.focused().mypromptbox.widget,
+        hooks        = {
+          {{},'Return', function(cmd)
+            if (not cmd) or cmd == '' then
+              return "summary"
+            else
+              return cmd
+            end
+          end},
+        },
         exe_callback = function(t)
             helpers.async("task "..t, function(f)
                 naughty.notify {
@@ -70,6 +79,7 @@ function task.prompt()
                              awful.util.escape(f:gsub("\n*$", "")))
                 }
             end)
+            task.update()
         end,
         history_path = awful.util.getdir("cache") .. "/history_task"
     }
@@ -77,11 +87,19 @@ end
 
 function task.update()
   local timew_active = not (run("timew"):gsub("\n*$", "") == "There is no active time tracking.")
-  local color = "cyan"
+  local active_count = run("task +ACTIVE count"):gsub("\n*$", "")
+  local todo_count = run("task +PENDING count"):gsub("\n*$", "")
+  local color = "green"
+  local text = active_count.."/"..todo_count
   if timew_active then
     color = "red"
   end
-  task.widget.markup = '<span font="Fira Code 12" color="'..color..'">\u{f4a0}</span>'
+  if active_count == "0" then
+    text = todo_count
+  elseif todo_count == "0" then
+    text = ""
+  end
+  task.widget.markup = '<span font="FuraCode Nerd Font Bold 8" color="'..color..'">\u{f4a0} '..text..'</span>'
 end
 
 function task.attach(widget, args)
@@ -91,8 +109,8 @@ function task.attach(widget, args)
     task.followtag           = args.followtag or false
     task.notification_preset = args.notification_preset
     task.widget              = widget
-    task.widget.markup       = '<span font="Fira Code 12" color="cyan">\u{f4a0}</span>'
-    task.timer               = timer({ timeout = 10 })
+    task.widget.markup       = '<span font="FuraCode Nerd Font Bold 8" color="green">\u{f4a0}</span>'
+    task.timer               = timer({ timeout = 30 })
     task.timer:connect_signal("timeout", function () task.update() end)
     task.timer:start()
 

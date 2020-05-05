@@ -3,6 +3,7 @@
 " ================================ Airline ==================================
 " ===========================================================================
 
+
 if !exists('g:airline_symbols')
   let g:airline_symbols= {}
 endif
@@ -82,7 +83,7 @@ let arr = g:airline_right_alt_sep
 let g:airline#extensions#term#enabled = 0
 
 let g:airline#extensions#wordcount#formatter = 'kilo'
-let g:airline#extensions#wordcount#formatter#kilo#fmt = '%s w'
+let g:airline#extensions#wordcount#formatter#kilo#fmt = "%s \uf72c"
 let g:airline#extensions#wordcount#formatter#kilo#fmt_short = '%s'
 
 call airline#parts#define_function('pomo', 'PomodoroStatus')
@@ -93,4 +94,3 @@ let g:airline_section_z = airline#section#create(['pomo'])
 let g:airline_extensions = ['ale', 'branch', 'coc', 'csv',
       \'fugitiveline', 'hunks', 'keymap', 'taskwarrior', 'netrw', 'po',
       \'quickfix','tabline', 'vimtex', 'wordcount']
-
