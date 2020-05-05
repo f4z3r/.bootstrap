@@ -7,18 +7,28 @@ CURRENT_DIR := $(shell pwd)
 .PHONY: configure
 configure: configure-vim configure-zsh configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver
 
+
+.PHONY: configure-root
+configure-root: configure-zsh-root
+
 .PHONY: configure-git
 configure-git:
 	@if [ ! -L $(HOME)/.gitconfig ]; then ln -s $(CURRENT_DIR)/conf/.gitconfig $(HOME)/.gitconfig; fi
 	@if [ ! -L $(HOME)/.gitignore ]; then ln -s $(CURRENT_DIR)/conf/.gitignore $(HOME)/.gitignore; fi
 	@echo "[+] Linked git configuration"
 
+.PHONY: configure-zsh-root
+configure-zsh-root:
+	@if [ ! -L /root/.zshrc ]; then sudo ln -s $(CURRENT_DIR)/zsh/.zshrc /root/.zshrc; fi
+	@if [ ! -L /root/.config/zsh ]; then sudo ln -s $(CURRENT_DIR)/zsh/zsh /root/.config/zsh; fi
+	@echo "[+] Linked zsh root configuration"
+
 .PHONY: configure-zsh
 configure-zsh:
 	@if [ ! -L $(HOME)/.zshrc ]; then ln -s $(CURRENT_DIR)/zsh/.zshrc $(HOME)/.zshrc; fi
 	@if [ ! -L $(HOME)/.config/zsh ]; then ln -s $(CURRENT_DIR)/zsh/zsh $(HOME)/.config/zsh; fi
 	@echo "[+] Linked zsh configuration"
-	
+
 .PHONY: configure-vim
 configure-vim: install-dein
 	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
