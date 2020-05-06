@@ -11,6 +11,7 @@ local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
 
 local brightness_widget = require("brightness-widget")
+local systemctl_widget = require("systemctl-widget")
 
 local string, os = string, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -123,6 +124,18 @@ local bat = lain.widget.bat({
       widget:set_markup(markup.font(theme.font, markup(color, bat_header) .. bat_p))
     end
   })
+
+-- Services
+local service_widget = systemctl_widget:new({
+  font = theme.font,
+  services = {
+    docker = "\u{f308}",
+    bluetooth = "\u{f294}",
+    mpd = "\u{f883}",
+    tlp = "\u{f0e7}",
+    NetworkManager = "\u{fbf3}"
+  }
+})
 
 -- Taskwarrior
 local taskwidget = wibox.widget.textbox('<span font="Fira Code 12" color="cyan">\u{f4a0}</span>')
@@ -275,6 +288,8 @@ function theme.at_screen_connect(s)
             s.mytag,
             bottom_bar,
             bat.widget,
+            bottom_bar,
+            service_widget,
             bottom_bar,
             taskwidget,
             bottom_bar,
