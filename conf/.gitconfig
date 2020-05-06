@@ -9,18 +9,22 @@
 [log]
   date = format:%Y-%m-%d %H:%M
 
+[diff]
+	submodule = log
+
 # Aliases
 [alias]
 	f = fetch -q
 	b = branch
 	aa = add .
 	a = add
+  ac = commit -am
 	cc = commit -m
 	ca = commit --amend -C HEAD
   ce = commit --amend -m
 	co = checkout
-	r = reset
-	s = status -sb
+	re = reset
+	s  = status -sb
 	st = stash list
 	sh = stash show --full-diff
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit
@@ -33,3 +37,4 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+
