@@ -7,8 +7,10 @@ function! airline#extensions#taskwarrior#apply(...)
     call a:1.add_section('airline_c', ' %{b:filter} ')
     call a:1.add_section('airline_c', ' %{b:sstring} ')
     call a:1.split()
-    call a:1.add_section('airline_x', ' %{b:now} ')
-    call a:1.add_section('airline_x', ' %{b:task_report_columns[taskwarrior#data#current_index()]} ')
+    if get(g:, 'task_report_column', 0)
+      call a:1.add_section('airline_x', ' %{b:now} ')
+      call a:1.add_section('airline_x', ' %{b:task_report_columns[taskwarrior#data#current_index()]} ')
+    endif
     call a:1.add_section('airline_y', ' %{b:sort} ')
     if b:active != '0'
       call airline#parts#define_text('active', ' '.b:active.' ')
