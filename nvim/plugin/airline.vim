@@ -86,7 +86,7 @@ let g:airline#extensions#wordcount#formatter = 'kilo'
 let g:airline#extensions#wordcount#formatter#kilo#fmt = "%s\uf72c"
 let g:airline#extensions#wordcount#formatter#kilo#fmt_short = '%s'
 
-call airline#parts#define_function('pomo', 'PomodoroStatus')
+call airline#parts#define_function('pomo', 'bootstrap#pomo#status')
 call airline#parts#define_accent('pomo', 'green')
 
 let g:airline_section_z = airline#section#create(['pomo'])

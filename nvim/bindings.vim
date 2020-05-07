@@ -244,6 +244,8 @@ nnoremap <leader>ff :Files %:p:h<cr>
 nnoremap <leader>fh :Files ~/<cr>
 " (f)ile (r)efresh
 nnoremap <leader>fr :checktime %<cr>
+" (f)ile (t)emp
+nnoremap <leader>ft :execute "e " . bootstrap#system#get_tmp_file()<cr>
 " }}}
 
 
@@ -342,11 +344,7 @@ inoremap <c-r> <c-r>"
 " mode.
 xnoremap <silent> p p:let @"=@0<cr>
 " Copy default register contents to system copy clipboard
-function g:BootstrapCopyToSystem()
-  let @+=@"
-  echom 'Vim default register (>' . @" . '<) copied to system clipbard.'
-endfunction
-nnoremap <silent> <leader>yy :call BootstrapCopyToSystem()<cr>
+nnoremap <silent> <leader>yy :call bootstrap#system#copy_to_clipboard()<cr>
 " change last written word to UPPER_CASE
 imap <c-i> <esc>bcruA
 " }}}
