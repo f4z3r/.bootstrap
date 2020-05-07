@@ -83,7 +83,7 @@ let arr = g:airline_right_alt_sep
 let g:airline#extensions#term#enabled = 0
 
 let g:airline#extensions#wordcount#formatter = 'kilo'
-let g:airline#extensions#wordcount#formatter#kilo#fmt = "%s \uf72c"
+let g:airline#extensions#wordcount#formatter#kilo#fmt = "%s\uf72c"
 let g:airline#extensions#wordcount#formatter#kilo#fmt_short = '%s'
 
 call airline#parts#define_function('pomo', 'PomodoroStatus')
