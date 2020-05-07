@@ -306,8 +306,16 @@ nmap ]t <Plug>AirlineSelectNextTab
 " ==== Organisation ======================================================{{{
 " (o)rganisation task(w)arrior
 nnoremap <leader>ow :TW<cr>
-" (o)rganisation (r)eport
-nnoremap <leader>or :TW summary<cr>
+" (o)rganisation (r)eport (s)ummary
+nnoremap <leader>ors :TW summary<cr>
+" (o)rganisation (r)eport (t)oday
+nnoremap <leader>ort :TW today<cr>
+" (o)rganisation (r)eport (a)ge
+nnoremap <leader>ora :TW age<cr>
+" (o)rganisation (r)eport (h)igh
+nnoremap <leader>orh :TW high<cr>
+" (o)rganisation (r)eport (d)ue/schedule
+nnoremap <leader>ord :TW sch<cr>
 " (o)rganisation (S)ync
 nnoremap <leader>oS :TWSync<cr>
 " Start (p)omodoro with name auto

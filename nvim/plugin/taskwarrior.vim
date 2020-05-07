@@ -4,7 +4,7 @@
 " default task report type
 let g:task_report_name     = 'next'
 " custom reports have to be listed explicitly to make them available
-let g:task_report_command  = ['summary']
+let g:task_report_command  = ['summary', 'age', 'today', 'high', 'sch']
 " allows user to override task configurations. Seperated by space.
 let g:task_rc_override     = 'rc.defaultwidth=999'
 " whether the field under the cursor is highlighted
@@ -24,3 +24,19 @@ let g:task_info_position   = 'belowright'
 " default fields to ask for
 let g:task_default_prompt  = ['project', 'schedule', 'due', 'tag',
       \'description', 'depends']
+
+" set custom highlights
+highlight link taskwarrior_id               GruvboxGray
+highlight link taskwarrior_due              GruvboxRedBold
+highlight link taskwarrior_priority         GruvboxOrange
+highlight link taskwarrior_depends          GruvboxAqua
+highlight link taskwarrior_scheduled        GruvboxYellow
+highlight link taskwarrior_estimate         GruvboxPurple
+highlight link taskwarrior_totalactivetime  GruvboxBlue
+highlight link taskwarrior_until            GruvboxGray
+highlight link taskwarrior_start            GruvboxGreenBold
+highlight link taskwarrior_project          GruvboxRed
+highlight link taskwarrior_tags             GruvboxGreen
+highlight link taskwarrior_description      Normal
+
+highlight link taskwarrior_entry            GruvboxOrange
