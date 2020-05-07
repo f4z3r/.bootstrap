@@ -88,16 +88,21 @@ end
 function task.update()
   local timew_active = not (run("timew"):gsub("\n*$", "") == "There is no active time tracking.")
   local active_count = run("task +ACTIVE count"):gsub("\n*$", "")
+  local overdue_count = run("task +OVERDUE count"):gsub("\n*$", "")
   local todo_count = run("task +PENDING count"):gsub("\n*$", "")
   local color = "green"
-  local text = active_count.."/"..todo_count
+  local text = ""
   if timew_active then
     color = "red"
   end
-  if active_count == "0" then
-    text = todo_count
-  elseif todo_count == "0" then
-    text = ""
+  if active_count ~= "0" then
+    text = active_count.."*/"
+  end
+  if overdue_count ~= "0" then
+    text = text..overdue_count.."!/"
+  end
+  if todo_count ~= "0" then
+    text = text..todo_count
   end
   task.widget.markup = '<span font="FuraCode Nerd Font Bold 8" color="'..color..'">\u{f4a0} '..text..'</span>'
 end
