@@ -168,6 +168,8 @@ vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
 
 
 " ==== Machine (System) =================================================={{{
+" machine escape terminal mode
+tnoremap <leader>tt <c-\><c-N>
 " (m)achine open terminal in (t)ab
 nnoremap <leader>mt :tabnew<cr>:terminal<cr>a
 " (m)achine open terminal on (s)split
@@ -180,8 +182,10 @@ nnoremap <leader>mq :qa<cr>
 nnoremap <leader>mz <c-z>
 " (m)achine vim hard (Q)uit
 nnoremap <leader>mQ :qa!<cr>
-" (m)achine set (c)wd for (l)ocal file
-nnoremap <leader>mcl :lcd %:p:h<cr>
+" (m)achine (c)hange (d)irectory to directory of local file (only for tab)
+nnoremap <leader>mcd :tcd %:p:h<cr>
+" (m)achine (u)ndo change directory (only for tab)
+nnoremap <leader>mu :tcd -<cr>
 " }}}
 
 
