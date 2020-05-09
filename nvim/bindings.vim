@@ -346,5 +346,5 @@ xnoremap <silent> p p:let @"=@0<cr>
 " Copy default register contents to system copy clipboard
 nnoremap <silent> <leader>yy :call bootstrap#system#copy_to_clipboard()<cr>
 " change last written word to UPPER_CASE
-imap <c-i> <esc>bcruA
+imap <a-l> <esc>bcruA
 " }}}
