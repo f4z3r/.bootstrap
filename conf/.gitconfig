@@ -3,7 +3,7 @@
 	email = beckmann_jakob@hotmail.fr
 
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 
 [log]
