@@ -34,6 +34,13 @@ nmap sk :SplitjoinJoin<cr>
 " }}}
 
 
+" ==== Prose ============================================================={{{
+" (p)rose (S)ynonym
+nnoremap <leader>ps :ThesaurusQueryReplaceCurrentWord<cr>
+vnoremap <leader>ps y:ThesaurusQueryReplace <c-r>"<cr>
+" }}}
+
+
 " ==== Refactoring ======================================================={{{
 " (r)efactor (r)ename
 nmap <leader>rr <Plug>(coc-rename)

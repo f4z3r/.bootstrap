@@ -5,7 +5,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver
+configure: configure-vim configure-zsh configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver thesaurus
 
 
 .PHONY: configure-root
@@ -51,6 +51,7 @@ configure-kitty:
 configure-pacman:
 	@if [ -f /etc/pacman.conf ]; then sudo rm /etc/pacman.conf; fi
 	@if [ ! -L /etc/pacman.conf ]; then sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf; fi
+	@echo "[+] Linked pacman configuration"
 
 .PHONY: configure-xscreensaver
 configure-xscreensaver:
@@ -59,6 +60,19 @@ configure-xscreensaver:
 	@echo "[+] Linked xscreensaver configuration"
 
 #### Installs
+
+.PHONY: thesaurus
+thesaurus:
+	@mkdir -p ~/.vim/thesaurus
+	@if [ ! -f ~/.vim/thesaurus/mthesaur.txt ]; then \
+		curl -qfsS -o ~/.vim/thesaurus/mthesaur.txt https://www.gutenberg.org/files/3202/files/mthesaur.txt; \
+		fi
+	@if [ ! -f ~/.vim/thesaurus/openoffice-data.zip ]; then \
+		curl -qfsS -o ~/.vim/thesaurus/openoffice-data.zip https://www.openoffice.org/lingucomponent/MyThes-1.zip; \
+		mkdir -p ~/.vim/thesaurus/openoffice; \
+		unzip -j ~/.vim/thesaurus/openoffice-data.zip -d ~/.vim/thesaurus/openoffice/ &> /dev/null; \
+		fi
+	@echo "[+] Downloaded thesaurus offline files"
 
 .PHONY: install-dein
 install-dein:

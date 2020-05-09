@@ -171,6 +171,12 @@ if dein#load_state('~/.cache/dein')
   " fix indentation on paste
   call dein#add('conradirwin/vim-bracketed-paste')
 
+  " thesaurus lookup
+  call dein#add('ron89/thesaurus_query.vim',
+        \{'on_cmd': ['ThesaurusQueryReplaceCurrentWord',
+        \            'ThesaurusQueryReplace',
+        \            'Thesaurus']})
+
   call dein#end()
   call dein#save_state()
 endif
