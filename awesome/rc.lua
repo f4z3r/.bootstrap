@@ -89,6 +89,7 @@ local editor       = os.getenv("EDITOR") or "nvim"
 local guieditor    = "kitty screen -R vim"
 local gui_editor   = "kitty screen -R vim"
 local browser      = "firefox"
+local mail         = "thunderbird"
 local music_player = "kitty ncmpcpp"
 local htop         = "kitty htop"
 local scrlocker    = "xscreensaver-command -lock"
@@ -286,9 +287,10 @@ root.buttons(my_table.join(
 -- {{{ Key bindings
 globalkeys = my_table.join(
     -- Take a screenshot
-    -- https://github.com/lcpz/dots/blob/master/bin/screenshot
-    awful.key({ altkey }, "p", function() os.execute("screenshot") end,
-              {description = "take a screenshot", group = "hotkeys"}),
+    awful.key({ altkey }, "p", function()
+      os.execute("mkdir -p $HOME/screenshots/ && scrot -q 100 -uz $HOME/screenshots/$(date +%Y%m%d%H%M%S).png")
+    end,
+    {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
     awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
@@ -541,6 +543,9 @@ globalkeys = my_table.join(
     awful.key({ modkey }, "m", function () awful.spawn(music_player) end,
       {description = "run music player", group = "launcher"}),
 
+    awful.key({ modkey }, "t", function () awful.spawn(mail) end,
+             {description = "run mail", group = "launcher"}),
+
     awful.key({ modkey }, "i", function () awful.spawn(htop) end,
       {description = "show system information", group = "launcher"}),
 
@@ -591,14 +596,10 @@ clientkeys = my_table.join(
         {description = "toggle fullscreen", group = "client"}),
     awful.key({ modkey,           }, "q",      function (c) c:kill()                         end,
               {description = "close", group = "client"}),
-    awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
-              {description = "toggle floating", group = "client"}),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
-    awful.key({ modkey,           }, "t",      function (c) c.ontop = not c.ontop            end,
-              {description = "toggle keep on top", group = "client"}),
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
