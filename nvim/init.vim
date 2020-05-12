@@ -81,6 +81,10 @@ if dein#load_state('~/.cache/dein')
   " Language support (should be lazy by default)
   call dein#add('sheerun/vim-polyglot')
 
+  " polyglot does not come with proper julia syntax highlightling
+  call dein#add('JuliaEditorSupport/julia-vim',
+        \{'on_ft': 'julia'})
+
   " polyglot does not come with a java syntax highlightling
   call dein#add('uiiaoo/java-syntax.vim',
         \{'on_ft': 'java'})
