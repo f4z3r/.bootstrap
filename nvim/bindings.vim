@@ -34,10 +34,14 @@ nmap sk :SplitjoinJoin<cr>
 " }}}
 
 
-" ==== Prose ============================================================={{{
-" (p)rose (S)ynonym
-nnoremap <leader>ps :ThesaurusQueryReplaceCurrentWord<cr>
-vnoremap <leader>ps y:ThesaurusQueryReplace <c-r>"<cr>
+" ==== Insert ============================================================{{{
+" (i)nsert (s)ynonym
+nnoremap <leader>is :ThesaurusQueryReplaceCurrentWord<cr>
+vnoremap <leader>is y:ThesaurusQueryReplace <c-r>"<cr>
+" (i)nsert (u)nicode
+nnoremap <leader>iu :UnicodeSearch! 
+" (i)nsert (d)igraph
+nnoremap <leader>id :Digraphs 
 " }}}
 
 

@@ -177,6 +177,14 @@ if dein#load_state('~/.cache/dein')
         \            'ThesaurusQueryReplace',
         \            'Thesaurus']})
 
+  " unicode search
+  call dein#add('chrisbra/unicode.vim',
+        \{'on_cmd': ['Digraphs',
+        \            'UnicodeSearch',
+        \            'UnicodeName',
+        \            'UnicodeTable',
+        \            'DownloadUnicode']})
+  
   call dein#end()
   call dein#save_state()
 endif
