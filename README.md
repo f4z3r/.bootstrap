@@ -34,7 +34,7 @@ sudo pacman -S zsh zsh-syntax-highlighting zsh-theme-powerlevel10k zsh-completio
 
 Link configuration all files.
 
-```zsh
+```sh
 cd ~/.bootstrap/
 make configure
 ```
@@ -43,7 +43,7 @@ make configure
 
 Install Fura Code nerd font for proper handling of ligatures and icons.
 
-```zsh
+```sh
 cd ~/.bootstrap
 git submodule update --init --depth 1 tools/nerd-fonts
 cd tools/nerd-fonts
@@ -54,7 +54,7 @@ cd tools/nerd-fonts
 
 Install awesome and its main dependencies.
 
-```zsh
+```sh
 sudo pacman -S dmenu mpc scrot unclutter xsel brightnessctl kitty
 sudo pacman -S awesome
 ```
@@ -64,8 +64,8 @@ and [timewarrior](doc/timew.md).
 
 ### Install utilities
 
-```zsh
-sudo pacman -S the_silver_searcher mupdf-gl screen neovim xscreensaver skim
+```sh
+sudo pacman -S the_silver_searcher mupdf-gl screen neovim xscreensaver skim ctags
 ```
 
 Configure defaults for filetypes.
@@ -80,13 +80,13 @@ xdg-mime default nvim.desktop text/x-tex text/plain text/x-makefile text/rust te
 
 Configure screen.
 
-```zsh
+```sh
 ln -s ~/.bootstrap/conf/.screenrc ~/.screenrc
 ```
 
 Install `fzf` locally for `neovim`.
 
-```zsh
+```sh
 cd ~/.bootstrap/
 git submodule update --init --depth 1 /tools/fzf
 cd ~/.boostrap/tools/fzf

@@ -5,11 +5,16 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver thesaurus
+configure: configure-vim configure-zsh configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver thesaurus configure-ctags
 
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
+
+.PHONY: configure-ctags
+configure-ctags:
+	@if [ ! -L $(HOME)/.config/ctags ]; then ln -s $(CURRENT_DIR)/conf/ctags $(HOME)/.config/ctags; fi
+	@echo "[+] Linked ctags configuration"
 
 .PHONY: configure-git
 configure-git:

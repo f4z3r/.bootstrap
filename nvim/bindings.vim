@@ -201,6 +201,8 @@ nnoremap <leader>mu :tcd -<cr>
 
 
 " ==== Toggles ==========================================================={{{
+" (t)oggle (t)agbar
+nnoremap <leader>tt :TagbarToggle<cr>
 " (t)oggle colorcolumn (L)ine
 nnoremap <leader>tL :set colorcolumn=100<cr>
 " (t)oggle (g)olden ratio

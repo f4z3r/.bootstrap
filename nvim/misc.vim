@@ -51,3 +51,9 @@ set wildmode=list:longest,full
 set hidden                   " use hidden files for unsaved buffer switches
 set autoread                 " read changed files into buffers if needed
 " }}}
+
+
+" ==== Tags =============================================================={{{
+set autochdir
+set tags=tags;/              " check every directory up for tags
+" }}}

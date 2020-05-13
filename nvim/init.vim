@@ -121,6 +121,13 @@ if dein#load_state('~/.cache/dein')
   call dein#add('sjl/gundo.vim',
         \{'on_cmd': 'GundoToggle'})
 
+  " tag file generation
+  call dein#add('ludovicchabant/vim-gutentags')
+
+  " tag tree
+  call dein#add('majutsushi/tagbar',
+        \{'on_cmd': 'TagbarToggle'})
+
   " split and join multi line statements
   call dein#add('andrewradev/splitjoin.vim',
         \{'on_ft': [

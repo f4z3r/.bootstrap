@@ -93,4 +93,4 @@ let g:airline_section_z = airline#section#create(['pomo'])
 
 let g:airline_extensions = ['ale', 'branch', 'coc', 'csv',
       \'fugitiveline', 'hunks', 'keymap', 'taskwarrior', 'netrw', 'po',
-      \'quickfix','tabline', 'vimtex', 'wordcount']
+      \'quickfix','tabline', 'vimtex', 'wordcount', 'gutentags']
