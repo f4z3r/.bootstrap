@@ -65,7 +65,7 @@ and [timewarrior](doc/timew.md).
 ### Install utilities
 
 ```sh
-sudo pacman -S the_silver_searcher mupdf-gl screen neovim xscreensaver skim ctags
+sudo pacman -S the_silver_searcher mupdf-gl screen neovim xscreensaver skim ctags tree
 ```
 
 Configure defaults for filetypes.
