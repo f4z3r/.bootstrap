@@ -7,7 +7,7 @@ export VISUAL="vim"
 export EDITOR="vim"
 
 # TERM
-export TERM="xterm-256color"
+export TERM="xterm-kitty"
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .cache -g ""'
