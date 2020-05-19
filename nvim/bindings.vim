@@ -196,7 +196,7 @@ nnoremap <leader>mQ :qa!<cr>
 " (m)achine (c)hange (d)irectory to directory of local file (only for tab)
 nnoremap <leader>mcd :tcd %:p:h<cr>
 " (m)achine (u)ndo change directory (only for tab)
-nnoremap <leader>mu :tcd -<cr>
+nnoremap <leader>mu :execute 'tcd' . bootstrap#system#get_project_root()<cr>
 " }}}
 
 
