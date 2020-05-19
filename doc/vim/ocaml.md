@@ -18,6 +18,7 @@ Link the `.ocamlinit` file:
 
 ```sh
 ln -s ~/.bootstrap/conf/.ocamlinit ~/.ocamlinit
+ln -s ~/.bootstrap/conf/.ocp-indent ~/.ocp-indent
 ```
 
 Install `opam` via `pacman`. And run `opam init`.
