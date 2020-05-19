@@ -78,8 +78,12 @@ if dein#load_state('~/.cache/dein')
   call dein#add('mzlogin/vim-markdown-toc',
         \{'on_ft': 'markdown'})
 
-  " Language support (should be lazy by default)
+  " language support (should be lazy by default)
   call dein#add('sheerun/vim-polyglot')
+
+  " better OCaml support for indenting
+  call dein#add('OCamlPro/ocp-indent',
+        \{'on_ft': 'ocaml'})
 
   " polyglot does not come with proper julia syntax highlightling
   call dein#add('JuliaEditorSupport/julia-vim',
