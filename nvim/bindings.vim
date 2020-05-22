@@ -209,6 +209,8 @@ nnoremap <leader>tL :set colorcolumn=100<cr>
 nnoremap <leader>tg :GoldenRatioToggle<cr>
 " (t)oggle (u)ndo tree
 nnoremap <leader>tu :GundoToggle<cr>
+" (t)oggle (b)ackground
+nnoremap <leader>tb :call bootstrap#system#toggle_background()<cr>
 " }}}
 
 

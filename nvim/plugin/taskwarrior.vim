@@ -26,17 +26,17 @@ let g:task_default_prompt  = ['project', 'schedule', 'due', 'tag',
       \'description', 'depends']
 
 " set custom highlights
-highlight link taskwarrior_id               GruvboxGray
-highlight link taskwarrior_due              GruvboxRedBold
-highlight link taskwarrior_priority         GruvboxOrange
-highlight link taskwarrior_depends          GruvboxAqua
-highlight link taskwarrior_scheduled        GruvboxYellow
-highlight link taskwarrior_estimate         GruvboxPurple
-highlight link taskwarrior_totalactivetime  GruvboxBlue
-highlight link taskwarrior_until            GruvboxGray
-highlight link taskwarrior_start            GruvboxGreenBold
-highlight link taskwarrior_project          GruvboxRed
-highlight link taskwarrior_tags             GruvboxGreen
+highlight link taskwarrior_id               Gray
+highlight link taskwarrior_due              RedBold
+highlight link taskwarrior_priority         Orange
+highlight link taskwarrior_depends          Aqua
+highlight link taskwarrior_scheduled        Yellow
+highlight link taskwarrior_estimate         Purple
+highlight link taskwarrior_totalactivetime  Blue
+highlight link taskwarrior_until            Gray
+highlight link taskwarrior_start            GreenBold
+highlight link taskwarrior_project          Red
+highlight link taskwarrior_tags             Green
 highlight link taskwarrior_description      Normal
 
-highlight link taskwarrior_entry            GruvboxOrange
+highlight link taskwarrior_entry            Orange

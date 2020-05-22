@@ -36,7 +36,7 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tpope/vim-vinegar')
 
   " nice theme (not original for true haskell support)
-  call dein#add('dkasak/gruvbox')
+  call dein#add('sainnhe/gruvbox-material')
 
   " comment things
   call dein#add('preservim/nerdcommenter')

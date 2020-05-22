@@ -3,23 +3,26 @@
 " ===========================================================================
 
 
-" ==== Theme ============================================================={{{
-syntax on
-set background=dark
-colorscheme gruvbox
-" source syntax override on buffer read or create (required due to lazy
-" loading of polyglot)
-augroup TODO_color_overrides
-  autocmd BufRead,BufCreate * source <sfile>:h/after/colors/gruvbox.vim
-augroup END
-" }}}
-
-
 " ==== Colors ============================================================{{{
 if $STY ==# ''
   set termguicolors
 endif
 set t_Co=256
+" }}}
+
+
+" ==== Theme ============================================================={{{
+syntax on
+set background=dark
+" set low contrast mode
+let g:gruvbox_material_background = 'soft'
+" set theme
+colorscheme gruvbox-material
+" source syntax override on buffer read or create (required due to lazy
+" loading of polyglot)
+augroup TODO_color_overrides
+  autocmd BufRead,BufCreate * source <sfile>:h/after/colors/gruvbox.vim
+augroup END
 " }}}
 
 

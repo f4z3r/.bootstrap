@@ -36,7 +36,7 @@ let airline#extensions#ale#show_line_numbers = 0
 let g:airline#extensions#coc#error_symbol = ''
 let g:airline#extensions#coc#warning_symbol = ''
 
-let g:airline_theme= 'gruvbox'
+let g:airline_theme= 'gruvbox_material'
 let g:airline_left_alt_sep = ''
 let g:airline_right_alt_sep = ''
 let g:airline_left_sep = ''
@@ -63,8 +63,8 @@ let g:airline_mode_map = {
       \ 'ix'     : '奈',
       \ 'n'      : '',
       \ 'multi'  : 'ﯟ',
-      \ 'ni'     : '',
-      \ 'no'     : '',
+      \ 'ni'     : '',
+      \ 'no'     : '',
       \ 'R'      : 'זּ',
       \ 'Rv'     : 'זּ',
       \ 's'      : '',
@@ -87,7 +87,6 @@ let g:airline#extensions#wordcount#formatter#kilo#fmt = "%s\uf72c"
 let g:airline#extensions#wordcount#formatter#kilo#fmt_short = '%s'
 
 call airline#parts#define_function('pomo', 'bootstrap#pomo#status')
-call airline#parts#define_accent('pomo', 'green')
 
 let g:airline_section_z = airline#section#create(['pomo'])
 

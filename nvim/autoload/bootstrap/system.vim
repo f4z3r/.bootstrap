@@ -13,3 +13,11 @@ function bootstrap#system#get_project_root()
   return fnamemodify(finddir('.git', '.;'), ':h')
 endfunction
 
+function bootstrap#system#toggle_background()
+  if &background ==# 'dark'
+    execute 'set background=light' 
+  else
+    execute 'set background=dark'
+  endif
+  execute ':AirlineTheme gruvbox_material'
+endfunction
