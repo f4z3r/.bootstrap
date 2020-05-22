@@ -410,6 +410,18 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
+    awful.key({ modkey,           }, "k", function ()
+      local active_theme = run("cat ~/.config/kitty/active-theme"):gsub("\n*$", "")
+      local new_theme = "light"
+      if active_theme == "light" then
+        new_theme = "dark"
+      end
+      run("rm ~/.config/kitty/active-theme.conf")
+      run("ln -s ~/.config/kitty/kitty-colors/gruvbox-material-"..new_theme.."-soft.conf ~/.config/kitty/active-theme.conf")
+      run("echo '"..new_theme.."' > ~/.config/kitty/active-theme")
+      end,
+              {description = "switch kitty scheme", group = "awesome"}),
+
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()

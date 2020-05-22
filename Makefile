@@ -50,6 +50,9 @@ configure-awesome:
 configure-kitty:
 	@if [ ! -d $(HOME)/.config/kitty/ ]; then mkdir -p $(HOME)/.config/kitty; fi
 	@if [ ! -L $(HOME)/.config/kitty/kitty.conf ]; then ln -s $(CURRENT_DIR)/conf/kitty.conf $(HOME)/.config/kitty/kitty.conf; fi
+	@if [ ! -L $(HOME)/.config/kitty/kitty-colors ]; then ln -s $(CURRENT_DIR)/conf/kitty-colors $(HOME)/.config/kitty/kitty-colors; fi
+	@if [ ! -L $(HOME)/.config/kitty/active-theme.conf ]; then ln -s $(CURRENT_DIR)/conf/kitty-colors/gruvbox-material-dark-soft.conf $(HOME)/.config/kitty/active-theme.conf; fi
+	@if [ ! -f $(HOME)/.config/kitty/active-theme ]; then echo "dark" > $(HOME)/.config/kitty/active-theme; fi
 	@echo "[+] Linked kitty configuration"
 
 .PHONY: pacman
