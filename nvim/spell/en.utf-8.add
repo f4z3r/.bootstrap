@@ -4,3 +4,6 @@ bluetooth
 inline
 builtin
 backend
+typechecking
+typechecked
+typechecks
