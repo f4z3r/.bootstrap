@@ -5,6 +5,7 @@ scratch.
 
 <!-- vim-markdown-toc GFM -->
 
+* [Manjaro Install](#manjaro-install)
 * [Setup](#setup)
   - [Install `zsh`](#install-zsh)
   - [Install Fura Code](#install-fura-code)
@@ -14,6 +15,10 @@ scratch.
   - [yay](#yay)
 
 <!-- vim-markdown-toc -->
+
+## Manjaro Install
+
+Get a live bootable USB with XFCE version of Manjaro.
 
 ## Setup
 
