@@ -16,13 +16,11 @@ local function run(command)
 end
 
 local function is_active(service)
-  return run(cmd.." "..service):gsub("\n*$", "") == "active"
+  return run(cmd.." '"..service.."'"):gsub("\n*$", "") == "active"
 end
 
 function Systemctl:new(args)
   local obj = setmetatable({}, Systemctl)
-
-  obj.cmd = "systemctl is-active"
 
   -- Create imagebox widget
   obj.widget = wibox.widget.textbox("")
@@ -41,8 +39,8 @@ end
 function Systemctl:update(services)
   local t = { }
   for k, v in pairs(services) do
-    if is_active(k) then
-      t[#t+1] = v
+    if is_active(v.name) then
+      t[#t+1] = v.symbol
     end
   end
   local text = table.concat(t, " ")

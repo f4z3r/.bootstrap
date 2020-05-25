@@ -129,11 +129,40 @@ local bat = lain.widget.bat({
 local service_widget = systemctl_widget:new({
   font = theme.font,
   services = {
-    docker = "\u{f308}",
-    bluetooth = "\u{f294}",
-    mpd = "\u{f883}",
-    tlp = "\u{f0e7}",
-    NetworkManager = "\u{fbf3}"
+    docker = {
+      name = "docker.service",
+      symbol = "\u{f308}"
+    },
+    bluetooth = {
+      name = "bluetooth.service",
+      symbol = "\u{f294}"
+    },
+    mpd = {
+      name = "mpd.service",
+      symbol = "\u{f883}"
+    },
+    tlp = {
+      name = "tlp.service",
+      symbol = "\u{f0e7}"
+    },
+    network = {
+      name = "NetworkManager.service",
+      symbol = "\u{fbf3}"
+    },
+    crypto = {
+      -- usual cryptsetup units slice for manjaro
+      name = "system-systemd\\x2dcryptsetup.slice",
+      symbol = "\u{f720}"
+    },
+    swap = {
+      -- can use any swap file/fs
+      name = "*.swap",
+      symbol = "\u{f9e0}"
+    },
+    tmp_mount = {
+      name = "tmp.mount",
+      symbol = "\u{fb44}"
+    },
   }
 })
 
