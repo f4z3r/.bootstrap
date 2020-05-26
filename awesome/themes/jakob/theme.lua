@@ -65,12 +65,12 @@ local calendarwidget = wibox.widget.textclock(markup.fontfg(theme.font, "#FFFFFF
 theme.cal = lain.widget.cal({
     attach_to = { clockwidget, calendarwidget },
     notification_preset = {
-        fg = "#FFFFFF",
-        bg = theme.bg_normal,
-        position = "bottom_right",
-        font = "Monospace 10"
+      fg = "#FFFFFF",
+      bg = theme.bg_normal,
+      position = "bottom_right",
+      font = "Monospace 10"
     }
-})
+  })
 
 -- Brightness
 theme.brightness = brightness_widget:new({font = theme.font})
@@ -79,23 +79,23 @@ theme.brightness = brightness_widget:new({font = theme.font})
 local mpd_icon = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f885} </span>")
 theme.mpd = lain.widget.mpd({
     settings = function ()
-        if mpd_now.state == "play" then
-            mpd_now.artist = mpd_now.artist:upper():gsub("&.-;", string.lower)
-            mpd_now.title = mpd_now.title:upper():gsub("&.-;", string.lower)
-            widget:set_markup(markup.font("Fira Code 4", " ")
-                              .. markup.font(theme.taglist_font,
-                              " " .. mpd_now.artist
-                              .. " - " ..
-                              mpd_now.title .. "  ") .. markup.font("Fira Code 5", " "))
-        elseif mpd_now.state == "pause" then
-            widget:set_markup(markup.font("Fira Code 4", " ") ..
-                              markup.font(theme.taglist_font, " MPD PAUSED  ") ..
-                              markup.font("Fira Code 5", " "))
-        else
-            widget:set_markup("")
-        end
+      if mpd_now.state == "play" then
+        mpd_now.artist = mpd_now.artist:upper():gsub("&.-;", string.lower)
+        mpd_now.title = mpd_now.title:upper():gsub("&.-;", string.lower)
+        widget:set_markup(markup.font("Fira Code 4", " ")
+          .. markup.font(theme.taglist_font,
+            " " .. mpd_now.artist
+            .. " - " ..
+          mpd_now.title .. "  ") .. markup.font("Fira Code 5", " "))
+      elseif mpd_now.state == "pause" then
+        widget:set_markup(markup.font("Fira Code 4", " ") ..
+          markup.font(theme.taglist_font, " MPD PAUSED  ") ..
+          markup.font("Fira Code 5", " "))
+      else
+        widget:set_markup("")
+      end
     end
-})
+  })
 local musicwidget = theme.mpd.widget
 
 -- Battery
@@ -127,51 +127,51 @@ local bat = lain.widget.bat({
 
 -- Services
 local service_widget = systemctl_widget:new({
-  font = theme.font,
-  services = {
-    docker = {
-      name = "docker.service",
-      symbol = "\u{f308}"
-    },
-    bluetooth = {
-      name = "bluetooth.service",
-      symbol = "\u{f294}"
-    },
-    mpd = {
-      name = "mpd.service",
-      symbol = "\u{f883}"
-    },
-    tlp = {
-      name = "tlp.service",
-      symbol = "\u{f0e7}"
-    },
-    network = {
-      name = "NetworkManager.service",
-      symbol = "\u{fbf3}"
-    },
-    crypto = {
-      -- usual cryptsetup units slice for manjaro
-      name = "system-systemd\\x2dcryptsetup.slice",
-      symbol = "\u{f720}"
-    },
-    swap = {
-      -- can use any swap file/fs
-      name = "*.swap",
-      symbol = "\u{f9e0}"
-    },
-    tmp_mount = {
-      name = "tmp.mount",
-      symbol = "\u{fb44}"
-    },
-  }
-})
+    font = theme.font,
+    services = {
+      docker = {
+        name = "docker.service",
+        symbol = "\u{f308}"
+      },
+      bluetooth = {
+        name = "bluetooth.service",
+        symbol = "\u{f294}"
+      },
+      mpd = {
+        name = "mpd.service",
+        symbol = "\u{f883}"
+      },
+      tlp = {
+        name = "tlp.service",
+        symbol = "\u{f0e7}"
+      },
+      network = {
+        name = "NetworkManager.service",
+        symbol = "\u{fbf3}"
+      },
+      crypto = {
+        -- usual cryptsetup units slice for manjaro
+        name = "system-systemd\\x2dcryptsetup.slice",
+        symbol = "\u{f720}"
+      },
+      swap = {
+        -- can use any swap file/fs
+        name = "*.swap",
+        symbol = "\u{f9e0}"
+      },
+      tmp_mount = {
+        name = "tmp.mount",
+        symbol = "\u{fb44}"
+      },
+    }
+  })
 
 -- Taskwarrior
 local taskwidget = wibox.widget.textbox('<span font="Fira Code 12" color="cyan">\u{f4a0}</span>')
 lain.widget.contrib.task.attach(taskwidget, {
-  notification_preset = theme.taskwarrior_notif_preset,
-  followtag = true
-})
+    notification_preset = theme.taskwarrior_notif_preset,
+    followtag = true
+  })
 
 -- ALSA volume bar
 theme.volume = lain.widget.alsabar({
@@ -179,29 +179,52 @@ theme.volume = lain.widget.alsabar({
     --togglechannel = "IEC958,3",
     width = dpi(100), height = dpi(2), border_width = dpi(0),
     colors = {
-        background = "#383838",
-        unmute     = "#80CCE6",
-        mute       = "red"
+      background = "#383838",
+      unmute     = "#80CCE6",
+      mute       = "red"
     },
-})
+  })
 theme.volume.bar.paddings = dpi(0)
 theme.volume.bar.margins = dpi(6)
 local volumewidget = theme.volume.bar
 volumewidget = wibox.container.margin(volumewidget, dpi(0), dpi(0), dpi(6), dpi(6))
 
+-- Sysload
+-- added space at end as no sep between this and CPU %
+local angle = " \u{f105} "
+local sysload = lain.widget.sysload({
+    timeout = 10,
+    settings = function()
+      widget:set_markup(markup.font(theme.font, load_1..angle..load_5..angle..load_15.." "))
+    end
+  })
+
 -- CPU
 local cpuwidget = lain.widget.cpu({
     settings = function()
-        widget:set_markup(markup.font(theme.font, "\u{f085} " .. cpu_now.usage .. "%"))
+      local color = theme.fg_normal
+      if cpu_now.usage >= 50 then
+        color = yellow
+      elseif cpu_now.usage >= 75 then
+        color = red
+      end
+      widget:set_markup(markup.font(theme.font, "\u{f085} " .. markup(color, cpu_now.usage .. "%")))
     end
-})
+  })
 
 -- CPU temp
+-- added space at beginning as no sep between this and CPU %
 local cputempwidget = lain.widget.temp({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " \u{f2c9} " .. coretemp_now.. "\u{fa03}"))
+      local color = theme.fg_normal
+      if coretemp_now >= 60 then
+        color = yellow
+      elseif coretemp_now >= 70 then
+        color = red
+      end
+      widget:set_markup(markup.font(theme.font, " \u{f2c9} " .. coretemp_now .. "\u{fa03}"))
     end
-})
+  })
 
 -- MEM
 local memwidget = lain.widget.mem({
@@ -212,7 +235,7 @@ local memwidget = lain.widget.mem({
       end
       widget:set_markup(markup.font(theme.font, "\u{f85a} " .. memtext))
     end
-})
+  })
 
 -- Net
 local networkwidget = lain.widget.net({
@@ -261,7 +284,7 @@ local networkwidget = lain.widget.net({
       widget:set_markup(markup.font(theme.font, "\u{f47c} "..recvtext.." "..markup(color,icon)..
         " "..senttext.." \u{f47b}"))
     end
-})
+  })
 
 -- Launcher
 local mylauncher = awful.widget.button({ image = theme.awesome_icon_launcher })
@@ -277,92 +300,93 @@ local barcolor  = gears.color({
     from  = { dpi(32), 0 },
     to    = { dpi(32), dpi(32) },
     stops = { {0, theme.bg_focus}, {0.25, "#505050"}, {1, theme.bg_focus} }
-})
+  })
 
 function theme.at_screen_connect(s)
-    -- Quake application
-    s.quake = lain.util.quake({ app = awful.util.terminal })
+  -- Quake application
+  s.quake = lain.util.quake({ app = awful.util.terminal })
 
-    -- If wallpaper is a function, call it with the screen
-    local wallpaper = theme.wallpaper
-    if type(wallpaper) == "function" then
-        wallpaper = wallpaper(s)
-    end
-    gears.wallpaper.maximized(wallpaper, s, true)
+  -- If wallpaper is a function, call it with the screen
+  local wallpaper = theme.wallpaper
+  if type(wallpaper) == "function" then
+    wallpaper = wallpaper(s)
+  end
+  gears.wallpaper.maximized(wallpaper, s, true)
 
-    -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts)
+  -- Tags
+  awful.tag(awful.util.tagnames, s, awful.layout.layouts)
 
-    -- Create a promptbox for each screen
-    s.mypromptbox = awful.widget.prompt()
+  -- Create a promptbox for each screen
+  s.mypromptbox = awful.widget.prompt()
 
-    -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, { bg_focus = barcolor })
+  -- Create a taglist widget
+  s.mytaglist = awful.widget.taglist(s, awful.widget.taglist.filter.all, awful.util.taglist_buttons, { bg_focus = barcolor })
 
-    mytaglistcont = wibox.container.background(s.mytaglist, theme.bg_focus, gears.shape.rectangle)
-    s.mytag = wibox.container.margin(mytaglistcont, dpi(0), dpi(0), dpi(2), dpi(2))
+  mytaglistcont = wibox.container.background(s.mytaglist, theme.bg_focus, gears.shape.rectangle)
+  s.mytag = wibox.container.margin(mytaglistcont, dpi(0), dpi(0), dpi(2), dpi(2))
 
-    -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons, { bg_focus = theme.bg_focus, shape = gears.shape.rectangle, shape_border_width = 5, shape_border_color = theme.tasklist_bg_normal, align = "center"})
+  -- Create a tasklist widget
+  s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons, { bg_focus = theme.bg_focus, shape = gears.shape.rectangle, shape_border_width = 5, shape_border_color = theme.tasklist_bg_normal, align = "center"})
 
-    -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(25) })
+  -- Create the wibox
+  s.mywibox = awful.wibar({ position = "top", screen = s, height = dpi(25) })
 
-    -- Add widgets to the wibox
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            first,
-            s.mytag,
-            bottom_bar,
-            bat.widget,
-            bottom_bar,
-            service_widget,
-            bottom_bar,
-            taskwidget,
-            bottom_bar,
-            s.mypromptbox,
-        },
-        nil, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
-            musicwidget,
-            mpd_icon,
-            volumewidget,
-        },
-    }
+  -- Add widgets to the wibox
+  s.mywibox:setup {
+    layout = wibox.layout.align.horizontal,
+    { -- Left widgets
+      layout = wibox.layout.fixed.horizontal,
+      first,
+      s.mytag,
+      bottom_bar,
+      bat.widget,
+      bottom_bar,
+      service_widget,
+      bottom_bar,
+      taskwidget,
+      bottom_bar,
+      s.mypromptbox,
+    },
+    nil, -- Middle widget
+    { -- Right widgets
+      layout = wibox.layout.fixed.horizontal,
+      wibox.widget.systray(),
+      musicwidget,
+      mpd_icon,
+      volumewidget,
+    },
+  }
 
-    -- Create the bottom wibox
-    s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = dpi(0), height = dpi(32) })
-    s.borderwibox = awful.wibar({ position = "bottom", screen = s, height = dpi(1), bg = theme.fg_focus, x = dpi(0), y = dpi(33)})
+  -- Create the bottom wibox
+  s.mybottomwibox = awful.wibar({ position = "bottom", screen = s, border_width = dpi(0), height = dpi(32) })
+  s.borderwibox = awful.wibar({ position = "bottom", screen = s, height = dpi(1), bg = theme.fg_focus, x = dpi(0), y = dpi(33)})
 
-    -- Add widgets to the bottom wibox
-    s.mybottomwibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            --mylauncher,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            last,
-            networkwidget,
-            bottom_bar,
-            memwidget,
-            bottom_bar,
-            cpuwidget,
-            cputempwidget,
-            bottom_bar,
-            theme.brightness,
-            bottom_bar,
-            calendarwidget,
-            bottom_bar,
-            clockwidget,
-        },
-    }
+  -- Add widgets to the bottom wibox
+  s.mybottomwibox:setup {
+    layout = wibox.layout.align.horizontal,
+    { -- Left widgets
+      layout = wibox.layout.fixed.horizontal,
+      --mylauncher,
+    },
+    s.mytasklist, -- Middle widget
+    { -- Right widgets
+      layout = wibox.layout.fixed.horizontal,
+      last,
+      networkwidget,
+      bottom_bar,
+      memwidget,
+      bottom_bar,
+      sysload.widget,
+      cpuwidget,
+      cputempwidget,
+      bottom_bar,
+      theme.brightness,
+      bottom_bar,
+      calendarwidget,
+      bottom_bar,
+      clockwidget,
+    },
+  }
 end
 
 return theme
