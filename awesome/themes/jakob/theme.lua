@@ -137,6 +137,10 @@ local service_widget = systemctl_widget:new({
         name = "bluetooth.service",
         symbol = "\u{f294}"
       },
+      ssh = {
+        name = "sshd.service",
+        symbol = "\u{e795}"
+      },
       mpd = {
         name = "mpd.service",
         symbol = "\u{f885}"
