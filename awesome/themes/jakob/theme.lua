@@ -139,7 +139,7 @@ local service_widget = systemctl_widget:new({
       },
       mpd = {
         name = "mpd.service",
-        symbol = "\u{f883}"
+        symbol = "\u{f885}"
       },
       tlp = {
         name = "tlp.service",
@@ -156,20 +156,20 @@ local service_widget = systemctl_widget:new({
       crypto = {
         -- usual cryptsetup units slice for manjaro
         name = "system-systemd\\x2dcryptsetup.slice",
-        symbol = "\u{f720}"
+        symbol = "\u{f840}"
       },
       swap = {
         -- can use any swap file/fs
         name = "*.swap",
         symbol = "\u{f9e0}"
       },
-      tmp_mount = {
-        name = "tmp.mount",
-        symbol = "\u{fb44}"
-      },
       timesync = {
         name = "systemd-timesyncd.service",
         symbol = "\u{f652}"
+      },
+      nfs_server = {
+        name = "nfs-server.service",
+        symbol = "\u{f716}"
       },
     }
   })
