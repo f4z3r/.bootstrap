@@ -264,10 +264,7 @@ local networkwidget = lain.widget.net({
           eth = true
         end
       end
-      if eth then
-        color = green
-        icon = "\u{f6ff}"
-      elseif wifi then
+      if wifi then
         icon = "\u{faa8}"
         if signal > -53 then
           color = green
@@ -278,6 +275,9 @@ local networkwidget = lain.widget.net({
         else
           color = red
         end
+      elseif eth then
+        color = green
+        icon = "\u{f6ff}"
       end
       local recvkbps = tonumber(net_now.received)
       local recvtext = recvkbps.."k"
