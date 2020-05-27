@@ -21,23 +21,23 @@ theme.default_dir                               = require("awful.util").get_them
 theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/jakob/icons"
 theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/jakob/leather.jpg"
 theme.font_base                                 = "FuraCode Nerd Font Bold"
-theme.font                                      = "FuraCode Nerd Font Bold 8"
-theme.taglist_font                              = "FuraCode Nerd Font Regular 8"
+theme.font                                      = "FuraCode Nerd Font Bold 10"
+theme.taglist_font                              = "FuraCode Nerd Font Regular 10"
 theme.fg_normal                                 = "#FFFFFF"
 theme.fg_focus                                  = "#0099CC"
 theme.bg_focus                                  = "#303030"
 theme.bg_normal                                 = "#242424"
 theme.fg_urgent                                 = "#CC9393"
 theme.bg_urgent                                 = "#006B8E"
-theme.border_width                              = dpi(3)
+theme.border_width                              = dpi(6)
 theme.border_normal                             = "#202020"
 theme.border_focus                              = "#990000"
 theme.taglist_fg_focus                          = "#FFFFFF"
 theme.tasklist_bg_normal                        = "#222222"
 theme.tasklist_fg_focus                         = "#4CB7DB"
-theme.menu_height                               = dpi(20)
-theme.menu_width                                = dpi(160)
-theme.menu_icon_size                            = dpi(32)
+theme.menu_height                               = dpi(40)
+theme.menu_width                                = dpi(320)
+theme.menu_icon_size                            = dpi(64)
 theme.awesome_icon                              = theme.icon_dir .. "/manjaro_icon.png"
 theme.awesome_icon_launcher                     = theme.icon_dir .. "/manjaro_icon_round.png"
 theme.taglist_squares_sel                       = theme.icon_dir .. "/square_sel.png"
@@ -175,7 +175,7 @@ local service_widget = systemctl_widget:new({
   })
 
 -- Taskwarrior
-local taskwidget = wibox.widget.textbox('<span font="Fira Code 12" color="cyan">\u{f4a0}</span>')
+local taskwidget = wibox.widget.textbox(markup.font(theme.font, "\u{f4a0}"))
 lain.widget.contrib.task.attach(taskwidget, {
     notification_preset = theme.taskwarrior_notif_preset,
     followtag = true
