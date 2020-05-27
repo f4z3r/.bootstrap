@@ -149,6 +149,10 @@ local service_widget = systemctl_widget:new({
         name = "NetworkManager.service",
         symbol = "\u{fbf3}"
       },
+      cron = {
+        name = "cronie.service",
+        symbol = "\u{f46a}"
+      },
       crypto = {
         -- usual cryptsetup units slice for manjaro
         name = "system-systemd\\x2dcryptsetup.slice",
@@ -162,6 +166,10 @@ local service_widget = systemctl_widget:new({
       tmp_mount = {
         name = "tmp.mount",
         symbol = "\u{fb44}"
+      },
+      timesync = {
+        name = "systemd-timesyncd.service",
+        symbol = "\u{f652}"
       },
     }
   })
