@@ -363,3 +363,9 @@ nnoremap <silent> <leader>yy :call bootstrap#system#copy_to_clipboard()<cr>
 " change last written word to UPPER_CASE
 imap <a-l> <esc>bcruA
 " }}}
+
+
+" ==== Learn ============================================================={{{
+" map backspace to noop for learning
+noremap! <bs> <Nop>
+" }}}
