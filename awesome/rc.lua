@@ -348,8 +348,6 @@ globalkeys = my_table.join(
             if client.focus then client.focus:raise() end
         end,
         {description = "focus right", group = "client"}),
-    awful.key({ modkey,           }, "w", function () awful.util.mymainmenu:show() end,
-              {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
     awful.key({ modkey, "Control" }, "j", function () awful.client.swap.byidx(  1)    end,
@@ -547,8 +545,6 @@ globalkeys = my_table.join(
               {description = "copy gtk to terminal", group = "hotkeys"}),
 
     -- User programs
-    --awful.key({ modkey }, "q", function () awful.spawn(browser) end,
-    --          {description = "run browser", group = "launcher"}),
     awful.key({ modkey }, "a", function () awful.spawn(guieditor) end,
               {description = "run gui editor", group = "launcher"}),
 
@@ -557,6 +553,9 @@ globalkeys = my_table.join(
 
     awful.key({ modkey }, "t", function () awful.spawn(mail) end,
              {description = "run mail", group = "launcher"}),
+
+    awful.key({ modkey }, "w", function () awful.spawn(browser) end,
+              {description = "run web browser", group = "launcher"}),
 
     awful.key({ modkey }, "i", function () awful.spawn(htop) end,
       {description = "show system information", group = "launcher"}),
