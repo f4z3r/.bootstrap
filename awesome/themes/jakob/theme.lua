@@ -175,6 +175,10 @@ local service_widget = systemctl_widget:new({
         name = "nfs-server.service",
         symbol = "\u{f716}"
       },
+      nfs_client_mount = {
+        name = "mnt-nfs.mount",
+        symbol = "\u{fb44}"
+      },
     }
   })
 
