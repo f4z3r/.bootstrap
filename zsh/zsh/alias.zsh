@@ -2,9 +2,7 @@
 #============================================= Alias =============================================
 #=================================================================================================
 
-# cd to git project root
-alias rt='cd $(git rev-parse --show-toplevel)'
-
+alias rt='cd $( if git rev-parse --show-toplevel &> /dev/null; then; git rev-parse --show-toplevel; else; echo ""; fi; )'
 
 # vim
 alias vi="nvim"
