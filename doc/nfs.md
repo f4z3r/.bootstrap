@@ -1,5 +1,8 @@
 # NFS
 
+NFS is used to have shared access to files. For simple synchronisation tasks, please use `rsync`.
+`rsync` is generally faster, and much saver as it runs over SSH.
+
 ## Installation
 
 Install the `nfs-utils` package if not installed already.

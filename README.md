@@ -109,7 +109,8 @@ call dein#install()
 ## Install other
 
 Other tools and utilities can be installed and configured. In order to have a better idea on how the
-how to install and configure some of those tools, see `doc` directory.
+how to install and configure some of those tools, see `doc` directory. Examples that require no
+configuration and that are extremely useful are for instance `rsync`.
 
 ### yay
 

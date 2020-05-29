@@ -10,6 +10,7 @@
   - [Persistency](#persistency)
 * [Containers](#containers)
   - [Commit to Image](#commit-to-image)
+* [Image Transfer](#image-transfer)
 
 <!-- vim-markdown-toc -->
 
@@ -94,3 +95,19 @@ and over.
 ```sh
 docker commit <container-name/id> <image-name>
 ```
+
+## Image Transfer
+
+Use
+
+```sh
+docker save -o back.tar <imgname>
+```
+
+to save an image to a tar file. This file can then be transfered across a network. Use
+
+```sh
+docker load -i back.tar
+```
+
+to load the image on the receiver.
