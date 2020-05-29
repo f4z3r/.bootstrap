@@ -257,9 +257,11 @@ nnoremap <leader>fc :Files<cr>
 nnoremap <leader>ff :Files %:p:h<cr>
 " (f)iles in (h)ome
 nnoremap <leader>fh :Files ~/<cr>
+" (f)iles (a)ll
+nnoremap <leader>fa :Files /<cr>
 " (f)ile (r)efresh
 nnoremap <leader>fr :checktime %<cr>
-" (f)ile (t)emp
+" (f)ile new (t)emp
 nnoremap <leader>ft :execute "e " . bootstrap#system#get_tmp_file()<cr>
 " }}}
 

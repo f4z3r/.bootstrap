@@ -179,6 +179,10 @@ local service_widget = systemctl_widget:new({
         name = "mnt-nfs.mount",
         symbol = "\u{fb44}"
       },
+      ufw_filter_manager = {
+        name = "ufw.service",
+        symbol = "\u{fcfc}"
+      },
     }
   })
 
