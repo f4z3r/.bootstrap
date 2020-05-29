@@ -219,10 +219,10 @@ local sysload = lain.widget.sysload({
 local cpuwidget = lain.widget.cpu({
     settings = function()
       local color = theme.fg_normal
-      if cpu_now.usage >= 50 then
-        color = yellow
-      elseif cpu_now.usage >= 75 then
+      if cpu_now.usage >= 75 then
         color = red
+      elseif cpu_now.usage >= 50 then
+        color = yellow
       end
       widget:set_markup(markup.font(theme.font, "\u{f085} " .. markup(color, cpu_now.usage .. "%")))
     end
@@ -233,10 +233,10 @@ local cpuwidget = lain.widget.cpu({
 local cputempwidget = lain.widget.temp({
     settings = function()
       local color = theme.fg_normal
-      if coretemp_now >= 60 then
-        color = yellow
-      elseif coretemp_now >= 70 then
+      if coretemp_now >= 70 then
         color = red
+      elseif coretemp_now >= 60 then
+        color = yellow
       end
       widget:set_markup(markup.font(theme.font, " \u{f2c9} " .. coretemp_now .. "\u{fa03}"))
     end
