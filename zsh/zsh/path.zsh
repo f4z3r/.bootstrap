@@ -2,6 +2,8 @@
 #============================================== Path =============================================
 #=================================================================================================
 
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"
+
 [ -d "$HOME/.local/bin/" ] && PATH="$PATH:$HOME/.local/bin/"
 [ -d "$HOME/.nimble/bin" ] && PATH="$PATH:$HOME/.nimble/bin"
 [ -d "$HOME/.cargo/bin" ] && PATH="$PATH:$HOME/.cargo/bin"
