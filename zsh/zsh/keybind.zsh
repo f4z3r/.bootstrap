@@ -4,6 +4,10 @@
 
 bindkey -v
 
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 # Add custom binds
 bindkey "fd" vi-cmd-mode
 bindkey -a "^H" vi-beginning-of-line
