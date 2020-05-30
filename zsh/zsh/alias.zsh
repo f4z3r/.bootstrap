@@ -11,6 +11,11 @@ alias sys='systemctl status'
 # vim
 alias vi="nvim"
 alias vim="nvim"
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+  alias vi="echo 'No nesting!'"
+  alias vim="echo 'No nesting!'"
+  alias nvim="echo 'No nesting!'"
+fi
 
 # ag / sk
 alias ag="ag --hidden --ignore .git --ignore .cache --color"
