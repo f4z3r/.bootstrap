@@ -2,8 +2,8 @@
 #============================================== Path =============================================
 #=================================================================================================
 
-[ -d "$HOME/.local/bin/" ] && PATH="$HOME/.local/bin/:$PATH"
-[ -d "$HOME/.nimble/bin" ] && PATH="$HOME/.nimble/bin:$PATH"
-[ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
+[ -d "$HOME/.local/bin/" ] && PATH="$PATH:$HOME/.local/bin/"
+[ -d "$HOME/.nimble/bin" ] && PATH="$PATH:$HOME/.nimble/bin"
+[ -d "$HOME/.cargo/bin" ] && PATH="$PATH:$HOME/.cargo/bin"
 
-export PATH=".:$PATH"
+export PATH
