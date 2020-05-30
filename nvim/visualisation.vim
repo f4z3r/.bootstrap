@@ -25,6 +25,7 @@ colorscheme gruvbox-material
 " source syntax override on buffer read or create (required due to lazy
 " loading of polyglot)
 augroup TODO_color_overrides
+  autocmd!
   autocmd BufRead,BufCreate * source <sfile>:h/after/colors/gruvbox.vim
 augroup END
 " }}}
@@ -62,6 +63,7 @@ set number
 set relativenumber
 " toggle relative and absolute numbering based on mode
 augroup LineNumberGroup
+  autocmd!
   autocmd InsertEnter * :set nornu
   autocmd InsertLeave * :set rnu
 augroup END

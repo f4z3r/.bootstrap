@@ -43,6 +43,7 @@ endfunction
 
 " Highlight symbol under cursor on CursorHold
 augroup CocCursorHold
+  autocmd!
   autocmd CursorHold * silent call CocActionAsync('highlight')
 augroup END
 
