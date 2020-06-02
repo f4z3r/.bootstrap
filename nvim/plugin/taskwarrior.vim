@@ -22,11 +22,12 @@ let g:task_left_arrow      = '> '
 " info window position
 let g:task_info_position   = 'belowright'
 " default fields to ask for
-let g:task_default_prompt  = ['project', 'schedule', 'due', 'tag',
+let g:task_default_prompt  = ['project', 'schedule', 'due', 'tag', 'is',
       \'description', 'depends']
 
 " set custom highlights
-highlight link taskwarrior_id               Gray
+highlight link taskwarrior_id               Grey
+highlight link taskwarrior_is               Green
 highlight link taskwarrior_due              RedBold
 highlight link taskwarrior_priority         Orange
 highlight link taskwarrior_depends          Aqua

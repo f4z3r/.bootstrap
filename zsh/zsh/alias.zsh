@@ -37,7 +37,8 @@ alias scr="screen -R"
 alias scx="screen -x"
 
 # TaskWarrior / TimeWarrior
-alias t="task"
+alias t="nvim -c 'TW'"
+alias ta="task"
 alias ti="timew"
 
 # tree

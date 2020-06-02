@@ -41,6 +41,11 @@ alias.h=ghistory
 # Color theme
 include ~/.config/taskwarrior/gruvbox-dark-256.theme
 
+# Link to Github/jira issue
+uda.is.type=string
+uda.is.label=issue
+uda.is.default=
+
 # Estimated time in hours
 uda.estimate.type=duration
 uda.estimate.label=est
@@ -59,25 +64,25 @@ urgency.uda.priority.L.coefficient=1.8
 # Total time spent
 uda.totalactivetime.type=duration
 uda.totalactivetime.label=totact
-uda.totalactivetime.values=''
+uda.totalactivetime.default=
 
 # {{{ Reports
-report.next.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
-report.next.labels=id,due,p,d,schdld,est,act,until,s,project,tag,descr
+report.next.columns=id,is,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
+report.next.labels=id,issue,due,p,d,schdld,est,act,until,s,project,tag,descr
 
-report.today.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
-report.today.labels=id,due,p,d,schdld,est,act,until,s,project,tag,descr
+report.today.columns=id,is,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
+report.today.labels=id,issue,due,p,d,schdld,est,act,until,s,project,tag,descr
 report.today.sort=urgency-,due-,project+/
 report.today.filter=status:pending and (due.before:tomorrow or schedule.before:tomorrow)
 
-report.high.columns=id,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
-report.high.labels=id,due,p,d,schdld,est,act,until,s,project,tag,descr
+report.high.columns=id,is,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
+report.high.labels=id,issue,due,p,d,schdld,est,act,until,s,project,tag,descr
 report.high.sort=urgency-,due+,schedule+,project+/
 report.high.filter=status:pending priority.not:L priority.not:M
 
 report.sch.description=List of scheduled tasks
-report.sch.columns=id,scheduled,estimate,act,start.active,depends.indicator,project,description.count
-report.sch.labels=id,schdld,est,act,s,d,proj,desc
+report.sch.columns=id,is,scheduled,estimate,act,start.active,depends.indicator,project,description.count
+report.sch.labels=id,issue,schdld,est,act,s,d,proj,desc
 report.sch.sort=scheduled+,project+/,entry+
 report.sch.filter=status:pending
 
