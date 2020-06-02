@@ -356,6 +356,14 @@ nnoremap <leader>osm :e ~/.vim/sessions/<cr>
 " }}}
 
 
+" ==== Preferences ======================================================={{{
+" (p)references (v)im
+nnoremap <leader>pv :e ~/.config/nvim/<cr>
+" (p)references (s)nippets (for current filetype)
+nnoremap <leader>ps :CocCommand snippets.editSnippets<cr>
+" }}}
+
+
 " ==== Misc =============================================================={{{
 " Simple pasting from default register
 inoremap <c-r> <c-r>"

@@ -1,5 +1,3 @@
-# run with bash for consistency
-
 SHELL := /bin/bash
 
 CURRENT_DIR := $(shell pwd)
@@ -7,64 +5,63 @@ CURRENT_DIR := $(shell pwd)
 .PHONY: configure
 configure: configure-vim configure-zsh configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver thesaurus configure-ctags
 
-
 .PHONY: configure-root
 configure-root: configure-zsh-root
 
 .PHONY: configure-ctags
 configure-ctags:
-	@if [ ! -L $(HOME)/.config/ctags ]; then ln -s $(CURRENT_DIR)/conf/ctags $(HOME)/.config/ctags; fi
+	@[ -L $(HOME)/.config/ctags ] || ln -s $(CURRENT_DIR)/conf/ctags $(HOME)/.config/ctags
 	@echo "[+] Linked ctags configuration"
 
 .PHONY: configure-git
 configure-git:
-	@if [ ! -L $(HOME)/.gitconfig ]; then ln -s $(CURRENT_DIR)/conf/.gitconfig $(HOME)/.gitconfig; fi
-	@if [ ! -L $(HOME)/.gitignore ]; then ln -s $(CURRENT_DIR)/conf/.gitignore $(HOME)/.gitignore; fi
+	@[ -L $(HOME)/.gitconfig ] || ln -s $(CURRENT_DIR)/conf/.gitconfig $(HOME)/.gitconfig
+	@[ -L $(HOME)/.gitignore ] || ln -s $(CURRENT_DIR)/conf/.gitignore $(HOME)/.gitignore
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-zsh-root
 configure-zsh-root:
-	@if [ ! -L /root/.zshrc ]; then sudo ln -s $(CURRENT_DIR)/zsh/.zshrc /root/.zshrc; fi
-	@if [ ! -L /root/.config/zsh ]; then sudo ln -s $(CURRENT_DIR)/zsh/zsh /root/.config/zsh; fi
+	@[ -L /root/.zshrc ] || sudo ln -s $(CURRENT_DIR)/zsh/.zshrc /root/.zshrc
+	@[ -L /root/.config/zsh ] || sudo ln -s $(CURRENT_DIR)/zsh/zsh /root/.config/zsh
 	@echo "[+] Linked zsh root configuration"
 
 .PHONY: configure-zsh
 configure-zsh:
-	@if [ ! -L $(HOME)/.zshrc ]; then ln -s $(CURRENT_DIR)/zsh/.zshrc $(HOME)/.zshrc; fi
-	@if [ ! -L $(HOME)/.config/zsh ]; then ln -s $(CURRENT_DIR)/zsh/zsh $(HOME)/.config/zsh; fi
+	@[ -L $(HOME)/.zshrc ] || ln -s $(CURRENT_DIR)/zsh/.zshrc $(HOME)/.zshrc
+	@[ -L $(HOME)/.config/zsh ] || ln -s $(CURRENT_DIR)/zsh/zsh $(HOME)/.config/zsh
 	@echo "[+] Linked zsh configuration"
 
 .PHONY: configure-vim
-configure-vim: install-dein
-	@if [ -d $(HOME)/.config/nvim ]; then rm -rf $(HOME)/.config/nvim; fi
-	@if [ ! -L $(HOME)/.config/nvim ]; then ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim; fi
+configure-vim: install-dein link-ultisnips
+	@[ -d $(HOME)/.config/nvim ] && rm -rf $(HOME)/.config/nvim
+	@[ -L $(HOME)/.config/nvim ] || ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim
 	@echo "[+] Linked vim configuration"
 
 .PHONY: configure-awesome
 configure-awesome:
-	@if [ -d $(HOME)/.config/awesome ]; then rm -rf $(HOME)/.config/awesome; fi
-	@if [ ! -L $(HOME)/.config/awesome ]; then ln -s $(CURRENT_DIR)/awesome/ $(HOME)/.config/awesome; fi
+	@[ -d $(HOME)/.config/awesome ] && rm -rf $(HOME)/.config/awesome
+	@[ -L $(HOME)/.config/awesome ] || ln -s $(CURRENT_DIR)/awesome/ $(HOME)/.config/awesome
 	@echo "[+] Linked awesome configuration"
 	
 .PHONY: configure-kitty
 configure-kitty:
-	@if [ ! -d $(HOME)/.config/kitty/ ]; then mkdir -p $(HOME)/.config/kitty; fi
-	@if [ ! -L $(HOME)/.config/kitty/kitty.conf ]; then ln -s $(CURRENT_DIR)/conf/kitty.conf $(HOME)/.config/kitty/kitty.conf; fi
-	@if [ ! -L $(HOME)/.config/kitty/kitty-colors ]; then ln -s $(CURRENT_DIR)/conf/kitty-colors $(HOME)/.config/kitty/kitty-colors; fi
-	@if [ ! -L $(HOME)/.config/kitty/active-theme.conf ]; then ln -s $(CURRENT_DIR)/conf/kitty-colors/gruvbox-material-dark-soft.conf $(HOME)/.config/kitty/active-theme.conf; fi
-	@if [ ! -f $(HOME)/.config/kitty/active-theme ]; then echo "dark" > $(HOME)/.config/kitty/active-theme; fi
+	@[ -d $(HOME)/.config/kitty/ ] || mkdir -p $(HOME)/.config/kitty
+	@[ -L $(HOME)/.config/kitty/kitty.conf ] || ln -s $(CURRENT_DIR)/conf/kitty.conf $(HOME)/.config/kitty/kitty.conf
+	@[ -L $(HOME)/.config/kitty/kitty-colors ] || ln -s $(CURRENT_DIR)/conf/kitty-colors $(HOME)/.config/kitty/kitty-colors
+	@[ -L $(HOME)/.config/kitty/active-theme.conf ] || ln -s $(CURRENT_DIR)/conf/kitty-colors/gruvbox-material-dark-soft.conf $(HOME)/.config/kitty/active-theme.conf
+	@[ -f $(HOME)/.config/kitty/active-theme ] || echo "dark" > $(HOME)/.config/kitty/active-theme
 	@echo "[+] Linked kitty configuration"
 
 .PHONY: pacman
 configure-pacman:
-	@if [ -f /etc/pacman.conf ]; then sudo rm /etc/pacman.conf; fi
-	@if [ ! -L /etc/pacman.conf ]; then sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf; fi
+	@[ -f /etc/pacman.conf ] && sudo rm /etc/pacman.conf
+	@[ -L /etc/pacman.conf ] || sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf
 	@echo "[+] Linked pacman configuration"
 
 .PHONY: configure-xscreensaver
 configure-xscreensaver:
-	@if [ ! -L $(HOME)/.xscreensaver ]; then ln -s $(CURRENT_DIR)/conf/.xscreensaver $(HOME)/.xscreensaver; fi
-	@if [ ! -L $(HOME)/.Xresources ]; then ln -s $(CURRENT_DIR)/conf/.Xresources $(HOME)/.Xresources; fi
+	@[ -L $(HOME)/.xscreensaver ] || ln -s $(CURRENT_DIR)/conf/.xscreensaver $(HOME)/.xscreensaver
+	@[ -L $(HOME)/.Xresources ] || ln -s $(CURRENT_DIR)/conf/.Xresources $(HOME)/.Xresources
 	@echo "[+] Linked xscreensaver configuration"
 
 #### Installs
@@ -87,7 +84,15 @@ install-dein:
 	@sh tools/install-dein.sh ~/.cache/dein > /dev/null
 	@echo "[+] Dein installed"
 
+.PHONY: link-ultisnips
+link-ultisnips:
+	@[ -d $(HOME)/.config/coc ] || mkdir -p $(HOME)/.config/coc
+	@[ -d $(HOME)/.config/coc/ultisnips ] && rm -r $(HOME)/.config/coc/ultisnips
+	@[ -L $(HOME)/.config/coc/ultisnips ] || ln -s $(CURRENT_DIR)/conf/ultisnips $(HOME)/.config/coc/ultisnips
+	@echo "[+] Snippets linked"
+
+
 .PHONY: configure-pinky
 configure-pinky:
-	@if [ ! -L $(HOME)/.Xmodmap ]; then ln -s $(CURRENT_DIR)/conf/.Xmodmap $(HOME)/.Xmodmap; fi
+	@[ -L $(HOME)/.Xmodmap ] || ln -s $(CURRENT_DIR)/conf/.Xmodmap $(HOME)/.Xmodmap
 	@echo "[+] Linked Xmodmap configuration"

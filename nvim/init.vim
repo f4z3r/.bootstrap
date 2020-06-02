@@ -26,6 +26,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('neoclide/coc.nvim',
         \{'merged': 0, 'rev': 'release'})
 
+  " add snippets for coc
+  call dein#add('honza/vim-snippets')
+
   " nice icon set for tabs and status line
   call dein#add('ryanoasis/vim-devicons')
 
