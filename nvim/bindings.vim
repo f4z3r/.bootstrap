@@ -203,14 +203,16 @@ nnoremap <leader>mu :execute 'tcd' . bootstrap#system#get_project_root()<cr>
 " ==== Toggles ==========================================================={{{
 " (t)oggle (t)agbar
 nnoremap <leader>tt :TagbarToggle<cr>
-" (t)oggle colorcolumn (L)ine
-nnoremap <leader>tL :set colorcolumn=100<cr>
+" (t)oggle colorcolumn (l)ine
+nnoremap <leader>tl :set colorcolumn=100<cr>
 " (t)oggle (g)olden ratio
 nnoremap <leader>tg :GoldenRatioToggle<cr>
 " (t)oggle (u)ndo tree
 nnoremap <leader>tu :GundoToggle<cr>
 " (t)oggle (b)ackground
 nnoremap <leader>tb :call bootstrap#system#toggle_background()<cr>
+" (t)oggle (s)yntax
+nnoremap <expr> <leader>ts exists('g:syntax_on') ? ':syntax off<cr>' : ':syntax enable<cr>'
 " }}}
 
 
