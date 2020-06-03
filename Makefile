@@ -91,6 +91,10 @@ link-ultisnips:
 	@[ -L $(HOME)/.config/coc/ultisnips ] || ln -s $(CURRENT_DIR)/conf/ultisnips $(HOME)/.config/coc/ultisnips
 	@echo "[+] Snippets linked"
 
+.PHONY: vim-minimal
+vim-minimal:
+	@[ -f $(HOME)/.vimrc ] && [ ! -f $(HOME)/.vimrc.bck ] && mv $(HOME)/.vimrc $(HOME)/.vimrc.bck && echo "[+] backup created"
+	@[ -f $(HOME)/.vimrc ] || cp $(CURRENT_DIR)/conf/.vimrc $(HOME)/.vimrc && "[+] configuration copied"
 
 .PHONY: configure-pinky
 configure-pinky:

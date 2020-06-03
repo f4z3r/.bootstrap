@@ -12,7 +12,6 @@ set t_Co=256
 
 
 " ==== Theme ============================================================={{{
-syntax on
 if $KITTY_THEME ==# 'dark'
   set background=dark
 else
