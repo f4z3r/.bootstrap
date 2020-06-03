@@ -45,7 +45,7 @@ ssh-keygen -t rsa -b 4096
 Install `zsh` and configure it.
 
 ```sh
-sudo pacman -S zsh zsh-syntax-highlighting zsh-theme-powerlevel10k zsh-completions
+sudo pacman -S zsh zsh-syntax-highlighting zsh-theme-powerlevel10k zsh-completions zsh-autosuggestions
 ```
 
 Link configuration all files.

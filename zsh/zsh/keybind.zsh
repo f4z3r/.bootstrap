@@ -10,8 +10,9 @@ bindkey '^x^e' edit-command-line
 
 # Add custom binds
 bindkey "fd" vi-cmd-mode
-bindkey -a "^H" vi-beginning-of-line
-bindkey -a "^L" vi-end-of-line
+bindkey -a "^h" vi-beginning-of-line
+bindkey -a "^l" vi-end-of-line
+bindkey "^f" forward-char
 
 
 typeset -A key
