@@ -5,7 +5,7 @@ scratch.
 
 <!-- vim-markdown-toc GFM -->
 
-* [Minimal Vim](#minimal-vim)
+* [Minimal Setup](#minimal-setup)
 * [Manjaro Install](#manjaro-install)
 * [Setup](#setup)
   - [Install `zsh`](#install-zsh)
@@ -17,12 +17,14 @@ scratch.
 
 <!-- vim-markdown-toc -->
 
-## Minimal Vim
+## Minimal Setup
 
-Configure minimal vim setup using:
+Configure minimal `vim` and `zsh` (or `bash`) setup using:
 
 ```sh
 make vim-minimal
+make zsh-minimal
+make bash-minimal
 ```
 
 ## Manjaro Install

@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver thesaurus configure-ctags
+configure: configure-vim configure-zsh configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver thesaurus configure-ctags
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -31,15 +31,21 @@ configure-zsh:
 	@[ -L $(HOME)/.config/zsh ] || ln -s $(CURRENT_DIR)/zsh/zsh $(HOME)/.config/zsh
 	@echo "[+] Linked zsh configuration"
 
+.PHONY: configure-bash
+configure-bash:
+	@-[ -f $(HOME)/.bashrc ] && rm $(HOME)/.bashrc
+	@[ -L $(HOME)/.bashrc ] || ln -s $(CURRENT_DIR)/conf/.bashrc $(HOME)/.bashrc
+	@echo "[+] Linked bash configuration"
+
 .PHONY: configure-vim
 configure-vim: install-dein link-ultisnips
-	@[ -d $(HOME)/.config/nvim ] && rm -rf $(HOME)/.config/nvim
+	@-[ -d $(HOME)/.config/nvim ] && rm -rf $(HOME)/.config/nvim
 	@[ -L $(HOME)/.config/nvim ] || ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim
 	@echo "[+] Linked vim configuration"
 
 .PHONY: configure-awesome
 configure-awesome:
-	@[ -d $(HOME)/.config/awesome ] && rm -rf $(HOME)/.config/awesome
+	@-[ -d $(HOME)/.config/awesome ] && rm -rf $(HOME)/.config/awesome
 	@[ -L $(HOME)/.config/awesome ] || ln -s $(CURRENT_DIR)/awesome/ $(HOME)/.config/awesome
 	@echo "[+] Linked awesome configuration"
 	
@@ -54,7 +60,7 @@ configure-kitty:
 
 .PHONY: pacman
 configure-pacman:
-	@[ -f /etc/pacman.conf ] && sudo rm /etc/pacman.conf
+	@-[ -f /etc/pacman.conf ] && sudo rm /etc/pacman.conf
 	@[ -L /etc/pacman.conf ] || sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf
 	@echo "[+] Linked pacman configuration"
 
@@ -93,8 +99,20 @@ link-ultisnips:
 
 .PHONY: vim-minimal
 vim-minimal:
-	@[ -f $(HOME)/.vimrc ] && [ ! -f $(HOME)/.vimrc.bck ] && mv $(HOME)/.vimrc $(HOME)/.vimrc.bck && echo "[+] backup created"
-	@[ -f $(HOME)/.vimrc ] || cp $(CURRENT_DIR)/conf/.vimrc $(HOME)/.vimrc && "[+] configuration copied"
+	@-[ -f $(HOME)/.vimrc ] && [ ! -f $(HOME)/.vimrc.bck ] && mv $(HOME)/.vimrc $(HOME)/.vimrc.bck && echo "[+] backup created"
+	@[ -f $(HOME)/.vimrc ] || cp $(CURRENT_DIR)/conf/.vimrc $(HOME)/.vimrc && echo "[+] configuration copied"
+	@[ -d $(HOME)/.config/nvim ] || mkdir -p $(HOME)/.config/nvim
+	@[ -L $(HOME)/.config/nvim/init.vim ] || ln -s $(HOME)/.vimrc $(HOME)/.config/nvim/init.vim && echo "[+] configuration linked for nvim"
+
+.PHONY: zsh-minimal
+zsh-minimal:
+	@-[ -f $(HOME)/.zshrc ] && [ ! -f $(HOME)/.zshrc.bck ] && mv $(HOME)/.zshrc $(HOME)/.zshrc.bck && echo "[+] backup created"
+	@[ -f $(HOME)/.zshrc ] || cp $(CURRENT_DIR)/conf/.zshrc $(HOME)/.zshrc && echo "[+] configuration copied"
+
+.PHONY: bash-minimal
+bash-minimal:
+	@-[ -f $(HOME)/.bashrc ] && [ ! -f $(HOME)/.bashrc.bck ] && mv $(HOME)/.bashrc $(HOME)/.bashrc.bck && echo "[+] backup created"
+	@[ -f $(HOME)/.bashrc ] || cp $(CURRENT_DIR)/conf/.bashrc $(HOME)/.bashrc && echo "[+] configuration copied"
 
 .PHONY: configure-pinky
 configure-pinky:

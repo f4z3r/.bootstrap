@@ -109,15 +109,6 @@ vnoremap <c-h> zH_
 vnoremap <c-l> $
 onoremap <c-h> _
 onoremap <c-l> $
-" Enable camelCase inner word motion with WORD
-unmap W
-unmap B
-unmap E
-unmap gE
-sunmap W
-sunmap B
-sunmap E
-sunmap gE
 
 " Easy movement in insert mode
 " delete word and char already default <c-w> and <c-h> respectively
