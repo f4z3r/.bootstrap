@@ -172,6 +172,8 @@ nnoremap <leader>fN :e
 nnoremap <leader>fr :checktime %<cr>
 " (f)ile new (t)emp
 nnoremap <leader>ft :execute "e " . Get_tmp_file()<cr>
+" vinegar simulation
+nnoremap - :e .<cr>
 " }}}
 
 
