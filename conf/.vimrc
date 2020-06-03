@@ -123,7 +123,7 @@ inoremap <c-b> <c-o>I
 " ==== Search ============================================================{{{
 " (s)earch (c)lear (highlighting)
 nnoremap <leader>sc :noh<cr>
-nnoremap ss :set operatorfunc=Grep_perator<cr>g@
+nnoremap ss :set operatorfunc=Grep_operator<cr>g@
 vnoremap ss :<c-u>call Grep_operator(visualmode())<cr>
 " search for visual selection using //
 vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
