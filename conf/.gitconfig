@@ -15,7 +15,7 @@
 # Aliases
 [alias]
 	f = fetch -q
-	b = branch
+	b = branch -vv
 	aa = add .
 	a = add
   ac = commit -am
