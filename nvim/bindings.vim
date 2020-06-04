@@ -22,7 +22,7 @@ tnoremap <esc> <c-\><c-N>
 
 " ==== Folding ==========================================================={{{
 " reduce foldlevel
-nnoremap <c-s> za
+nnoremap <c-s> zM
 " increase foldlevel
 nnoremap <c-d> zA
 " unmap s in normal mode
