@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-xscreensaver thesaurus configure-ctags
+configure: configure-vim configure-zsh configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman thesaurus configure-ctags configure-lock
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -58,17 +58,16 @@ configure-kitty:
 	@[ -f $(HOME)/.config/kitty/active-theme ] || echo "dark" > $(HOME)/.config/kitty/active-theme
 	@echo "[+] Linked kitty configuration"
 
+.PHONY: configure-lock
+configure-lock:
+	@[ -L $(HOME)/.local/bin/fuzzy-lock.sh ] || ln -s $(CURRENT_DIR)/tools/fuzzy-lock.sh $(HOME)/.local/bin/fuzzy-lock.sh
+	@echo "[+] Lockscreen configured"
+
 .PHONY: pacman
 configure-pacman:
 	@-[ -f /etc/pacman.conf ] && sudo rm /etc/pacman.conf
 	@[ -L /etc/pacman.conf ] || sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf
 	@echo "[+] Linked pacman configuration"
-
-.PHONY: configure-xscreensaver
-configure-xscreensaver:
-	@[ -L $(HOME)/.xscreensaver ] || ln -s $(CURRENT_DIR)/conf/.xscreensaver $(HOME)/.xscreensaver
-	@[ -L $(HOME)/.Xresources ] || ln -s $(CURRENT_DIR)/conf/.Xresources $(HOME)/.Xresources
-	@echo "[+] Linked xscreensaver configuration"
 
 #### Installs
 

@@ -58,7 +58,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "urxvtd", "unclutter -root" }) -- entries must be separated by commas
+run_once({ "unclutter -root" }) -- entries must be separated by commas
 
 local function run(command)
   local prog = io.popen(command)
@@ -92,10 +92,7 @@ local browser      = "firefox"
 local mail         = "thunderbird"
 local music_player = "kitty ncmpcpp"
 local htop         = "kitty htop"
-local scrlocker    = "xscreensaver-command -lock"
-
--- launch xscreen server
-os.execute("xscreensaver -no-splash &")
+local scrlocker    = "i3lock -c 249eca && sleep 10s && pgrep i3lock && xset dpms force off"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -189,6 +186,7 @@ lain.layout.cascade.tile.ncol          = 2
 
 beautiful.init(string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme))
 -- }}}
+
 
 
 -- {{{ TimeWarrior

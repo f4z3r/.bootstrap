@@ -71,7 +71,7 @@ cd tools/nerd-fonts
 Install awesome and its main dependencies.
 
 ```sh
-sudo pacman -S dmenu mpc scrot unclutter xsel brightnessctl kitty
+sudo pacman -S dmenu mpc scrot unclutter xsel brightnessctl kitty i3lock
 sudo pacman -S awesome
 ```
 
@@ -81,7 +81,7 @@ and [timewarrior](doc/timew.md).
 ### Install utilities
 
 ```sh
-sudo pacman -S the_silver_searcher mupdf-gl screen neovim xscreensaver skim ctags tree
+sudo pacman -S the_silver_searcher mupdf-gl screen neovim skim ctags tree
 ```
 
 Configure defaults for filetypes.
@@ -116,6 +116,7 @@ function.
 ```viml
 call dein#install()
 ```
+
 
 ## Install other
 
