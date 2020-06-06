@@ -18,8 +18,8 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
-theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/themes/jakob/icons"
-theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/themes/jakob/code-minimal.jpg"
+theme.icon_dir                                  = os.getenv("HOME") .. "/.config/awesome/theme/icons"
+theme.wallpaper                                 = os.getenv("HOME") .. "/.config/awesome/theme/code-minimal.jpg"
 theme.font_base                                 = "FuraCode Nerd Font Bold"
 theme.font                                      = "FuraCode Nerd Font Bold 10"
 theme.taglist_font                              = "FuraCode Nerd Font Regular 10"
@@ -155,7 +155,7 @@ local service_widget = systemctl_widget:new({
       },
       cron = {
         name = "cronie.service",
-        symbol = "\u{f46a}"
+        symbol = "\u{f01e}"
       },
       crypto = {
         -- usual cryptsetup units slice for manjaro
@@ -182,6 +182,10 @@ local service_widget = systemctl_widget:new({
       ufw_filter_manager = {
         name = "ufw.service",
         symbol = "\u{fcfc}"
+      },
+      rsync_server = {
+        name = "rsync.service",
+        symbol = "\u{f46a}"
       },
     }
   })
