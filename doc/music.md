@@ -12,10 +12,12 @@ The `mpc` client should already have been installed as a dependency to `awesome`
 
 ## Configuration
 
-Create the required directories for mpd.
+Create the required directories for `mpd` and allow access to it via the `mpd` user.
 
 ```sh
 mkdir -p ~/.config/mpd/
+sudo gpasswd -a mpd jakob
+chmod 710 /home/jakob
 ```
 
 Link the configuration files.
@@ -60,15 +62,3 @@ Create a symbolic link to always sync playlists.
 ln -s ~/.bootstrap/conf/playlists ~/.config/mpd/playlists
 ```
 
-## Troubleshoot
-
-Now remove the user in
-
-    /usr/lib/systemd/system/mpd.service
-
-to be `root`. Then restart `mpd` daemon:
-
-```sh
-sudo systemctl daemon-reload
-sudo systemctl restart mpd
-```
