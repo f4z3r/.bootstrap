@@ -28,7 +28,7 @@ cat /etc/group | grep docker
 Then add the current user to the group.
 
 ```sh
-sudo gpasswd -a (whoami) docker
+sudo gpasswd -a $(whoami) docker
 ```
 
 Reboot and then run the following to ensure everything is fine.

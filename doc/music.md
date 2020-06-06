@@ -16,8 +16,10 @@ Create the required directories for `mpd` and allow access to it via the `mpd` u
 
 ```sh
 mkdir -p ~/.config/mpd/
-sudo gpasswd -a mpd jakob
+chmod 770 ~/.config/mpd/
 chmod 710 /home/jakob
+sudo gpasswd -a mpd jakob  # add mpd to jakob group, to it can read/write .config/mpd and read home
+sudo gpasswd -a mpd audio  # add mpd to audio group so it can access audio hardware
 ```
 
 Link the configuration files.
