@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman thesaurus configure-ctags configure-lock
+configure: configure-vim configure-zsh configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman thesaurus configure-ctags
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -58,11 +58,6 @@ configure-kitty:
 	@[ -f $(HOME)/.config/kitty/active-theme ] || echo "dark" > $(HOME)/.config/kitty/active-theme
 	@echo "[+] Linked kitty configuration"
 
-.PHONY: configure-lock
-configure-lock:
-	@[ -L $(HOME)/.local/bin/fuzzy-lock.sh ] || ln -s $(CURRENT_DIR)/tools/fuzzy-lock.sh $(HOME)/.local/bin/fuzzy-lock.sh
-	@echo "[+] Lockscreen configured"
-
 .PHONY: pacman
 configure-pacman:
 	@-[ -f /etc/pacman.conf ] && sudo rm /etc/pacman.conf
@@ -76,11 +71,13 @@ thesaurus:
 	@mkdir -p ~/.vim/thesaurus
 	@if [ ! -f ~/.vim/thesaurus/mthesaur.txt ]; then \
 		curl -qfsS -o ~/.vim/thesaurus/mthesaur.txt https://www.gutenberg.org/files/3202/files/mthesaur.txt; \
+		echo "[+] Downloaded thesaurus mthesaur"; \
 		fi
 	@if [ ! -f ~/.vim/thesaurus/openoffice-data.zip ]; then \
 		curl -qfsS -o ~/.vim/thesaurus/openoffice-data.zip https://www.openoffice.org/lingucomponent/MyThes-1.zip; \
 		mkdir -p ~/.vim/thesaurus/openoffice; \
 		unzip -j ~/.vim/thesaurus/openoffice-data.zip -d ~/.vim/thesaurus/openoffice/ &> /dev/null; \
+		echo "[+] Downloaded openoffice files"; \
 		fi
 	@echo "[+] Downloaded thesaurus offline files"
 
@@ -92,7 +89,7 @@ install-dein:
 .PHONY: link-ultisnips
 link-ultisnips:
 	@[ -d $(HOME)/.config/coc ] || mkdir -p $(HOME)/.config/coc
-	@[ -d $(HOME)/.config/coc/ultisnips ] && rm -r $(HOME)/.config/coc/ultisnips
+	@-[ -d $(HOME)/.config/coc/ultisnips ] && rm -r $(HOME)/.config/coc/ultisnips
 	@[ -L $(HOME)/.config/coc/ultisnips ] || ln -s $(CURRENT_DIR)/conf/ultisnips $(HOME)/.config/coc/ultisnips
 	@echo "[+] Snippets linked"
 

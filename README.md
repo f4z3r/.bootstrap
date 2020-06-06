@@ -48,7 +48,7 @@ Install `zsh` and configure it.
 sudo pacman -S zsh zsh-syntax-highlighting zsh-theme-powerlevel10k zsh-completions zsh-autosuggestions
 ```
 
-Link configuration all files.
+Set `zsh` to the default shell using `chsh -s`. Link configuration all files.
 
 ```sh
 cd ~/.bootstrap/
@@ -104,7 +104,7 @@ Install `fzf` locally for `neovim`.
 
 ```sh
 cd ~/.bootstrap/
-git submodule update --init --remote --depth 1 /tools/fzf
+git submodule update --init --remote --depth 1 tools/fzf
 cd ~/.boostrap/tools/fzf
 ./install --bin
 ln -s $(pwd)/ $HOME/.fzf

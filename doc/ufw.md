@@ -57,5 +57,6 @@ sudo ufw delete allow 80 # delete some rule
 sudo ufw delete 1        # delete rule 1
 
 sudo ufw logging on      # turn on logging
+sudo ufw logging low     # turn on logging with `low` level
 ```
 

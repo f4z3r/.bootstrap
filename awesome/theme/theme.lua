@@ -187,6 +187,10 @@ local service_widget = systemctl_widget:new({
         name = "rsync.service",
         symbol = "\u{f46a}"
       },
+      print_server = {
+        name = "org.cups.cupsd.service",
+        symbol = "\u{f929}"
+      },
     }
   })
 
