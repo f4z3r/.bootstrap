@@ -61,7 +61,7 @@ Install Fura Code nerd font for proper handling of ligatures and icons.
 
 ```sh
 cd ~/.bootstrap
-git submodule update --init --depth 1 tools/nerd-fonts
+git submodule update --init --remote --depth 1 tools/nerd-fonts
 cd tools/nerd-fonts
 ./install.sh FiraCode
 ```
@@ -104,7 +104,7 @@ Install `fzf` locally for `neovim`.
 
 ```sh
 cd ~/.bootstrap/
-git submodule update --init --depth 1 /tools/fzf
+git submodule update --init --remote --depth 1 /tools/fzf
 cd ~/.boostrap/tools/fzf
 ./install --bin
 ln -s $(pwd)/ $HOME/.fzf
