@@ -6,7 +6,7 @@
 alias rt='cd $( if git rev-parse --show-toplevel &> /dev/null; then; git rev-parse --show-toplevel; else; echo ""; fi; )'
 
 # systemctl query
-alias sys='systemctl status'
+alias sys='systemctl status -l'
 
 # vim
 alias vi="nvim"
