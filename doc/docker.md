@@ -11,6 +11,7 @@
 * [Containers](#containers)
   - [Commit to Image](#commit-to-image)
 * [Image Transfer](#image-transfer)
+* [Docker-compose](#docker-compose)
 
 <!-- vim-markdown-toc -->
 
@@ -111,3 +112,7 @@ docker load -i back.tar
 ```
 
 to load the image on the receiver.
+
+## Docker-compose
+
+Install `docker-compose` via `pipx`.

@@ -7,7 +7,7 @@
 	excludesfile = ~/.gitignore
 
 [log]
-  date = format:%Y-%m-%d %H:%M
+	date = format:%Y-%m-%d %H:%M
 
 [diff]
 	submodule = log
@@ -18,10 +18,10 @@
 	b = branch -vv
 	aa = add .
 	a = add
-  ac = commit -am
+	ac = commit -am
 	cc = commit -m
 	ca = commit --amend -C HEAD
-  ce = commit --amend -m
+	ce = commit --amend -m
 	co = checkout
 	re = reset
 	s  = status -sb
