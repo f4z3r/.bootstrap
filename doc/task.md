@@ -11,7 +11,7 @@ Link the configuration.
 ```sh
 ln -s ~/.bootstrap/conf/taskwarrior ~/.config/taskwarrior
 ln -s ~/.bootstrap/conf/.taskrc ~/.taskrc
-ln -s ~/.bootstrap/conf/task/hooks/ ~/.task/hooks
+ln -s ~/.bootstrap/conf/task/hooks/* ~/.task/hooks/
 ```
 
 ## Syncing with `inthe.AM`
