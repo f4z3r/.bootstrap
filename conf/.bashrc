@@ -62,6 +62,7 @@ export LESS_TERMCAP_mr=$'\E[01;33m'
 # EDITORS
 export VISUAL="vim"
 export EDITOR="vim"
+export SUDO_EDITOR="vim"
 
 
 #=================================================================================================

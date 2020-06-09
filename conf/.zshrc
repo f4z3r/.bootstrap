@@ -86,6 +86,7 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # EDITORS
 export VISUAL="vim"
 export EDITOR="vim"
+export SUDO_EDITOR="vim"
 
 
 #=================================================================================================
