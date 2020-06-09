@@ -70,11 +70,11 @@ configure-pacman:
 thesaurus:
 	@mkdir -p ~/.vim/thesaurus
 	@if [ ! -f ~/.vim/thesaurus/mthesaur.txt ]; then \
-		curl -qfsS -o ~/.vim/thesaurus/mthesaur.txt https://www.gutenberg.org/files/3202/files/mthesaur.txt; \
+		wget --quiet -c -O ~/.vim/thesaurus/mthesaur.txt https://www.gutenberg.org/files/3202/files/mthesaur.txt; \
 		echo "[+] Downloaded thesaurus mthesaur"; \
 		fi
 	@if [ ! -f ~/.vim/thesaurus/openoffice-data.zip ]; then \
-		curl -qfsS -o ~/.vim/thesaurus/openoffice-data.zip https://www.openoffice.org/lingucomponent/MyThes-1.zip; \
+		wget --no-check-certificate --quiet -c -O ~/.vim/thesaurus/openoffice-data.zip https://www.openoffice.org/lingucomponent/MyThes-1.zip; \
 		mkdir -p ~/.vim/thesaurus/openoffice; \
 		unzip -j ~/.vim/thesaurus/openoffice-data.zip -d ~/.vim/thesaurus/openoffice/ &> /dev/null; \
 		echo "[+] Downloaded openoffice files"; \
