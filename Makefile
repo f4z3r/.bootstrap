@@ -96,19 +96,19 @@ link-ultisnips:
 .PHONY: vim-minimal
 vim-minimal:
 	@-[ -f $(HOME)/.vimrc ] && [ ! -f $(HOME)/.vimrc.bck ] && mv $(HOME)/.vimrc $(HOME)/.vimrc.bck && echo "[+] backup created"
-	@[ -f $(HOME)/.vimrc ] || cp $(CURRENT_DIR)/conf/.vimrc $(HOME)/.vimrc && echo "[+] configuration copied"
+	@[ -L $(HOME)/.vimrc ] || ln -s $(CURRENT_DIR)/conf/.vimrc $(HOME)/.vimrc && echo "[+] configuration linked"
 	@[ -d $(HOME)/.config/nvim ] || mkdir -p $(HOME)/.config/nvim
 	@[ -L $(HOME)/.config/nvim/init.vim ] || ln -s $(HOME)/.vimrc $(HOME)/.config/nvim/init.vim && echo "[+] configuration linked for nvim"
 
 .PHONY: zsh-minimal
 zsh-minimal:
 	@-[ -f $(HOME)/.zshrc ] && [ ! -f $(HOME)/.zshrc.bck ] && mv $(HOME)/.zshrc $(HOME)/.zshrc.bck && echo "[+] backup created"
-	@[ -f $(HOME)/.zshrc ] || cp $(CURRENT_DIR)/conf/.zshrc $(HOME)/.zshrc && echo "[+] configuration copied"
+	@[ -L $(HOME)/.zshrc ] || ln -s $(CURRENT_DIR)/conf/.zshrc $(HOME)/.zshrc && echo "[+] configuration linked"
 
 .PHONY: bash-minimal
 bash-minimal:
 	@-[ -f $(HOME)/.bashrc ] && [ ! -f $(HOME)/.bashrc.bck ] && mv $(HOME)/.bashrc $(HOME)/.bashrc.bck && echo "[+] backup created"
-	@[ -f $(HOME)/.bashrc ] || cp $(CURRENT_DIR)/conf/.bashrc $(HOME)/.bashrc && echo "[+] configuration copied"
+	@[ -L $(HOME)/.bashrc ] || ln -s $(CURRENT_DIR)/conf/.bashrc $(HOME)/.bashrc && echo "[+] configuration copied"
 
 .PHONY: configure-pinky
 configure-pinky:
