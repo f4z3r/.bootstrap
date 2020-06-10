@@ -11,6 +11,11 @@ alias rt='cd $( if git rev-parse --show-toplevel &> /dev/null; then; git rev-par
 # systemctl query
 alias sys='systemctl status'
 
+# vim
+if command -v nvim &> /dev/null; then
+  alias vim="nvim"
+fi
+
 # ls
 alias l="ls -FA --color=always"
 alias ll="ls -alF --color=always"
