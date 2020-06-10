@@ -393,7 +393,7 @@ globalkeys = my_table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({ modkey,           }, "k", function ()
+    awful.key({ modkey,           }, "z", function ()
       local active_theme = run("cat ~/.config/kitty/active-theme"):gsub("\n*$", "")
       local new_theme = "light"
       if active_theme == "light" then
