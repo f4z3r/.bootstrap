@@ -157,6 +157,15 @@ fi
 
 PROMPT='%B%F{red}%(?..?%? )%F{magenta}%T %F{green}(%n@%M%a%) %F{blue}%1~%f%b %# '
 
+# provide vim mode on right hand side
+function zle-line-init zle-keymap-select {
+    RPS1="%B%F{green}< ${${KEYMAP/vicmd/N}/(main|viins)/I}%f%b"
+    RPS2=$RPS1
+    zle reset-prompt
+}
+zle -N zle-line-init
+zle -N zle-keymap-select
+
 
 #=================================================================================================
 #========================================== Security =============================================
