@@ -58,7 +58,9 @@ nnoremap fd <esc>
 inoremap fd <esc>
 vnoremap fd <esc>
 cnoremap fd <esc>
-tnoremap <esc> <c-\><c-N>
+if has('nvim')
+  tnoremap <esc> <c-\><c-N>
+endif
 " }}}
 
 
@@ -132,7 +134,9 @@ vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
 
 " ==== Machine (System) =================================================={{{
 " machine escape terminal mode
-tnoremap <leader>tt <c-\><c-N>
+if has('nvim')
+  tnoremap <leader>tt <c-\><c-N>
+endif
 " (m)achine open terminal in (t)ab
 nnoremap <leader>mt :tabnew<cr>:terminal<cr>a
 " (m)achine open terminal on (s)split
@@ -188,16 +192,18 @@ nnoremap <leader>ws :split<cr>
 nnoremap <leader>wr <c-w>=
 " (w)indow focus l
 nnoremap <leader>wl <c-w>lzH
-tnoremap <leader>wl <c-\><c-N><c-w>lzH
 " (w)indow focus h
 nnoremap <leader>wh <c-w>hzH
-tnoremap <leader>wh <c-\><c-N><c-w>hzH
 " (w)indow focus j
 nnoremap <leader>wj <c-w>jzH
-tnoremap <leader>wj <c-\><c-N><c-w>jzH
 " (w)indow focus k
 nnoremap <leader>wk <c-w>kzH
-tnoremap <leader>wk <c-\><c-N><c-w>kzH
+if has('nvim')
+  tnoremap <leader>wl <c-\><c-N><c-w>lzH
+  tnoremap <leader>wh <c-\><c-N><c-w>hzH
+  tnoremap <leader>wj <c-\><c-N><c-w>jzH
+  tnoremap <leader>wk <c-\><c-N><c-w>kzH
+endif
 " (w)indow (t)ab new
 nnoremap <leader>wt :$tabnew<cr>
 " }}}
@@ -264,7 +270,7 @@ nnoremap <buffer> <localleader>d :set conceallevel=0<cr>
 " =========================== Visualisation =================================
 
 " ==== Colors ============================================================{{{
-if $STY ==# ''
+if $STY ==# '' && has('nvim')
   set termguicolors
 endif
 set t_Co=256
