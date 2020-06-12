@@ -11,7 +11,6 @@ scratch.
   - [Install `zsh`](#install-zsh)
   - [Install Fura Code](#install-fura-code)
   - [Install `awesome`](#install-awesome)
-    + [Disable suspend on lid close](#disable-suspend-on-lid-close)
   - [Install utilities](#install-utilities)
 * [Install other](#install-other)
   - [yay](#yay)
@@ -78,17 +77,6 @@ sudo pacman -S awesome
 
 In order to allow some widget keys, also install `task`, and `timew`. See [taskwarrior](doc/task.md)
 and [timewarrior](doc/timew.md).
-
-#### Disable suspend on lid close
-
- Change `/etc/systemd/logind.conf` to have:
-
-```conf
-HandlePowerKey=suspend
-HandleLidSwitch=ignore
-HandleLidSwitchExternalPower=ignore
-HandleLidSwitchDocked=ignore
-```
 
 ### Install utilities
 

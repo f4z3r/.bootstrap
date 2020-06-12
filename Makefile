@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman thesaurus configure-ctags
+configure: configure-vim configure-zsh configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -58,11 +58,17 @@ configure-kitty:
 	@[ -f $(HOME)/.config/kitty/active-theme ] || echo "dark" > $(HOME)/.config/kitty/active-theme
 	@echo "[+] Linked kitty configuration"
 
-.PHONY: pacman
+.PHONY: configure-pacman
 configure-pacman:
 	@-[ -f /etc/pacman.conf ] && sudo rm /etc/pacman.conf
 	@[ -L /etc/pacman.conf ] || sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf
 	@echo "[+] Linked pacman configuration"
+
+.PHONY: configure-logind
+configure-logind:
+	@-[ -f /etc/systemd/logind.conf ] && sudo rm /etc/systemd/logind.conf
+	@[ -L /etc/systemd/logind.conf ] || sudo ln -s $(CURRENT_DIR)/conf/systemd/logind.conf /etc/systemd/logind.conf
+	@echo "[+] Linked logind configuration"
 
 #### Installs
 
