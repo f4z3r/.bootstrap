@@ -23,6 +23,8 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 
+local scrlocker    = "i3lock -c 249eca"
+
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -57,7 +59,7 @@ local function run_once(cmd_arr)
     end
 end
 
-run_once({ "unclutter -root" }) -- entries must be separated by commas
+run_once({ "unclutter -root", "xss-lock -- " .. scrlocker }) -- entries must be separated by commas
 
 local function run(command)
   local prog = io.popen(command)
@@ -80,7 +82,6 @@ local browser      = "firefox"
 local mail         = "thunderbird"
 local music_player = "kitty ncmpcpp"
 local htop         = "kitty htop"
-local scrlocker    = "i3lock -c 249eca && sleep 10s && pgrep i3lock && xset dpms force off"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -278,8 +279,8 @@ globalkeys = my_table.join(
     {description = "take a screenshot", group = "hotkeys"}),
 
     -- X screen locker
-    awful.key({ altkey, "Control" }, "l", function () os.execute(scrlocker) end,
-              {description = "lock screen", group = "hotkeys"}),
+    awful.key({ modkey, "Shift"   }, "l", function () os.execute("xset s activate && sleep 1 && xset dpms force off") end,
+              {description = "lock screen", group = "awesome"}),
 
     -- Hotkeys
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
