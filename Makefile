@@ -60,15 +60,13 @@ configure-kitty:
 
 .PHONY: configure-pacman
 configure-pacman:
-	@-[ -f /etc/pacman.conf ] && sudo rm /etc/pacman.conf
-	@[ -L /etc/pacman.conf ] || sudo ln -s $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf
-	@echo "[+] Linked pacman configuration"
+	@sudo cp -u $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf
+	@echo "[+] Copied pacman configuration"
 
 .PHONY: configure-logind
 configure-logind:
-	@-[ -f /etc/systemd/logind.conf ] && sudo rm /etc/systemd/logind.conf
-	@[ -L /etc/systemd/logind.conf ] || sudo ln -s $(CURRENT_DIR)/conf/systemd/logind.conf /etc/systemd/logind.conf
-	@echo "[+] Linked logind configuration"
+	@sudo cp -u $(CURRENT_DIR)/conf/systemd/logind.conf /etc/systemd/logind.conf
+	@echo "[+] Copied logind configuration"
 
 #### Installs
 
