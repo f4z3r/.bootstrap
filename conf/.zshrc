@@ -5,11 +5,17 @@
 #=================================================================================================
 #============================================= Alias =============================================
 
+# systemctl
+alias -g sys="systemctl"
+alias -g sysl="systemctl list-units"
+alias -g syse="systemctl is-enabled"
+alias -g sysa="systemctl is-active"
+alias -g syss="systemctl status"
+alias -g syst="systemctl start"
+alias -g sysp="systemctl stop"
+
 # go to project root
 alias rt='cd $( if git rev-parse --show-toplevel &> /dev/null; then; git rev-parse --show-toplevel; else; echo ""; fi; )'
-
-# systemctl query
-alias sys='systemctl status'
 
 # vim
 if command -v nvim &> /dev/null; then
@@ -40,6 +46,12 @@ alias ip="ip -c"
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
+
+# docker
+# docker remove dangling
+alias drd="docker rmi \$(docker images -f 'dangling=true' -q)"
+# docker remove none
+alias drn="docker rmi \$(docker images -a | grep '<none>')"
 
 
 #=================================================================================================

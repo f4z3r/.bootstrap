@@ -5,6 +5,13 @@
 #=================================================================================================
 #============================================= Alias =============================================
 
+# allow aliases for sudo (check space after alias)
+alias sudo="sudo "
+
+# systemctl
+alias sys="systemctl "
+alias s="status"
+
 # go to project root
 alias rt='cd $( if git rev-parse --show-toplevel &> /dev/null; then; git rev-parse --show-toplevel; else; echo ""; fi; )'
 
@@ -41,6 +48,11 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
+# docker
+# docker remove dangling
+alias drd="docker rmi \$(docker images -f 'dangling=true' -q)"
+# docker remove none
+alias drn="docker rmi \$(docker images -a | grep '<none>')"
 
 #=================================================================================================
 #========================================= Colored Grep  =========================================
