@@ -277,6 +277,8 @@ nnoremap <leader>wv :vsplit<cr>
 nnoremap <leader>ws :split<cr>
 " (w)indow (r)esize (balances all windows)
 nnoremap <leader>wr <c-w>=
+" (w)indow = equalize
+nnoremap <leader>w= <c-w>=
 " (w)indow focus l
 nnoremap <leader>wl <c-w>lzH
 tnoremap <leader>wl <c-\><c-N><c-w>lzH
