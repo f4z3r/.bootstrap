@@ -74,6 +74,22 @@ umount /srv/nfs/media
 umount /srv/nfs/books
 ```
 
+### Security
+
+In order to disable portmapping for all clients connecting put the following line in
+`/etc/hosts.deny`:
+
+```hosts
+portmap: ALL
+```
+
+But allow portmapping for the clients in the subnet that require to mount the NFS in
+`/etc/hosts.allow`:
+
+```hosts
+portmap: jakob@10.12.10.0/24, jakob@10.12.20.0/24
+```
+
 ## Client
 
 For the client, ensure the `nfs-client.target` is active, then mount the NFS via:
