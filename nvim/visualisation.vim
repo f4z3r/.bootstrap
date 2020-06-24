@@ -12,10 +12,10 @@ set t_Co=256
 
 
 " ==== Theme ============================================================={{{
-if $KITTY_THEME ==# 'dark'
-  set background=dark
-else
+if $KITTY_THEME ==# 'light'
   set background=light
+else
+  set background=dark
 endif
 " set low contrast mode
 let g:gruvbox_material_background = 'soft'
