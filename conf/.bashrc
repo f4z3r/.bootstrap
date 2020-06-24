@@ -54,6 +54,7 @@ alias drd="docker rmi \$(docker images -f 'dangling=true' -q)"
 # docker remove none
 alias drn="docker rmi \$(docker images -a | grep '<none>')"
 
+
 #=================================================================================================
 #========================================= Colored Grep  =========================================
 
@@ -71,6 +72,20 @@ export LESS_TERMCAP_so=$'\E[31;1;4m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[04;38;5;146m'
 export LESS_TERMCAP_mr=$'\E[01;33m'
+
+
+#=================================================================================================
+#========================================= Controlled Path =======================================
+
+PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"                    # system bins
+
+[ -d "/usr/bin/core_perl/" ] && PATH="$PATH:/usr/bin/core_perl/"       # perl core bins
+[ -d "/usr/bin/vendor_perl/" ] && PATH="$PATH:/usr/bin/vendor_perl/"   # perl vendor bins
+[ -d "$HOME/.local/bin/" ] && PATH="$PATH:$HOME/.local/bin/"           # local bins
+[ -d "$HOME/.nimble/bin" ] && PATH="$PATH:$HOME/.nimble/bin"           # nim bins
+[ -d "$HOME/.cargo/bin" ] && PATH="$PATH:$HOME/.cargo/bin"             # rust bins
+
+export PATH
 
 
 #=================================================================================================
@@ -96,6 +111,12 @@ __prompt_command() {
         PS1="\033[01:31m?$curr_exit $PS1"
     fi
 }
+
+#=================================================================================================
+#=========================================== Perl ================================================
+
+[ -r ~/perl5/perlbrew/etc/bashrc ] && source ~/perl5/perlbrew/etc/bashrc;
+[ -r ~/perl5/perlbrew/etc/perlbrew-completion.bash ] && source ~/perl5/perlbrew/etc/perlbrew-completion.bash;
 
 
 #=================================================================================================

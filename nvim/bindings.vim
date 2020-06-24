@@ -57,19 +57,19 @@ nmap ]w <plug>(ale_next_wrap_warning)
 " refactor (w)arnings (p)revious
 nmap [w <plug>(ale_previous_wrap_warning)
 " (r)efactor (f)ix
-nnoremap <leader>rf <plug>(ale_fix)
+nnoremap <leader>rf :ALEFix<cr>
 " (r)efactor (s)uggest fixes
 nnoremap <leader>rs :ALEFixSuggest<cr>
 " (r)efactor (l)int
-nnoremap <leader>rl <plug>(ale_lint)
+nnoremap <leader>rl :ALELint<cr>
 " (r)efactor (c)oc (d)isable
 nnoremap <leader>rcd :CocDisable<cr>
 " (r)efactor (c)oc (e)nable
 nnoremap <leader>rce :CocEnable<cr>
 " (r)efactor (a)le (d)isable
-nnoremap <leader>rad <plug>(ale_disable)
+nnoremap <leader>rad :ALEDisable<cr>
 " (r)efactor (a)le (e)nable
-nnoremap <leader>rae <plug>(ale_enable)
+nnoremap <leader>rae :ALEEnable<cr>
 " coc goto overrides
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -305,8 +305,6 @@ nnoremap <leader>bd :Bd<cr>
 nnoremap <leader><tab> :b#<cr>
 " (b)uffer fuzzy search
 nnoremap <leader>bb :Buffers<cr>
-" (b)uffer (f)ix
-nnoremap <leader>bf :ALEFix<cr>
 " close all buffers except current
 command! Bk execute '%bdelete|edit #|normal `"'
 " (b)uffer only (k)eep current
