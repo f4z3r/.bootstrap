@@ -61,6 +61,7 @@ configure-kitty:
 .PHONY: configure-pacman
 configure-pacman:
 	@sudo cp -u $(CURRENT_DIR)/conf/pacman.conf /etc/pacman.conf
+	@sudo chmod 664 /etc/pacman.conf
 	@echo "[+] Copied pacman configuration"
 
 .PHONY: configure-logind
