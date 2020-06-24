@@ -61,6 +61,8 @@ if dein#load_state('~/.cache/dein')
         \    'BLines',
         \    'Ag',
         \    'Maps',
+        \    'Tags',
+        \    'BTags',
         \]})
 
   " provide nice surround commands

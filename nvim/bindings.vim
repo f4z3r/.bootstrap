@@ -156,6 +156,10 @@ omap af <Plug>(coc-funcobj-a)
 " ==== Search ============================================================{{{
 " (s)earch (c)lear (highlighting)
 nnoremap <leader>sc :noh<cr>
+" (s)earch (t)ags
+nnoremap <leader>st :Tags<cr>
+" (s)earch local (t)ags
+nnoremap <leader>sT :BTags<cr>
 " (s)earch (g)it commit
 nnoremap <leader>sg :Commits<cr>
 " (s)earch (C)ommand
