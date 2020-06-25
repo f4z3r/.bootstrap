@@ -75,9 +75,16 @@ if dein#load_state('~/.cache/dein')
   call dein#add('blindfs/vim-taskwarrior',
         \{'on_cmd': ['TW', 'TWSync']})
 
-  " required for markdown table formatting
-  call dein#add('godlygeek/tabular',
-        \{'on_cmd': 'TableFormat'})
+  " required for markdown table formatting and alignment
+  " Launch easy align with `ga`:
+  "   vipga= (align on = inner paragraph)
+  "   = Around the 1st occurrence
+  "   2= Around the 2nd occurrence
+  "   -= Around the last occurrence
+  "   *= Around all occurrences
+  "   **= Left/Right alternating alignment around all occurrences
+  "   <Enter> Switching between left/right/center alignment mo
+  call dein#add('junegunn/vim-easy-align')
 
   " support TOC generation for markdown
   call dein#add('mzlogin/vim-markdown-toc',

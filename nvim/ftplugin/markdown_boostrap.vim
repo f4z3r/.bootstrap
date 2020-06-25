@@ -8,7 +8,8 @@ nnoremap <buffer> <localleader>g :GenTocGFM<cr>
 " (t)able of contents (s)how
 nnoremap <buffer> <localleader>s :Toc<cr>
 " (f)ormat table
-nnoremap <buffer> <localleader>f :TableFormat<cr>
+vnoremap <buffer> <localleader>f :EasyAlign*<bar><cr>
+nnoremap <buffer> <localleader>f vip:EasyAlign*<bar><cr>
 " conceal (e)nable
 nnoremap <buffer> <localleader>e :set conceallevel=2<cr>
 " conceal (d)isable
