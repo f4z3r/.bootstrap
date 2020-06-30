@@ -378,4 +378,9 @@ xnoremap <silent> p p:let @"=@0<cr>
 nnoremap <silent> <leader>yy :call bootstrap#system#copy_to_clipboard()<cr>
 " change last written word to UPPER_CASE
 imap <a-l> <esc>bcruA
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
 " }}}
