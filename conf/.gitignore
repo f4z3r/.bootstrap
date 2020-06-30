@@ -2,4 +2,5 @@ tags
 tags.temp
 tags.lock
 .mypy_cache/
+.*.un~
 
