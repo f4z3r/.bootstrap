@@ -48,10 +48,12 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
 # docker
-# docker remove dangling
-alias drd="docker rmi \$(docker images -f 'dangling=true' -q)"
-# docker remove none
-alias drn="docker rmi \$(docker images -a | grep '<none>')"
+# docker image remove dangling
+alias did="docker rmi \$(docker images -f 'dangling=true' -q)"
+# docker image remove none
+alias din="docker rmi \$(docker images -a | perl -lane 'print @F[2] if /<none>/')"
+# docker container remove existed
+alias dcd="docker container list -a | grep -i exited | cut -d' ' -f1 | xargs docker container rm"
 
 
 #=================================================================================================
