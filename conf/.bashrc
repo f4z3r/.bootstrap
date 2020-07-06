@@ -56,6 +56,11 @@ alias din="docker rmi \$(docker images -a | perl -lane 'print @F[2] if /<none>/'
 # docker container remove existed
 alias dcd="docker container list -a | grep -i exited | cut -d' ' -f1 | xargs docker container rm"
 
+# pomorodo
+alias pomo="(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
+              'System pomorodo completed' \
+              'System pomodoro finished after 25 minutes. Please take a short break and start a new one.') &"
+
 #=================================================================================================
 #========================================= Colored Grep  =========================================
 
