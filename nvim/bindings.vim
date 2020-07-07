@@ -301,6 +301,10 @@ nnoremap <leader>wt :$tabnew<cr>
 
 
 " ==== Buffer ============================================================{{{
+" (b)uffer (s)elect
+nnoremap <leader>bs ggVG
+" (b)uffer (y)ank
+nnoremap <leader>by ggVGy
 " close buffer without closing window command
 command! Bd :bp | :sp | :bn | :bd
 " (b)uffer (d)elete
@@ -382,5 +386,4 @@ imap <a-l> <esc>bcruA
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
 " }}}
