@@ -1,5 +1,7 @@
 # Docker
 
+See [`./podman-buildah.md`](./podman-buildah.md) for alternatives to `docker`.
+
 <!-- vim-markdown-toc GFM -->
 
 * [Installation](#installation)
