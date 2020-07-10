@@ -8,15 +8,29 @@ They provide benefits such as:
 - rootless containers
 - more fine grained control over builds and image commits
 
+<!-- vim-markdown-toc GFM -->
+
+* [Podman](#podman)
+  - [Rootless](#rootless)
+  - [Crun](#crun)
+  - [Usage](#usage)
+* [Buildah](#buildah)
+  - [Usage](#usage-1)
+* [Images](#images)
+* [Best Practices](#best-practices)
+
+<!-- vim-markdown-toc -->
+
 ## Podman
 
 ### Rootless
 
 In order to run rootless containers, aka containers that only have the privileges from the user
-running them, subordinate UIDs and GIDs can be used:
+running them, subordinate UIDs and GIDs can be used. Write the following in both `/etc/subuid` and
+`/etc/subgid`, and modify the files to be readable by all (`sudo chmod 644 /etc/subuid`):
 
-```sh
-usermod -v 165536-65536 -w 165536-65536 jakob
+```
+jakob:165536:65536
 ```
 
 This will set subordinate UIDs and GIDs for user `jakob` in `/etc/subuid` and `/etc/subgid`.
@@ -29,21 +43,15 @@ non-privileged users to allocate memory and CPU resource limits.
 In order to use it as the OCI runtime, install `crun`, and configure it under `runtime` in
 `~/.config/containers/libpod.conf`.
 
+```
+runtime = "crun"
+```
+
 ### Usage
 
 `podman` usage is mostly identical to `docker`. All commands running on `docker` are supported by
 `podman`.
 
-<!-- vim-markdown-toc GFM -->
-
-  - [Crun](#crun)
-  - [Usage](#usage)
-* [Buildah](#buildah)
-  - [Usage](#usage-1)
-* [Images](#images)
-* [Best Practices](#best-practices)
-
-<!-- vim-markdown-toc -->
 ## Buildah
 
 ### Usage
