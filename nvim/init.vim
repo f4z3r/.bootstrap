@@ -211,7 +211,10 @@ if dein#load_state('~/.cache/dein')
         \            'UnicodeName',
         \            'UnicodeTable',
         \            'DownloadUnicode']})
-  
+
+  call dein#add('jakobbeckmann/vim-viper-lang',
+        \{'on_ft': 'viper'})
+
   call dein#end()
   call dein#save_state()
 endif
