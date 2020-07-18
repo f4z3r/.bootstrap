@@ -8,10 +8,6 @@
 # allow aliases for sudo (check space after alias)
 alias sudo="sudo "
 
-# systemctl
-alias sys="systemctl "
-alias s="status"
-
 # go to project root
 alias rt='cd $( if git rev-parse --show-toplevel &> /dev/null; then; git rev-parse --show-toplevel; else; echo ""; fi; )'
 
