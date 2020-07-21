@@ -19,6 +19,6 @@ ln -s ~/.bootstrap/conf/task/hooks/* ~/.task/hooks/
 The following will sync tasks over the `cirusthevirus130212@gmail.com` Google Account.
 
 ```sh
-ln -s ~/.bootstrap/conf/task/keys/ ~/.task/keys
+ln -s ~/.bootstrap/conf/task/keys ~/.task/keys
 task sync init
 ```
