@@ -12,6 +12,7 @@ local dpi   = require("beautiful.xresources").apply_dpi
 
 local brightness_widget = require("brightness-widget")
 local systemctl_widget = require("systemctl-widget")
+local ip_widget = require("ip-widget")
 
 local string, os = string, os
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -314,6 +315,8 @@ local networkwidget = lain.widget.net({
     end
   })
 
+local ip_address_widget = ip_widget:new({ font = theme.font })
+
 -- Launcher
 local mylauncher = awful.widget.button({ image = theme.awesome_icon_launcher })
 mylauncher:connect_signal("button::press", function() awful.util.mymainmenu:toggle() end)
@@ -400,6 +403,8 @@ function theme.at_screen_connect(s)
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       last,
+      ip_address_widget,
+      bottom_bar,
       networkwidget,
       bottom_bar,
       memwidget,
