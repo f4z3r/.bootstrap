@@ -93,6 +93,10 @@ if dein#load_state('~/.cache/dein')
   " language support (should be lazy by default)
   call dein#add('sheerun/vim-polyglot')
 
+  " EBNF support
+  call dein#add('vim-scripts/ebnf.vim',
+        \{'on_ft': 'ebnf'})
+
   " better OCaml support for indenting
   call dein#add('OCamlPro/ocp-indent',
         \{'on_ft': 'ocaml'})
