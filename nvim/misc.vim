@@ -57,3 +57,10 @@ set autoread                 " read changed files into buffers if needed
 set autochdir
 set tags=tags;/              " check every directory up for tags
 " }}}
+
+
+" ==== Vimrc Editing ====================================================={{{
+augroup boot_vimrc
+  autocmd bufwritepost *.vimrc source $MYVIMRC
+augroup END
+" }}}
