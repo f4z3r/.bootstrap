@@ -11,3 +11,9 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"                    # system 
 [ -d "$HOME/.cargo/bin" ] && PATH="$PATH:$HOME/.cargo/bin"             # rust bins
 
 export PATH
+
+# also provide local /bin -> /share/man pages
+MANPATH=""
+[ -d "$HOME/.local/share/man" ] && MANPATH="$MANPATH:$HOME/.local/share/man"
+
+export MANPATH

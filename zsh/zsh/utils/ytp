@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+
+if (( $# != 1 )); then
+  echo "Usage: $0 LINK"
+fi
+
+yt_link="$1"
+
+mpc clear &> /dev/null
+mpc insert $(youtube-dl --prefer-insecure -g -f140 "$yt_link") &> /dev/null
+mpc play &> /dev/null
+
+# vim:ft=bash

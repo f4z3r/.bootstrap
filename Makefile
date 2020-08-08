@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags
+configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -30,6 +30,13 @@ configure-zsh:
 	@[ -L $(HOME)/.zshrc ] || ln -s $(CURRENT_DIR)/zsh/.zshrc $(HOME)/.zshrc
 	@[ -L $(HOME)/.config/zsh ] || ln -s $(CURRENT_DIR)/zsh/zsh $(HOME)/.config/zsh
 	@echo "[+] Linked zsh configuration"
+
+.PHONY: configure-tools
+configure-tools:
+	@install $(CURRENT_DIR)/zsh/zsh/utils/ytp $(HOME)/.local/bin/
+	@install -d /$(HOME)/.local/share/man/man1
+	@install $(CURRENT_DIR)/zsh/zsh/utils/ytp.1 /$(HOME)/.local/share/man/man1
+	@echo "[+] Installed shell tools"
 
 .PHONY: configure-bash
 configure-bash:

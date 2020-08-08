@@ -83,11 +83,17 @@ theme.mpd = lain.widget.mpd({
       if mpd_now.state == "play" then
         mpd_now.artist = mpd_now.artist:upper():gsub("&.-;", string.lower)
         mpd_now.title = mpd_now.title:upper():gsub("&.-;", string.lower)
-        widget:set_markup(markup.font("Fira Code 4", " ")
-          .. markup.font(theme.taglist_font,
-            " " .. mpd_now.artist
-            .. " - " ..
-          mpd_now.title .. "  ") .. markup.font("Fira Code 5", " "))
+        if mpd_now.artist == "N/A" and mpd_now.title == "N/A" then
+          widget:set_markup(markup.font("Fira Code 4", " ")
+            .. markup.font(theme.taglist_font,
+              "PLAYING FROM YOUTUBE") .. markup.font("Fira Code 5", " "))
+        else
+          widget:set_markup(markup.font("Fira Code 4", " ")
+            .. markup.font(theme.taglist_font,
+              " " .. mpd_now.artist
+              .. " - " ..
+            mpd_now.title .. "  ") .. markup.font("Fira Code 5", " "))
+        end
       elseif mpd_now.state == "pause" then
         widget:set_markup(markup.font("Fira Code 4", " ") ..
           markup.font(theme.taglist_font, " MPD PAUSED  ") ..

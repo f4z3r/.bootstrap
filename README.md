@@ -71,7 +71,7 @@ cd tools/nerd-fonts
 Install awesome and its main dependencies.
 
 ```sh
-sudo pacman -S dmenu mpc scrot unclutter brightnessctl kitty i3lock xss-lock xsel
+sudo pacman -S dmenu mpc scrot unclutter brightnessctl kitty i3lock xss-lock xsel youtube-dl
 sudo pacman -S awesome
 ```
 
