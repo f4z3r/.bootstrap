@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+podman run -d --rm --name="draw" -p 8080:8080 -p 8443:8443 docker.io/jgraph/drawio
+xdg-open "http://localhost:8080/?offline=1&https=0"
+podman attach draw
+
+# vim: ft=bash
