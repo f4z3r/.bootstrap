@@ -13,6 +13,6 @@ iabbrev xxx XXX(@jakob):
 iabbrev cprg Copyright <company> (c) 2020<cr><cr>Author: Jakob Beckmann <beckmann_jakob@hotmail.fr><cr>
 
 " shebangs
-iabbrev sbsh #!/usr/bin/env bash<cr><cr>set -e<cr>
+iabbrev sbsh #!/usr/bin/env bash<cr><cr>set -euo pipefail<cr>IFS=$'\n\t'<cr>
 iabbrev sbpl #!/usr/bin/env perl<cr><bs><cr>use strict;<cr>use warnings;<cr>
 iabbrev sbpy #!/usr/bin/env python3<cr>
