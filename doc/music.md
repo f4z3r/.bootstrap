@@ -64,3 +64,19 @@ Create a symbolic link to always sync playlists.
 ln -s ~/.bootstrap/conf/playlists ~/.config/mpd/playlists
 ```
 
+## Troubleshooting
+
+If you experience stutter, try edit the file
+/var/lib/bluetooth/XX:XX:XX:XX:XX:XX/YY:YY:YY:YY:YY:YY/info (XX:XX:XX:XX:XX:XX - your Bluetooth
+adapter MAC-address, YY:YY:YY:YY:YY:YY - your external device's MAC-address) and add those lines:
+
+```
+[ConnectionParameters]
+MinInterval=6
+MaxInterval=9
+Latency=44
+Timeout=216
+```
+
+Then disconnect and reconnect to the device.
+
