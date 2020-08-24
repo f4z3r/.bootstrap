@@ -79,6 +79,7 @@ theme.brightness = brightness_widget:new({font = theme.font})
 -- MPD
 local mpd_icon = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f885} </span>")
 theme.mpd = lain.widget.mpd({
+    timeout = 4,
     settings = function ()
       if mpd_now.state == "play" then
         mpd_now.artist = mpd_now.artist:upper():gsub("&.-;", string.lower)
@@ -88,11 +89,15 @@ theme.mpd = lain.widget.mpd({
             .. markup.font(theme.taglist_font,
               "PLAYING FROM YOUTUBE") .. markup.font("Fira Code 5", " "))
         else
+          percent = (mpd_now.elapsed * 100) / mpd_now.time
           widget:set_markup(markup.font("Fira Code 4", " ")
             .. markup.font(theme.taglist_font,
               " " .. mpd_now.artist
               .. " - " ..
-            mpd_now.title .. "  ") .. markup.font("Fira Code 5", " "))
+            mpd_now.title
+            ..  " (" ..
+            math.floor(percent + 0.5)
+            .. "%) ") .. markup.font("Fira Code 5", " "))
         end
       elseif mpd_now.state == "pause" then
         widget:set_markup(markup.font("Fira Code 4", " ") ..
