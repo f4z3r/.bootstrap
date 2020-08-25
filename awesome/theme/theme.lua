@@ -77,10 +77,23 @@ theme.cal = lain.widget.cal({
 theme.brightness = brightness_widget:new({font = theme.font})
 
 -- MPD
+local song_progres_width = 300
 local mpd_icon = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f885} </span>")
+theme.mpdbarinner = wibox.widget {
+  color            = red,
+  background_color = green,
+  forced_height    = dpi(2),
+  forced_width     = dpi(song_progres_width),
+  margins          = dpi(6),
+  paddings         = dpi(0),
+  ticks            = false,
+  widget           = wibox.widget.progressbar
+}
+theme.mpdbar = wibox.container.margin(theme.mpdbarinner, dpi(0), dpi(0), dpi(6), dpi(6))
 theme.mpd = lain.widget.mpd({
     timeout = 4,
     settings = function ()
+      widget.progress.forced_width = dpi(0)
       if mpd_now.state == "play" then
         mpd_now.artist = mpd_now.artist:upper():gsub("&.-;", string.lower)
         mpd_now.title = mpd_now.title:upper():gsub("&.-;", string.lower)
@@ -89,15 +102,14 @@ theme.mpd = lain.widget.mpd({
             .. markup.font(theme.taglist_font,
               "PLAYING FROM YOUTUBE") .. markup.font("Fira Code 5", " "))
         else
-          percent = (mpd_now.elapsed * 100) / mpd_now.time
+          widget.progress.forced_width = dpi(song_progres_width)
+          widget.progress:set_value(mpd_now.elapsed / mpd_now.time)
           widget:set_markup(markup.font("Fira Code 4", " ")
             .. markup.font(theme.taglist_font,
               " " .. mpd_now.artist
               .. " - " ..
             mpd_now.title
-            ..  " (" ..
-            math.floor(percent + 0.5)
-            .. "%) ") .. markup.font("Fira Code 5", " "))
+            ..  " ") .. markup.font("Fira Code 5", " "))
         end
       elseif mpd_now.state == "pause" then
         widget:set_markup(markup.font("Fira Code 4", " ") ..
@@ -108,6 +120,7 @@ theme.mpd = lain.widget.mpd({
       end
     end
   })
+theme.mpd.widget.progress = theme.mpdbarinner
 local musicwidget = theme.mpd.widget
 
 -- Battery
@@ -394,6 +407,7 @@ function theme.at_screen_connect(s)
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.systray(),
       musicwidget,
+      theme.mpdbar,
       mpd_icon,
       volumewidget,
     },
