@@ -216,6 +216,10 @@ local service_widget = systemctl_widget:new({
         name = "org.cups.cupsd.service",
         symbol = "\u{f929}"
       },
+      optimus_manager = {
+        name = "optimus-manager.service",
+        symbol = "\u{f974}"
+      },
     }
   })
 
