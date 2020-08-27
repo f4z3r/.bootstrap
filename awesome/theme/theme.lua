@@ -10,6 +10,7 @@ local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
 
+local optimus_widget = require("optimus-widget")
 local brightness_widget = require("brightness-widget")
 local systemctl_widget = require("systemctl-widget")
 local ip_widget = require("ip-widget")
@@ -149,6 +150,9 @@ local bat = lain.widget.bat({
       widget:set_markup(markup.font(theme.font, markup(color, bat_header) .. bat_p))
     end
   })
+
+-- GPU switch
+local gpu_widget = optimus_widget:new({ font = theme.taglist_font })
 
 -- Services
 local service_widget = systemctl_widget:new({
@@ -413,6 +417,8 @@ function theme.at_screen_connect(s)
       musicwidget,
       theme.mpdbar,
       mpd_icon,
+      gpu_widget,
+      last,
       volumewidget,
     },
   }
