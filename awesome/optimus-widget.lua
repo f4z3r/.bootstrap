@@ -37,11 +37,11 @@ end
 
 function Optimus:update()
   if is_active("nvidia") then
-    self.widget:set_text("NVIDIA: \u{fd3c}")
+    self.widget:set_text("\u{f108}: NVIDIA \u{fd3c}")
   elseif is_active("intel") then
-    self.widget:set_text("INTEL: \u{f108}")
+    self.widget:set_text("\u{f108}: INTEL")
   else
-    self.widget:set_text("NO OPTIMUS: \u{f108}")
+    self.widget:set_text("\u{f108}: NO OPTIMUS")
   end
 end
 

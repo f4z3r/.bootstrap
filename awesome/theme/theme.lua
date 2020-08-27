@@ -52,11 +52,13 @@ theme.useless_gap                               = dpi(0)
 
 theme.musicplr = string.format("%s ncmpcpp", awful.util.terminal)
 
-local markup = lain.util.markup
-local blue   = "#80CCE6"
-local red    = "#DF0101"
-local green  = "#00B700"
-local yellow = "#CCCC00"
+local markup     = lain.util.markup
+local blue       = "#80CCE6"
+local red        = "#DF0101"
+local green      = "#00B700"
+local yellow     = "#CCCC00"
+local back_norm  = "#383838"
+local back_light = "#4b4b4b"
 
 -- Clock
 local clockwidget = wibox.widget.textclock(markup("#FFFFFF", "\u{f64f} %H:%M " .. markup.font("Fira Code 4", " ")))
@@ -81,8 +83,8 @@ theme.brightness = brightness_widget:new({font = theme.font})
 local song_progres_width = 300
 local mpd_icon = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f885} </span>")
 theme.mpdbarinner = wibox.widget {
-  color            = red,
-  background_color = green,
+  color            = theme.fg_normal,
+  background_color = back_light,
   forced_height    = dpi(2),
   forced_width     = dpi(song_progres_width),
   margins          = dpi(6),
@@ -240,9 +242,9 @@ theme.volume = lain.widget.alsabar({
     --togglechannel = "IEC958,3",
     width = dpi(100), height = dpi(2), border_width = dpi(0),
     colors = {
-      background = "#383838",
-      unmute     = "#80CCE6",
-      mute       = "red"
+      background = back_light,
+      unmute     = blue,
+      mute       = red,
     },
   })
 theme.volume.bar.paddings = dpi(0)
@@ -355,7 +357,7 @@ mylauncher:connect_signal("button::press", function() awful.util.mymainmenu:togg
 
 -- Separators
 local first = wibox.widget.textbox('<span font="Fira Code 12" color="green"> \u{f312} </span>')
-local last = wibox.widget.textbox('<span font="Fira Code 5">  </span>')
+local last = wibox.widget.textbox('<span font="Fira Code 10">  </span>')
 local bottom_bar = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f6d8} </span>")
 
 local barcolor  = gears.color({
@@ -417,9 +419,10 @@ function theme.at_screen_connect(s)
       musicwidget,
       theme.mpdbar,
       mpd_icon,
+      volumewidget,
+      last,
       gpu_widget,
       last,
-      volumewidget,
     },
   }
 
