@@ -26,11 +26,6 @@ function Brightness:new(args)
   obj.widget = wibox.widget.textbox()
   obj.widget:set_font(args.font)
 
-  -- Check the brightness every 30 seconds
-  obj.timer = timer({ timeout = 30 })
-  obj.timer:connect_signal("timeout", function() obj:update({}) end)
-  obj.timer:start()
-
   obj:update()
 
   return obj
