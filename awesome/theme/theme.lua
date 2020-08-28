@@ -230,8 +230,8 @@ local service_widget = systemctl_widget:new({
   })
 
 -- Taskwarrior
-local taskwidget = wibox.widget.textbox(markup.font(theme.font, "\u{f4a0}"))
-lain.widget.contrib.task.attach(taskwidget, {
+theme.task = wibox.widget.textbox(markup.font(theme.font, "\u{f4a0}"))
+lain.widget.contrib.task.attach(theme.task, {
     notification_preset = theme.taskwarrior_notif_preset,
     followtag = true
   })
@@ -408,7 +408,7 @@ function theme.at_screen_connect(s)
       bottom_bar,
       service_widget,
       bottom_bar,
-      taskwidget,
+      theme.task,
       bottom_bar,
       s.mypromptbox,
     },

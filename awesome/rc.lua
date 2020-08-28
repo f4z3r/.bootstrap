@@ -602,6 +602,20 @@ globalkeys = my_table.join(
       naughty.notify(common)
     end, {description = "mpc on/off", group = "widgets"}),
 
+  -- task on/off
+  awful.key({ altkey, "Control" }, "9",
+    function ()
+      local common = { text = "Taskwarrior widget ", position = "top_middle", timeout = 2 }
+      if beautiful.task.timer.started then
+        beautiful.task.timer:stop()
+        common.text = common.text .. lain.util.markup.bold("OFF")
+      else
+        beautiful.task.timer:start()
+        common.text = common.text .. lain.util.markup.bold("ON")
+      end
+      naughty.notify(common)
+    end, {description = "task on/off", group = "widgets"}),
+
 
   -- == Layout ===
   awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
