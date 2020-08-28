@@ -363,6 +363,10 @@ globalkeys = my_table.join(
   -- awful.key({ modkey, altkey, "Control"    }, "r", function () awful.screen.focused().mypromptbox:run() end,
   --   {description = "run shell prompt", group = "launcher"}),
 
+  -- launch dropdown
+    awful.key({ "Control"          }, "Return", function () awful.screen.focused().quake:toggle() end,
+              {description = "dropdown application", group = "launcher"}),
+
 
   -- == Client ==
   -- focus down
