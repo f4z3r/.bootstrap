@@ -59,12 +59,12 @@ alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
 # podman
-# podman image dangling delete
+# podman image delete dangling
 alias pidd="podman rmi \$(podman images -f 'dangling=true' -q)"
-# podman image none delete
-alias pind="podman rmi \$(podman images -a | perl -lane 'print @F[2] if /<none>/')"
-# podman container existed delete
-alias pced="podman container list -a | grep -i exited | cut -d' ' -f1 | xargs podman container rm"
+# podman image delete none
+alias pidn="podman rmi \$(podman images -a | perl -lane 'print @F[2] if /<none>/')"
+# podman container delete existed
+alias pcde="podman container list -a | grep -i exited | cut -d' ' -f1 | xargs podman container rm"
 
 # pomorodo
 alias pomo="(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
