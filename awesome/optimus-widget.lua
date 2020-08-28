@@ -25,11 +25,6 @@ function Optimus:new(args)
   obj.widget = wibox.widget.textbox("")
   obj.widget:set_font(args.font)
 
-  -- Check services every 10 minutes seconds
-  obj.timer = timer({ timeout = 600 })
-  obj.timer:connect_signal("timeout", function() obj:update() end)
-  obj.timer:start()
-
   obj:update()
 
   return obj
