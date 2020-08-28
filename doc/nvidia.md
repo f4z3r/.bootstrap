@@ -29,6 +29,11 @@ inxi -G
 
 Then install `optimus-manager` and reboot. Also install `nvtop` to manage graphic card load.
 
+> Manjaro ships with a default configuration for SDDM (the default login manager for KDE) which
+> overrides some keys needed by `optimus-manager`. To use `optimus-manager`, you need to edit the
+> file `/etc/sddm.conf` and simply put a `#` before the line starting with `DisplayCommand` and the
+> one starting with `DisplayStopCommand`.
+
 Try a switch and check that the proprietary driver `nvidia` is used with `inxi -G` instead of the
 `nouveau` driver.
 
