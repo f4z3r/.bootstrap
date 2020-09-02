@@ -15,7 +15,7 @@ local brightness_widget = require("brightness-widget")
 local systemctl_widget = require("systemctl-widget")
 local ip_widget = require("ip-widget")
 
-local string, os = string, os
+local string, os, io = string, os, io
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 
 local theme                                     = {}
@@ -355,8 +355,36 @@ local ip_address_widget = ip_widget:new({ font = theme.font })
 local mylauncher = awful.widget.button({ image = theme.awesome_icon_launcher })
 mylauncher:connect_signal("button::press", function() awful.util.mymainmenu:toggle() end)
 
+-- OS Logo
+file = io.open('/etc/os-release', 'r')
+local os_text = file:read("*a")
+-- get ID of /etc/os-release
+local release = string.match(os_text, '%sID="?([%a-_]+)"?%s')
+file:close()
+local logo = "\u{f303}"
+local logo_color = "#00ccff"
+if release == "manjaro" then
+  logo = "\u{f312}"
+  logo_color = "green"
+elseif release == "arch" then
+  logo = "\u{f303}"
+  logo_color = "#00ccff"
+elseif release == "ubuntu" then
+  logo = "\u{f31b}"
+  logo_color = "#ff9900"
+elseif release == "debian" then
+  logo = "\u{f306}"
+  logo_color = "red"
+elseif release == "opensuse-leap" then
+  logo = "\u{f314}"
+  logo_color = "#00cc00"
+elseif release == "opensuse-tumbleweed" then
+  logo = "\u{f314}"
+  logo_color = "#00cc00"
+end
+
+local first = wibox.widget.textbox('<span font="Fira Code 12" color="'..logo_color..'"> '..logo..' </span>')
 -- Separators
-local first = wibox.widget.textbox('<span font="Fira Code 12" color="green"> \u{f312} </span>')
 local last = wibox.widget.textbox('<span font="Fira Code 10">  </span>')
 local bottom_bar = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f6d8} </span>")
 
