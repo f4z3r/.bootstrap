@@ -65,6 +65,8 @@ alias pidd="podman rmi \$(podman images -f 'dangling=true' -q)"
 alias pidn="podman rmi \$(podman images -a | perl -lane 'print @F[2] if /<none>/')"
 # podman container delete existed
 alias pcde="podman container list -a | grep -i exited | cut -d' ' -f1 | xargs podman container rm"
+# buildah container delete all
+alias bcda="buildah containers | grep -vi 'container name' | cut -d' ' -f1 | xargs buildah rm"
 
 # pomorodo
 alias pomo="(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
