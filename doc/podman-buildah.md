@@ -84,6 +84,16 @@ The `docker.io/debian:stable-slim` image provides nice a Debian image for testin
 
 The `docker.io/ubuntu:bionic` image provides nice an Ubuntu image for testing.
 
+For a custom base image that contains this setup, run:
+
+```sh
+# in project root
+buildah bud --layers -t base:latest -f base.dockerfile .
+# launch it, and attach to it
+podman run --rm --name base -itd base:latest /usr/bin/zsh
+podman attach base
+```
+
 ## Best Practices
 
 It is best practices to use `buildah` as the build tool to build all docker images. `podman` can
