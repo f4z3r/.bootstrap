@@ -400,9 +400,9 @@ function theme.at_screen_connect(s)
   s.quake = lain.util.quake({
     app = awful.util.terminal,
     argname = "--name %s",
-    height = 0.5,
+    height = 0.75,
     width = 0.75,
-    vert = "top",
+    vert = "center",
     horiz = "center"
   })
 
