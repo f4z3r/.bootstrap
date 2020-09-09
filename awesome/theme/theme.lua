@@ -278,11 +278,12 @@ local cpuwidget = lain.widget.cpu({
 -- CPU temp
 -- added space at beginning as no sep between this and CPU %
 local cputempwidget = lain.widget.temp({
+    tempfile = "/sys/devices/virtual/thermal/thermal_zone1/temp",
     settings = function()
       local color = theme.fg_normal
-      if coretemp_now >= 70 then
+      if coretemp_now >= 80 then
         color = red
-      elseif coretemp_now >= 60 then
+      elseif coretemp_now >= 70 then
         color = yellow
       end
       widget:set_markup(markup.font(theme.font, " \u{f2c9} " .. coretemp_now .. "\u{fa03}"))
