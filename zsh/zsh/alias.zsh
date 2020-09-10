@@ -33,9 +33,6 @@ alias l="ls -FA --color=always"
 alias ll="ls -alF --color=always"
 alias ls="ls -FA --color=always"
 
-# open
-alias open="xdg-open"
-
 # screen
 alias sc="echo $STY"
 alias scl="screen -ls"
