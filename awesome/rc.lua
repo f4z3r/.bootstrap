@@ -82,6 +82,8 @@ local browser      = "firefox"
 local mail         = "thunderbird"
 local music_player = "kitty ncmpcpp"
 local htop         = "kitty htop"
+local nvtop        = "kitty nvtop"
+local inxi         = "kitty --hold inxi -F"
 
 awful.util.terminal = terminal
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
@@ -344,8 +346,16 @@ globalkeys = my_table.join(
   awful.key({ modkey, "Control"    }, "w", function () awful.spawn(browser) end,
     {description = "launch web browser", group = "launcher"}),
 
-  -- launch system info
-  awful.key({ modkey, "Control"    }, "i", function () awful.spawn(htop) end,
+  -- launch system CPU info
+  awful.key({ modkey, "Control"    }, "c", function () awful.spawn(htop) end,
+    {description = "launch CPU monitoring", group = "launcher"}),
+
+  -- launch system NVIDIA info
+  awful.key({ modkey, "Control"    }, "n", function () awful.spawn(nvtop) end,
+    {description = "launch NVIDIA monitoring", group = "launcher"}),
+
+  -- launch system general info
+  awful.key({ modkey, "Control"    }, "g", function () awful.spawn(inxi) end,
     {description = "launch system information", group = "launcher"}),
 
   -- execute lua prompt
