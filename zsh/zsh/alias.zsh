@@ -33,6 +33,12 @@ alias l="ls -FA --color=always"
 alias ll="ls -alF --color=always"
 alias ls="ls -FA --color=always"
 
+# kubernetes
+alias k="kubectl"
+alias kn="kubens"
+alias kc="kubectx"
+alias kv="k9s"
+
 # screen
 alias sc="echo $STY"
 alias scl="screen -ls"

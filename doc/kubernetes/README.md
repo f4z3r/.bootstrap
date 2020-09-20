@@ -2,10 +2,13 @@
 
 <!-- vim-markdown-toc GFM -->
 
-* [Installation](#installation)
+* [K3s Based Installation](#k3s-based-installation)
+* [Minikube Based Installation](#minikube-based-installation)
   - [VirtualBox](#virtualbox)
-  - [Minikube and Kubectl](#minikube-and-kubectl)
+  - [Minikube](#minikube)
 * [Starting a Local Cluster](#starting-a-local-cluster)
+  - [`k3d`](#k3d)
+  - [Minikube](#minikube-1)
 * [Additional Tools](#additional-tools)
   - [K9s](#k9s)
   - [Kubectx](#kubectx)
@@ -15,7 +18,12 @@
 
 ---
 
-## Installation
+## K3s Based Installation
+
+We will use the `k3s` in `docker` installation. As it runs in `docker`, `docker` needs to be
+installed first. Then the `rancher-k3d-bin` package can be installed from the AUR.
+
+## Minikube Based Installation
 
 ### VirtualBox
 
@@ -32,12 +40,27 @@ Then reboot your system or run
 sudo vboxreload
 ```
 
-### Minikube and Kubectl
+### Minikube
 
-Then install `minikube` and `kubectl` using `pacman`.
+Then install `minikube` using `pacman`.
 
 
 ## Starting a Local Cluster
+
+Install `kubectl` to control your cluster.
+
+### `k3d`
+
+Start the `docker` daemon and run:
+
+```sh
+k3d cluster create base --agents 2
+```
+
+The above command creates a cluster named `base` with 2 worker agents. Once the cluster is created,
+it can be stopped and restarted with `k3d cluster stop base`.
+
+### Minikube
 
 To start the default local cluster using `minikube`, use:
 
@@ -54,15 +77,17 @@ Check that the cluster is running using `kubectl cluster-info`.
 
 ### K9s
 
-A TUI for managing Kubernetes clusters and pods.
-
-<!-- TODO(@jakob):  -->
+A TUI for managing Kubernetes clusters and pods. Uses `vim` key bindings and uses command mode to
+switch views.
 
 ### Kubectx
 
-A utility to manage and switch between `kubectl` contexts and Kubernetes namespaces.
+A utility to manage and switch between `kubectl` contexts and Kubernetes namespaces. Contexts are
+used to manage clusters. Use `kubectx` to check for all contexts, and add an argument to switch to
+said context.
 
-<!-- TODO(@jakob):  -->
+`kubectx` also includes a binary `kubens` that enables switching between Kubernetes namespaces. Its
+usage is identical to `kubectx`.
 
 ### Helm
 
