@@ -50,9 +50,9 @@ combined = "other"
 if "project" in new:
     combined = f"'{new['project']}'"
     if "tags" in new:
-        combined += " " + " ".join([f"'zz+{tag}'" for tag in new["tags"]])
+        combined += " " + " ".join([f"'t-{tag}'" for tag in new["tags"]])
 elif "tags" in new:
-    combined = " ".join([f"'zz+{tag}'" for tag in new["tags"]])
+    combined = " ".join([f"'t-{tag}'" for tag in new["tags"]])
 
 # Started task.
 if "start" in new and not "start" in old:
