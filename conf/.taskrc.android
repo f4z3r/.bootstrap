@@ -57,7 +57,7 @@ uda.totalactivetime.type=duration
 uda.totalactivetime.label=totact
 uda.totalactivetime.default=
 
-# {{{ Reports
+# Reports
 report.next.columns=id,is,due.relative,priority,depends,scheduled.countdown,estimate,totalactivetime,until.remaining,start.active,project,tags,description.count
 report.next.labels=id,issue,due,p,d,schdld,est,act,until,s,project,tag,descr
 
@@ -72,7 +72,7 @@ report.high.sort=urgency-,due+,schedule+,project+/
 report.high.filter=status:pending priority.not:L priority.not:M
 
 report.sch.description=List of scheduled tasks
-report.sch.columns=id,is,scheduled,estimate,act,start.active,depends.indicator,project,description.count
+report.sch.columns=id,is,scheduled,estimate,totalactivetime,start.active,depends.indicator,project,description.count
 report.sch.labels=id,issue,schdld,est,act,s,d,proj,desc
 report.sch.sort=scheduled+,project+/,entry+
 report.sch.filter=status:pending
@@ -82,6 +82,11 @@ report.age.columns=id,entry,start.active,project,description.count
 report.age.labels=id,created,s,proj,desc
 report.age.sort=entry+,project+/,entry+
 report.age.filter=status:pending
+
+# Android reports
+android.reports=next,list,today,high,sch,age,blocking,blocked,waiting
+android.report.default=next
+
 
 taskd.certificate=keys/private.certificate.pem
 taskd.key=keys/private.key.pem
