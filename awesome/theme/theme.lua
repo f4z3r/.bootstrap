@@ -95,6 +95,7 @@ theme.mpdbarinner = wibox.widget {
 theme.mpdbar = wibox.container.margin(theme.mpdbarinner, dpi(0), dpi(0), dpi(6), dpi(6))
 theme.mpd = lain.widget.mpd({
     timeout = 4,
+    notify = 'off',
     settings = function ()
       widget.progress.forced_width = dpi(0)
       if mpd_now.state == "play" then
