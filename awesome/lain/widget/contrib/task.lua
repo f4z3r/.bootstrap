@@ -104,17 +104,18 @@ function task.update()
   if todo_count ~= "0" then
     text = text..todo_count
   end
-  task.widget.markup = '<span font="FuraCode Nerd Font Bold 8" color="'..color..'">\u{f4a0} '..text..'</span>'
+  task.widget.markup = '<span font="'..task.font..'" color="'..color..'">\u{f4a0} '..text..'</span>'
 end
 
 function task.attach(widget, args)
   local args               = args or {}
+  task.font                = args.font
   task.show_cmd            = args.show_cmd or "task next"
   task.prompt_text         = args.prompt_text or "Enter task command: "
   task.followtag           = args.followtag or false
   task.notification_preset = args.notification_preset
   task.widget              = widget
-  task.widget.markup       = '<span font="FuraCode Nerd Font Bold 8" color="green">\u{f4a0}</span>'
+  task.widget.markup       = '<span font="'..task.font.. '" color="green">\u{f4a0}</span>'
   task.timer               = timer({ timeout = 10 })
   task.timer:connect_signal("timeout", function () task.update() end)
   task.timer:start()

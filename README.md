@@ -8,14 +8,14 @@ scratch.
 * [Minimal Setup](#minimal-setup)
 * [Manjaro Install](#manjaro-install)
 * [Setup](#setup)
-  - [Install `zsh`](#install-zsh)
-  - [Install Fura Code](#install-fura-code)
-  - [Install `awesome`](#install-awesome)
-  - [Install utilities](#install-utilities)
+- [Install `zsh`](#install-zsh)
+- [Install Fura Code](#install-fura-code)
+- [Install `awesome`](#install-awesome)
+- [Install utilities](#install-utilities)
 * [Theming](#theming)
 * [Install other](#install-other)
-  - [Office](#office)
-  - [yay](#yay)
+- [Office](#office)
+- [yay](#yay)
 
 <!-- vim-markdown-toc -->
 
@@ -64,7 +64,7 @@ Install Fura Code nerd font for proper handling of ligatures and icons.
 
 ```sh
 cd ~/.bootstrap
-git submodule update --init --remote --depth 1 tools/nerd-fonts
+git submodule update --init --depth 1 tools/nerd-fonts
 cd tools/nerd-fonts
 ./install.sh FiraCode
 ```

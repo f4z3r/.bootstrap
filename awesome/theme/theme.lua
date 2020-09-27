@@ -252,8 +252,9 @@ local service_widget = systemctl_widget:new({
   })
 
 -- Taskwarrior
-theme.task = wibox.widget.textbox(markup.font(theme.font, "\u{f4a0}"))
+theme.task = wibox.widget.textbox(markup.font(theme.font_base.." 8", "\u{f4a0}"))
 lain.widget.contrib.task.attach(theme.task, {
+    font = theme.font_base.." 8",
     notification_preset = theme.taskwarrior_notif_preset,
     followtag = true
   })
