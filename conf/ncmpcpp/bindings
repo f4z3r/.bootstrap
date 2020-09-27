@@ -244,6 +244,9 @@ def_key "l"
 #def_key "right"
 #  slave_screen
 #
+def_key "ctrl-k"
+  slave_screen
+#
 #def_key "right"
 #  volume_up
 #
@@ -255,6 +258,9 @@ def_key "h"
 #
 #def_key "left"
 #  master_screen
+#
+def_key "ctrl-j"
+  master_screen
 #
 #def_key "left"
 #  volume_down
