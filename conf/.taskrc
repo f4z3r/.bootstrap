@@ -99,7 +99,8 @@ taskd.server=taskwarrior.inthe.am:53589
 taskd.credentials=inthe_am/cirusthevirus130212/48b95eb5-e5fc-4569-aff9-7ad78251343b
 taskd.trust=ignore hostname
 
-context.work=+work
-context.home=+home
+context.ipt=+ipt
+context.priv=-ipt
 
 # vim:ft=conf:foldlevel=0:tw=100:
+context=priv
