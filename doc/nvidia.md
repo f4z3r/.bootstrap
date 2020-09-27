@@ -39,6 +39,9 @@ and install the desired one:
 sudo mhwd -i pci video-nvidia-450xx
 ```
 
+If the install fails, it might be due to an unsupported kernel. To fix this, upgrade the kernel via
+Manjaro's settings manager.
+
 Then install `optimus-manager` and reboot. Also install `nvtop` to manage graphic card load.
 
 Try a switch and check that the proprietary driver `nvidia` is used with `inxi -G` instead of the
