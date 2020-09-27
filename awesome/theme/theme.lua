@@ -81,7 +81,9 @@ theme.brightness = brightness_widget:new({font = theme.font})
 
 -- MPD
 local song_progres_width = 300
+theme.mpd_flags = wibox.widget.textbox("<span font='" .. theme.taglist_font .. "'> [] </span>")
 local mpd_icon = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f885} </span>")
+local mpd_sliders = wibox.widget.textbox("<span font='" .. theme.font .. "'> \u{f1de} </span>")
 theme.mpdbarinner = wibox.widget {
   color            = theme.fg_normal,
   background_color = back_light,
@@ -98,6 +100,24 @@ theme.mpd = lain.widget.mpd({
     notify = 'off',
     settings = function ()
       widget.progress.forced_width = dpi(0)
+      local flags = "["
+      if mpd_now.repeat_mode then
+        flags = flags .. "r"
+      end
+      if mpd_now.random_mode then
+        flags = flags .. "z"
+      end
+      if mpd_now.single_mode then
+        flags = flags .. "s"
+      end
+      if mpd_now.consume_mode then
+        flags = flags .. "c"
+      end
+      flags = flags .. "]"
+      widget.flags:set_markup(
+        markup.font("Fira Code 5", " ") ..
+        markup.font(theme.taglist_font, flags) ..
+        markup.font("Fira Code 5", " "))
       if mpd_now.state == "play" then
         mpd_now.artist = mpd_now.artist:upper():gsub("&.-;", string.lower)
         mpd_now.title = mpd_now.title:upper():gsub("&.-;", string.lower)
@@ -117,7 +137,7 @@ theme.mpd = lain.widget.mpd({
         end
       elseif mpd_now.state == "pause" then
         widget:set_markup(markup.font("Fira Code 4", " ") ..
-          markup.font(theme.taglist_font, " MPD PAUSED  ") ..
+          markup.font(theme.taglist_font, " MPD PAUSED ") ..
           markup.font("Fira Code 5", " "))
       else
         widget:set_markup("")
@@ -125,6 +145,7 @@ theme.mpd = lain.widget.mpd({
     end
   })
 theme.mpd.widget.progress = theme.mpdbarinner
+theme.mpd.widget.flags = theme.mpd_flags
 local musicwidget = theme.mpd.widget
 
 -- Battery
@@ -455,6 +476,8 @@ function theme.at_screen_connect(s)
       wibox.widget.systray(),
       musicwidget,
       theme.mpdbar,
+      mpd_sliders,
+      theme.mpd_flags,
       mpd_icon,
       volumewidget,
       last,
