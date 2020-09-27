@@ -12,7 +12,9 @@ scratch.
   - [Install Fura Code](#install-fura-code)
   - [Install `awesome`](#install-awesome)
   - [Install utilities](#install-utilities)
+* [Theming](#theming)
 * [Install other](#install-other)
+  - [Office](#office)
   - [yay](#yay)
 
 <!-- vim-markdown-toc -->
@@ -29,7 +31,8 @@ make bash-minimal
 
 ## Manjaro Install
 
-Get a live bootable USB with XFCE version of Manjaro.
+Get a live bootable USB with XFCE version of Manjaro. Install it with `cryptomount` but without any
+office suite.
 
 ## Setup
 
@@ -78,6 +81,7 @@ sudo pacman -S awesome
 In order to allow some widget keys, also install `task`, and `timew`. See [taskwarrior](doc/task.md)
 and [timewarrior](doc/timew.md).
 
+
 ### Install utilities
 
 ```sh
@@ -117,12 +121,30 @@ function.
 call dein#install()
 ```
 
+## Theming
+
+Finally, you can install a theme such as the `GTK-dracula` from
+
+```sh
+mkdir -p ~/.local/share/themes/
+cd ~/.local/share/themes/
+curl -SsL -o dracula.zip https://github.com/dracula/gtk/archive/master.zip
+unzip dracula.zip
+```
+
+Then install `lxappearance`, launch it and select the `gtk-master` theme. The same application can
+be used to configure icon sets, etc.
+
 
 ## Install other
 
 Other tools and utilities can be installed and configured. In order to have a better idea on how the
 how to install and configure some of those tools, see `doc` directory. Examples that require no
 configuration and that are extremely useful are for instance `rsync`.
+
+### Office
+
+Use the `libreoffice-fresh` package to have the latest features of the `libreoffice` suite.
 
 ### yay
 
