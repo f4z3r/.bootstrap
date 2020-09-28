@@ -86,12 +86,12 @@ function task.prompt()
 end
 
 function task.update()
-  local timew_active = not (run("timew"):gsub("\n*$", "") == "There is no active time tracking.")
-  local active_count = run("task +ACTIVE count"):gsub("\n*$", "")
+  local timew_active  = not (run("timew"):gsub("\n*$", "") == "There is no active time tracking.")
+  local active_count  = run("task +ACTIVE count"):gsub("\n*$", "")
   local overdue_count = run("task +OVERDUE count"):gsub("\n*$", "")
-  local todo_count = run("task +PENDING count"):gsub("\n*$", "")
-  local color = "green"
-  local text = ""
+  local todo_count    = run("task +PENDING count"):gsub("\n*$", "")
+  local color         = "green"
+  local text          = ""
   if timew_active then
     color = "red"
   end
@@ -104,19 +104,20 @@ function task.update()
   if todo_count ~= "0" then
     text = text..todo_count
   end
-  task.widget.markup = '<span font="'..task.font..'" color="'..color..'">\u{f4a0} '..text..'</span>'
+  task.widget.markup = markup.font(task.font, markup(color, text))
 end
 
 function task.attach(widget, args)
   local args               = args or {}
   task.font                = args.font
+  task.timeout             = args.timeout or 2
   task.show_cmd            = args.show_cmd or "task next"
   task.prompt_text         = args.prompt_text or "Enter task command: "
   task.followtag           = args.followtag or false
   task.notification_preset = args.notification_preset
   task.widget              = widget
-  task.widget.markup       = '<span font="'..task.font.. '" color="green">\u{f4a0}</span>'
-  task.timer               = timer({ timeout = 10 })
+  task.widget.markup       = markup.font(task.font, markup("green", "\u{f4a0}"))
+  task.timer               = timer({ timeout = task.timeout })
   task.timer:connect_signal("timeout", function () task.update() end)
   task.timer:start()
   task.update()
