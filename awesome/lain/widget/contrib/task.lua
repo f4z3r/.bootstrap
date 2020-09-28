@@ -119,6 +119,7 @@ function task.attach(widget, args)
   task.timer               = timer({ timeout = 10 })
   task.timer:connect_signal("timeout", function () task.update() end)
   task.timer:start()
+  task.update()
 
   if not task.notification_preset then
     task.notification_preset = {

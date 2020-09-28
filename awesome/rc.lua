@@ -603,32 +603,66 @@ globalkeys = my_table.join(
     end, {description = "show next song", group = "widgets"}),
 
   -- MPC on/off
-  awful.key({ altkey, "Control" }, "0",
+  awful.key({ altkey, "Control" }, "9",
     function ()
       local common = { text = "MPD widget ", position = "top_middle", timeout = 2 }
       if beautiful.mpd.timer.started then
         beautiful.mpd.timer:stop()
-        common.text = common.text .. lain.util.markup.bold("OFF")
+        common.text = common.text .. "OFF"
       else
         beautiful.mpd.timer:start()
-        common.text = common.text .. lain.util.markup.bold("ON")
+        common.text = common.text .. "ON"
       end
       naughty.notify(common)
     end, {description = "mpc on/off", group = "widgets"}),
 
   -- task on/off
-  awful.key({ altkey, "Control" }, "9",
+  awful.key({ altkey, "Control" }, "7",
     function ()
       local common = { text = "Taskwarrior widget ", position = "top_middle", timeout = 2 }
       if beautiful.task.timer.started then
         beautiful.task.timer:stop()
-        common.text = common.text .. lain.util.markup.bold("OFF")
+        common.text = common.text .. "OFF"
       else
         beautiful.task.timer:start()
-        common.text = common.text .. lain.util.markup.bold("ON")
+        common.text = common.text .. "ON"
       end
       naughty.notify(common)
     end, {description = "task on/off", group = "widgets"}),
+
+  -- k8s on/off
+  awful.key({ altkey, "Control" }, "8",
+    function ()
+      local common = { text = "K8s widget ", position = "top_middle", timeout = 2 }
+      if beautiful.k8s.timer.started then
+        beautiful.k8s.timer:stop()
+        common.text = common.text .. "OFF"
+      else
+        beautiful.k8s.timer:start()
+        common.text = common.text .. "ON"
+      end
+      naughty.notify(common)
+    end, {description = "k8s on/off", group = "widgets"}),
+
+  -- All on/off
+  awful.key({ altkey, "Control" }, "0",
+    function ()
+      local common = { text = "All widgets OFF (/", position = "top_middle", timeout = 4 }
+      if beautiful.k8s.timer.started then
+        beautiful.k8s.timer:stop()
+        common.text = common.text .. "k8s/"
+      end
+      if beautiful.task.timer.started then
+        beautiful.task.timer:stop()
+        common.text = common.text .. "task/"
+      end
+      if beautiful.mpd.timer.started then
+        beautiful.mpd.timer:stop()
+        common.text = common.text .. "mpd/"
+      end
+      common.text = common.text .. ")"
+      naughty.notify(common)
+    end, {description = "all widgets off", group = "widgets"}),
 
 
   -- == Layout ===

@@ -26,7 +26,7 @@ function Systemctl:new(args)
   obj.widget = wibox.widget.textbox("")
   obj.widget:set_font(args.font)
 
-  -- Check services every 30 seconds
+  -- Check services every 60 seconds
   obj.timer = timer({ timeout = 60 })
   obj.timer:connect_signal("timeout", function() obj:update(args.services) end)
   obj.timer:start()

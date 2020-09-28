@@ -10,10 +10,11 @@ local awful = require("awful")
 local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
 
-local optimus_widget = require("optimus-widget")
+local k8s_widget        = require("k8s-widget")
+local optimus_widget    = require("optimus-widget")
 local brightness_widget = require("brightness-widget")
-local systemctl_widget = require("systemctl-widget")
-local ip_widget = require("ip-widget")
+local systemctl_widget  = require("systemctl-widget")
+local ip_widget         = require("ip-widget")
 
 local string, os, io = string, os, io
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -260,6 +261,9 @@ lain.widget.contrib.task.attach(theme.task, {
     followtag = true
   })
 
+-- K8s widget
+theme.k8s = k8s_widget:new({ font = theme.taglist_font })
+
 -- ALSA volume bar
 theme.volume = lain.widget.alsabar({
     notification_preset = { font = "Monospace 9"},
@@ -469,6 +473,8 @@ function theme.at_screen_connect(s)
       service_widget,
       bottom_bar,
       theme.task,
+      bottom_bar,
+      theme.k8s,
       bottom_bar,
       s.mypromptbox,
     },
