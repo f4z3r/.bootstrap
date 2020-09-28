@@ -111,7 +111,7 @@ function task.attach(widget, args)
   local args               = args or {}
   task.font                = args.font
   task.timeout             = args.timeout or 2
-  task.show_cmd            = args.show_cmd or "task next"
+  task.show_cmd            = args.show_cmd or "task rc.defaultwidth=0 next"
   task.prompt_text         = args.prompt_text or "Enter task command: "
   task.followtag           = args.followtag or false
   task.notification_preset = args.notification_preset
@@ -124,8 +124,8 @@ function task.attach(widget, args)
 
   if not task.notification_preset then
     task.notification_preset = {
-      font = "Monospace 10",
-      icon = helpers.icons_dir .. "/taskwarrior.png"
+      font      = "Monospace 10",
+      icon      = helpers.icons_dir .. "/taskwarrior.png"
     }
   end
 
