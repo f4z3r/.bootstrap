@@ -4,7 +4,7 @@
 
 " ==== Bindings =========================================================={{{
 " (t)able of contents (g)enerate
-nnoremap <buffer> <localleader>g :GenTocGFM<cr>
+nnoremap <buffer> <localleader>g :InsertToc<cr>
 " (t)able of contents (s)how
 nnoremap <buffer> <localleader>s :Toc<cr>
 " (f)ormat table

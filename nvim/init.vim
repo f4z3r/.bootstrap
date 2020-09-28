@@ -90,10 +90,6 @@ if dein#load_state('~/.cache/dein')
   "   <Enter> Switching between left/right/center alignment mo
   call dein#add('junegunn/vim-easy-align')
 
-  " support TOC generation for markdown
-  call dein#add('mzlogin/vim-markdown-toc',
-        \{'on_ft': 'markdown'})
-
   " language support (should be lazy by default)
   call dein#add('sheerun/vim-polyglot')
 

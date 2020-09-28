@@ -1,20 +1,16 @@
 # Kubernetes
 
-<!-- vim-markdown-toc GFM -->
-
 * [K3s Based Installation](#k3s-based-installation)
 * [Minikube Based Installation](#minikube-based-installation)
-  - [VirtualBox](#virtualbox)
-  - [Minikube](#minikube)
+  * [VirtualBox](#virtualbox)
+  * [Minikube](#minikube)
 * [Starting a Local Cluster](#starting-a-local-cluster)
-  - [`k3d`](#k3d)
-  - [Minikube](#minikube-1)
+  * [`k3d`](#`k3d`)
+  * [Minikube](#minikube)
 * [Additional Tools](#additional-tools)
-  - [K9s](#k9s)
-  - [Kubectx](#kubectx)
-  - [Helm](#helm)
-
-<!-- vim-markdown-toc -->
+  * [K9s](#k9s)
+  * [Kubectx](#kubectx)
+  * [Helm](#helm)
 
 ---
 
@@ -91,6 +87,4 @@ usage is identical to `kubectx`.
 
 ### Helm
 
-The Kubernetes package manager.
-
-<!-- TODO(@jakob):  -->
+The Kubernetes package manager. Install its `helm` package via `pacman`.

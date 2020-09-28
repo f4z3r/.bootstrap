@@ -3,21 +3,17 @@
 This document explains how to bootstrap a full development environment running on Manjaro from
 scratch.
 
-<!-- vim-markdown-toc GFM -->
-
 * [Minimal Setup](#minimal-setup)
 * [Manjaro Install](#manjaro-install)
 * [Setup](#setup)
-- [Install `zsh`](#install-zsh)
-- [Install Fura Code](#install-fura-code)
-- [Install `awesome`](#install-awesome)
-- [Install utilities](#install-utilities)
+  * [Install `zsh`](#install-`zsh`)
+  * [Install Fura Code](#install-fura-code)
+  * [Install `awesome`](#install-`awesome`)
+  * [Install utilities](#install-utilities)
 * [Theming](#theming)
 * [Install other](#install-other)
-- [Office](#office)
-- [yay](#yay)
-
-<!-- vim-markdown-toc -->
+  * [Office](#office)
+  * [yay](#yay)
 
 ## Minimal Setup
 
