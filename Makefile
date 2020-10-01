@@ -8,6 +8,11 @@ configure: configure-vim configure-zsh configure-tools configure-bash configure-
 .PHONY: configure-root
 configure-root: configure-zsh-root
 
+.PHONY: configure-pacman-mirrors
+configure-pacman-mirrors:
+	@sudo pacman-mirrors -c Switzerland,Austria,Germany,Italy,Belgium
+	@echo "[+] Configured Pacman mirrorlist"
+
 .PHONY: configure-ctags
 configure-ctags:
 	@[ -L $(HOME)/.config/ctags ] || ln -s $(CURRENT_DIR)/conf/ctags $(HOME)/.config/ctags

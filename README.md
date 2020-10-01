@@ -34,6 +34,13 @@ office suite.
 
 Install `git` to clone this repository. Also generate ssh keys.
 
+> Maybe configure the appropriate mirror list before performing the `pacman` udpate:
+>
+> ```sh
+> make configure-pacman-mirrors    # (in .bootstrap) or
+	sudo pacman-mirrors -c Switzerland,Austria,Germany,Italy,Belgium
+> ```
+
 ```sh
 sudo pacman -Syu
 ssh-keygen -t rsa -b 4096
