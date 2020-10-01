@@ -258,6 +258,10 @@ local service_widget = systemctl_widget:new({
         name = "clamav-freshclam.service",
         symbol = "\u{f472}"
       },
+      clamav_fangfrisch_timer = {
+        name = "fangfrisch.timer",
+        symbol = "\u{f2dc}"
+      },
     }
   })
 
