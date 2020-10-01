@@ -250,6 +250,14 @@ local service_widget = systemctl_widget:new({
         name = "optimus-manager.service",
         symbol = "\u{f974}"
       },
+      clamav_daemon = {
+        name = "clamav-daemon.service",
+        symbol = "\u{f6f3}"
+      },
+      clamav_freshclam_db = {
+        name = "clamav-freshclam.service",
+        symbol = "\u{f472}"
+      },
     }
   })
 
