@@ -84,6 +84,8 @@ sudo pacman -S awesome
 In order to allow some widget keys, also install `task`, and `timew`. See [taskwarrior](doc/task.md)
 and [timewarrior](doc/timew.md).
 
+> The switch to the `awesome` session should already be functional at this point, without creating
+> issues in the lua scripts configuring it.
 
 ### Install utilities
 
