@@ -38,7 +38,7 @@ Install `git` to clone this repository. Also generate ssh keys.
 >
 > ```sh
 > make configure-pacman-mirrors    # (in .bootstrap) or
-	sudo pacman-mirrors -c Switzerland,Austria,Germany,Italy,Belgium
+> sudo pacman-mirrors -c Switzerland,Austria,Germany,Italy,Belgium
 > ```
 
 ```sh
