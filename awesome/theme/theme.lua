@@ -262,6 +262,10 @@ local service_widget = systemctl_widget:new({
         name = "fangfrisch.timer",
         symbol = "\u{f2dc}"
       },
+      rclone_gdrive = {
+        name = "rclonemount.service",
+        symbol = "\u{f7b5}"
+      },
     }
   })
 
