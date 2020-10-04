@@ -119,6 +119,15 @@ nnoremap <c-j> 10j
 nnoremap <c-k> 10k
 vnoremap <c-j> 10j
 vnoremap <c-k> 10k
+" Scrolling by visual line
+nnoremap <a-j> gj
+nnoremap <a-k> gk
+vnoremap <a-j> gj
+vnoremap <a-k> gk
+nnoremap <a-h> g0
+nnoremap <a-l> g$
+vnoremap <a-h> g0
+vnoremap <a-l> g$
 " Fast front back line movement
 nnoremap <c-h> zH_
 nnoremap <c-l> $
