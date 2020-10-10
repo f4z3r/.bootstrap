@@ -27,6 +27,7 @@ fi
 alias ag="ag --hidden --ignore .git --ignore .cache --color"
 alias sk="sk -m --color=${KITTY_THEME},hl:3,spiller:2,fg+:9,hl+:3,selected:6,query:5,matched_bg:-1"
 alias ska="sk -m --color=${KITTY_THEME},hl:3,spiller:2,fg+:9,hl+:3,selected:6,query:5,matched_bg:-1 --ansi -i -c 'ag \"{}\"'"
+alias ck="cd \$(sk)"
 
 # ls
 alias l="ls -FA --color=always"
@@ -38,6 +39,7 @@ alias k="kubectl"
 alias kn="kubens"
 alias kc="kubectx"
 alias kv="k9s"
+alias ks="stern"
 
 # screen
 alias sc="echo $STY"
