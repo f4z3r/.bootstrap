@@ -228,6 +228,8 @@ nnoremap <leader>tu :GundoToggle<cr>
 nnoremap <leader>tb :call bootstrap#system#toggle_background()<cr>
 " (t)oggle (s)yntax
 nnoremap <expr> <leader>ts exists('g:syntax_on') ? ':syntax off<cr>' : ':syntax enable<cr>'
+" (t)oggle (w)rap
+nnoremap <leader>tw :call bootstrap#system#toggle_wrap()<cr>
 " }}}
 
 

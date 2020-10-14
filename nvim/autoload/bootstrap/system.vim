@@ -21,3 +21,11 @@ function bootstrap#system#toggle_background()
   endif
   execute ':AirlineTheme gruvbox_material'
 endfunction
+
+function bootstrap#system#toggle_wrap()
+  if &wrap
+    execute 'set nowrap'
+  else
+    execute 'set wrap'
+  endif
+endfunction
