@@ -74,7 +74,12 @@ Check that the cluster is running using `kubectl cluster-info`.
 ### K9s
 
 A TUI for managing Kubernetes clusters and pods. Uses `vim` key bindings and uses command mode to
-switch views.
+switch views. To add the configuration run:
+
+```sh
+mkdir -p $HOME/.k9s
+ln -s $HOME/.bootstrap/conf/k9s/* $HOME/.k9s/
+```
 
 ### Kubectx
 

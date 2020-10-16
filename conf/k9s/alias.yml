@@ -1,0 +1,7 @@
+# $HOME/.k9s/alias.yml
+alias:
+  c: contexts
+  dep: apps/v1/deployments
+
+  # Use fred as an alias for CRD Frederick
+  # fred: acme.io/v1alpha1/fredericks
