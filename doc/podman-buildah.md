@@ -33,6 +33,15 @@ running them, subordinate UIDs and GIDs can be used. Write the following in both
 jakob:165536:65536
 ```
 
+Or use:
+
+```bash
+sudo touch /etc/subgid /etc/subuid
+sudo usermod --add-subuids 165536-231072 --add-subgids 165536-231072 jakob
+sudo chmod 644 /etc/subuid
+sudo chmod 644 /etc/subgid
+```
+
 This will set subordinate UIDs and GIDs for user `jakob` in `/etc/subuid` and `/etc/subgid`.
 
 ### Crun
@@ -41,7 +50,7 @@ The default OCI runtime for podman is runC. However, runC does not support cgrou
 non-privileged users to allocate memory and CPU resource limits.
 
 In order to use it as the OCI runtime, install `crun`, and configure it under `runtime` in
-`~/.config/containers/libpod.conf`.
+`~/.config/containers/containers.conf`.
 
 ```
 runtime = "crun"
@@ -59,7 +68,7 @@ runtime = "crun"
 Use `pull` to get an image. Then run `from` to start a container build. Most `Dockerfile` prefixes
 can then be used as commands:
 
-```sh
+```bash
 container=$(buildah from docker.io/ubuntu:xenial)                 # build base image
 buildah run $container -- mkdir /home/jakob                       # runs command inside container
 buildah copy $container ~/.bashrc /home/jakob/.bashrc             # copies files to container
@@ -99,3 +108,17 @@ podman attach base
 It is best practices to use `buildah` as the build tool to build all docker images. `podman` can
 then be used to manage the images, run containers, orchestrate different setups, etc.
 
+## Troubleshooting
+
+If you get an error similar to the following on an image pull:
+
+```
+Error processing tar file(exit status 1): there might not be enough IDs available in the
+namespace (requested 0:42 for /etc/gshadow): lchown /etc/gshadow: invalid argument
+```
+
+Then simply recreate the subuid/subgid files and run the following:
+
+```bash
+rm /run/user/$(id -u)/libpod/pause.pid
+```
