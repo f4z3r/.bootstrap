@@ -19,6 +19,26 @@ workspace_auto_back_and_forth yes
 # Dont follow the mouse
 focus_follows_mouse no
 
+# i3bar
+bar {
+  status_command i3status
+  position top
+  tray_output primary
+  tray_padding 0
+  font pango:FuraCode Retina 12 
+  separator_symbol ":|:"
+}
+
+# Autostart
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id xss-lock -- i3lock -c 249eca
+
+## Quake application (works on 4k screen)
+exec --no-startup-id kitty --name quake
+for_window [instance="quake"] floating enable;
+for_window [instance="quake"] move scratchpad; [instance="quake"] scratchpad show; move position 576px 324px; resize set height 1512px; resize set width 2688px; move scratchpad
+bindsym Control+Return [instance="quake"] scratchpad show
+
 
 ### Keybindings
 
@@ -151,36 +171,4 @@ bindsym $mod+$alt+0 move container to workspace 10
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+space layout toggle split
 
-#
-# bar {
-#     output            LVDS1
-#     status_command    i3status
-#     position          top
-#     mode              hide
-#     workspace_buttons yes
-#     tray_output       none
-#
-#     font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-#
-#     colors {
-#         background #000000
-#         statusline #ffffff
-#
-#         focused_workspace  #ffffff #285577
-#         active_workspace   #ffffff #333333
-#         inactive_workspace #888888 #222222
-#         urgent_workspace   #ffffff #900000
-#     }
-# }
-#
-# # Start i3bar to display a workspace bar (plus the system information i3status
-# # finds out, if available)
-#
-#
-# #-old-#bar {
-# #-old-#       status_command i3status
-# #-old-#}
 
-
-# Autostart
-exec --no-startup-id nitrogen --restore
