@@ -2,14 +2,18 @@
 " ===================== Language Specific Settings ==========================
 " ===========================================================================
 
+" ==== Visualisation ====================================================={{{
+setlocal textwidth=120
+
 " Use tabs instead of spaces for go
-set autoindent
-set smartindent
-set shiftwidth=2
-set tabstop=2
-set smarttab
-set noexpandtab
+setlocal autoindent
+setlocal smartindent
+setlocal shiftwidth=2
+setlocal tabstop=2
+setlocal smarttab
+setlocal noexpandtab
 
 " Show indent lines even though using tab
-set listchars=tab:\|\ 
-set list
+setlocal listchars=tab:\|\ 
+setlocal list
+" }}}
