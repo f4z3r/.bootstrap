@@ -160,8 +160,8 @@ bindsym $mod+$alt+0 move container to workspace 10
 ## ======================================================================================
 
 # TODO(@jakob): volume?
-# TODO(@jakob): screenshots
 # TODO(@jakob): brightness
+bindsym $alt+Control+p exec mkdir -p $HOME/screenshots/ && scrot -q 100 -uz $HOME/screenshots/$(date +%Y%m%d%H%M%S).png
 
 
 ## ======================================================================================
