@@ -216,6 +216,14 @@ if dein#load_state('~/.cache/dein')
         \            'UnicodeTable',
         \            'DownloadUnicode']})
 
+  " javascript and typescript libraries
+  call dein#add('othree/javascript-libraries-syntax.vim',
+        \{'on_ft': ['javascript', 'typescript']})
+
+  " add graphql support for libraries (TODO(@jakob): add reasonML ft)
+  call dein#add('jparise/vim-graphql',
+        \{'on_ft': ['graphql', 'javascript', 'typescript']})
+
   call dein#end()
   call dein#save_state()
 endif
