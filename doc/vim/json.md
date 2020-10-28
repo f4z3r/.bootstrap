@@ -2,12 +2,9 @@
 
 First, ensure `coc` is properly set up.
 
-
-<!-- vim-markdown-toc GFM -->
-
 * [Coc Extension](#coc-extension)
-
-<!-- vim-markdown-toc -->
+* [Tools](#tools)
+  * [jq](#jq)
 
 ## Coc Extension
 
@@ -16,3 +13,14 @@ Install the `coc` extension.
 ```viml
 CocInstall coc-json
 ```
+
+## Tools
+
+### jq
+
+Installed via package manager.
+
+### fixjson
+
+<!-- TODO(@jakob): find install without npm -->
+Installed via package manager.

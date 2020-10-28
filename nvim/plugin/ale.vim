@@ -35,6 +35,7 @@ let g:ale_linters = {
       \ 'text': ['vale', 'proselint'],
       \ 'rust': ['cargo'],
       \ 'perl': ['perl', 'perlcritic'],
+      \ 'json': ['jsonlint'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -45,6 +46,7 @@ let g:ale_fixers = {
       \ 'c': ['clang-format', 'uncrustify'],
       \ 'rust': ['rustfmt'],
       \ 'perl': ['perltidy'],
+      \ 'json': ['jq', 'fixjson'],
       \}
 " rust options
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
