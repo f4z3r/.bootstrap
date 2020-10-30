@@ -36,6 +36,7 @@ alias ls="ls -FA --color=always"
 
 # kubernetes
 alias k="kubectl"
+alias -g pf="port-forward"
 alias kn="kubens"
 alias kc="kubectx"
 alias kv="k9s"

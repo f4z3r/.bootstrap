@@ -27,6 +27,14 @@ alias l="ls -FA --color=always"
 alias ll="ls -alF --color=always"
 alias ls="ls -FA --color=always"
 
+# kubernetes
+alias k="kubectl"
+alias -g pf="port-forward"
+alias kn="kubens"
+alias kc="kubectx"
+alias kv="k9s"
+alias ks="stern"
+
 # open
 alias open="xdg-open"
 
