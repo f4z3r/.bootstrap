@@ -68,6 +68,9 @@ alias pomo="(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
               'System pomorodo completed' \
               'System pomodoro finished after 25 minutes. Please take a short break and start a new one.') &"
 
+# utilities
+alias weather="curl wttr.in/Zurich"
+
 #=================================================================================================
 #========================================= Colored Grep  =========================================
 
