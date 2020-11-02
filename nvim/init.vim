@@ -216,6 +216,8 @@ if dein#load_state('~/.cache/dein')
         \            'UnicodeTable',
         \            'DownloadUnicode']})
 
+  call dein#add('fmoralesc/vim-pad')
+
   " javascript and typescript libraries
   call dein#add('othree/javascript-libraries-syntax.vim',
         \{'on_ft': ['javascript', 'typescript']})

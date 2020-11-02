@@ -190,6 +190,8 @@ nnoremap <leader>sL :Lines<cr>
 " see plugin/grep-operator.vim (ss)
 " search for visual selection using //
 vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
+" (s)earch (n)otes
+nnoremap <leader>sn :call pad#GlobalIncrementalSearch(0)<cr>
 " }}}
 
 
@@ -374,6 +376,20 @@ nnoremap <leader>osc :mksession ~/.vim/sessions/
 nnoremap <leader>osl :source ~/.vim/sessions/
 " (o)rganisation (s)ession (m)anage
 nnoremap <leader>osm :e ~/.vim/sessions/<cr>
+" (o)rganisation (s)ession (m)anage
+nnoremap <leader>osm :e ~/.vim/sessions/<cr>
+" }}}
+
+
+" ==== Notes ============================================================={{{
+" (n)otes (i)incremental search
+nnoremap <leader>ni :call pad#GlobalIncrementalSearch(0)<cr>
+" (n)otes (s)earch
+nnoremap <leader>ns :call pad#SearchPads()<cr>
+" (n)otes (l)ist
+nnoremap <leader>nl :Pad ls<cr>
+" (n)otes (n)ew
+nnoremap <leader>nn :Pad new<cr>
 " }}}
 
 
