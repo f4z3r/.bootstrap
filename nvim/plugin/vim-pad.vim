@@ -5,3 +5,4 @@
 let g:pad#dir = '~/notes/'
 let g:pad#default_file_extension = '.md'
 let g:pad#set_mappings = 0
+let g:pad#window_height = 15
