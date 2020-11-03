@@ -48,6 +48,8 @@ nnoremap <leader>id :Digraphs
 
 
 " ==== Refactoring ======================================================={{{
+" (r)efactor (s)earch error
+nnoremap <leader>rs :CocList diagnostics<cr>
 " (r)efactor (r)ename
 nmap <leader>rr <Plug>(coc-rename)
 " refactor (n)ext error
@@ -60,8 +62,8 @@ nmap ]w <plug>(ale_next_wrap_warning)
 nmap [w <plug>(ale_previous_wrap_warning)
 " (r)efactor (f)ix
 nnoremap <leader>rf :ALEFix<cr>
-" (r)efactor (s)uggest fixes
-nnoremap <leader>rs :ALEFixSuggest<cr>
+" (r)efactor (S)uggest fixes
+nnoremap <leader>rS :ALEFixSuggest<cr>
 " (r)efactor (l)int
 nnoremap <leader>rl :ALELint<cr>
 " (r)efactor (c)oc (d)isable

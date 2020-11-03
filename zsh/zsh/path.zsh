@@ -22,4 +22,3 @@ export PATH
 MANPATH=""
 [ -d "$HOME/.local/share/man" ] && MANPATH="$MANPATH:$HOME/.local/share/man"
 export MANPATH
-
