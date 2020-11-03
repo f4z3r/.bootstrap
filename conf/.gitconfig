@@ -9,13 +9,30 @@
 [log]
 	date = format:%Y-%m-%d %H:%M
 
+[difftool "nvim"]
+	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
+
 [diff]
 	submodule = log
+	tool = nvim
+
+[difftool]
+	prompt = false
+
+[mergetool "nvim"]
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+
+[merge]
+	tool = nvim
+
+[mergetool]
+	prompt = false
 
 # Aliases
 [alias]
 	f = fetch -q
 	b = branch -vv
+	d = difftool
 	aa = add .
 	a = add
 	ac = commit -am
