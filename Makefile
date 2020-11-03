@@ -55,6 +55,7 @@ configure-bash:
 
 .PHONY: configure-vim
 configure-vim: install-dein link-ultisnips
+	@-mkdir -p $(HOME)/notes/
 	@-[ -d $(HOME)/.config/nvim ] && rm -rf $(HOME)/.config/nvim
 	@[ -L $(HOME)/.config/nvim ] || ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim
 	@echo "[+] Linked vim configuration"
