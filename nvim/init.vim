@@ -218,6 +218,16 @@ if dein#load_state('~/.cache/dein')
 
   call dein#add('fmoralesc/vim-pad')
 
+  " improve cpp etc highlighting using information from lsp
+  call dein#add('jackguo380/vim-lsp-cxx-highlight',
+        \{'on_ft': [
+        \ 'c',
+        \ 'cpp',
+        \ 'objc',
+        \ 'objcpp',
+        \ 'cc',
+        \]})
+
   " javascript and typescript libraries
   call dein#add('othree/javascript-libraries-syntax.vim',
         \{'on_ft': ['javascript', 'typescript']})

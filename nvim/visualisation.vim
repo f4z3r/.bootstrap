@@ -66,4 +66,6 @@ augroup LineNumberGroup
   autocmd InsertEnter * :set nornu
   autocmd InsertLeave * :set rnu
 augroup END
+" set signs to be displayed in number column
+set signcolumn=number
 " }}}

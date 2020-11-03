@@ -17,4 +17,5 @@ Install the `snippet` extension.
 
 ```viml
 CocInstall coc-snippets
+CocInstall coc-highlight
 ```

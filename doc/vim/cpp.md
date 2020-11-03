@@ -4,18 +4,14 @@
 
 First, ensure `coc` is properly set up.
 
-
-<!-- vim-markdown-toc GFM -->
-
 * [Coc Extension](#coc-extension)
 * [Tools](#tools)
-  - [Clangd](#clangd)
-  - [clang-format](#clang-format)
-  - [uncrustify](#uncrustify)
-  - [flawfinder](#flawfinder)
-  - [cpplint](#cpplint)
-
-<!-- vim-markdown-toc -->
+  * [Clangd](#clangd)
+  * [clang-format](#clang-format)
+  * [uncrustify](#uncrustify)
+  * [flawfinder](#flawfinder)
+  * [cpplint](#cpplint)
+* [Notes](#notes)
 
 ## Coc Extension
 
@@ -42,3 +38,32 @@ pipx
 ### cpplint
 
 pipx
+
+## Notes
+
+```json
+"languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                },
+                "highlight": { "lsRanges" : true }
+            }
+        },
+        "cquery": {
+            "command": "cquery",
+            "args": ["--log-file=/tmp/cq.log"],
+            "filetypes": ["c", "cpp"],
+            "rootPatterns": ["compile_flags.txt", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cacheDirectory": "/tmp/cquery",
+                "highlight": { "enabled" : true },
+                "emitInactiveRegions" : true
+            }
+        }
+    }
+```
