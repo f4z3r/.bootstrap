@@ -90,7 +90,7 @@ and [timewarrior](doc/timew.md).
 ### Install utilities
 
 ```sh
-sudo pacman -S the_silver_searcher mupdf-gl screen neovim skim ctags tree
+sudo pacman -S the_silver_searcher mupdf-gl neovim skim ctags tree tmux
 ```
 
 Configure defaults for filetypes.
@@ -101,12 +101,6 @@ xdg-mime default nvim.desktop text/x-tex text/plain text/x-makefile text/rust te
                               text/markdown application/x-perl text/x-python text/x-java \
                               application/json application/x-yaml text/x-csrc text/x-c++src \
                               text/x-chdr text/x-c++hdr
-```
-
-Configure screen.
-
-```sh
-ln -s ~/.bootstrap/conf/.screenrc ~/.screenrc
 ```
 
 Install `fzf` locally for `neovim`.
