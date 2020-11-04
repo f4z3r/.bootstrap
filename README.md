@@ -84,14 +84,17 @@ sudo pacman -S awesome
 In order to allow some widget keys, also install `task`, and `timew`. See [taskwarrior](doc/task.md)
 and [timewarrior](doc/timew.md).
 
-> The switch to the `awesome` session should already be functional at this point, without creating
-> issues in the lua scripts configuring it.
+> The switch to the `awesome` session is not functional at this point. At least continue with the
+> utilities install below.
 
 ### Install utilities
 
 ```sh
 sudo pacman -S the_silver_searcher mupdf-gl neovim skim ctags tree tmux
 ```
+
+> At this point `awesome` should be functional. For full functionality from `tmux`, also install
+> `kubectx`.
 
 Configure defaults for filetypes.
 
