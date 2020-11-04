@@ -23,6 +23,9 @@ if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
   alias nvim="echo 'No nesting!'"
 fi
 
+# start tmux on ssh
+alias ssh="ssh -t -- /bin/sh -c 'tmux has-session && exec tmux attach || exec tmux'"
+
 # ag / sk
 alias ag="ag --hidden --ignore .git --ignore .cache --color"
 alias sk="sk -m --color=${KITTY_THEME},hl:3,spiller:2,fg+:9,hl+:3,selected:6,query:5,matched_bg:-1"

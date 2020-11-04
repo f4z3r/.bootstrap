@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags
+configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -35,6 +35,13 @@ configure-zsh:
 	@[ -L $(HOME)/.zshrc ] || ln -s $(CURRENT_DIR)/zsh/.zshrc $(HOME)/.zshrc
 	@[ -L $(HOME)/.config/zsh ] || ln -s $(CURRENT_DIR)/zsh/zsh $(HOME)/.config/zsh
 	@echo "[+] Linked zsh configuration"
+
+.PHONY: configure-tmux
+configure-tmux:
+	@[ -d $(HOME)/.tmux/plugins ] || mkdir -p $(HOME)/.tmux/plugins
+	@[ -d $(HOME)/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+	@[ -L $(HOME)/.tmux.conf ] || ln -s $(CURRENT_DIR)/conf/.tmux.conf $(HOME)/.tmux.conf
+	@echo "[+] Linked tmux configuration"
 
 .PHONY: configure-tools
 configure-tools:

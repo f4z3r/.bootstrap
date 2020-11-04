@@ -22,6 +22,9 @@ if command -v nvim &> /dev/null; then
   alias vim="nvim"
 fi
 
+# start tmux on ssh
+alias ssh="ssh -t -- /bin/sh -c 'tmux has-session && exec tmux attach || exec tmux'"
+
 # ls
 alias l="ls -FA --color=always"
 alias ll="ls -alF --color=always"
