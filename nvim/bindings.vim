@@ -47,6 +47,19 @@ nnoremap <leader>id :Digraphs
 " }}}
 
 
+" ==== Vimux ============================================================={{{
+" (v)imux (p)rompt
+nnoremap <leader>vp :VimuxPromptCommand<cr>
+" (v)imux (l)ast
+nnoremap <leader>vl :VimuxRunLastCommand<cr>
+" (v)imux (q)uit
+nnoremap <leader>vq :VimuxCloseRunner<cr>
+" (v)imux interrupt
+nnoremap <leader>vx :VimuxInterrruptRunner<cr>
+" (v)imux (z)oom
+nnoremap <leader>vz :call VimuxZoomRunner()<cr>
+" }}}
+
 " ==== Refactoring ======================================================={{{
 " (r)efactor (s)earch error
 nnoremap <leader>rs :CocList diagnostics<cr>

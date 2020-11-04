@@ -74,10 +74,10 @@ end
 
 local modkey       = "Mod4"
 local altkey       = "Mod1"
-local terminal     = "kitty"
+local terminal     = "kitty tmux"
 local editor       = os.getenv("EDITOR") or "nvim"
-local guieditor    = "kitty screen -R vim"
-local gui_editor   = "kitty screen -R vim"
+local guieditor    = "kitty tmux new -s vim"
+local gui_editor   = "kitty tmux new -s vim"
 local browser      = "firefox"
 local mail         = "thunderbird"
 local music_player = "kitty ncmpcpp"

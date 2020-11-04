@@ -63,11 +63,11 @@ bindsym $mod+Control+q exec xfce4-session-logout
 ## ======================================================================================
 
 # Terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec kitty tmux
 # Dmenu
 bindsym $mod+Control+p exec dmenu_run
 # Visual editor
-bindsym $mod+Control+e exec kitty screen -R vim
+bindsym $mod+Control+e exec kitty tmux new -s vim
 # Music Player
 bindsym $mod+Control+m exec kitty ncmpcpp
 # Thunderbird

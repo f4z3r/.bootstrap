@@ -17,3 +17,12 @@ setlocal noexpandtab
 setlocal listchars=tab:\|\ 
 setlocal list
 " }}}
+
+
+
+" ==== Bindings =========================================================={{{
+" (t)est (a)ll (package level)
+nnoremap <buffer> <localleader>ta :GolangTestCurrentPackage<cr>
+" (t)est (f)ocused
+nnoremap <buffer> <localleader>tf :GolangTestFocused<cr>
+" }}}

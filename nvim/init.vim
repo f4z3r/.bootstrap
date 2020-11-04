@@ -228,6 +228,22 @@ if dein#load_state('~/.cache/dein')
         \ 'cc',
         \]})
 
+  " Open vimux pane below vim
+  call dein#add('benmills/vimux',
+        \{'on_cmd': [
+        \'VimuxPromptCommand',
+        \'VimuxRunLastCommand',
+        \'VimuxCloseRunner',
+        \'VimuxInterrruptRunner'
+        \]})
+
+  " Support for tmux golang
+  call dein#add('benmills/vimux-golang',
+        \{'on_cmd': [
+        \'GolangTestCurrentPackage',
+        \'GolangTestFocused'
+        \]})
+
   " javascript and typescript libraries
   call dein#add('othree/javascript-libraries-syntax.vim',
         \{'on_ft': ['javascript', 'typescript']})
