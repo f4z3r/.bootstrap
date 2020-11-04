@@ -85,7 +85,7 @@ local htop         = "kitty htop"
 local nvtop        = "kitty nvtop"
 local inxi         = "kitty --hold inxi -F"
 
-awful.util.terminal = terminal
+awful.util.terminal = "kitty"
 awful.util.tagnames = { "1", "2", "3", "4", "5" }
 awful.layout.layouts = {
     --awful.layout.suit.floating,
