@@ -56,9 +56,12 @@ nnoremap <leader>vl :VimuxRunLastCommand<cr>
 nnoremap <leader>vq :VimuxCloseRunner<cr>
 " (v)imux interrupt
 nnoremap <leader>vx :VimuxInterrruptRunner<cr>
+" (v)imux (i)nspect
+nnoremap <leader>vi :VimuxInspectRunner<cr>
 " (v)imux (z)oom
 nnoremap <leader>vz :call VimuxZoomRunner()<cr>
 " }}}
+
 
 " ==== Refactoring ======================================================={{{
 " (r)efactor (s)earch error
