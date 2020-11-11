@@ -34,7 +34,7 @@ alias ck="cd \$(sk)"
 
 # ls
 alias l="ls -FA --color=always"
-alias ll="ls -alF --color=always"
+alias ll="ls -ahlF --color=always"
 alias ls="ls -FA --color=always"
 
 # kubernetes

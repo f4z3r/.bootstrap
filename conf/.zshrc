@@ -27,7 +27,7 @@ alias ssh="ssh -t -- /bin/sh -c 'tmux has-session && exec tmux attach || exec tm
 
 # ls
 alias l="ls -FA --color=always"
-alias ll="ls -alF --color=always"
+alias ll="ls -ahlF --color=always"
 alias ls="ls -FA --color=always"
 
 # kubernetes

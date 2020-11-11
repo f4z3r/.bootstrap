@@ -24,7 +24,10 @@ if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
 fi
 
 # start tmux on ssh
-alias ssh="ssh -t -- /bin/sh -c 'tmux has-session && exec tmux attach || exec tmux'"
+ssht() {
+  ssh -t $@ -- /usr/bin/env bash -c 'tmux has-session && exec tmux attach || exec tmux'
+}
+export ssht
 
 # ag / sk
 alias ag="ag --hidden --ignore .git --ignore .cache --color"
@@ -34,7 +37,7 @@ alias ck="cd \$(sk)"
 
 # ls
 alias l="ls -FA --color=always"
-alias ll="ls -alF --color=always"
+alias ll="ls -ahlF --color=always"
 alias ls="ls -FA --color=always"
 
 # kubernetes
