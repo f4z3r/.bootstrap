@@ -1,0 +1,79 @@
+# do not add newline at begin of prompt
+add_newline = false
+# use all extensions
+format = "$all"
+
+# no line break between prompt and command
+# [line_break]
+# disabled = true
+
+[directory]
+# number of parent folders truncated to
+truncation_length = 3
+# truncation character
+truncation_symbol = "…/"
+# always truncate down to repo
+truncate_to_repo = true
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = false
+format = "[took](dimmed) [$duration](bold yellow)"
+# notify after command takes longer than 10s
+show_notification = true
+min_time_to_notify = 10_000
+
+[shlvl]
+disabled = false
+format = "[$shlvl level(s) down](bold red) "
+threshold = 2
+
+[status]
+symbol = ""
+format = '\[[$symbol](red) [$status](bold dimmed)\] '
+disabled = false
+
+[kubernetes]
+disabled = false
+format = "[$symbol$context  $namespace]($style)  "
+style = "blue dimmed bold"
+# [kubernetes.context_aliases]
+# "dev.local.cluster.k8s" = "dev"
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+
+[git_branch]
+symbol = " "
+truncation_length = 18
+
+[golang]
+symbol = "ﳑ "
+
+[lua]
+symbol = " "
+
+[nim]
+symbol = " "
+
+[java]
+symbol = " "
+
+[rust]
+symbol = " "
+
+[python]
+symbol = " "
+
+[perl]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[package]
+symbol = " "
+
+[helm]
+symbol = "ﴱ "
