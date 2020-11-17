@@ -86,12 +86,12 @@ threshold = 2
 shell = "bash"
 command = "echo ${CURR_SHELL:-${SHELL}}"
 when = """ ! [[ "${CURR_SHELL:-${SHELL}}" =~ "zsh" ]] """
-format = "[  ](bg:237)[$output](bg:237 $style)[ \u2571](bg:237)"
+format = "[ \uf489 ](bg:237)[$output](bg:237 $style)[ \u2571](bg:237)"
 style = "dimmed red"
 
 [time]
 disabled = false
-format = "[ 🕙](bg:237)[$time](bg:237 $style)[ \u2571](bg:237)"
+format = "[ \uf64f ](bg:237)[$time](bg:237 $style)[ \u2571](bg:237)"
 time_format = "%T"
 utc_time_offset = "-5"
 
