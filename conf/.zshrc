@@ -148,6 +148,8 @@ export EDITOR="vim"
 export SUDO_EDITOR="vim"
 export TERM="xterm-256color"    # required for colors and backspace handling over ssh
 
+export CURR_SHELL="zsh"
+
 
 #=================================================================================================
 #=========================================== History =============================================

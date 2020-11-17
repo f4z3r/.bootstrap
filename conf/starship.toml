@@ -84,8 +84,8 @@ threshold = 2
 
 [custom.shell]
 shell = "bash"
-command = "echo $SHELL"
-when = """ ! [[ "$SHELL" =~ "zsh" ]] """
+command = "echo ${CURR_SHELL:-${SHELL}}"
+when = """ ! [[ "${CURR_SHELL:-${SHELL}}" =~ "zsh" ]] """
 format = "[  ](bg:237)[$output](bg:237 $style)[ \u2571](bg:237)"
 style = "dimmed red"
 

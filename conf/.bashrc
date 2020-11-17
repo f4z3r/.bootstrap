@@ -137,6 +137,7 @@ export TERM="xterm-256color"    # required for colors and backspace handling ove
 # FZF
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .cache -g ""'
 
+export CURR_SHELL="bash"
 
 #=================================================================================================
 #=========================================== Prompt ==============================================
