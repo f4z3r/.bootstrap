@@ -34,6 +34,7 @@ configure-zsh-root:
 configure-zsh:
 	@[ -L $(HOME)/.zshrc ] || ln -s $(CURRENT_DIR)/zsh/.zshrc $(HOME)/.zshrc
 	@[ -L $(HOME)/.config/zsh ] || ln -s $(CURRENT_DIR)/zsh/zsh $(HOME)/.config/zsh
+	@[ -L $(HOME)/.config/starship.toml ] || ln -s $(CURRENT_DIR)/conf/starship.toml $(HOME)/.config/starship.toml
 	@echo "[+] Linked zsh configuration"
 
 .PHONY: configure-tmux
@@ -133,11 +134,13 @@ vim-minimal:
 zsh-minimal:
 	@-[ -f $(HOME)/.zshrc ] && [ ! -f $(HOME)/.zshrc.bak ] && mv $(HOME)/.zshrc $(HOME)/.zshrc.bak && echo "[+] backup created"
 	@[ -L $(HOME)/.zshrc ] || ln -s $(CURRENT_DIR)/conf/.zshrc $(HOME)/.zshrc && echo "[+] configuration linked"
+	@[ -L $(HOME)/.config/starship.toml ] || ln -s $(CURRENT_DIR)/conf/starship.toml $(HOME)/.config/starship.toml
 
 .PHONY: bash-minimal
 bash-minimal:
 	@-[ -f $(HOME)/.bashrc ] && [ ! -f $(HOME)/.bashrc.bak ] && mv $(HOME)/.bashrc $(HOME)/.bashrc.bak && echo "[+] backup created"
 	@[ -L $(HOME)/.bashrc ] || ln -s $(CURRENT_DIR)/conf/.bashrc $(HOME)/.bashrc && echo "[+] configuration copied"
+	@[ -L $(HOME)/.config/starship.toml ] || ln -s $(CURRENT_DIR)/conf/starship.toml $(HOME)/.config/starship.toml
 
 .PHONY: configure-pinky
 configure-pinky:

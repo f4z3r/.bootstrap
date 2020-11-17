@@ -8,6 +8,7 @@ scratch.
 * [Setup](#setup)
   * [Install `zsh`](#install-`zsh`)
   * [Install Fura Code](#install-fura-code)
+  * [Install `starship`](#install-`starship`)
   * [Install `awesome`](#install-`awesome`)
   * [Install utilities](#install-utilities)
 * [Theming](#theming)
@@ -19,7 +20,7 @@ scratch.
 
 Configure minimal `vim` and `zsh` (or `bash`) setup using:
 
-```sh
+```bash
 make vim-minimal
 make zsh-minimal
 make bash-minimal
@@ -36,12 +37,12 @@ Install `git` to clone this repository. Also generate ssh keys.
 
 > Maybe configure the appropriate mirror list before performing the `pacman` udpate:
 >
-> ```sh
+> ```bash
 > make configure-pacman-mirrors    # (in .bootstrap) or
 > sudo pacman-mirrors -c Switzerland,Austria,Germany,Italy,Belgium
 > ```
 
-```sh
+```bash
 sudo pacman -Syu
 ssh-keygen -t rsa -b 4096
 ```
@@ -50,13 +51,13 @@ ssh-keygen -t rsa -b 4096
 
 Install `zsh` and configure it.
 
-```sh
-sudo pacman -S zsh zsh-syntax-highlighting zsh-theme-powerlevel10k zsh-completions zsh-autosuggestions
+```bash
+sudo pacman -S zsh zsh-syntax-highlighting zsh-completions zsh-autosuggestions
 ```
 
 Set `zsh` to the default shell using `chsh -s`. Link configuration all files.
 
-```sh
+```bash
 cd ~/.bootstrap/
 make configure
 ```
@@ -65,18 +66,24 @@ make configure
 
 Install Fura Code nerd font for proper handling of ligatures and icons.
 
-```sh
+```bash
 cd ~/.bootstrap
 git submodule update --init --depth 1 tools/nerd-fonts
 cd tools/nerd-fonts
 ./install.sh FiraCode
 ```
 
+### Install `starship`
+
+```bash
+curl -fsSL https://starship.rs/install.sh | bash
+```
+
 ### Install `awesome`
 
 Install awesome and its main dependencies.
 
-```sh
+```bash
 sudo pacman -S dmenu mpc scrot unclutter brightnessctl kitty i3lock xss-lock xsel youtube-dl
 sudo pacman -S awesome
 ```
@@ -89,7 +96,7 @@ and [timewarrior](doc/timew.md).
 
 ### Install utilities
 
-```sh
+```bash
 sudo pacman -S the_silver_searcher mupdf-gl neovim skim ctags tree tmux
 ```
 
@@ -108,7 +115,7 @@ xdg-mime default nvim.desktop text/x-tex text/plain text/x-makefile text/rust te
 
 Install `fzf` locally for `neovim`.
 
-```sh
+```bash
 cd ~/.bootstrap/
 git submodule update --init --remote --depth 1 tools/fzf
 cd ~/.boostrap/tools/fzf
@@ -127,7 +134,7 @@ call dein#install()
 
 Finally, you can install a theme such as the `GTK-dracula` from
 
-```sh
+```bash
 mkdir -p ~/.local/share/themes/
 cd ~/.local/share/themes/
 curl -SsL -o dracula.zip https://github.com/dracula/gtk/archive/master.zip
