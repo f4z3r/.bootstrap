@@ -33,10 +33,11 @@ symbol = ""
 format = '\[[$symbol](red) [$status](bold dimmed)\] '
 disabled = false
 
-[kubernetes]
-disabled = false
-format = "[$symbol$context  $namespace]($style)  "
-style = "blue dimmed bold"
+# NOTE(@jakob): this is already present in tmux config
+# [kubernetes]
+# disabled = false
+# format = "[$symbol$context  $namespace]($style)  "
+# style = "blue dimmed bold"
 # [kubernetes.context_aliases]
 # "dev.local.cluster.k8s" = "dev"
 
