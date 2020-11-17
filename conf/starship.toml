@@ -149,6 +149,9 @@ format = "[\u2571 ](bg:237)[$symbol$context ](bg:237$style)"
 symbol = " "
 format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
 
+[cmake]
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
 [golang]
 symbol = "ﳑ "
 format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
@@ -191,6 +194,8 @@ style = "bold yellow"
 # show_notification = true
 # min_time_to_notify = 10_000
 
+[jobs]
+format = "[\u2571 ](bg:237)[ $symbol$number ](bg:237 $style)"
 
 # NOTE(@jakob): new line from here on
 
