@@ -3,6 +3,8 @@ add_newline = false
 # use all extensions
 format = """
 [ ](bg:237)\
+$battery\
+$memory_usage\
 $shlvl\
 $custom\
 $time\
@@ -42,19 +44,38 @@ $terraform\
 $zig\
 $nix_shell\
 $conda\
-$memory_usage\
 $aws\
 $gcloud\
 $openstack\
 $env_var\
 $cmd_duration\
 $jobs\
-$battery\
 [\ue0bc](fg:237)\
 $line_break\
 $directory\
 $status\
 $character"""
+
+[battery]
+full_symbol = "\uf578"
+charging_symbol = "\uf586"
+discharging_symbol = "\uf57b"
+format = "([$symbol$percentage ](bg:237 $style))"
+
+[[battery.display]]  # "bold red" style when capacity is between 0% and 10%
+threshold = 10
+style = "bold red"
+
+[[battery.display]]  # "bold yellow" style when capacity is between 10% and 30%
+threshold = 30
+style = "bold yellow"
+
+[memory_usage]
+disabled = false
+threshold = 75
+symbol = "\uf85a"
+style = "bold dimmed white"
+format = "[$symbol ${ram} ](bg:237 $style)[ \u2571](bg:237)"
 
 [shlvl]
 disabled = false
@@ -168,12 +189,11 @@ min_time_to_notify = 10_000
 # NOTE(@jakob): new line from here on
 
 [directory]
-# number of parent folders truncated to
 truncation_length = 3
-# truncation character
 truncation_symbol = "…/"
-# always truncate down to repo
 truncate_to_repo = true
+read_only = "\uf023"
+format = "([$read_only]($read_only_style) )[$path]($style) "
 
 [status]
 symbol = ""
