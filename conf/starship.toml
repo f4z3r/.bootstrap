@@ -1,5 +1,5 @@
 # do not add newline at begin of prompt
-add_newline = false
+add_newline = true
 # use all extensions
 format = """
 [ ](bg:237)\
