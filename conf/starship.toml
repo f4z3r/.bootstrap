@@ -114,9 +114,10 @@ style = "bold green"
 truncation_length = 18
 
 [git_commit]
-commit_hash_length = 4
-tag_symbol = " "
-format = "[\\($hash\\)](bg:237 $style)[ \\($tag\\)](bg:237 $style)"
+commit_hash_length = 7
+tag_symbol = "\uf02b "
+tag_disabled = false
+format = "[\uf417 $hash](bg:237 $style)[($tag) ](bg:237 $style)"
 
 [git_state]
 format = '\([$state( $progress_current/$progress_total) ](bg:237 $style)\)'
