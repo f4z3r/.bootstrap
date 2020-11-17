@@ -1,11 +1,171 @@
 # do not add newline at begin of prompt
 add_newline = false
 # use all extensions
-format = "$all"
+format = """
+[ ](bg:237)\
+$shlvl\
+$custom\
+$time\
+$username\
+$hostname\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$kubernetes\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$lua\
+$php\
+$purescript\
+$python\
+$ruby\
+$crystal\
+$rust\
+$swift\
+$terraform\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$cmd_duration\
+$jobs\
+$battery\
+[\ue0bc](fg:237)\
+$line_break\
+$directory\
+$status\
+$character"""
 
-# no line break between prompt and command
-# [line_break]
-# disabled = true
+[shlvl]
+disabled = false
+format = "[\uf149$shlvl](bg:237 $style)[ \u2571](bg:237)"
+style = "bold red"
+threshold = 2
+
+[custom.shell]
+shell = "bash"
+command = "echo $SHELL"
+when = """ ! [[ "$SHELL" =~ "zsh" ]] """
+format = "[  ](bg:237)[$output](bg:237 $style)[ \u2571](bg:237)"
+style = "dimmed red"
+
+[time]
+disabled = false
+format = "[🕙](bg:237)[$time](bg:237 $style)[ \u2571](bg:237)"
+time_format = "%T"
+utc_time_offset = "-5"
+
+[username]
+style_user = "white bold"
+style_root = "black bold"
+format = "[ $user ](bg:237 $style)[\u2571](bg:237)"
+disabled = false
+# show_always = true
+
+[hostname]
+format =  "[ @$hostname ](bg:237 $style)[\u2571](bg:237)"
+trim_at = "."
+style = "bold red"
+
+[git_branch]
+symbol = " "
+format = "[ $symbol$branch ](bg:237 $style)"
+style = "bold green"
+truncation_length = 18
+
+[git_commit]
+commit_hash_length = 4
+tag_symbol = " "
+format = "[\\($hash\\)](bg:237 $style)[ \\($tag\\)](bg:237 $style)"
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total) ](bg:237 $style)\)'
+
+[git_status]
+format = "([\uf104$all_status$ahead_behind\uf105](bg:237 $style))"
+style = "bold red"
+
+[kubernetes]
+disabled = false
+format = "[\u2571 ](bg:237)[$context $symbol $namespace ](bg:237 $style)"
+style = "blue dimmed bold"
+symbol = "\ufd31"
+# [kubernetes.context_aliases]
+# "dev.local.cluster.k8s" = "dev"
+
+[docker_context]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$context ](bg:237$style)"
+
+[package]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+[golang]
+symbol = "ﳑ "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+[lua]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+[nim]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+[java]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+[rust]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+[python]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+[perl]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+[helm]
+symbol = "ﴱ "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
+# TODO(@jakob): add langs here
+
+[cmd_duration]
+min_time = 500
+show_milliseconds = false
+format = "[\u2571 ](bg:237)[took](bg:237 dimmed)[ $duration ](bg:237 $style)"
+style = "bold yellow"
+# notify after command takes longer than 10s
+show_notification = true
+min_time_to_notify = 10_000
+
+
+# NOTE(@jakob): new line from here on
 
 [directory]
 # number of parent folders truncated to
@@ -15,72 +175,7 @@ truncation_symbol = "…/"
 # always truncate down to repo
 truncate_to_repo = true
 
-[cmd_duration]
-min_time = 500
-show_milliseconds = false
-format = "[took](dimmed) [$duration](bold yellow)"
-# notify after command takes longer than 10s
-show_notification = true
-min_time_to_notify = 10_000
-
-[shlvl]
-disabled = false
-format = "[$shlvl level(s) down](bold red) "
-threshold = 2
-
 [status]
 symbol = ""
 format = '\[[$symbol](red) [$status](bold dimmed)\] '
 disabled = false
-
-[kubernetes]
-disabled = false
-format = "[$symbol$context  $namespace]($style)  "
-style = "blue dimmed bold"
-# [kubernetes.context_aliases]
-# "dev.local.cluster.k8s" = "dev"
-
-[git_commit]
-commit_hash_length = 4
-tag_symbol = " "
-
-[git_branch]
-symbol = " "
-truncation_length = 18
-
-[golang]
-symbol = "ﳑ "
-
-[lua]
-symbol = " "
-
-[nim]
-symbol = " "
-
-[java]
-symbol = " "
-
-[rust]
-symbol = " "
-
-[python]
-symbol = " "
-
-[perl]
-symbol = " "
-
-[docker_context]
-symbol = " "
-
-[package]
-symbol = " "
-
-[helm]
-symbol = "ﴱ "
-
-[custom.shell]
-shell = "bash"
-command = "echo $SHELL"
-when = """ ! [[ "$SHELL" =~ "zsh" ]] """
-format = "  [$output]($style)"
-style = "dimmed red"
