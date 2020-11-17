@@ -123,8 +123,15 @@ format = "[\uf417 $hash](bg:237 $style)[($tag) ](bg:237 $style)"
 format = '\([$state( $progress_current/$progress_total) ](bg:237 $style)\)'
 
 [git_status]
-format = "([\uf104$all_status$ahead_behind\uf105](bg:237 $style))"
-style = "bold red"
+format = "([\\[$all_status$ahead_behind\\] ](bg:237 $style))"
+style = "red"
+conflicted = "\ue279"
+ahead = " \uf062${count}"
+behind = " \uf063${count}"
+diverged = " \uf047 \uf062${ahead_count}\uf063${behind_count}"
+staged = "[\uf03a\\($count\\)](bg:237 green)"
+renamed = "\uf954"
+deleted = "\uf467"
 
 [kubernetes]
 disabled = false
