@@ -2,7 +2,6 @@
 add_newline = true
 # use all extensions
 format = """
-[ ](bg:237)\
 $battery\
 $memory_usage\
 $shlvl\
@@ -60,7 +59,7 @@ $character"""
 full_symbol = "\uf578"
 charging_symbol = "\uf586"
 discharging_symbol = "\uf57b"
-format = "([$symbol$percentage ](bg:237 $style))"
+format = "([ $symbol$percentage ](bg:237 $style))"
 
 [[battery.display]]  # "bold red" style when capacity is between 0% and 10%
 threshold = 10
@@ -75,11 +74,11 @@ disabled = false
 threshold = 75
 symbol = "\uf85a"
 style = "bold dimmed white"
-format = "[$symbol ${ram} ](bg:237 $style)[ \u2571](bg:237)"
+format = "[ $symbol ${ram} ](bg:237 $style)[ \u2571](bg:237)"
 
 [shlvl]
 disabled = false
-format = "[\uf149$shlvl](bg:237 $style)[ \u2571](bg:237)"
+format = "[ \uf149$shlvl](bg:237 $style)[ \u2571](bg:237)"
 style = "bold red"
 threshold = 2
 
@@ -92,7 +91,7 @@ style = "dimmed red"
 
 [time]
 disabled = false
-format = "[🕙](bg:237)[$time](bg:237 $style)[ \u2571](bg:237)"
+format = "[ 🕙](bg:237)[$time](bg:237 $style)[ \u2571](bg:237)"
 time_format = "%T"
 utc_time_offset = "-5"
 
@@ -181,9 +180,8 @@ min_time = 500
 show_milliseconds = false
 format = "[\u2571 ](bg:237)[took](bg:237 dimmed)[ $duration ](bg:237 $style)"
 style = "bold yellow"
-# notify after command takes longer than 10s
-show_notification = true
-min_time_to_notify = 10_000
+# show_notification = true
+# min_time_to_notify = 10_000
 
 
 # NOTE(@jakob): new line from here on
