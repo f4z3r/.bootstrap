@@ -197,12 +197,15 @@ style = "bold yellow"
 format = "[\u2571 ](bg:237)[$symbol$number ](bg:237 $style)"
 
 # NOTE(@jakob): new line from here on
+[line_break]
+disabled = false
 
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
 truncate_to_repo = true
 read_only = "\uf023"
+style = "underline bold dimmed cyan"
 format = "([$read_only]($read_only_style) )[$path]($style) "
 
 [status]
