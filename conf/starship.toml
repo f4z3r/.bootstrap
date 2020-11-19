@@ -194,7 +194,7 @@ style = "bold yellow"
 # min_time_to_notify = 10_000
 
 [jobs]
-format = "[\u2571 ](bg:237)[ $symbol$number ](bg:237 $style)"
+format = "[\u2571 ](bg:237)[$symbol$number ](bg:237 $style)"
 
 # NOTE(@jakob): new line from here on
 
