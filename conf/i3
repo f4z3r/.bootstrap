@@ -34,7 +34,7 @@ exec --no-startup-id nitrogen --restore
 exec --no-startup-id xss-lock -- i3lock -c 249eca
 
 ## Quake application (works on 4k screen)
-exec --no-startup-id kitty --name quake
+exec --no-startup-id kitty --name quake tmux
 for_window [instance="quake"] floating enable;
 for_window [instance="quake"] move scratchpad; [instance="quake"] scratchpad show; move position 576px 324px; resize set height 1512px; resize set width 2688px; move scratchpad
 bindsym Control+Return [instance="quake"] scratchpad show
@@ -63,23 +63,23 @@ bindsym $mod+Control+q exec xfce4-session-logout
 ## ======================================================================================
 
 # Terminal
-bindsym $mod+Return exec kitty tmux
+bindsym $mod+Return exec kitty -- tmux
 # Dmenu
 bindsym $mod+Control+p exec dmenu_run
 # Visual editor
-bindsym $mod+Control+e exec kitty tmux new -s vim
+bindsym $mod+Control+e exec kitty -- tmux new -s vim
 # Music Player
-bindsym $mod+Control+m exec kitty ncmpcpp
+bindsym $mod+Control+m exec kitty -- ncmpcpp
 # Thunderbird
 bindsym $mod+Control+t exec thunderbird
 # Browser
 bindsym $mod+Control+w exec firefox
 # CPU info
-bindsym $mod+Control+c exec kitty htop
+bindsym $mod+Control+c exec kitty -- htop
 # NVIDIA info
-bindsym $mod+Control+n exec kitty nvtop
+bindsym $mod+Control+n exec kitty -- nvtop
 # General info
-bindsym $mod+Control+g exec kitty --hold inxi -F
+bindsym $mod+Control+g exec kitty --hold -- inxi -F
 # TODO(@jakob): get quake style launcher
 
 
