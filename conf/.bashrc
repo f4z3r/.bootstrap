@@ -145,6 +145,7 @@ export VISUAL="vim"
 export EDITOR="vim"
 export SUDO_EDITOR="vim"
 export TERM="xterm-256color"    # required for colors and backspace handling over ssh
+export PAGER="bat"
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .cache -g ""'
