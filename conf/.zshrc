@@ -49,6 +49,9 @@ alias scx="screen -x"
 # tree
 alias tree="tree -C"
 
+# find
+alias fnd='fd'
+
 # ip
 alias ip="ip -c"
 

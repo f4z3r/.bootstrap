@@ -57,6 +57,9 @@ alias ti="timew"
 # tree
 alias tree="tree -C"
 
+# find
+alias fnd='fd'
+
 # ip
 alias ip="ip -c"
 
