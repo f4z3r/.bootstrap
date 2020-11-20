@@ -56,6 +56,7 @@ alias ck="cd \$(sk)"
 skh () {
   command_line=$(history 1000 | sk --color=dark,hl:3,spiller:2,fg+:9,hl+:3,selected:6,query:5,matched_bg:-1)
   command_raw=$(echo "$command_line" | sed -E 's/ *[0-9]*\*? *//' | sed -E 's/\\/\\\\/g')
+  echo "$command_raw"
   arguments=($(echo "$command_raw" | tr ' ' "\n"))
   eval $arguments
 }
