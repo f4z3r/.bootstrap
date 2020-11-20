@@ -98,6 +98,8 @@ and [timewarrior](doc/timew.md).
 
 ### Install utilities
 
+> See [doc/utils.md](doc/utils.md) for more utility alternatives such as `exa`, `skim`, `bat`, etc.
+
 ```bash
 sudo pacman -S the_silver_searcher mupdf-gl neovim skim ctags tree tmux
 ```
