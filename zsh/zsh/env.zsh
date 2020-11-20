@@ -6,7 +6,9 @@
 export VISUAL="nvim"
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
-export PAGER="bat"
+if which bat &> /dev/null; then
+  export PAGER="bat"
+fi
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .cache -g ""'
