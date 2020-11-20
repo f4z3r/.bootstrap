@@ -52,8 +52,10 @@ ssh-keygen -t rsa -b 4096
 Install `zsh` and configure it.
 
 ```bash
-sudo pacman -S zsh zsh-syntax-highlighting zsh-completions zsh-autosuggestions
+sudo pacman -S zsh zsh-syntax-highlighting zsh-completions zsh-autosuggestions exa
 ```
+
+> Note `exa` can also be installed via `cargo install`.
 
 Set `zsh` to the default shell using `chsh -s`. Link configuration all files.
 
