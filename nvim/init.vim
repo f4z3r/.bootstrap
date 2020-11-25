@@ -255,6 +255,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('jparise/vim-graphql',
         \{'on_ft': ['graphql', 'javascript', 'typescript']})
 
+  call dein#add('wlemuel/vim-tldr',
+        \{'on_cmd': ['Tldr', 'TldrUpdateDocs']})
+
   call dein#end()
   call dein#save_state()
 endif
