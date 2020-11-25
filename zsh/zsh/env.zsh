@@ -8,6 +8,7 @@ export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 if which bat &> /dev/null; then
   export PAGER="bat"
+  alias man -P less
 fi
 
 # ZSH
