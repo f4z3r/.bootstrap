@@ -8,6 +8,8 @@ Install the `tmux` package using `pacman`.
 
 The configuration for `tmux` should be set up via the `Makefile`.
 
+Once `tmux` is configured, the plugins can be installed via `<prefix> - I` within a `tmux` session.
+
 ## Usage
 
 The current configuration has the following properties:
