@@ -133,6 +133,7 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"                    # system 
 [ -d "$HOME/.nimble/bin" ] && PATH="$PATH:$HOME/.nimble/bin"           # nim bins
 [ -d "$HOME/.cargo/bin" ] && PATH="$PATH:$HOME/.cargo/bin"             # rust bins
 [ -n "$GOBIN" ] && PATH="$PATH:$GOBIN"                                 # go bins
+[ -d "/snap/bin" ] && PATH="$PATH:/snap/bin"                           # snap bins
 
 export PATH
 
@@ -147,7 +148,7 @@ export SUDO_EDITOR="vim"
 export TERM="xterm-256color"    # required for colors and backspace handling over ssh
 if which bat &> /dev/null; then
   export PAGER="bat"
-  alias man -P less
+  alias man="man -P less"
 fi
 
 # FZF
