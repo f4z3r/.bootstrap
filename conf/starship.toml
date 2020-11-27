@@ -135,7 +135,7 @@ deleted = "\uf467"
 [kubernetes]
 disabled = false
 format = "[\u2571 ](bg:237)[$context $symbol $namespace ](bg:237 $style)"
-style = "blue dimmed bold"
+style = "#BA55D3 dimmed bold"
 symbol = "\ufd31"
 # [kubernetes.context_aliases]
 # "dev.local.cluster.k8s" = "dev"

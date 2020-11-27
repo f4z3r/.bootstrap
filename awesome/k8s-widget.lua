@@ -6,7 +6,6 @@ local K8s       = { mt = {}, wmt = {} }
 K8s.wmt.__index = K8s
 K8s.__index     = K8s
 
-local ns_cmd       = "kubens -c"
 local ctxt_cmd     = "kubectx -c"
 local wheel        = "\u{fd31}"
 local mediumorchid = "#BA55D3"
@@ -28,7 +27,7 @@ function K8s:new(args)
   -- Create imagebox widget
   obj.widget    = wibox.widget.textbox("")
   obj.color     = args.color or mediumorchid
-  local timeout = args.timeout or 3
+  local timeout = args.timeout or 30
   obj.widget:set_font(args.font)
 
   obj.timer = timer({ timeout = timeout })
@@ -41,9 +40,8 @@ function K8s:new(args)
 end
 
 function K8s:update()
-  local ns   = get_trimmed_cmd_out(ns_cmd) or "-"
-  local ctxt = get_trimmed_cmd_out(ctxt_cmd) or "-"
-  self.widget:set_markup_silently(markup(self.color, ctxt.." "..wheel.." "..ns))
+  local ctxt = get_trimmed_cmd_out(ctxt_cmd) or " "
+  self.widget:set_markup_silently(markup(self.color, " "..wheel.." "..ctxt))
 end
 
 function K8s.mt:__call(...)
