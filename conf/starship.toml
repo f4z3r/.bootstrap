@@ -183,6 +183,10 @@ format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
 symbol = "ﴱ "
 format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
 
+[nodejs]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
 # TODO(@jakob): add langs here
 
 [cmd_duration]
