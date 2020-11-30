@@ -75,6 +75,8 @@ cd tools/nerd-fonts
 ./install.sh FiraCode
 ```
 
+> Note that the repository should be checkout out at version `v2.0.0` to avoid a spacing bug.
+
 ### Install `starship`
 
 ```bash
