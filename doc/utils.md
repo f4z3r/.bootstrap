@@ -15,7 +15,7 @@ regular their regular counterpart.
 Provides example based _short_ manual references for commands. It is client-server based, meaning
 you can find manual pages for uninstalled commands, but require an internet connection.
 
-> Installed via `pacman`.
+> Installed via `pacman`, use the `tealdeer` cargo install for the rust implementation.
 
 
 ## fd
