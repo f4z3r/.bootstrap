@@ -33,6 +33,9 @@ office suite.
 
 ## Setup
 
+Install the `base-devel` package to ensure we have enough binaries for building most things from
+source, especially when installing things from the AUR.
+
 Install `git` to clone this repository. Also generate ssh keys.
 
 > Maybe configure the appropriate mirror list before performing the `pacman` udpate:

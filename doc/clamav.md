@@ -13,8 +13,8 @@ Install the `clamav` package from `pacman`.
 
 > Note: most of the following commands need to be run as root.
 
-Use `freshclam` to update the database of virus definitions. The database files are stored under
-`/var/lib/clamav/`. Enable the `clamav-freshclam.service` to keep the definitions up to date.
+Use `freshclam` (as root) to update the database of virus definitions. The database files are stored
+under `/var/lib/clamav/`. Enable the `clamav-freshclam.service` to keep the definitions up to date.
 
 Start and enable the `clamav-daemon.service` to check for viruses. This should only be done after
 having run `freshclam` at least once.
@@ -99,14 +99,14 @@ And add the following to `/etc/logrotate.d/clamav`:
 
 ```
 /home/jakob/.local/log/clamav.log {
-    daily
-    dateext
-    dateformat -%d%m%Y
-    missingok
-    rotate 90
-    compress
-    delaycompress
-    notifempty
-    create 600 jakob jakob
+	daily
+	dateext
+	dateformat -%d%m%Y
+	missingok
+	rotate 90
+	compress
+	delaycompress
+	notifempty
+	create 600 jakob jakob
 }
 ```
