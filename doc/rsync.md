@@ -50,5 +50,5 @@ made or modification dates differ.
 In order to send to `upload_xplore`:
 
 ```sh
-rsync --update --progress -e 'ssh -p 2222' -azv Music/dldd_music/temp/ 192.168.1.3:/storage/emulated/0/upload_xplore
+rsync --update --progress -e 'ssh -p 2222' -azv ~/Music/dldd_music/temp/ 192.168.1.3:/storage/emulated/0/upload_xplore
 ```
