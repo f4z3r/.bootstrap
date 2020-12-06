@@ -75,7 +75,7 @@ bindsym $mod+Control+t exec thunderbird
 # Browser
 bindsym $mod+Control+w exec firefox
 # CPU info
-bindsym $mod+Control+c exec kitty -- htop
+bindsym $mod+Control+c exec kitty -- ytop
 # NVIDIA info
 bindsym $mod+Control+n exec kitty -- nvtop
 # General info
