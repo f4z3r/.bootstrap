@@ -5,6 +5,7 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
+	pager = bat
 
 [log]
 	date = format:%Y-%m-%d %H:%M

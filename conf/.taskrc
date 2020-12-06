@@ -103,4 +103,3 @@ context.ipt=+ipt
 context.priv=-ipt
 
 # vim:ft=conf:foldlevel=0:tw=100:
-context=priv

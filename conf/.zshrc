@@ -166,9 +166,8 @@ export EDITOR="vim"
 export SUDO_EDITOR="vim"
 export TERM="xterm-256color"    # required for colors and backspace handling over ssh
 if which bat &> /dev/null; then
-  export PAGER="bat"
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   export BAT_THEME="gruvbox"
-  alias man="man -P less"
 fi
 
 export CURR_SHELL="zsh"
