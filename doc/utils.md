@@ -14,6 +14,7 @@ regular their regular counterpart.
 * [dust](#dust)
 * [ytop](#ytop)
 * [zoxide](#zoxide)
+  * [Installation](#installation)
   * [Usage](#usage)
 
 ## tldr
@@ -106,6 +107,17 @@ Uses graphs to show usage.
 Integrates fuzzy searching.
 
 > Installed via AUR or `cargo`.
+
+### Installation
+
+First, install the binary. Then run the following the appropriate shell:
+
+```bash
+eval "$(zoxide init zsh)"
+eval "$(zoxide init bash)"
+```
+
+By default this is already setup in the bootstrap setup.
 
 ### Usage
 
