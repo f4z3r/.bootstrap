@@ -110,7 +110,7 @@ Integrates fuzzy searching.
 
 ### Installation
 
-First, install the binary. Then run the following the appropriate shell:
+First, install `fzf` and then the binary. Then run the following the appropriate shell:
 
 ```bash
 eval "$(zoxide init zsh)"
