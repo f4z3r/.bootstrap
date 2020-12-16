@@ -2,9 +2,14 @@
 
 * [Installation](#installation)
 * [Setup](#setup)
-* [Key Value Secret Store](#key-value-secret-store)
-* [AWS Backend](#aws-backend)
+* [Secret Engines](#secret-engines)
+  * [Key Value Secret Store](#key-value-secret-store)
+  * [AWS Backend](#aws-backend)
 * [Authentication](#authentication)
+  * [Token](#token)
+  * [GitHub](#github)
+* [Policies](#policies)
+* [Configuration](#configuration)
 
 ---
 
@@ -184,3 +189,54 @@ The `root` policy provides super admin rights.
 How policies are associated with auth methods depends on the auth method. But Vault supports linking
 auth methods to the policies they will provide their tokens with. This enables to provide fine
 grained access to users based on how they logged in.
+
+## Configuration
+
+A sample configuration looks as follows:
+
+```hcl
+storage "raft" {
+  path    = "./vault/data"
+  node_id = "node1"
+}
+
+listener "tcp" {
+  address     = "127.0.0.1:8200"
+  tls_disable = 1
+}
+
+api_addr = "http://127.0.0.1:8200"
+cluster_addr = "https://127.0.0.1:8201"
+ui = true
+```
+
+The `storage` clause determines the physical backend that Vault uses for storage. `raft` is an
+integrated storage solution.
+
+The `listener` clause determines how Vault listens for API requests. In the example above, it
+listens on port 8200 without TLS.
+
+The `api_addr` specifies the address to advertise to route client requests.
+
+The `cluster_addr` indicates the address and port to be used for communication between the Vault
+nodes in a cluster.
+
+### Initialization
+
+When a cluster is created, it needs to be initialized against the storage backend if this one has
+never been used by Vault. This can be done with `vault operator init`. When running in HA mode, this
+happens once per _cluster_, **not per server**. During the initialization, the encryption keys are
+generated, unseal keys are created, and the initial root token is setup.
+
+Individuals unseal keys can the be provided using the `vault operator unseal` command.
+
+## REST APIs
+
+In order to see the REST API call made by a terminal command, add the `-output-curl-string` option
+to see the `curl` command that is output via the CLI command.
+
+## Web UI
+
+The web UI is not activated by default, but can be activated in the configuration via a `ui = true`
+clause in the configuration. The UI is available under `/ui`. Note that it might only be available
+from the local host when it is bound it `127.0.0.1`.
