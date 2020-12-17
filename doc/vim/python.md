@@ -21,7 +21,7 @@ First, ensure `coc` is properly set up.
 Install the `coc` extension.
 
 ```viml
-CocInstall coc-python
+CocInstall coc-pyright
 ```
 
 ## Tools
