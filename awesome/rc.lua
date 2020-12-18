@@ -699,6 +699,12 @@ clientkeys = my_table.join(
   -- move to screen
   awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
     {description = "move to screen", group = "client"})
+
+  -- resize clients
+  awful.key({ modkey,           }, "Right",     function () awful.tag.incmwfact( 0.01)      end),
+  awful.key({ modkey,           }, "Left",      function () awful.tag.incmwfact(-0.01)      end),
+  awful.key({ modkey,           }, "Down",      function () awful.client.incwfact( 0.01)    end),
+  awful.key({ modkey,           }, "Up",        function () awful.client.incwfact(-0.01)    end),
 )
 
 -- Bind all key numbers to tags.
