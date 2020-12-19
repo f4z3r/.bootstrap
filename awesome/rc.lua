@@ -472,21 +472,13 @@ globalkeys = my_table.join(
   awful.key({ modkey,        }, "Escape", awful.tag.history.restore,
     {description = "go back", group = "tag"}),
 
-  -- move to left nonempty
-  awful.key({ modkey,        }, "Left", function () lain.util.tag_view_nonempty(-1) end,
-    {description = "view previous nonempty", group = "tag"}),
-
-  -- move to right nonempty
-  awful.key({ modkey,        }, "Right", function () lain.util.tag_view_nonempty(1) end,
-    {description = "view previous nonempty", group = "tag"}),
-
   -- move to left
   awful.key({ modkey, altkey  }, "Left", function () lain.util.move_tag(-1) end,
-    {description = "move tag to the left", group = "tag"}),
+    {description = "move tag to the left/right", group = "tag"}),
 
   -- move to right
   awful.key({ modkey, altkey  }, "Right", function () lain.util.move_tag(1) end,
-    {description = "move tag to the right", group = "tag"}),
+    {description = "move tag to the left/right", group = "tag"}),
 
 
   -- === Hotkey ===
@@ -582,14 +574,14 @@ globalkeys = my_table.join(
     function ()
       os.execute("mpc prev")
       beautiful.mpd.update()
-    end, {description = "mpc prev", group = "widgets"}),
+    end, {description = "mpc prev/next", group = "widgets"}),
 
   -- MPC control next
   awful.key({ altkey, "Control" }, "Right",
     function ()
       os.execute("mpc next")
       beautiful.mpd.update()
-    end, {description = "mpc next", group = "widgets"}),
+    end, {description = "mpc prev/next", group = "widgets"}),
 
   -- MPC control show next
   awful.key({ altkey, "Control" }, "q",
@@ -698,13 +690,13 @@ clientkeys = my_table.join(
 
   -- move to screen
   awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
-    {description = "move to screen", group = "client"})
+    {description = "move to screen", group = "client"}),
 
-  -- resize clients
-  awful.key({ modkey,           }, "Right",     function () awful.tag.incmwfact( 0.01)      end),
-  awful.key({ modkey,           }, "Left",      function () awful.tag.incmwfact(-0.01)      end),
-  awful.key({ modkey,           }, "Down",      function () awful.client.incwfact( 0.01)    end),
-  awful.key({ modkey,           }, "Up",        function () awful.client.incwfact(-0.01)    end),
+  -- maximize clients
+  awful.key({ modkey            }, "-",         function(c) c.maximized_horizontal = not c.maximized_horizontal end,
+    {description = "toggle window horizontal maximization", group = "client"}),
+  awful.key({ modkey, "Shift"   }, "\\",        function(c) c.maximized_vertical = not c.maximized_vertical end,
+    {description = "toggle window vertical maximization", group = "client"})
 )
 
 -- Bind all key numbers to tags.
