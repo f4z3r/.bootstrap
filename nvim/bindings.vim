@@ -209,7 +209,7 @@ nnoremap <leader>sL :Lines<cr>
 " search for visual selection using //
 vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
 " (s)earch (n)otes
-nnoremap <leader>sn :call pad#GlobalIncrementalSearch(0)<cr>
+nnoremap <leader>sn :call pad#SearchPads()<cr>
 " }}}
 
 
@@ -400,14 +400,16 @@ nnoremap <leader>osm :e ~/.vim/sessions/<cr>
 
 
 " ==== Notes ============================================================={{{
-" (n)otes (i)incremental search
-nnoremap <leader>ni :call pad#GlobalIncrementalSearch(0)<cr>
-" (n)otes (s)earch
-nnoremap <leader>ns :call pad#SearchPads()<cr>
+" (n)otes (s)shared
+nnoremap <leader>ns :Pad new<cr>
+" (n)otes (p)ad (s)earch
+nnoremap <leader>nps :call pad#SearchPads()<cr>
 " (n)otes (l)ist
 nnoremap <leader>nl :Pad ls<cr>
-" (n)otes (n)ew
-nnoremap <leader>nn :Pad new<cr>
+" (n)otes (n)ew (local)
+nnoremap <leader>nn :Pad! new<cr>
+" (n)otes (f)ile (local)
+nnoremap <leader>nf :Pad! this<cr>
 " }}}
 
 
