@@ -95,9 +95,10 @@ alias pcde="podman container list -a | grep -i exited | cut -d' ' -f1 | xargs po
 alias bcda="buildah containers | grep -vi 'container name' | cut -d' ' -f1 | xargs buildah rm"
 
 # pomorodo
-alias pomo="(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
-              'System pomorodo completed' \
-              'System pomodoro finished after 25 minutes. Please take a short break and start a new one.') &"
+alias pomo='(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
+              "System pomorodo completed" \
+              "System pomodoro finished after 25 minutes. Please take a short break and start a new one.";
+            echo "Pomodoro auto ended at $(date +"%a %d %b %Y %T"), duration: 25 minutes" >> /tmp/pomodoro.log) &'
 
 # utilities
 alias weather="curl wttr.in/Zurich"
