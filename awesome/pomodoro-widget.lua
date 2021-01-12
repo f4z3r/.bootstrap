@@ -145,7 +145,7 @@ end
 
 function Pomodoro:completed()
   local file = io.open(self.log, 'r')
-  if not file then return nil end
+  if not file then return 0 end
   local content = file:read "*a"
   local count = 0
   for _ in content:gmatch "Pomodoro auto ended at " do
