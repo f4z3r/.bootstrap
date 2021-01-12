@@ -15,6 +15,7 @@ local optimus_widget    = require("optimus-widget")
 local brightness_widget = require("brightness-widget")
 local systemctl_widget  = require("systemctl-widget")
 local ip_widget         = require("ip-widget")
+local pomodoro_widget   = require("pomodoro-widget")
 
 local string, os, io = string, os, io
 local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
@@ -46,7 +47,8 @@ theme.awesome_icon_launcher                     = theme.icon_dir .. "/manjaro_ic
 theme.taglist_squares_sel                       = theme.icon_dir .. "/square_sel.png"
 theme.taglist_squares_unsel                     = theme.icon_dir .. "/square_unsel.png"
 theme.taskwarrior_icon                          = theme.icon_dir .. "/taskwarrior.png"
-theme.taskwarrior_notif_preset                  = { font = theme.font_base.." 14", icon = theme.taskwarrior_icon, timeout = 5, width = 10000 }
+theme.taskwarrior_notif_preset                  = { font = theme.font_base.." 12", icon = theme.taskwarrior_icon, timeout = 5, width = 10000 }
+theme.pomodoro_notif_preset                     = { font = theme.font_base.." 12", timeout = 5, width = 1000 }
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
 theme.useless_gap                               = dpi(0)
@@ -280,6 +282,12 @@ lain.widget.contrib.task.attach(theme.task, {
 -- K8s widget
 theme.k8s = k8s_widget:new({ font = theme.taglist_font })
 
+-- Pomodoro widget
+theme.pomodoro = pomodoro_widget:new({
+    font = theme.taglist_font,
+    notification_preset = theme.pomodoro_notif_preset
+  })
+
 -- ALSA volume bar
 theme.volume = lain.widget.alsabar({
     notification_preset = { font = "Monospace 9"},
@@ -491,6 +499,8 @@ function theme.at_screen_connect(s)
       theme.task,
       bottom_bar,
       theme.k8s,
+      bottom_bar,
+      theme.pomodoro,
       bottom_bar,
       s.mypromptbox,
     },

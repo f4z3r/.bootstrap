@@ -483,7 +483,7 @@ globalkeys = my_table.join(
 
   -- === Hotkey ===
   -- take a screenshot
-  awful.key({ altkey, "Control" }, "p",
+  awful.key({ altkey, "Control" }, "s",
     function()
       os.execute("mkdir -p $HOME/screenshots/ && scrot -q 100 -uz $HOME/screenshots/$(date +%Y%m%d%H%M%S).png")
     end, {description = "take a screenshot", group = "hotkeys"}),
@@ -526,6 +526,10 @@ globalkeys = my_table.join(
 
 
   -- === Widget ===
+  -- Pomodoro start
+  awful.key({ altkey, "Control" }, "p", function () beautiful.pomodoro:toggle() end,
+    {description = "toggle pomodoro", group = "widgets"}),
+
   -- TaskWarrior run prompt
   awful.key({ altkey, "Control" }, "t", lain.widget.contrib.task.prompt,
     {description = "run in task prompt", group = "widgets"}),
