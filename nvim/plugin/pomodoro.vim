@@ -9,7 +9,7 @@ let g:pomodoro_time_work = 25
 let g:pomodoro_time_slack = 5
 
 " Path to the pomodoro log file (default: no logging)
-let g:pomodoro_log_file = expand('~/.pomodoro.log')
+let g:pomodoro_log_file = '/tmp/pomodoro.log'
 
 " Pomodoros before long break (default: 4)
 let g:pomodoros_before_reward = 4

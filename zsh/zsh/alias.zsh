@@ -98,7 +98,7 @@ alias bcda="buildah containers | grep -vi 'container name' | cut -d' ' -f1 | xar
 alias pomo='(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
               "System pomorodo completed" \
               "System pomodoro finished after 25 minutes. Please take a short break and start a new one.";
-            echo "Pomodoro auto ended at $(date +"%a %d %b %Y %T"), duration: 25 minutes" >> $HOME/.pomodoro.log) &'
+            echo "Pomodoro auto ended at $(date +"%a %d %b %Y %T"), duration: 25 minutes" >> /tmp/pomodoro.log) &'
 
 # utilities
 alias weather="curl wttr.in/Zurich"
