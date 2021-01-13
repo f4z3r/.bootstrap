@@ -16,9 +16,9 @@ function Pomodoro:new(args)
   local obj = setmetatable({}, Pomodoro)
 
   -- tweak these values in seconds to your liking
-  obj.short_pause_duration = 5 or 5 * 60
-  obj.long_pause_duration = 30 or 15 * 60
-  obj.work_duration = 10 or 25 * 60
+  obj.short_pause_duration = 5 * 60
+  obj.long_pause_duration = 15 * 60
+  obj.work_duration = 25 * 60
   obj.pause_duration = obj.short_pause_duration
   obj.current_duration = obj.work_duration
 
