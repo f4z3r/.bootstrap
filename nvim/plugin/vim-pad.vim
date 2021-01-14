@@ -2,7 +2,7 @@
 " ================================ Vim Pad ==================================
 " ===========================================================================
 
-let g:pad#dir = '~/.bootstrap/notes/'
+let g:pad#dir = expand('~/.pad-notes/')
 let g:pad#local_dir = '.notes'
 let g:pad#default_file_extenson = '.md'
 let g:pad#set_mappings = 0

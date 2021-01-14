@@ -400,14 +400,12 @@ nnoremap <leader>osm :e ~/.vim/sessions/<cr>
 
 
 " ==== Notes ============================================================={{{
-" (n)otes (s)shared
-nnoremap <leader>ns :Pad new<cr>
-" (n)otes (p)ad (s)earch
-nnoremap <leader>nps :call pad#SearchPads()<cr>
+" (n)otes (s)earch
+nnoremap <leader>ns :call pad#SearchPads()<cr>
 " (n)otes (l)ist
 nnoremap <leader>nl :Pad ls<cr>
-" (n)otes (n)ew (local)
-nnoremap <leader>nn :Pad! new<cr>
+" (n)otes (n)ew
+nnoremap <leader>nn :Pad new<cr>
 " (n)otes (f)ile (local)
 nnoremap <leader>nf :Pad! this<cr>
 " }}}
