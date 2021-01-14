@@ -3,4 +3,5 @@ tags.temp
 tags.lock
 .mypy_cache/
 .*.un~
+.nvimlog
 
