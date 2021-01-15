@@ -17,7 +17,7 @@ function Pomodoro:new(args)
 
   -- tweak these values in seconds to your liking
   obj.short_pause_duration = 5 * 60
-  obj.long_pause_duration  = 15 * 60
+  obj.long_pause_duration  = 20 * 60
   obj.work_duration        = 25 * 60
   obj.pause_duration       = obj.short_pause_duration
   obj.current_duration     = obj.work_duration
