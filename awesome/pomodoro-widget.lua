@@ -17,15 +17,15 @@ function Pomodoro:new(args)
 
   -- tweak these values in seconds to your liking
   obj.short_pause_duration = 5 * 60
-  obj.long_pause_duration = 15 * 60
-  obj.work_duration = 25 * 60
-  obj.pause_duration = obj.short_pause_duration
-  obj.current_duration = obj.work_duration
+  obj.long_pause_duration  = 15 * 60
+  obj.work_duration        = 25 * 60
+  obj.pause_duration       = obj.short_pause_duration
+  obj.current_duration     = obj.work_duration
 
   obj.last_start = 0
 
-  obj.log = '/tmp/pomodoro.log'
-  obj.notif_done = "Completed! Time for a break..."
+  obj.log           = '/tmp/pomodoro.log'
+  obj.notif_done    = "Completed! Time for a break..."
   obj.notif_go_back = "Pause finished, go back to work!"
 
   obj.notification_preset = args.notification_preset
@@ -40,20 +40,22 @@ function Pomodoro:new(args)
   obj.color_pausing = "#00B700"
   obj.current_color = obj.color_working
 
-  obj.symbol_running = "\u{e003}"
-  obj.symbol_stopped = "\u{e002}"
-  obj.current_symbol = obj.symbol_stopped
-  obj.running = false
-  obj.ran = -1
+  obj.symbol_running    = "\u{e003}"
+  obj.symbol_pause      = "\u{e005}"
+  obj.symbol_long_pause = "\u{e006}"
+  obj.symbol_stopped    = "\u{e002}"
+  obj.current_symbol    = obj.symbol_stopped
+  obj.running           = false
+  obj.ran               = -1
 
-  obj.format = function (t, c, s, d) return "<b>"..markup(obj.color, d).."</b> "..markup(c, s).." <b>"..markup(obj.color, t).."</b>" end
+  obj.format  = function (t, c, s, d) return "<b>"..markup(obj.color, d).."</b> "..markup(c, s).." <b>"..markup(obj.color, t).."</b>" end
   obj.working = true
 
   obj.completed = obj:completed()
 
   obj.widget = wibox.widget.textbox()
   obj.widget:set_font(args.font)
-  obj.widget:set_markup(obj.format("00:00", obj.current_color, obj.current_symbol, obj.completed))
+  obj.widget:set_markup(obj.format("25:00", obj.current_color, obj.current_symbol, obj.completed))
 
   obj.timer = timer { timeout = 5 }
 
@@ -64,7 +66,7 @@ end
 
 function Pomodoro:update()
   if self.last_start == 0 then
-    self.widget:set_markup(self.format("-", self.color_stopped, self.symbol_stopped, self.completed))
+    self.widget:set_markup(self.format("-", self.color_running, self.symbol_stopped, self.completed))
     return
   end
 
@@ -104,6 +106,19 @@ function Pomodoro:notify(t)
   }
 end
 
+function Pomodoro:skip_break()
+  if self.running then
+    self.timer:stop()
+  end
+  self.current_duration = self.work_duration
+  self.current_color    = self.color_working
+  self.current_symbol   = self.symbol_running
+  self.running          = false
+  self.working          = true
+  self.last_start       = 0
+  self:update()
+end
+
 function Pomodoro:toggle()
   if self.running then
     self.timer:stop()
@@ -118,7 +133,15 @@ function Pomodoro:toggle()
     self.last_start = os.time() - self.ran
     self.ran = 1
     self.timer:start()
-    self.current_symbol = self.symbol_running
+    if self.working then
+      self.current_symbol = self.symbol_running
+    else
+      if (self.completed % 4) == 0 then
+        self.current_symbol = self.symbol_long_pause
+      else
+        self.current_symbol = self.symbol_pause
+      end
+    end
     self:update()
     self.running = true
   end
@@ -134,8 +157,10 @@ function Pomodoro:start()
     self.current_color = self.color_pausing
     if (self.completed % 4) == 0 then
       self.current_duration = self.long_pause_duration
+      self.current_symbol = self.symbol_long_pause
     else
       self.current_duration = self.pause_duration
+      self.current_symbol = self.symbol_pause
     end
   end
   self.last_start = os.time()

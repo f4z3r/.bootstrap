@@ -529,6 +529,8 @@ globalkeys = my_table.join(
   -- Pomodoro start
   awful.key({ altkey, "Control" }, "p", function () beautiful.pomodoro:toggle() end,
     {description = "toggle pomodoro", group = "widgets"}),
+  awful.key({ altkey, "Control" }, "w", function () beautiful.pomodoro:skip_break() end,
+    {description = "skip pomodoro break (reset)", group = "widgets"}),
 
   -- TaskWarrior run prompt
   awful.key({ altkey, "Control" }, "t", lain.widget.contrib.task.prompt,
