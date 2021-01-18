@@ -2,6 +2,8 @@
 alias:
   c: contexts
   dep: apps/v1/deployments
+  pr: monitoring.coreos.com/v1/prometheusrules
+  p: monitoring.coreos.com/v1/prometheuses
 
   # Use fred as an alias for CRD Frederick
   # fred: acme.io/v1alpha1/fredericks
