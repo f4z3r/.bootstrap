@@ -51,3 +51,6 @@ wildcards
 templating
 whitelists
 accessor
+lifecycle
+#rangements
+namespace
