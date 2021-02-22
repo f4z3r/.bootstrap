@@ -89,6 +89,13 @@ when = """ ! [[ "${CURR_SHELL:-${SHELL}}" =~ "zsh" ]] """
 format = "[ \uf489 ](bg:237)[$output](bg:237 $style)[ \u2571](bg:237)"
 style = "dimmed red"
 
+[custom.tmux]
+shell = "bash"
+command = "tmux ls | wc -l"
+when = """ tmux ls """
+format = "[ \ufab1](bg:237)[$output](bg:237 $style)[ \u2571](bg:237)"
+style = "dimmed red"
+
 [time]
 disabled = false
 format = "[ \uf64f](bg:237)[ $time ](bg:237 $style)"
