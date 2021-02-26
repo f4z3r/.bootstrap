@@ -107,3 +107,6 @@ alias weather="curl wttr.in/Zurich"
 
 # calendar
 alias calw="gcalcli --calendar jakob.beckmann@ipt.ch --calendar Events calw --nodeclined --monday --military"
+
+# mail
+alias newmail='thunderbird -compose "from=beckmann_jakob@hotmail.fr,format=html,body=Dear X"'
