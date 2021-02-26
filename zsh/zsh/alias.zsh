@@ -68,6 +68,8 @@ alias scx="screen -x"
 # TaskWarrior / TimeWarrior
 alias t="nvim -c 'TW'"
 alias ta="task"
+# task clear
+alias tac="ta status:completed delete"
 alias ti="timew"
 
 # tree
@@ -102,3 +104,6 @@ alias pomo='(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
 
 # utilities
 alias weather="curl wttr.in/Zurich"
+
+# calendar
+alias calw="gcalcli --calendar jakob.beckmann@ipt.ch --calendar Events calw --nodeclined --monday --military"
