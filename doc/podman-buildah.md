@@ -44,16 +44,37 @@ sudo chmod 644 /etc/subgid
 
 This will set subordinate UIDs and GIDs for user `jakob` in `/etc/subuid` and `/etc/subgid`.
 
-### Crun
+#### Crun
 
 The default OCI runtime for podman is runC. However, runC does not support cgroup V2, which allows
 non-privileged users to allocate memory and CPU resource limits.
 
 In order to use it as the OCI runtime, install `crun`, and configure it under `runtime` in
-`~/.config/containers/containers.conf`.
+`~/.config/containers/containers.conf` (or `/etc/containers/containers.conf` for global
+configuration).
 
 ```
 runtime = "crun"
+```
+
+#### slirp4netns
+
+Install the `slirp4netns` package to allow user-mode networking.
+
+#### Fuse-overlayfs
+
+Ensure that `fuse-overlayfs` is installed and available in your path. Version `0.7.6` or newer is
+required. It might also be required to adjust the `storage.conf` to change the `driver` option under
+`[storage]` to `"overlay"` and point the `mount_program` option in `[storage.options]` to the path
+of the `fuse-overlayfs` executable.
+
+The `storage.conf` can be set at:
+
+```bash
+# for users
+~/.config/containers/storage.conf
+# for system
+/etc/containers/storage.conf
 ```
 
 ### Usage
@@ -122,3 +143,5 @@ Then simply recreate the subuid/subgid files and run the following:
 ```bash
 rm /run/user/$(id -u)/libpod/pause.pid
 ```
+
+Or instead call `podman system migrate` which is safer than deleting the PID file.
