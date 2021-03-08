@@ -6,7 +6,7 @@ local IPAddress = { mt = {}, wmt = {} }
 IPAddress.wmt.__index = IPAddress
 IPAddress.__index = IPAddress
 
-local cmd = "ip --color=never address | grep -A2 -E \"state\\s+UP\\s\" | head -n3 | tail -n1 | perl -lane 'print @F[1]'"
+local cmd = "ip --color=never address | grep -A3 -E \"state\\s+UP\\s\" | head -n4 | grep inet | perl -lane 'print @F[1]'"
 
 local function run(command)
   local prog = io.popen(command)
