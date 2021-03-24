@@ -15,4 +15,9 @@ set foldenable
 set foldlevel=1
 set foldlevelstart=1
 set foldmethod=indent
+" open/close folds automatically when moving in/out
+set foldopen=all
+set foldclose=all
+" do not show folded line count on folded line
+set foldtext=getline(v:foldstart)
 " }}}

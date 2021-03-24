@@ -209,7 +209,14 @@ nnoremap <leader>sL :Lines<cr>
 " search for visual selection using //
 vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
 " (s)earch (n)otes
-nnoremap <leader>sn :call pad#SearchPads()<cr>
+nnoremap <leader>sn :Pad search<cr>
+" make all searches appear in the middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
 " }}}
 
 
@@ -401,7 +408,7 @@ nnoremap <leader>osm :e ~/.vim/sessions/<cr>
 
 " ==== Notes ============================================================={{{
 " (n)otes (s)earch
-nnoremap <leader>ns :call pad#SearchPads()<cr>
+nnoremap <leader>ns :Pad search<cr>
 " (n)otes (l)ist
 nnoremap <leader>nl :Pad ls<cr>
 " (n)otes (n)ew
