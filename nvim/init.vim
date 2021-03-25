@@ -258,6 +258,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('wlemuel/vim-tldr',
         \{'on_cmd': ['Tldr', 'TldrUpdateDocs']})
 
+  call dein#add('tpope/vim-dispatch',
+        \{'on_cmd': ['Make', 'Dispatch']})
+
   call dein#end()
   call dein#save_state()
 endif
