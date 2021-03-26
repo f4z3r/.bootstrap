@@ -452,7 +452,7 @@ function theme.at_screen_connect(s)
   -- Quake application
   s.quake = lain.util.quake({
     app = awful.util.terminal,
-    argname = "--name %s tmux",
+    argname = "--name %s tmux new -s quake",
     height = 0.75,
     width = 0.75,
     vert = "center",
