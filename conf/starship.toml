@@ -182,6 +182,10 @@ format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
 symbol = " "
 format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
 
+[ruby]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+
 [perl]
 symbol = " "
 format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
