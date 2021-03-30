@@ -51,8 +51,8 @@ $cmd_duration\
 $jobs\
 [\ue0bc](fg:237)\
 $line_break\
-$directory\
 $status\
+$directory\
 $character"""
 
 [battery]
@@ -215,6 +215,11 @@ format = "[\u2571 ](bg:237)[$symbol$number ](bg:237 $style)"
 [line_break]
 disabled = false
 
+[status]
+symbol = ""
+format = '[\[>> $symbol $status <<\]](dimmed bold red) '
+disabled = false
+
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
@@ -223,7 +228,3 @@ read_only = "\uf023"
 style = "underline bold dimmed cyan"
 format = "([$read_only]($read_only_style) )[$path]($style) "
 
-[status]
-symbol = ""
-format = '\[[$symbol](red) [$status](bold dimmed)\] '
-disabled = false
