@@ -35,6 +35,8 @@ function Optimus:update()
     self.widget:set_text("\u{f108}: NVIDIA \u{fd3c}")
   elseif is_active("intel") then
     self.widget:set_text("\u{f108}: INTEL")
+  elseif is_active("integrated") then
+    self.widget:set_text("\u{f108}: INTEGRATED \u{fd3c}")
   elseif is_active("hybrid") then
     self.widget:set_text("\u{f108}: HYBRID \u{fd3c}")
   else
