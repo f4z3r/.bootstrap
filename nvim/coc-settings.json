@@ -44,8 +44,10 @@
       "args": ["config", "exec", "--", "ocamllsp"],
       "filetypes": ["ocaml", "reason"]
     },
-    "lua": {
-      "command": "lua-lsp",
+    "lua-language-server": {
+      "cwd": "/home/jakob/.local/opt/lua-language-server/",
+      "command": "/home/jakob/.local/opt/lua-language-server/bin/Linux/lua-language-server",
+      "args": ["-E", "/home/jakob/.local/opt/lua-language-server/main.lua"],
       "filetypes": ["lua"]
     }
   }

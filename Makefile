@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux
+configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux configure-asdf
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -29,6 +29,11 @@ configure-zsh-root:
 	@[ -L /root/.zshrc ] || sudo ln -s $(CURRENT_DIR)/zsh/.zshrc /root/.zshrc
 	@[ -L /root/.config/zsh ] || sudo ln -s $(CURRENT_DIR)/zsh/zsh /root/.config/zsh
 	@echo "[+] Linked zsh root configuration"
+
+.PHONY: configure-asdf
+configure-asdf:
+	@[ -d $(HOME)/.asdf ] || git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+	@echo "[+] asdf is downloaded"
 
 .PHONY: configure-zsh
 configure-zsh:

@@ -3,6 +3,9 @@
 #=================================================================================================
 
 fpath=($HOME/.config/zsh/completions $fpath)
+if [ -d ~/.asdf/completions/ ]; then
+  fpath=($HOME/.asdf/completions $fpath)
+fi
 autoload -Uz compinit
 compinit -u
 #autoload -U ~/.zsh/completion/*(:t)
