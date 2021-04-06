@@ -23,8 +23,6 @@ tnoremap <esc> <c-\><c-N>
 " ==== Folding ==========================================================={{{
 " reduce foldlevel
 nnoremap [f zM
-" increase foldlevel local
-nnoremap <c-d> zA
 " increase foldlevel
 nnoremap ]f zR
 " unmap s in normal mode
@@ -50,6 +48,8 @@ nnoremap <leader>id :Digraphs
 " ==== Vimux ============================================================={{{
 " (v)imux (p)rompt
 nnoremap <leader>vp :VimuxPromptCommand<cr>
+" (v)imux (p)rompt
+nnoremap <c-d> :VimuxPromptCommand<cr>
 " (v)imux (l)ast
 nnoremap <leader>vl :VimuxRunLastCommand<cr>
 " (v)imux (q)uit
