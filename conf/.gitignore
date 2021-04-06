@@ -4,4 +4,5 @@ tags.lock
 .mypy_cache/
 .*.un~
 .nvimlog
+.tool-versions
 
