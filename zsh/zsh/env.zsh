@@ -7,8 +7,8 @@ export VISUAL="nvim"
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 if which bat &> /dev/null; then
-  export BAT_THEME="gruvbox"
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export BAT_THEME="gruvbox-dark"
+  export MANPAGER="sh -c 'col -bx | bat --theme=default -l man -p'"
 fi
 
 # ZSH
