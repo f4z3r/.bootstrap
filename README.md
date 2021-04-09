@@ -167,3 +167,9 @@ Use the `libreoffice-fresh` package to have the latest features of the `libreoff
 ### yay
 
 Install `yay` for AUR support.
+
+### Brave
+
+Install `brave-bin` via the AUR to get the latest release (`pacman` package seems to be out of date
+sometimes). Make sure to use the `brave-bin` and not normal `brave`, as the normal installation
+takes years.
