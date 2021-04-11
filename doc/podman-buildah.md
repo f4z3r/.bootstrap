@@ -65,16 +65,17 @@ Install the `slirp4netns` package to allow user-mode networking.
 
 Ensure that `fuse-overlayfs` is installed and available in your path. Version `0.7.6` or newer is
 required. It might also be required to adjust the `storage.conf` to change the `driver` option under
-`[storage]` to `"overlay"` and point the `mount_program` option in `[storage.options]` to the path
+`[storage]` to `"overlay"` and point the `mount_program` option in `[storage.options.overlay]` to the path
 of the `fuse-overlayfs` executable.
 
 The `storage.conf` can be set at:
 
 ```bash
+# for system -- best practice
+/etc/containers/storage.conf
+
 # for users
 ~/.config/containers/storage.conf
-# for system
-/etc/containers/storage.conf
 ```
 
 ### Usage
