@@ -19,6 +19,7 @@ binaries into `bin`, optional code and data into `opt`, shared runtime data into
 - `data`: for information meant to be long lasting.
 - `tmp`: for temporary information meant to be persistent across boots.
 - `tmp/play`: directory meant to contain data used to play around with technologies.
+- `vms`: directory containing guest VMs.
 - `screenshots`: location for automatic screenshots.
 - `Documents`: only for documents meant to be fully persistent. Such as contractual documents, etc.
 - `Music`: all music data.
