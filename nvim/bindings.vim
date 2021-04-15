@@ -22,9 +22,9 @@ tnoremap <esc> <c-\><c-N>
 
 " ==== Folding ==========================================================={{{
 " reduce foldlevel
-nnoremap [f zM
+nnoremap [f zm
 " increase foldlevel
-nnoremap ]f zR
+nnoremap ]f zr
 " unmap s in normal mode
 nmap s <nop>
 " Split downwards
