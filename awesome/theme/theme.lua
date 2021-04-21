@@ -306,11 +306,11 @@ volumewidget = wibox.container.margin(volumewidget, dpi(0), dpi(0), dpi(6), dpi(
 
 -- Sysload
 -- added space at end as no sep between this and CPU %
-local angle = " \u{f105} "
-local sysload = lain.widget.sysload({
-    timeout = 10,
-    settings = function()
-      widget:set_markup(markup.font(theme.font, load_1..angle..load_5..angle..load_15.." "))
+local harddisk = " \u{f7c9} "
+local sysload = lain.widget.fs({
+    settings  = function()
+      local text = string.format("%s%d%% (%.1f%s left)", harddisk, fs_now["/"].percentage, fs_now["/"].free, fs_now["/"].units)
+      widget:set_markup(markup.font(theme.font, text))
     end
   })
 
@@ -542,6 +542,7 @@ function theme.at_screen_connect(s)
       memwidget,
       bottom_bar,
       sysload.widget,
+      bottom_bar,
       cpuwidget,
       cputempwidget,
       bottom_bar,
