@@ -13,3 +13,6 @@ for config (~/.config/zsh/*.zsh) . $config
 
 # opam configuration
 test -r /home/jakob/.opam/opam-init/init.zsh && . /home/jakob/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# fzf fuzzy search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

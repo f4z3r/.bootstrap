@@ -128,7 +128,7 @@ Install `fzf` locally for `neovim`.
 cd ~/.bootstrap/
 git submodule update --init --remote --depth 1 tools/fzf
 cd ~/.boostrap/tools/fzf
-./install --bin
+./install --key-bindings --no-fish --no-update-rc --no-completion
 ln -s $(pwd)/ $HOME/.fzf
 ```
 
