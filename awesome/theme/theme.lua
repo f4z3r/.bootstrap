@@ -245,8 +245,12 @@ local service_widget = systemctl_widget:new({
         symbol = "\u{f46a}"
       },
       print_server = {
-        name = "org.cups.cupsd.service",
+        name = "cups.service",
         symbol = "\u{f929}"
+      },
+      print_browser_server = {
+        name = "cups-browsed.service",
+        symbol = "\u{f665}"
       },
       optimus_manager = {
         name = "optimus-manager.service",

@@ -1,4 +1,6 @@
 # Printing
 
-When not using printing, disable the `org.cups.cupsd` service as it permanently exposes a print port
-to the outside world.
+When printing start `cups`and `cups-browsed` services. Once these are enabled, printing PDFs for
+instance is easily possible via `qpdfview` (the default PDF opening program via `thunar`).
+
+Otherwise the services can be disabled, as they provide an attack vector.
