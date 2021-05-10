@@ -54,7 +54,7 @@ set autoread                 " read changed files into buffers if needed
 
 
 " ==== Tags =============================================================={{{
-set autochdir
+set noautochdir
 set tags=tags;/              " check every directory up for tags
 " }}}
 
