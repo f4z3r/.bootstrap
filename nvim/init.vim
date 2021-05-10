@@ -232,13 +232,7 @@ if dein#load_state('~/.cache/dein')
         \]})
 
   " Open vimux pane below vim
-  call dein#add('benmills/vimux',
-        \{'on_cmd': [
-        \'VimuxPromptCommand',
-        \'VimuxRunLastCommand',
-        \'VimuxCloseRunner',
-        \'VimuxInterrruptRunner'
-        \]})
+  call dein#add('benmills/vimux')
 
   " Support for tmux golang
   call dein#add('benmills/vimux-golang',

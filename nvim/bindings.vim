@@ -60,6 +60,12 @@ nnoremap <leader>vx :VimuxInterrruptRunner<cr>
 nnoremap <leader>vi :VimuxInspectRunner<cr>
 " (v)imux (z)oom
 nnoremap <leader>vz :call VimuxZoomRunner()<cr>
+" send selected text to vimux
+function! VimuxSlime()
+  call VimuxRunCommand(@v, 0)
+endfunction
+" vimux slime
+vnoremap <c-d> "vy :call VimuxSlime()<cr>
 " }}}
 
 
