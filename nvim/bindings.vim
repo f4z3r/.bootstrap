@@ -48,8 +48,8 @@ nnoremap <leader>id :Digraphs
 " ==== Vimux ============================================================={{{
 " (v)imux (p)rompt
 nnoremap <leader>vp :VimuxPromptCommand<cr>
-" (v)imux (p)rompt
-nnoremap <c-d> :VimuxPromptCommand<cr>
+" (v)imux (c)ommand
+nmap <c-c> :VimuxPromptCommand<cr>
 " (v)imux (l)ast
 nnoremap <leader>vl :VimuxRunLastCommand<cr>
 " (v)imux (q)uit
@@ -66,6 +66,8 @@ function! VimuxSlime()
 endfunction
 " vimux slime
 vnoremap <c-d> "vy :call VimuxSlime()<cr>
+" send enter
+nnoremap <c-d> :call VImuxSendKeys("Enter")<cr>
 " }}}
 
 
