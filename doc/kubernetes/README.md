@@ -97,3 +97,14 @@ The Kubernetes package manager. Install its `helm` package via `pacman`.
 ### Stern
 
 A multi-pod log tailing tools. Install `stern-bin` from the AUR.
+
+### Krew
+
+A package manager for `kubectl` extensions. Install `krew-bin` from the AUR.
+
+To list the installed plugins, run `kubectl krew update` and then `kubectl krew list`.
+
+#### Useful Extensions
+
+- `fuzzy` enabled fuzzy searching on resources. Eg: `kubectl fuzzy exec -A -it -- bash`
+- `tmux-exec` allows to exec into multiple pods at once. Eg: `kubectl tmux-exec -it -l app=nginx bash`

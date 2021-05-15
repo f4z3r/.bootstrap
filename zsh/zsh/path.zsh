@@ -16,6 +16,7 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"                        # sys
 [ -d "$HOME/.local/bin/" ] && PATH="$PATH:$HOME/.local/bin/"               # local bins
 [ -d "$HOME/.nimble/bin" ] && PATH="$PATH:$HOME/.nimble/bin"               # nim bins
 [ -d "$HOME/.cargo/bin" ] && PATH="$PATH:$HOME/.cargo/bin"                 # rust bins
+[ -d "$HOME/.krew/bin" ] && PATH="$PATH:$HOME/.krew/bin"                   # krew bins
 [ -n "$GOBIN" ] && PATH="$PATH:$GOBIN"                                     # go bins
 [ -d "$HOME/.asdf" ] && . $HOME/.asdf/asdf.sh                              # asdf bins
 export PATH
