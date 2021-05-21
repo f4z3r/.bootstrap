@@ -56,7 +56,7 @@ alias k="kubectl"
 alias -g pf="port-forward"
 alias kn="kubens"
 alias kc="kubectx"
-alias kv="k9s"
+alias kv="k9s --headless --crumbsless"
 alias ks="stern"
 
 # screen
