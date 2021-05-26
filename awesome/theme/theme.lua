@@ -186,6 +186,18 @@ local gpu_widget = optimus_widget:new({ font = theme.taglist_font })
 local service_widget = systemctl_widget:new({
     font = theme.font,
     services = {
+      prometheus_node_exporter = {
+        name = "prometheus-node-exporter.service",
+        symbol = "\u{f706}"
+      },
+      prometheus = {
+        name = "prometheus.service",
+        symbol = "\u{f737}"
+      },
+      grafana = {
+        name = "grafana.service",
+        symbol = "\u{f013}"
+      },
       docker = {
         name = "docker.service",
         symbol = "\u{f308}"
