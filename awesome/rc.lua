@@ -702,7 +702,9 @@ clientkeys = my_table.join(
   awful.key({ modkey            }, "-",         function(c) c.maximized_horizontal = not c.maximized_horizontal end,
     {description = "toggle window horizontal maximization", group = "client"}),
   awful.key({ modkey, "Shift"   }, "\\",        function(c) c.maximized_vertical = not c.maximized_vertical end,
-    {description = "toggle window vertical maximization", group = "client"})
+    {description = "toggle window vertical maximization", group = "client"}),
+  awful.key({ modkey            }, "z",         function(c) c.maximized = not c.maximized end,
+    {description = "toggle window maximization", group = "client"})
 )
 
 -- Bind all key numbers to tags.
