@@ -126,7 +126,11 @@ tag_disabled = false
 format = "[\uf417 $hash](bg:237 $style)[($tag) ](bg:237 $style)"
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total) ](bg:237 $style)\)'
+format = '[\($state( $progress_current/$progress_total) \)](bg:237 $style)'
+rebase = "\uf5fa"
+cherry_pick = "\ue29b"
+merge = "\uf5f7"
+bisect = "\uf002"
 
 [git_status]
 format = "([\\[$all_status$ahead_behind\\] ](bg:237 $style))"
