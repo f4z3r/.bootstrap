@@ -8,18 +8,21 @@ They provide benefits such as:
 - rootless containers
 - more fine grained control over builds and image commits
 
-<!-- vim-markdown-toc GFM -->
-
 * [Podman](#podman)
-  - [Rootless](#rootless)
-  - [Crun](#crun)
-  - [Usage](#usage)
+  * [Rootless](#rootless)
+    * [Crun](#crun)
+    * [slirp4netns](#slirp4netns)
+    * [Fuse-overlayfs](#fuse-overlayfs)
+  * [Usage](#usage)
 * [Buildah](#buildah)
-  - [Usage](#usage-1)
+  * [Usage](#usage)
 * [Images](#images)
 * [Best Practices](#best-practices)
-
-<!-- vim-markdown-toc -->
+* [Tooling](#tooling)
+  * [Hadolint](#hadolint)
+  * [Dive](#dive)
+  * [Grype](#grype)
+* [Troubleshooting](#troubleshooting)
 
 ## Podman
 
@@ -144,6 +147,10 @@ AUR or from `asdf`.
 Install the `dive` package using `yay` or `asdf`.
 
 To inspect an image build with `podman` or `buildah`, use the `--source podman` flag.
+
+### Grype
+
+Install `grype` via `pacman`. It provides security vulnerability inspections for your docker images.
 
 ## Troubleshooting
 
