@@ -130,6 +130,21 @@ podman attach base
 It is best practices to use `buildah` as the build tool to build all docker images. `podman` can
 then be used to manage the images, run containers, orchestrate different setups, etc.
 
+## Tooling
+
+Additional tooling for containers and images in general.
+
+### Hadolint
+
+Haskell Docker Linter is a static linter for Dockerfile best practices. It can be installed from
+AUR or from `asdf`.
+
+### Dive
+
+Install the `dive` package using `yay` or `asdf`.
+
+To inspect an image build with `podman` or `buildah`, use the `--source podman` flag.
+
 ## Troubleshooting
 
 If you get an error similar to the following on an image pull:

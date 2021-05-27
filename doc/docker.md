@@ -2,20 +2,17 @@
 
 See [`./podman-buildah.md`](./podman-buildah.md) for alternatives to `docker`.
 
-<!-- vim-markdown-toc GFM -->
-
 * [Installation](#installation)
 * [Images](#images)
-  - [Dangling Images](#dangling-images)
+  * [Dangling Images](#dangling-images)
 * [Volume Management](#volume-management)
-  - [Data Sharing](#data-sharing)
-  - [Persistency](#persistency)
+  * [Data Sharing](#data-sharing)
+  * [Persistency](#persistency)
 * [Containers](#containers)
-  - [Commit to Image](#commit-to-image)
+  * [Commit to Image](#commit-to-image)
 * [Image Transfer](#image-transfer)
 * [Docker-compose](#docker-compose)
-
-<!-- vim-markdown-toc -->
+* [Tools](#tools)
 
 ## Installation
 
@@ -118,3 +115,7 @@ to load the image on the receiver.
 ## Docker-compose
 
 Install `docker-compose` via `pipx`.
+
+## Tools
+
+See [`./podman-buildah.md`](./podman-buildah.md) for tooling.
