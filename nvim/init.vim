@@ -125,6 +125,9 @@ if dein#load_state('~/.cache/dein')
   " marks in gutter
   call dein#add('kshenoy/vim-signature')
 
+  " git in gutter
+  call dein#add('airblade/vim-gitgutter')
+
   " support <localleader>p and <localleader>P to cycle through yanks
   call dein#add('maxbrunsfeld/vim-yankstack')
 
