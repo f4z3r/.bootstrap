@@ -67,7 +67,7 @@ endfunction
 " vimux slime
 vnoremap <c-d> "vy :call VimuxSlime()<cr>
 " send enter
-nnoremap <c-d> :call VImuxSendKeys("Enter")<cr>
+nnoremap <c-d> :call VimuxSendKeys("Enter")<cr>
 " }}}
 
 
