@@ -16,7 +16,8 @@ binaries into `bin`, optional code and data into `opt`, shared runtime data into
 - `dev`: for any development work we are doing.
 - `dev/opt`: for any external development code. Only if not pertaining to binaries that are running
   on the system.
-- `data`: for information meant to be long lasting.
+- `data`: for information meant to be long lasting. This does not include documents. It should only
+  contain raw data.
 - `tmp`: for temporary information meant to be persistent across boots.
 - `tmp/play`: directory meant to contain data used to play around with technologies.
 - `vms`: directory containing guest VMs.
