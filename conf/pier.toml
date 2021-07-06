@@ -1,0 +1,43 @@
+[scripts.buildah-rm-container]
+alias = 'buildah-rm-container'
+command = '''buildah containers | grep -vi 'container name' | cut -d' ' -f1 | xargs buildah rm'''
+description = 'remove all buildah containers'
+tags = ['container']
+
+[scripts.google-cal]
+alias = 'google-cal'
+command = 'gcalcli --calendar jakob.beckmann@ipt.ch --calendar Events calw --nodeclined --monday --military'
+description = 'show ipt google calendar in terminal'
+tags = ['ipt']
+
+[scripts.new-mail]
+alias = 'new-mail'
+command = 'thunderbird -compose "from=beckmann_jakob@hotmail.fr,format=html,body=Dear X"'
+description = 'open a new email in thunderbird'
+tags = ['misc']
+
+[scripts.podman-rm-container]
+alias = 'podman-rm-container'
+command = '''podman container list -a | grep -i exited | cut -d' ' -f1 | xargs podman container rm'''
+description = 'remove all exited podman containers'
+tags = ['container']
+
+[scripts.podman-rm-dangling]
+alias = 'podman-rm-dangling'
+command = 'podman rmi $(podman images -f "dangling=true" -q)'
+description = 'remove dangling podman images'
+tags = ['container']
+
+[scripts.podman-rm-none]
+alias = 'podman-rm-none'
+command = '''podman rmi $(podman images -a | perl -lane 'print @F[2] if /<none>/')'''
+description = 'remove all images without a tag'
+tags = ['container']
+
+[scripts.weather]
+alias = 'weather'
+command = 'curl wttr.in/Zurich'
+description = 'show Zurich weather'
+tags = ['misc']
+
+[default]

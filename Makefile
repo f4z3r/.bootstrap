@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux configure-asdf
+configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux configure-asdf configure-pier
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -59,6 +59,11 @@ configure-tools:
 	@install $(CURRENT_DIR)/zsh/zsh/utils/ytp.1 /$(HOME)/.local/share/man/man1
 	@install $(CURRENT_DIR)/zsh/zsh/utils/drawio.1 /$(HOME)/.local/share/man/man1
 	@echo "[+] Installed shell tools"
+
+.PHONY: configure-pier
+configure-pier:
+	@[ -L $(HOME)/.config/pier.toml ] || ln -s $(CURRENT_DIR)/conf/pier.toml $(HOME)/.config/pier.toml
+	@echo "[+] Linked pier configuration"
 
 .PHONY: configure-bash
 configure-bash:

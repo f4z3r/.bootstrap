@@ -27,6 +27,8 @@ setopt sharehistory
 # # timestamp for each entry
 # setopt EXTENDED_HISTORY
 
+# XDG
+export XDG_CONFIG_PATH="${HOME}/.config"
 
 
 # FZF

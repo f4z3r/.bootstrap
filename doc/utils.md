@@ -17,6 +17,10 @@ regular their regular counterpart.
 * [tokei](#tokei)
 * [ripgrep](#ripgrep)
 * [hyperfine](#hyperfine)
+* [bandwhich](#bandwhich)
+* [petname](#petname)
+* [pier](#pier)
+* [pueue](#pueue)
 * [zoxide](#zoxide)
   * [Installation](#installation)
   * [Usage](#usage)
@@ -139,6 +143,12 @@ A script manager for one liners on your system. Allows you to manage all your sc
 single application.
 
 > Installed via `cargo`.
+
+## pueue
+
+An amazing task scheduler to manage long running tasks on your machine.
+
+> Installed via `pacman`.
 
 ## zoxide
 
