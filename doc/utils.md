@@ -13,6 +13,10 @@ regular their regular counterpart.
   * [Usage](#usage)
 * [dust](#dust)
 * [ytop](#ytop)
+* [menyoki](#menyoki)
+* [tokei](#tokei)
+* [ripgrep](#ripgrep)
+* [hyperfine](#hyperfine)
 * [zoxide](#zoxide)
   * [Installation](#installation)
   * [Usage](#usage)
@@ -99,6 +103,35 @@ Better visual representation of disk usage with graphics.
 Uses graphs to show usage.
 
 > Installed via AUR or `cargo`.
+
+## menyoki
+
+An application that lets you record GIFs of your terminal session. It then also lets you edit those
+GIFs. Technically, the application can also be used for screen captures and much more.
+
+## tokei
+
+An incredibly fast code line counter.
+
+## ripgrep
+
+An alternative to `grep` that can make recursive searching faster. On simple queries it is however
+slower than `grep`.
+
+## hyperfine
+
+An application that allows to time and benchmark command line utilities.
+
+## bandwhich
+
+A utility that allows you to inspect the network traffic (especially outbound connections) made from
+your computer.
+
+## petname
+
+A name generator.
+
+> Installed via `cargo`.
 
 ## zoxide
 
