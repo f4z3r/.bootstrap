@@ -86,27 +86,8 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
-# podman
-# podman image delete dangling
-alias pidd="podman rmi \$(podman images -f 'dangling=true' -q)"
-# podman image delete none
-alias pidn="podman rmi \$(podman images -a | perl -lane 'print @F[2] if /<none>/')"
-# podman container delete existed
-alias pcde="podman container list -a | grep -i exited | cut -d' ' -f1 | xargs podman container rm"
-# buildah container delete all
-alias bcda="buildah containers | grep -vi 'container name' | cut -d' ' -f1 | xargs buildah rm"
-
 # pomorodo
 alias pomo='(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
               "System pomorodo completed" \
               "System pomodoro finished after 25 minutes. Please take a short break and start a new one.";
             echo "Pomodoro auto ended at $(date +"%a %d %b %Y %T"), duration: 25 minutes" >> /tmp/pomodoro.log) &'
-
-# utilities
-alias weather="curl wttr.in/Zurich"
-
-# calendar
-alias calw="gcalcli --calendar jakob.beckmann@ipt.ch --calendar Events calw --nodeclined --monday --military"
-
-# mail
-alias newmail='thunderbird -compose "from=beckmann_jakob@hotmail.fr,format=html,body=Dear X"'
