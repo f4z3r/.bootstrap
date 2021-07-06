@@ -133,6 +133,13 @@ A name generator.
 
 > Installed via `cargo`.
 
+## pier
+
+A script manager for one liners on your system. Allows you to manage all your scripts within a
+single application.
+
+> Installed via `cargo`.
+
 ## zoxide
 
 > Alternative to `cd`.
