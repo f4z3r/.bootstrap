@@ -49,6 +49,17 @@
       "command": "/home/jakob/.local/opt/lua-language-server/bin/Linux/lua-language-server",
       "args": ["-E", "/home/jakob/.local/opt/lua-language-server/main.lua"],
       "filetypes": ["lua"]
+    },
+    "racket": {
+      "command": "racket",
+      "args": [
+        "--lib",
+        "racket-langserver"
+      ],
+      "filetypes": [
+        "scheme",
+        "racket"
+      ]
     }
   }
 }
