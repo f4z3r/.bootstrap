@@ -202,6 +202,10 @@ format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
 symbol = " "
 format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
 
+[ocaml]
+symbol = " "
+format = "[\u2571 ](bg:237)[$symbol$version (\\(switch_indicator$switch_name\\))](bg:237 $style)"
+
 [terraform]
 symbol = " "
 format = "[\u2571 ](bg:237)[$symbol$workspace ](bg:237 $style)"
