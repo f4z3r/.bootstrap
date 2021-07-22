@@ -40,7 +40,6 @@ opam install async yojson core_extended core_bench cohttp async_graphics cryptok
 Install `ocaml-lsp-server` via `opam`:
 
 ```sh
-opam pin add ocaml-lsp-server https://github.com/ocaml/ocaml-lsp.git
 opam install ocaml-lsp-server
 ```
 
