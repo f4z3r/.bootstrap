@@ -152,6 +152,11 @@ To inspect an image build with `podman` or `buildah`, use the `--source podman` 
 
 Install `grype` via `pacman`. It provides security vulnerability inspections for your docker images.
 
+### Trivy
+
+Install `trivy` via `pacman` (must have blackarch repo enabled). It provides security vulnerability inspections for your docker images,
+Kubernetes resources, Dockerfiles, and more.
+
 ## Troubleshooting
 
 If you get an error similar to the following on an image pull:

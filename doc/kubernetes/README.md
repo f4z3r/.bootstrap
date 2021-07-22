@@ -94,6 +94,10 @@ usage is identical to `kubectx`.
 
 The Kubernetes package manager. Install its `helm` package via `pacman`.
 
+### Other
+
+See [Podman and Buildah documentation](./../podman-buildah.md).
+
 ### Stern
 
 A multi-pod log tailing tools. Install `stern-bin` from the AUR.
