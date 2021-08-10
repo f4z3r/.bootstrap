@@ -66,7 +66,7 @@ alias scr="screen -R"
 alias scx="screen -x"
 
 # todo.txt / TimeWarrior
-alias t="nvim ~/todo.txt"
+alias t="nvim ~/.todo/todo.txt"
 alias ti="timew"
 
 # tree
