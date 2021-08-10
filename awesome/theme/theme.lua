@@ -287,14 +287,6 @@ local service_widget = systemctl_widget:new({
     }
   })
 
--- Taskwarrior
-theme.task = wibox.widget.textbox(markup.font(theme.font_base.." 8", "\u{f4a0}"))
-lain.widget.contrib.task.attach(theme.task, {
-    font = theme.font_base.." 8",
-    notification_preset = theme.taskwarrior_notif_preset,
-    followtag = true
-  })
-
 -- K8s widget
 theme.k8s = k8s_widget:new({ font = theme.taglist_font })
 
@@ -511,8 +503,6 @@ function theme.at_screen_connect(s)
       bat.widget,
       bottom_bar,
       service_widget,
-      bottom_bar,
-      theme.task,
       bottom_bar,
       theme.k8s,
       bottom_bar,

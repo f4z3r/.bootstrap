@@ -1,5 +1,7 @@
 # Task Warrior
 
+> DEPRECATED!: we now use todo.txt instead of `task` due to `task` instabilities.
+
 ## Installation
 
 Install the `task` package using `pacman`. Moreover, install `taskw` using `pip`.

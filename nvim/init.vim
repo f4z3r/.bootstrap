@@ -78,9 +78,9 @@ if dein#load_state('~/.cache/dein')
   " show indent guide
   call dein#add('Yggdroot/indentLine')
 
-  " taskwarrior (allow lazy loading but place airline extension into autoload)
-  call dein#add('blindfs/vim-taskwarrior',
-        \{'on_cmd': ['TW', 'TWSync']})
+  " todo.txt
+  call dein#add('freitass/todo.txt-vim',
+        \{'on_ft': ['todo']})
 
   " required for markdown table formatting and alignment
   " Launch easy align with `ga`:

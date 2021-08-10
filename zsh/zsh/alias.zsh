@@ -65,11 +65,8 @@ alias scl="screen -ls"
 alias scr="screen -R"
 alias scx="screen -x"
 
-# TaskWarrior / TimeWarrior
-alias t="nvim -c 'TW'"
-alias ta="task"
-# task clear
-alias tac="ta status:completed delete"
+# todo.txt / TimeWarrior
+alias t="nvim ~/todo.txt"
 alias ti="timew"
 
 # tree
