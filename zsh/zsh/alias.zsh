@@ -67,6 +67,9 @@ alias scx="screen -x"
 
 # todo.txt / TimeWarrior
 alias t="nvim ~/.todo/todo.txt"
+alias tpush="rclone sync ~/.todo gdrive:/todo"
+alias tpull="rclone sync gdrive:/todo ~/.todo"
+alias tdone="nvim ~/.todo/done.txt"
 alias ti="timew"
 
 # tree
