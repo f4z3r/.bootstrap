@@ -77,7 +77,6 @@ local altkey       = "Mod1"
 local terminal     = "kitty tmux"
 local editor       = os.getenv("EDITOR") or "nvim"
 local guieditor    = "kitty tmux new -s vim"
-local gui_editor   = "kitty tmux new -s vim"
 local browser      = "brave"
 local mail         = "thunderbird"
 local music_player = "kitty ncmpcpp"
@@ -196,13 +195,13 @@ local function timew_prompt()
         exe_callback = function(t)
             helpers.async("timew "..t, function(f)
                 naughty.notify {
-                    preset = beautiful.taskwarrior_notif_preset,
+                    preset = beautiful.pomodoro_notif_preset,
                     title  = "timew "..t,
-                    text   = lain.util.markup.font(beautiful.taskwarrior_notif_preset.font,
+                    text   = lain.util.markup.font(beautiful.pomodoro_notif_preset.font,
                              awful.util.escape(f:gsub("\n*$", "")))
                 }
             end)
-            lain.widget.contrib.task.update()
+            beautiful.timew:update()
         end,
         history_path = awful.util.getdir("cache") .. "/history_timew"
     }
@@ -532,29 +531,9 @@ globalkeys = my_table.join(
   awful.key({ altkey, "Control" }, "w", function () beautiful.pomodoro:skip_break() end,
     {description = "skip pomodoro break (reset)", group = "widgets"}),
 
-  -- TaskWarrior run prompt
-  awful.key({ altkey, "Control" }, "t", lain.widget.contrib.task.prompt,
-    {description = "run in task prompt", group = "widgets"}),
-
-  -- TaskWarrior show next
-  awful.key({ altkey,           }, "t", lain.widget.contrib.task.show,
-    {description = "show next tasks", group = "widgets"}),
-
   -- TimeWarrior run prompt
   awful.key({ altkey, "Control" }, "i", timew_prompt,
     {description = "run in timew prompt", group = "widgets"}),
-
-  -- TimeWarrior show time tag
-  awful.key({ altkey            }, "i",
-    function ()
-      local time_tracked = run("timew")
-      naughty.notify {
-        preset = beautiful.taskwarrior_notif_preset,
-        title = "Time Warrior",
-        text = time_tracked,
-        timeout = 7
-      }
-    end, {description = "show current time tracking", group = "widgets"}),
 
   -- calendar
   awful.key({ altkey, "Control" }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
@@ -614,20 +593,6 @@ globalkeys = my_table.join(
       naughty.notify(common)
     end, {description = "mpc on/off", group = "widgets"}),
 
-  -- task on/off
-  awful.key({ altkey, "Control" }, "7",
-    function ()
-      local common = { text = "Taskwarrior widget ", position = "top_middle", timeout = 2 }
-      if beautiful.task.timer.started then
-        beautiful.task.timer:stop()
-        common.text = common.text .. "OFF"
-      else
-        beautiful.task.timer:start()
-        common.text = common.text .. "ON"
-      end
-      naughty.notify(common)
-    end, {description = "task on/off", group = "widgets"}),
-
   -- k8s on/off
   awful.key({ altkey, "Control" }, "8",
     function ()
@@ -649,10 +614,6 @@ globalkeys = my_table.join(
       if beautiful.k8s.timer.started then
         beautiful.k8s.timer:stop()
         common.text = common.text .. "k8s/"
-      end
-      if beautiful.task.timer.started then
-        beautiful.task.timer:stop()
-        common.text = common.text .. "task/"
       end
       if beautiful.mpd.timer.started then
         beautiful.mpd.timer:stop()

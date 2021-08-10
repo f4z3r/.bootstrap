@@ -11,6 +11,7 @@ local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
 
 local k8s_widget        = require("k8s-widget")
+local timew_widget      = require("timew-widget")
 local optimus_widget    = require("optimus-widget")
 local brightness_widget = require("brightness-widget")
 local systemctl_widget  = require("systemctl-widget")
@@ -46,8 +47,6 @@ theme.awesome_icon                              = theme.icon_dir .. "/manjaro_ic
 theme.awesome_icon_launcher                     = theme.icon_dir .. "/manjaro_icon_round.png"
 theme.taglist_squares_sel                       = theme.icon_dir .. "/square_sel.png"
 theme.taglist_squares_unsel                     = theme.icon_dir .. "/square_unsel.png"
-theme.taskwarrior_icon                          = theme.icon_dir .. "/taskwarrior.png"
-theme.taskwarrior_notif_preset                  = { font = theme.font_base.." 12", icon = theme.taskwarrior_icon, timeout = 5, width = 10000 }
 theme.pomodoro_notif_preset                     = { font = theme.font_base.." 12", timeout = 5, width = 1000 }
 theme.tasklist_plain_task_name                  = true
 theme.tasklist_disable_icon                     = true
@@ -287,6 +286,9 @@ local service_widget = systemctl_widget:new({
     }
   })
 
+-- Timew widget
+theme.timew = timew_widget:new({ font = theme.taglist_font })
+
 -- K8s widget
 theme.k8s = k8s_widget:new({ font = theme.taglist_font })
 
@@ -503,6 +505,8 @@ function theme.at_screen_connect(s)
       bat.widget,
       bottom_bar,
       service_widget,
+      bottom_bar,
+      theme.timew,
       bottom_bar,
       theme.k8s,
       bottom_bar,
