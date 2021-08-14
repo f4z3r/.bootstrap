@@ -71,6 +71,9 @@ alias tpush="rclone sync ~/.todo gdrive:/todo"
 alias tpull="rclone sync gdrive:/todo ~/.todo"
 alias tdone="nvim ~/.todo/done.txt"
 alias ti="timew"
+alias notes="nvim -c 'Pad search'"
+alias noten="nvim -c 'Pad new'"
+alias notel="nvim -c 'Pad ls'"
 
 # tree
 alias tree="tree -C"
