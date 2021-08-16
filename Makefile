@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux configure-asdf configure-pier
+configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux configure-asdf configure-pier configure-luakit
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -151,6 +151,13 @@ bash-minimal:
 	@-[ -f $(HOME)/.bashrc ] && [ ! -f $(HOME)/.bashrc.bak ] && mv $(HOME)/.bashrc $(HOME)/.bashrc.bak && echo "[+] backup created"
 	@[ -L $(HOME)/.bashrc ] || ln -s $(CURRENT_DIR)/conf/.bashrc $(HOME)/.bashrc && echo "[+] configuration copied"
 	@[ -L $(HOME)/.config/starship.toml ] || ln -s $(CURRENT_DIR)/conf/starship.toml $(HOME)/.config/starship.toml
+
+.PHONY: configure-luakit
+configure-luakit:
+	@[ -d $(HOME)/.config/luakit ] || mkdir -p $(HOME)/.config/luakit
+	@[ -L $(HOME)/.config/luakit/rc.lua ] || ln -s $(CURRENT_DIR)/conf/luakit/rc.lua $(HOME)/.config/luakit/rc.lua
+	@[ -L $(HOME)/.config/luakit/theme.lua ] || ln -s $(CURRENT_DIR)/conf/luakit/theme.lua $(HOME)/.config/luakit/theme.lua
+	@echo "[+] Linked luakit configuration"
 
 .PHONY: configure-pinky
 configure-pinky:
