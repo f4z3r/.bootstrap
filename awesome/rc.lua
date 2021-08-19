@@ -316,6 +316,8 @@ globalkeys = my_table.join(
       run("rm ~/.config/kitty/active-theme.conf")
       run("ln -s ~/.config/kitty/kitty-colors/gruvbox-material-"..new_theme.."-soft.conf ~/.config/kitty/active-theme.conf")
       run("echo '"..new_theme.."' > ~/.config/kitty/active-theme")
+      run("unlink ~/.k9s/skin.yml")
+      run("ln -s ~/.k9s/"..new_theme.."_skin.yml ~/.k9s/skin.yml")
     end, {description = "toggle light/dark scheme", group = "awesome"}),
 
 

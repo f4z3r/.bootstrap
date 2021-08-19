@@ -79,6 +79,7 @@ switch views. To add the configuration run:
 ```sh
 mkdir -p $HOME/.k9s
 ln -s $HOME/.bootstrap/conf/k9s/* $HOME/.k9s/
+ln -s $HOME/.bootstrap/conf/k9s/dark_skin.yaml $HOME/.k9s/skin.yml
 ```
 
 ### Kubectx
