@@ -150,6 +150,14 @@ An amazing task scheduler to manage long running tasks on your machine.
 
 > Installed via `pacman`.
 
+## curlie
+
+A http request builder that is easier to use than plain `curl`. It is based on `httpie` but as a few
+nice features such as streamed output, and the `--curl` flag that allows to print the `curl` command
+that would be equivalent.
+
+> Installed via `pacman`.
+
 ## zoxide
 
 > Alternative to `cd`.
