@@ -25,6 +25,54 @@ regular their regular counterpart.
   * [Installation](#installation)
   * [Usage](#usage)
 
+## Clipboard Managers
+
+While we use `xsel` for most occasions due to its better performance and simpler syntax:
+
+```bash
+echo -n "hello world" | xsel -bi
+```
+
+we will also have `xclip` installed. The reason for this is because we like to copy binary files
+such as images to the clipboard from time to time. This cannot be done with `xsel` but can be done
+with `xclip`:
+
+```bash
+xclip -t image/png < ingress.png
+xclip -t application/pdf < sample.pdf
+```
+
+> Note that xclip is an alias to use the clipboard by default.
+
+This is useful to not have to open a terminal GUI to copy files that are binary.
+
+Moreover, we use `clipcat` to manage the clipboard with history. This can be installed using
+`yay`.
+
+Create its default configuration:
+
+```bash
+mkdir -p                       $XDG_CONFIG_PATH/clipcat
+clipcatd default-config      > $XDG_CONFIG_PATH/clipcat/clipcatd.toml
+clipcatctl default-config    > $XDG_CONFIG_PATH/clipcat/clipcatctl.toml
+clipcat-menu default-config  > $XDG_CONFIG_PATH/clipcat/clipcat-menu.toml
+```
+
+Start the clipcat daemon (this should be done automatically by `awesome`):
+
+```bash
+clipcatd
+```
+
+You can now use the following shortcuts to manage the clipboard:
+
+```bash
+# Edit clipboard selections
+cedit
+# Insert clipboard history into current clipboard
+cset
+```
+
 ## tldr
 
 > Alternative to `man`.

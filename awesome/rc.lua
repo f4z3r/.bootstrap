@@ -60,6 +60,7 @@ local function run_once(cmd_arr)
 end
 
 run_once({ "unclutter -root", "xss-lock -- " .. scrlocker }) -- entries must be separated by commas
+run_once({ "clipcatd" })
 
 local function run(command)
   local prog = io.popen(command)
