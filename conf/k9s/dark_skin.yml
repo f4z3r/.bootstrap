@@ -1,15 +1,15 @@
 # K9s Gruvbox Dark Skin Contributed by [@indiebrain](https://github.com/indiebrain)
-foreground: &foreground "#ebdbb2"
-background: &background "#272727"
-current_line: &current_line "#ebdbb2"
-selection: &selection "#3c3735"
-comment: &comment "#bdad93"
-cyan: &cyan "#689d69"
-green: &green "#989719"
-orange: &orange "#d79920"
-magenta: &magenta "#b16185"
-blue: &blue "#448488"
-red: &red "#cc231c"
+foreground: &foreground "#d4be98"
+background: &background "#32302f"
+current_line: &current_line "#d4be98"
+selection: &selection "#928374"
+comment: &comment "#665c54"
+cyan: &cyan "#89b682"
+green: &green "#a9b665"
+orange: &orange "#e78a4e"
+magenta: &magenta "#d3869b"
+blue: &blue "#7daea3"
+red: &red "#ea6962"
 
 k9s:
   body:
@@ -35,7 +35,7 @@ k9s:
   frame:
     border:
       fgColor: *selection
-      focusColor: *current_line
+      focusColor: *comment
     menu:
       fgColor: *foreground
       keyColor: *magenta
@@ -70,26 +70,24 @@ k9s:
     table:
       fgColor: *foreground
       bgColor: *background
-      cursorFgColor: *foreground
-      cursorBgColor: *current_line
       header:
-        fgColor: *foreground
+        fgColor: *magenta
         bgColor: *background
         sorterColor: *selection
     xray:
       fgColor: *foreground
       bgColor: *background
-      cursorColor: *current_line
-      graphicColor: *blue
-      showIcons: false
+      cursorColor: *comment
+      graphicColor: *orange
+      showIcons: true
     yaml:
-      keyColor: *magenta
-      colonColor: *blue
+      keyColor: *blue
+      colonColor: *orange
       valueColor: *foreground
     logs:
       fgColor: *foreground
       bgColor: *background
       indicator:
-        fgColor: *foreground
+        fgColor: *magenta
         bgColor: *background
 
