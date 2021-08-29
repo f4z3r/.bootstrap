@@ -3,6 +3,7 @@
 This document list a set of alternatives to common linux commands and what their advantage is over
 regular their regular counterpart.
 
+* [Clipboard Managers](#clipboard-managers)
 * [tldr](#tldr)
 * [fd](#fd)
 * [bat](#bat)
@@ -12,7 +13,7 @@ regular their regular counterpart.
 * [sd](#sd)
   * [Usage](#usage)
 * [dust](#dust)
-* [ytop](#ytop)
+* [bottom](#bottom)
 * [menyoki](#menyoki)
 * [tokei](#tokei)
 * [ripgrep](#ripgrep)
@@ -21,6 +22,7 @@ regular their regular counterpart.
 * [petname](#petname)
 * [pier](#pier)
 * [pueue](#pueue)
+* [curlie](#curlie)
 * [zoxide](#zoxide)
   * [Installation](#installation)
   * [Usage](#usage)
@@ -148,13 +150,13 @@ Better visual representation of disk usage with graphics.
 
 > Installed via `cargo` (package name is `du-dust`!).
 
-## ytop
+## bottom
 
 > Alternative to `top` and `htop`.
 
 Uses graphs to show usage.
 
-> Installed via AUR or `cargo`.
+> Installed via `pacman`.
 
 ## menyoki
 

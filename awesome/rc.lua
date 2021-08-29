@@ -81,7 +81,7 @@ local guieditor    = "kitty tmux new -s vim"
 local browser      = "brave"
 local mail         = "thunderbird"
 local music_player = "kitty ncmpcpp"
-local ytop         = "kitty ytop"
+local btm         = "kitty btm"
 local nvtop        = "kitty nvtop"
 local inxi         = "kitty --hold inxi -F"
 
@@ -349,7 +349,7 @@ globalkeys = my_table.join(
     {description = "launch web browser", group = "launcher"}),
 
   -- launch system CPU info
-  awful.key({ modkey, "Control"    }, "c", function () awful.spawn(ytop) end,
+  awful.key({ modkey, "Control"    }, "c", function () awful.spawn(btm) end,
     {description = "launch CPU monitoring", group = "launcher"}),
 
   -- launch system NVIDIA info
