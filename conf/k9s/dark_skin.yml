@@ -41,9 +41,9 @@ k9s:
       keyColor: *magenta
       numKeyColor: *magenta
     crumbs:
-      fgColor: *foreground
-      bgColor: *comment
-      activeColor: *blue
+      fgColor: *comment
+      bgColor: *background
+      activeColor: *green
     status:
       newColor: *cyan
       modifyColor: *blue
@@ -59,17 +59,40 @@ k9s:
       counterColor: *blue
       filterColor: *magenta
   views:
+    details:
+      fgColor: *foreground
+      bgColor: *background
+      errors: *red
+      happy: *green
+      labels:
+        key: *foreground
+        value: *magenta
+        borderColor: *cyan
+      annotations:
+        key: *foreground
+        value: *orange
+        borderColor: *cyan
     charts:
-      bgColor: background
+      bgColor: *background
       defaultDialColors:
         - *blue
         - *red
       defaultChartColors:
         - *blue
         - *red
+      resourceColors:
+        cpu:
+          - *blue
+          - *orange
+          - *red
+        mem:
+          - *blue
+          - *orange
+          - *red
     table:
       fgColor: *foreground
       bgColor: *background
+      markColor: *magenta
       header:
         fgColor: *magenta
         bgColor: *background
