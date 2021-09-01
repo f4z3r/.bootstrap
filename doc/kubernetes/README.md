@@ -77,9 +77,9 @@ A TUI for managing Kubernetes clusters and pods. Uses `vim` key bindings and use
 switch views. To add the configuration run:
 
 ```sh
-mkdir -p $HOME/.k9s
-ln -s $HOME/.bootstrap/conf/k9s/* $HOME/.k9s/
-ln -s $HOME/.bootstrap/conf/k9s/dark_skin.yaml $HOME/.k9s/skin.yml
+mkdir -p $HOME/.config/k9s
+ln -s $HOME/.bootstrap/conf/k9s/* $HOME/.config/k9s/
+ln -s $HOME/.bootstrap/conf/k9s/dark_skin.yml $HOME/.config/k9s/skin.yml
 ```
 
 ### Kubectx
