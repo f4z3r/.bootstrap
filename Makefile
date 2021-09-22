@@ -54,7 +54,6 @@ configure-tools:
 	@install -d /$(HOME)/.local/bin
 	@install $(CURRENT_DIR)/zsh/zsh/utils/ytp $(HOME)/.local/bin/
 	@install $(CURRENT_DIR)/zsh/zsh/utils/drawio $(HOME)/.local/bin/
-	@install $(CURRENT_DIR)/zsh/zsh/utils/my-open $(HOME)/.local/bin/open
 	@install -d /$(HOME)/.local/share/man/man1
 	@install $(CURRENT_DIR)/zsh/zsh/utils/ytp.1 /$(HOME)/.local/share/man/man1
 	@install $(CURRENT_DIR)/zsh/zsh/utils/drawio.1 /$(HOME)/.local/share/man/man1

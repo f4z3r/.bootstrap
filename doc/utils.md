@@ -4,6 +4,8 @@ This document list a set of alternatives to common linux commands and what their
 regular their regular counterpart.
 
 * [Clipboard Managers](#clipboard-managers)
+* [broot](#broot)
+* [fselect](#fselect)
 * [tldr](#tldr)
 * [fd](#fd)
 * [bat](#bat)
@@ -74,6 +76,32 @@ cedit
 # Insert clipboard history into current clipboard
 cset
 ```
+
+## broot
+
+> Alternative to zoxide, tree, and cd.
+
+Configure `broot` using:
+
+```bash
+ln -s $HOME/.bootstrap/conf/broot.hjson $XDG_CONFIG_PATH/broot/conf.hjson
+```
+
+> Installed via `pacman`.
+
+## fselect
+
+> SQL like query language to get information about your filesystem.
+
+Enables queries such as:
+
+```bash
+# count files in current dir with size greater than 7MiB
+fselect 'count(*) from . where size > 7m'
+# get absolute path and size of python files in specified path
+fselect abspath, size from ~/Music where path = '*.py'
+```
+> Installed via `yay`.
 
 ## tldr
 
