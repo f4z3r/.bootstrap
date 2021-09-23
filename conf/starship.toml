@@ -212,6 +212,10 @@ format = "[\u2571 ](bg:237)[$symbol$workspace ](bg:237 $style)"
 
 # TODO(@jakob): add langs here
 
+[gcloud]
+symbol = ""
+format = "[\u2571 on ](bg:237)[$symbol $account ](bg:237 $style)"
+
 [cmd_duration]
 min_time = 500
 show_milliseconds = false
