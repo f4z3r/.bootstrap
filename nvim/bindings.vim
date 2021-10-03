@@ -115,6 +115,8 @@ nnoremap [q :cprevious<cr>
 nnoremap <leader>qo :copen<cr>
 " (q)uickfix (c)lose
 nnoremap <leader>qc :cclose<cr>
+" (q)uickfix (s)earch
+nnoremap <leader>qs <cmd>lua require('telescope.builtin').quickfix()<cr>
 " }}}
 
 
@@ -127,6 +129,8 @@ nnoremap [l :lprevious<cr>
 nnoremap <leader>lo :lopen<cr>
 " (l)ocation list (c)lose
 nnoremap <leader>lc :lclose<cr>
+" (l)ocation (s)earch
+nnoremap <leader>ls <cmd>lua require('telescope.builtin').loclist()<cr>
 " }}}
 
 
@@ -194,25 +198,31 @@ omap af <Plug>(coc-funcobj-a)
 " (s)earch (c)lear (highlighting)
 nnoremap <leader>sc :noh<cr>
 " (s)earch (t)ags
-nnoremap <leader>st :Tags<cr>
+nnoremap <leader>st <cmd>lua require('telescope.builtin').tags()<cr>
 " (s)earch local (t)ags
-nnoremap <leader>sT :BTags<cr>
+nnoremap <leader>sT <cmd>lua require('telescope.builtin').current_buffer_tags()<cr>
 " (s)earch (g)it commit
-nnoremap <leader>sg :Commits<cr>
+nnoremap <leader>sg <cmd>lua require('telescope.builtin').git_commits()<cr>
 " (s)earch (C)ommand
-nnoremap <leader>sC :Commands<cr>
-" (s)earch using (a)g (silver searcher)
-nnoremap <leader>sa :Ag<cr>
+nnoremap <leader>sC <cmd>lua require('telescope.builtin').commands()<cr>
+" (s)earch using (a)g (silver searcher/ripgrep)
+nnoremap <leader>sa <cmd>lua require('telescope.builtin').live_grep()<cr>
 " (s)earch (k)eymapping
-nnoremap <leader>sk :Maps<cr>
+nnoremap <leader>sk <cmd>lua require('telescope.builtin').keymaps()<cr>
 " (s)earch (s)earch history
-nnoremap <leader>sS :History /<cr>
+nnoremap <leader>sS <cmd>lua require('telescope.builtin').search_history()<cr>
 " (s)earch command (h)istory
-nnoremap <leader>sh :History :<cr>
-" (s)earch (l)ines
-nnoremap <leader>sl :BLines<cr>
-" (s)earch all (L)ines (across all buffers)
-nnoremap <leader>sL :Lines<cr>
+nnoremap <leader>sh <cmd>lua require('telescope.builtin').command_history()<cr>
+
+" (s)earch (r)eferences
+nnoremap <leader>sr <cmd>lua require('telescope.builtin').lsp_references()<cr>
+" (s)earch (d)efinitions
+nnoremap <leader>sd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+" (s)earch (i)mplementations
+nnoremap <leader>si <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
+" (s)earch (s)ymbols
+nnoremap <leader>ss <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
+
 " see plugin/grep-operator.vim (ss)
 " search for visual selection using //
 vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
@@ -300,19 +310,24 @@ nnoremap <leader>fn :e %:p:h/
 " (f)ile (N)ew in project root
 nnoremap <leader>fN :e
 " control-p link
-nnoremap <c-p> :GFiles<cr>
+nnoremap <c-p> <cmd>lua require('telescope.builtin').git_files()<cr>
 " (f)iles in (p)roject
-nnoremap <leader>fp :Files<cr>
-" (f)iles in git files in (P)roject
-nnoremap <leader>fP :GFiles<cr>
-" (f)iles in (c)urrent working directory (not same as project)
-nnoremap <leader>fc :Files<cr>
-" (f)ind (f)ile (in buffer's dir)
-nnoremap <leader>ff :Files %:p:h<cr>
-" (f)iles in (h)ome
-nnoremap <leader>fh :Files ~/<cr>
-" (f)iles (a)ll
-nnoremap <leader>fa :Files /<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+" (f)iles (c)ontent
+nnoremap <leader>fc <cmd>lua require('telescope.builtin').live_grep()<cr>
+" nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
+" nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+
+" " (f)iles in git files in (P)roject
+" nnoremap <leader>fP :GFiles<cr>
+" " (f)iles in (c)urrent working directory (not same as project)
+" nnoremap <leader>fc :Files<cr>
+" " (f)ind (f)ile (in buffer's dir)
+" nnoremap <leader>ff :Files %:p:h<cr>
+" " (f)iles in (h)ome
+" nnoremap <leader>fh :Files ~/<cr>
+" " (f)iles (a)ll
+" nnoremap <leader>fa :Files /<cr>
 " (f)ile (r)efresh
 nnoremap <leader>fr :checktime %<cr>
 " (f)ile new (t)emp
@@ -360,7 +375,7 @@ nnoremap <leader>bd :Bd<cr>
 " fast switch buffer
 nnoremap <leader><tab> :b#<cr>
 " (b)uffer fuzzy search
-nnoremap <leader>bb :Buffers<cr>
+nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 " close all buffers except current
 command! Bk execute '%bdelete|edit #|normal `"'
 " (b)uffer only (k)eep current

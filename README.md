@@ -121,15 +121,6 @@ xdg-mime default nvim.desktop text/x-tex text/plain text/x-makefile text/rust te
                               text/x-chdr text/x-c++hdr
 ```
 
-Install `fzf` locally for `neovim`.
-
-```bash
-cd ~/.bootstrap/
-git submodule update --init --remote --depth 1 tools/fzf
-cd ~/.boostrap/tools/fzf
-./install --key-bindings --no-fish --no-update-rc --no-completion
-ln -s $(pwd)/ $HOME/.fzf
-```
 
 In order to use `neovim`, install packages with `dein`. Launch `neovim` and call the install
 function.

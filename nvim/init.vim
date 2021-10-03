@@ -55,22 +55,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('tpope/vim-fugitive')
 
   " fuzzy search everything
-  call dein#add('~/.fzf')
-  call dein#add('junegunn/fzf.vim',
-        \{'on_cmd': [
-        \    'Buffers',
-        \    'GFiles',
-        \    'Files',
-        \    'Commits',
-        \    'Commands',
-        \    'History',
-        \    'Lines',
-        \    'BLines',
-        \    'Ag',
-        \    'Maps',
-        \    'Tags',
-        \    'BTags',
-        \]})
+  call dein#add('nvim-telescope/telescope-fzf-native.nvim',
+        \{'build': 'make'})
+  call dein#add('nvim-lua/plenary.nvim')
+  call dein#add('nvim-telescope/telescope.nvim')
 
   " provide nice surround commands
   call dein#add('tpope/vim-surround')

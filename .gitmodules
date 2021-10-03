@@ -1,6 +1,3 @@
-[submodule "tools/fzf"]
-	path = tools/fzf
-	url = https://github.com/junegunn/fzf.git
 [submodule "tools/nerd-fonts"]
 	path = tools/nerd-fonts
 	url = https://github.com/ryanoasis/nerd-fonts.git
