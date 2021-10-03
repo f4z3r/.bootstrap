@@ -55,7 +55,7 @@ ssh-keygen -t rsa -b 4096
 Install `zsh` and configure it.
 
 ```bash
-sudo pacman -S zsh zsh-syntax-highlighting zsh-completions zsh-autosuggestions exa
+sudo pacman -S zsh zsh-syntax-highlighting zsh-completions zsh-autosuggestions exa ripgrep
 ```
 
 > Note `exa` can also be installed via `cargo install`.
