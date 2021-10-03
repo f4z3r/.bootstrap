@@ -14,8 +14,8 @@ for config (~/.config/zsh/*.zsh) . $config
 # opam configuration
 test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-# fzf fuzzy search
-test -r ~/.fzf.zsh && source ~/.fzf.zsh
+# fzf integration
+test -f /usr/share/fzf/key-bindings.zsh && . /usr/share/fzf/key-bindings.zsh
 
 # broot
 test -r ~/.opam/opam-init/init.zsh && source ~/.config/broot/launcher/bash/br
