@@ -184,7 +184,7 @@ format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
 
 [python]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:237)[$symbol$version (\\($virtualenv\\) )](bg:237 $style)"
 
 [ruby]
 symbol = " "
@@ -214,7 +214,7 @@ format = "[\u2571 ](bg:237)[$symbol$workspace ](bg:237 $style)"
 
 [gcloud]
 symbol = ""
-format = "[\u2571 on ](bg:237)[$symbol $account ](bg:237 $style)"
+format = "[\u2571 ](bg:237)[$symbol ](bg:237 $style)"
 
 [cmd_duration]
 min_time = 500

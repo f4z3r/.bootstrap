@@ -20,12 +20,14 @@ CocInstall coc-rls
 
 ## Installation
 
-Install `rust` via `rustup`.
+Install `rust` via `rustup`. This will let you handle several Rust versions without having issues at
+the system level.
 
 ```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+sudo pacman -S rustup
+# install stable and set it to the default toolchain
+rustup default stable
 ```
 
-This will automatically install the stable version of `rust`. The installation of `rls` will be
-handled by `coc`.
+The installation of `rls` will be handled by `coc`.
 
