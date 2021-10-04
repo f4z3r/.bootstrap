@@ -18,4 +18,4 @@ test -r ~/.opam/opam-init/init.zsh && . ~/.opam/opam-init/init.zsh > /dev/null 2
 test -f /usr/share/fzf/key-bindings.zsh && . /usr/share/fzf/key-bindings.zsh
 
 # broot
-test -r ~/.opam/opam-init/init.zsh && source ~/.config/broot/launcher/bash/br
+test -r ~/.config/broot/launcher/bash/br && source ~/.config/broot/launcher/bash/br
