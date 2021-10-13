@@ -10,6 +10,8 @@ let g:ale_python_auto_pipenv = 1
 let g:ale_python_mypy_auto_pipenv = 1
 let g:ale_python_bandit_auto_pipenv = 1
 let g:ale_python_black_auto_pipenv = 1
+" lua configuration
+let g:ale_lua_stylua_options = '-s'
 " ale sign update
 let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
@@ -36,6 +38,7 @@ let g:ale_linters = {
       \ 'rust': ['cargo'],
       \ 'perl': ['perl', 'perlcritic'],
       \ 'json': ['jsonlint'],
+      \ 'lua': ['luacheck'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -47,6 +50,7 @@ let g:ale_fixers = {
       \ 'rust': ['rustfmt'],
       \ 'perl': ['perltidy'],
       \ 'json': ['jq', 'fixjson'],
+      \ 'lua': ['stylua'],
       \}
 " rust options
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')

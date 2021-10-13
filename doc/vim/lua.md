@@ -17,6 +17,14 @@ To install luaJIT `2.0.5` with luarocks `2.4.4`:
 asdf install luaJIT 2.0.5--2.4.4
 ```
 
+## Linter
+
+You can install `luacheck` from the AUR. It is configured in ALE to already lint any Lua files.
+
+## Fixer
+
+Install `stylua` from the AUR.
+
 ## Lua VSCode Language Server
 
 Ensure you have `ninja` installed as a dependency and also have C++17.
