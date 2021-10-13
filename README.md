@@ -91,7 +91,8 @@ curl -fsSL https://starship.rs/install.sh | bash
 Install awesome and its main dependencies.
 
 ```bash
-sudo pacman -S dmenu mpc scrot unclutter brightnessctl kitty i3lock xss-lock xsel xclip youtube-dl
+sudo pacman -S dmenu mpc scrot unclutter brightnessctl kitty \
+  i3lock xss-lock xsel xclip youtube-dl git-delta
 sudo pacman -S awesome
 ```
 

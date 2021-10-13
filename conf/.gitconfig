@@ -9,12 +9,25 @@
 [log]
 	date = format:%Y-%m-%d %H:%M
 
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+
+[delta]
+	plus-style = "syntax #012800"
+	minus-style = "syntax #340001"
+	syntax-theme = Gruvbox Dark
+	navigate = true
+	line-numbers = true
+	side-by-side = true
+
+[interactive]
+	diffFilter = delta --color-only
+
 [difftool "nvim"]
 	cmd = nvim -d \"$LOCAL\" \"$REMOTE\"
-
-[diff]
-	submodule = log
-	tool = nvim
 
 [difftool]
 	prompt = false
@@ -32,7 +45,7 @@
 [alias]
 	f = fetch -q
 	b = branch -vv
-	d = difftool
+	d = diff
 	aa = add .
 	a = add
 	ac = commit -am
