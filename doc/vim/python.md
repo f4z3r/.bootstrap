@@ -2,19 +2,16 @@
 
 First, ensure `coc` is properly set up.
 
-
-<!-- vim-markdown-toc GFM -->
-
 * [Coc Extension](#coc-extension)
+* [Virtualization](#virtualization)
 * [Tools](#tools)
-  - [Black](#black)
-  - [Bandit](#bandit)
-  - [Mypy](#mypy)
-  - [Yapf](#yapf)
-  - [Reorder-python-imports](#reorder-python-imports)
-  - [Pydocstyle](#pydocstyle)
-
-<!-- vim-markdown-toc -->
+  * [Black](#black)
+    * [Configuration](#configuration)
+  * [Bandit](#bandit)
+  * [Mypy](#mypy)
+  * [Yapf](#yapf)
+  * [Reorder-python-imports](#reorder-python-imports)
+  * [Pydocstyle](#pydocstyle)
 
 ## Coc Extension
 
@@ -77,6 +74,14 @@ $ pipx install <tool>
 ### Black
 
 Installed via `pipx`.
+
+#### Configuration
+
+To configure it:
+
+```bash
+ln ~/.bootstrap/conf/black ~/.config/black
+```
 
 ### Bandit
 

@@ -25,6 +25,14 @@ You can install `luacheck` from the AUR. It is configured in ALE to already lint
 
 Install `stylua` from the AUR.
 
+### Configuration
+
+Configure `stylua` by running the following:
+
+```bash
+ln -s ~/.bootstrap/conf/stylua.toml ${XDG_CONFIG_HOME:-~/.config}/stylua.toml
+```
+
 ## Lua VSCode Language Server
 
 Ensure you have `ninja` installed as a dependency and also have C++17.
