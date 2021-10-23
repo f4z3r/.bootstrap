@@ -57,6 +57,7 @@ In order to use it as the OCI runtime, install `crun`, and configure it under `r
 configuration).
 
 ```
+[engine]
 runtime = "crun"
 ```
 
