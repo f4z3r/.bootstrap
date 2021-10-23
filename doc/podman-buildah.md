@@ -61,6 +61,13 @@ configuration).
 runtime = "crun"
 ```
 
+Moreover, in order to more easily use docker images, you can add the following to
+`~/.config/containers/registries.conf`:
+
+```
+unqualified-search-registries = ["docker.io"]
+```
+
 #### slirp4netns
 
 Install the `slirp4netns` package to allow user-mode networking.
