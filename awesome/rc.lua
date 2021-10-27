@@ -179,32 +179,34 @@ beautiful.init(string.format("%s/.config/awesome/theme/theme.lua", os.getenv("HO
 -- }}}
 
 
--- {{{ TimeWarrior
-local function timew_prompt()
+-- {{{ UTT
+local function utt_prompt()
     awful.prompt.run {
-        prompt       = "<b>Enter timew command: </b>",
+        prompt       = "<b>Enter utt command: </b>",
         textbox      = awful.screen.focused().mypromptbox.widget,
         hooks        = {
           {{},'Return', function(cmd)
             if (not cmd) or cmd == '' then
-              return "summary :ids"
+                return 'report'
+            elseif cmd == 'hello' then
+                return 'hello'
             else
-              return cmd
+                return string.format('add "%s"', cmd)
             end
           end},
         },
         exe_callback = function(t)
-            helpers.async("timew "..t, function(f)
+            helpers.async("utt "..t, function(f)
                 naughty.notify {
                     preset = beautiful.pomodoro_notif_preset,
-                    title  = "timew "..t,
+                    title  = "utt "..t,
                     text   = lain.util.markup.font(beautiful.pomodoro_notif_preset.font,
                              awful.util.escape(f:gsub("\n*$", "")))
                 }
             end)
-            beautiful.timew:update()
+            beautiful.utt:update()
         end,
-        history_path = awful.util.getdir("cache") .. "/history_timew"
+        history_path = awful.util.getdir("cache") .. "/history_utt"
     }
 end
 -- }}}
@@ -534,9 +536,9 @@ globalkeys = my_table.join(
   awful.key({ altkey, "Control" }, "w", function () beautiful.pomodoro:skip_break() end,
     {description = "skip pomodoro break (reset)", group = "widgets"}),
 
-  -- TimeWarrior run prompt
-  awful.key({ altkey, "Control" }, "i", timew_prompt,
-    {description = "run in timew prompt", group = "widgets"}),
+  -- UTT run prompt
+  awful.key({ altkey, "Control" }, "u", utt_prompt,
+    {description = "run in utt prompt", group = "widgets"}),
 
   -- calendar
   awful.key({ altkey, "Control" }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,

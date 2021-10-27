@@ -60,12 +60,11 @@ alias scl="screen -ls"
 alias scr="screen -R"
 alias scx="screen -x"
 
-# todo.txt / TimeWarrior
+# todo.txt
 alias t="nvim ~/.todo/todo.txt"
 alias tpush="rclone sync ~/.todo gdrive:/todo"
 alias tpull="rclone sync gdrive:/todo ~/.todo"
 alias tdone="nvim ~/.todo/done.txt"
-alias ti="timew"
 alias notes="nvim -c 'Pad search'"
 alias noten="nvim -c 'Pad new'"
 alias notel="nvim -c 'Pad ls'"

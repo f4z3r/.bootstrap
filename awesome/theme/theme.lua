@@ -11,7 +11,7 @@ local wibox = require("wibox")
 local dpi   = require("beautiful.xresources").apply_dpi
 
 local k8s_widget        = require("k8s-widget")
-local timew_widget      = require("timew-widget")
+local utt_widget        = require("utt-widget")
 local optimus_widget    = require("optimus-widget")
 local brightness_widget = require("brightness-widget")
 local systemctl_widget  = require("systemctl-widget")
@@ -286,8 +286,8 @@ local service_widget = systemctl_widget:new({
     }
   })
 
--- Timew widget
-theme.timew = timew_widget:new({ font = theme.taglist_font })
+-- UTT widget
+theme.utt = utt_widget:new({ font = theme.taglist_font })
 
 -- K8s widget
 theme.k8s = k8s_widget:new({ font = theme.taglist_font })
@@ -506,7 +506,7 @@ function theme.at_screen_connect(s)
       bottom_bar,
       service_widget,
       bottom_bar,
-      theme.timew,
+      theme.utt,
       bottom_bar,
       theme.k8s,
       bottom_bar,

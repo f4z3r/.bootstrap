@@ -96,7 +96,7 @@ sudo pacman -S dmenu mpc scrot unclutter brightnessctl kitty \
 sudo pacman -S awesome
 ```
 
-In order to allow some widget keys, also install `timew`. See  [timewarrior](doc/timew.md).
+In order to allow some widget keys, also install `utt` using `pip`.
 
 > The switch to the `awesome` session is not functional at this point. At least continue with the
 > utilities install below.

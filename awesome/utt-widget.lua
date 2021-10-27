@@ -2,13 +2,14 @@ require("string")
 local wibox  = require("wibox")
 local markup = require("lain.util").markup
 
-local Timew       = { mt = {}, wmt = {} }
-Timew.wmt.__index = Timew
-Timew.__index     = Timew
+local Utt       = { mt = {}, wmt = {} }
+Utt.wmt.__index = Utt
+Utt.__index     = Utt
 
-local timew_cmd = "timew | grep Tracking | cut -d' ' -f2"
-local icon      = "\u{fa1e}"
-local red       = "#CF0000"
+local utt_logfile = "/home/jakob/.local/share/utt/utt.log"
+local utt_cmd     = string.format("tail -n1 %s | perl -lane 'print join \" \", splice(@F, 2)'", utt_logfile)
+local icon        = "\u{fa1e}"
+local red         = "#CF0000"
 
 local function run(command)
   local prog = io.popen(command)
@@ -25,8 +26,8 @@ local function get_trimmed_cmd_out(cmd)
   return out
 end
 
-function Timew:new(args)
-  local obj = setmetatable({}, Timew)
+function Utt:new(args)
+  local obj = setmetatable({}, Utt)
 
   -- Create imagebox widget
   obj.widget    = wibox.widget.textbox("")
@@ -43,17 +44,22 @@ function Timew:new(args)
   return obj
 end
 
-function Timew:update()
-  local ctxt = get_trimmed_cmd_out(timew_cmd)
+function Utt:file_exists(name)
+   local f=io.open(name,"r")
+   if f~=nil then io.close(f) return true else return false end
+end
+
+function Utt:update()
   local out = "-"
-  if ctxt then
+  if self:file_exists(utt_logfile) then
+    local ctxt = get_trimmed_cmd_out(utt_cmd)
     out = icon .. " " .. ctxt
   end
   self.widget:set_markup_silently(markup(self.color, out))
 end
 
-function Timew.mt:__call(...)
-    return Timew.new(...)
+function Utt.mt:__call(...)
+    return Utt.new(...)
 end
 
-return Timew
+return Utt
