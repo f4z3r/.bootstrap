@@ -69,6 +69,11 @@ local function run(command)
   return result
 end
 
+local function sleep(n)
+    local t0 = os.clock()
+    while os.clock() - t0 <= n do end
+end
+
 -- }}}
 
 -- {{{ Variable definitions
@@ -204,6 +209,7 @@ local function utt_prompt()
                              awful.util.escape(f:gsub("\n*$", "")))
                 }
             end)
+            sleep(0.2)
             beautiful.utt:update()
         end,
         history_path = awful.util.getdir("cache") .. "/history_utt"

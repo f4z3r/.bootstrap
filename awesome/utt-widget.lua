@@ -44,14 +44,14 @@ function Utt:new(args)
   return obj
 end
 
-function Utt:file_exists(name)
+local function file_exists(name)
    local f=io.open(name,"r")
    if f~=nil then io.close(f) return true else return false end
 end
 
 function Utt:update()
   local out = "-"
-  if self:file_exists(utt_logfile) then
+  if file_exists(utt_logfile) then
     local ctxt = get_trimmed_cmd_out(utt_cmd)
     out = icon .. " " .. ctxt
   end
