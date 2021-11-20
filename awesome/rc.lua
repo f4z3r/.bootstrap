@@ -193,8 +193,8 @@ local function utt_prompt()
           {{},'Return', function(cmd)
             if (not cmd) or cmd == '' then
                 return 'report'
-            elseif cmd == 'hello' then
-                return 'hello'
+            elseif cmd == 'hello' or cmd == 'stretch' then
+                return cmd
             else
                 return string.format('add "%s"', cmd)
             end
