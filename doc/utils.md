@@ -28,6 +28,10 @@ regular their regular counterpart.
 * [zoxide](#zoxide)
   * [Installation](#installation)
   * [Usage](#usage)
+* [feh](#feh)
+  * [Installation](#installation)
+* [peek](#peek)
+  * [Installation](#installation)
 
 ## Clipboard Managers
 
@@ -270,3 +274,20 @@ zq foo      # echo the best match, don't cd
 za /foo     # add /foo to the database
 zr /foo     # remove /foo from the database
 ```
+
+
+## feh
+
+> Fast image viewer.
+
+### Installation
+
+Installed via `pacman`.
+
+## peek
+
+> Screen recorder to make GIFs.
+
+### Installation
+
+Installed via `pacman`.
