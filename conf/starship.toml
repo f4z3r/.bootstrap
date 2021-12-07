@@ -214,6 +214,7 @@ format = "[\u2571 ](bg:237)[$symbol$workspace ](bg:237 $style)"
 
 [gcloud]
 symbol = ""
+disabled = true
 format = "[\u2571 ](bg:237)[$symbol ](bg:237 $style)"
 
 [cmd_duration]
