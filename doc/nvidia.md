@@ -11,6 +11,8 @@
 
 ## Check Current Graphics Renderer
 
+> Install the `mesa-utils` package.
+
 ```sh
 glxinfo | grep "OpenGL renderer"
 ```
@@ -36,7 +38,7 @@ mhwd -l
 and install the desired one:
 
 ```sh
-sudo mhwd -i pci video-nvidia-450xx
+sudo mhwd -i pci video-nvidia-470xx
 ```
 
 If the install fails, it might be due to an unsupported kernel. To fix this, upgrade the kernel via

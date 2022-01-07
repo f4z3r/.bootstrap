@@ -2,8 +2,8 @@
 
 ## Installation
 
-Install via `brave-bin` package with `pacman`. The `brave` package also exists, but compiling the
-browser takes extremely long times.
+Install via `brave-browser` package with `pacman`. The `brave` package also exists, but compiling
+the browser takes extremely long times.
 
 
 ## Configuration

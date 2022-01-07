@@ -69,16 +69,9 @@ make configure
 
 ### Install Fura Code
 
-Install Fura Code nerd font for proper handling of ligatures and icons.
+> CAREFUL: this will take a long time to download.
 
-```bash
-cd ~/.bootstrap
-git submodule update --init --depth 1 tools/nerd-fonts
-cd tools/nerd-fonts
-./install.sh FiraCode
-```
-
-> Note that the repository should be checkout out at version `v2.0.0` to avoid a spacing bug.
+Install the `nerd-fonts-fira-code` repository from `nerd-fonts-complete-starship` from the AUR.
 
 ### Install `starship`
 
@@ -161,6 +154,4 @@ Install `yay` for AUR support.
 
 ### Brave
 
-Install `brave-bin` via the AUR to get the latest release (`pacman` package seems to be out of date
-sometimes). Make sure to use the `brave-bin` and not normal `brave`, as the normal installation
-takes years.
+Install `brave-browser` from `pacman`.

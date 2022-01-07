@@ -14,8 +14,8 @@
 We will enable `powertop` as a service. This will force `powertop --auto-tune` to run automatically
 on boot.
 
-`powertop` should be calibrated once, which will renter your laptop unusable for a couple of
-minutes.
+`powertop` should be calibrated once (`sudo powertop -c`), which will renter your laptop unusable
+for a couple of minutes.
 
 ```bash
 sudo sh -c "echo -e '[Unit]\nDescription=PowerTop\n\n[Service]\nType=oneshot\nRemainAfterExit=true\nExecStart=/usr/bin/powertop --auto-tune\n\n[Install]\nWantedBy=multi-user.target\n' > /etc/systemd/system/powertop.service"
