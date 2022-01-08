@@ -209,7 +209,7 @@ local function utt_prompt()
                              awful.util.escape(f:gsub("\n*$", "")))
                 }
             end)
-            sleep(0.2)
+            sleep(0.6)
             beautiful.utt:update()
         end,
         history_path = awful.util.getdir("cache") .. "/history_utt"
