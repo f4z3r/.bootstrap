@@ -8,6 +8,15 @@ configure: configure-vim configure-zsh configure-tools configure-bash configure-
 .PHONY: configure-root
 configure-root: configure-zsh-root
 
+.PHONY: backup
+backup:
+	@[ -d /mnt/drive ] || sudo mkdir /mnt/drive
+	@-sudo mount /dev/sda1 /mnt/drive
+	@rsync -vau $(HOME)/Music/ /mnt/drive/music
+	@rsync -vau $(HOME)/.pad-notes/ /mnt/drive/notes
+	@rsync -vau $(HOME)/ipt/ /mnt/drive/ipt
+	@rsync -vau $(HOME)/Documents/ /mnt/drive/docs
+
 .PHONY: configure-pacman-mirrors
 configure-pacman-mirrors:
 	@sudo pacman-mirrors -c Switzerland,Austria,Germany,Italy,Belgium
@@ -72,7 +81,7 @@ configure-bash:
 
 .PHONY: configure-vim
 configure-vim: install-dein link-ultisnips
-	@-mkdir -p $(HOME)/notes/
+	@-mkdir -p $(HOME)/.pad-notes/
 	@-[ -d $(HOME)/.config/nvim ] && rm -rf $(HOME)/.config/nvim
 	@[ -L $(HOME)/.config/nvim ] || ln -s $(CURRENT_DIR)/nvim/ $(HOME)/.config/nvim
 	@echo "[+] Linked vim configuration"

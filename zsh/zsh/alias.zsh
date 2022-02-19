@@ -62,8 +62,8 @@ alias scx="screen -x"
 
 # todo.txt
 alias t="nvim ~/.todo/todo.txt"
-alias tpush="rclone sync ~/.todo gdrive:/todo"
-alias tpull="rclone sync gdrive:/todo ~/.todo"
+alias tpush="rclone sync ~/.todo cirusdrive:/todo"
+alias tpull="rclone sync cirusdrive:/todo ~/.todo"
 alias tdone="nvim ~/.todo/done.txt"
 alias notes="nvim -c 'Pad search'"
 alias noten="nvim -c 'Pad new'"
