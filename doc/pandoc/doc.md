@@ -9,8 +9,7 @@ Install the following:
 
 ```bash
 yay -S pandoc plantuml
-# you can use pipx instead for the following command
-pip install --user pandoc-plantuml-filter
+pipx install pandoc-imagine
 ```
 
 ## Usage
@@ -20,9 +19,8 @@ pandoc \
   -s \                          # standalone
   --highlight-style tango \     # code highlight style (see --list-highlight-styles)
   -t revealjs \                 # format to which to convert
-  -V theme=solarized \          # variable passed to the driver
   --slide-level 2 \             # which heading level to generate slides to
-  -F pandoc-plantuml \          # whether to use a filter
+  -F pandoc-imagine \           # whether to use a filter
   -o <out-file> \               # target
   <in-file>                     # source(s)
 ```
@@ -34,9 +32,13 @@ Use the [sample](./sample.md) and compile it using:
 
 ```bash
 cd ~/.bootstrap/doc/pandoc
-pandoc -s --highlight-style tango \
-  -t revealjs -V theme=solarized \
-  --slide-level 2 -F pandoc-plantuml \
+pandoc -s \
+  -t revealjs \
+  --slide-level 2 \
+  -F pandoc-imagine \
+  -L filters/code-include.lua \
+  -L filters/revealjs-codeblocks.lua \
+  --template template.html \
   -o slides.html \
   sample.md
 ```
