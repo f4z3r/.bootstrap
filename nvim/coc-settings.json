@@ -32,6 +32,7 @@
     "typeParameter": "tp",
     "default": "v"
   },
+  "java.home": "/home/jakob/.asdf/installs/java/openjdk-11",
   "python.jediEnabled": false,
   "python.linting.enabled" : false,
   "languageserver": {

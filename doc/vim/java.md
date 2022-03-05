@@ -4,13 +4,6 @@
 
 First, ensure `coc` is properly set up.
 
-
-<!-- vim-markdown-toc GFM -->
-
-* [Coc Extension](#coc-extension)
-
-<!-- vim-markdown-toc -->
-
 ## Coc Extension
 
 Install the `coc` extension.
@@ -19,3 +12,20 @@ Install the `coc` extension.
 CocInstall coc-java
 ```
 
+## Setup
+
+Install the Java version you want via `asdf`.
+
+Download `jdtls` and extract it to:
+
+```
+/home/jakob/.config/coc/extensions/coc-java-data
+```
+
+Once this is done, make sure you set the Java home from `asdf` in `coc-settings.json`. For instance:
+
+```json
+{
+  "java.home": "/home/jakob/.asdf/installs/java/openjdk-11"
+}
+```
