@@ -378,4 +378,7 @@ div.iptlogo {
 
 div.iptlogo::before {
   content:url(./logo.png);
+  zoom: 30%;
+  margin:0;
+  padding:0;
 }
