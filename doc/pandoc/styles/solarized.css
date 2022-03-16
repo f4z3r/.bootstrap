@@ -19,7 +19,7 @@ html * {
  *********************************************/
 :root {
   --r-background-color: #fefbf3;
-  --r-main-font: FiraCodeSemiBold;
+  --r-main-font: FiraCodeMedium;
   --r-main-font-size: 35px;
   --r-main-color: #323d41;
   --r-block-margin: 20px;
@@ -39,6 +39,7 @@ html * {
   --r-heading4-size: 1em;
   /* --r-code-font: monospace; */
   --r-code-font: FiraCodeRegular;
+  --r-code-inline-font: "Fira Code";
   --r-link-color: #268bd2;
   --r-link-color-dark: #1a6091;
   --r-link-color-hover: #78b9e6;
@@ -75,6 +76,11 @@ html * {
 .reveal .slides section > section {
   line-height: 1.3;
   font-weight: inherit;
+}
+
+.institute {
+  font-style: italic;
+  font-size: 70%;
 }
 
 /*********************************************
@@ -227,12 +233,19 @@ html * {
 }
 
 .reveal code {
-  font-family: var(--r-code-font);
+  background: #CBC8C2;
+  font-family: var(--r-code-inline-font);
+  border-radius: 5px;
   text-transform: none;
-  tab-size: 2;
+  padding: 0 3px 0 3px;
+  font-size: 90%;
 }
 
 .reveal pre code {
+  background: #282c34;
+  font-family: var(--r-code-font);
+  tab-size: 2;
+  font-size: 100%;
   display: block;
   padding: 5px;
   overflow: auto;
