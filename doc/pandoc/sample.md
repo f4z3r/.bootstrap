@@ -2,9 +2,10 @@
 title: Sample Presentation
 author: Jakob Beckmann
 date: 28.02.2022
-theme: solarized
 progress: false
 hash: true
+controls: false
+ipt-title: true
 highlightjs: true
 
 ---
@@ -17,10 +18,15 @@ highlightjs: true
 
 # Examples
 
+## Sub-Slide Quote
+
+> This is amazing!
+
 ## Sub-Slide PlantUML
 
-```plantuml
+```{.plantuml im_fmt="svg"}
 @startuml
+!theme cerulean-outline
 Alice -> Bob: Authentication Request
 Bob --> Alice: Authentication Response
 @enduml

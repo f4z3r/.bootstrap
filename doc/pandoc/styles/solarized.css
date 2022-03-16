@@ -382,3 +382,16 @@ div.iptlogo::before {
   margin:0;
   padding:0;
 }
+
+div.iptlogotitle {
+  position: fixed;
+  bottom: -200px;
+  right: -10px;
+}
+
+div.iptlogotitle::before {
+  content:url(./logo.png);
+  zoom: 30%;
+  margin:0;
+  padding:0;
+}
