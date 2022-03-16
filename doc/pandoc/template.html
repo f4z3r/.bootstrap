@@ -24,7 +24,8 @@ $endif$
 $if(theme)$
   <link rel="stylesheet" href="$revealjs-url$/dist/theme/$theme$.css" id="theme">
 $else$
-  <link rel="stylesheet" href="$revealjs-url$/dist/theme/black.css" id="theme">
+  <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/fira-code" type="text/css"/>
+  <link rel="stylesheet" href="styles/solarized.css" id="theme"/>
 $endif$
 $if(highlightjs)$
 $if(highlightjs-theme)$
@@ -49,6 +50,9 @@ $include-before$
 $endfor$
   <div class="reveal">
     <div class="slides">
+      $if(ipt)$
+      <div class="iptlogo"></div>
+      $endif$
 
 $if(title)$
 <section id="$idprefix$title-slide"$for(title-slide-attributes/pairs)$ $it.key$="$it.value$"$endfor$>
