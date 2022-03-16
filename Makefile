@@ -12,10 +12,10 @@ configure-root: configure-zsh-root
 backup:
 	@[ -d /mnt/drive ] || sudo mkdir /mnt/drive
 	@-sudo mount /dev/sda1 /mnt/drive
-	@rsync -vau $(HOME)/Music/ /mnt/drive/music
-	@rsync -vau $(HOME)/.pad-notes/ /mnt/drive/notes
-	@rsync -vau $(HOME)/ipt/ /mnt/drive/ipt
-	@rsync -vau $(HOME)/Documents/ /mnt/drive/docs
+	@rsync -vau --delete-after $(HOME)/Music/ /mnt/drive/music
+	@rsync -vau --delete-after $(HOME)/.pad-notes/ /mnt/drive/notes
+	@rsync -vau --delete-after $(HOME)/ipt/ /mnt/drive/ipt
+	@rsync -vau --delete-after $(HOME)/Documents/ /mnt/drive/docs
 
 .PHONY: configure-pacman-mirrors
 configure-pacman-mirrors:
