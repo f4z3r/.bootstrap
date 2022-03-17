@@ -45,6 +45,8 @@ html * {
   --r-link-color-hover: #78b9e6;
   --r-selection-background-color: #d33682;
   --r-selection-color: #fff;
+  --r-ipt-red: #E9124B;
+  --r-ipt-blue: #1F3864;
 }
 
 .reveal-viewport {
@@ -382,6 +384,19 @@ html * {
 /*********************************************
  * CUSTOM
  *********************************************/
+
+div.iptfooter {
+  position: fixed;
+  bottom: -10px;
+  right: 0;
+}
+
+div.iptfooter::before {
+  content:url(./footer.png);
+  zoom: 20%;
+  margin:0;
+  padding:0;
+}
 
 div.iptlogo {
   position: fixed;
