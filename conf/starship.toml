@@ -49,7 +49,7 @@ $openstack\
 $env_var\
 $cmd_duration\
 $jobs\
-[\ue0bc](fg:237)\
+[\u2571](bg:$POWER_BACK)\
 $line_break\
 $status\
 $directory\
@@ -59,7 +59,7 @@ $character"""
 full_symbol = "\uf578"
 charging_symbol = "\uf586"
 discharging_symbol = "\uf57b"
-format = "([ $symbol$percentage ](bg:237 $style))"
+format = "([ $symbol$percentage ](bg:$POWER_BACK $style))"
 
 [[battery.display]]  # "bold red" style when capacity is between 0% and 10%
 threshold = 10
@@ -74,11 +74,11 @@ disabled = false
 threshold = 75
 symbol = "\uf85a"
 style = "bold dimmed white"
-format = "[ $symbol ${ram} ](bg:237 $style)[ \u2571](bg:237)"
+format = "[ $symbol ${ram} ](bg:$POWER_BACK $style)[ \u2571](bg:$POWER_BACK)"
 
 [shlvl]
 disabled = false
-format = "[ \uf149$shlvl](bg:237 $style)[ \u2571](bg:237)"
+format = "[ \uf149$shlvl](bg:$POWER_BACK $style)[ \u2571](bg:$POWER_BACK)"
 style = "bold red"
 threshold = 2
 
@@ -86,36 +86,36 @@ threshold = 2
 shell = "bash"
 command = "echo ${CURR_SHELL:-${SHELL}}"
 when = """ ! [[ "${CURR_SHELL:-${SHELL}}" =~ "zsh" ]] """
-format = "[ \uf489 ](bg:237)[$output](bg:237 $style)[ \u2571](bg:237)"
+format = "[ \uf489 ](bg:$POWER_BACK)[$output](bg:$POWER_BACK $style)[ \u2571](bg:$POWER_BACK)"
 style = "dimmed red"
 
 [custom.tmux]
 shell = "bash"
 command = "tmux ls | wc -l"
 when = """ tmux ls """
-format = "[ \ufab1](bg:237)[$output](bg:237 $style)[ \u2571](bg:237)"
+format = "[ \ufab1](bg:$POWER_BACK)[$output](bg:$POWER_BACK $style)[ \u2571](bg:$POWER_BACK)"
 style = "dimmed red"
 
 [time]
 disabled = false
-format = "[ \uf64f](bg:237)[ $time ](bg:237 $style)"
+format = "[ \uf64f](bg:$POWER_BACK)[ $time ](bg:$POWER_BACK $style)"
 time_format = "%T"
 
 [username]
 style_user = "white bold"
 style_root = "black bold"
-format = "[\u2571](bg:237)[ \uf007 $user ](bg:237 $style)"
+format = "[\u2571](bg:$POWER_BACK)[ \uf007 $user ](bg:$POWER_BACK $style)"
 disabled = false
 # show_always = true
 
 [hostname]
-format =  "[\u2571](bg:237)[ \uf015 $hostname ](bg:237 $style)"
+format =  "[\u2571](bg:$POWER_BACK)[ \uf015 $hostname ](bg:$POWER_BACK $style)"
 trim_at = "."
 style = "dimmed bold red"
 
 [git_branch]
 symbol = " "
-format = "[\u2571](bg:237)[ $symbol$branch ](bg:237 $style)"
+format = "[\u2571](bg:$POWER_BACK)[ $symbol$branch ](bg:$POWER_BACK $style)"
 style = "bold green"
 truncation_length = 18
 
@@ -123,29 +123,29 @@ truncation_length = 18
 commit_hash_length = 7
 tag_symbol = "\uf02b "
 tag_disabled = false
-format = "[\uf417 $hash](bg:237 $style)[($tag) ](bg:237 $style)"
+format = "[\uf417 $hash](bg:$POWER_BACK $style)[($tag) ](bg:$POWER_BACK $style)"
 
 [git_state]
-format = '[\($state( $progress_current/$progress_total) \)](bg:237 $style)'
+format = '[\($state( $progress_current/$progress_total) \)](bg:$POWER_BACK $style)'
 rebase = "\uf5fa"
 cherry_pick = "\ue29b"
 merge = "\uf5f7"
 bisect = "\uf002"
 
 [git_status]
-format = "([\\[$all_status$ahead_behind\\] ](bg:237 $style))"
+format = "([\\[$all_status$ahead_behind\\] ](bg:$POWER_BACK $style))"
 style = "red"
 conflicted = "\ue279"
-ahead = "[ \uf062${count}](bg:237 yellow)"
-behind = "[ \uf063${count}](bg:237 yellow)"
-diverged = "[ \uf047 \uf062${ahead_count}\uf063${behind_count}](bg:237 yellow)"
-staged = "[\uf03a\\($count\\)](bg:237 green)"
+ahead = "[ \uf062${count}](bg:$POWER_BACK yellow)"
+behind = "[ \uf063${count}](bg:$POWER_BACK yellow)"
+diverged = "[ \uf047 \uf062${ahead_count}\uf063${behind_count}](bg:$POWER_BACK yellow)"
+staged = "[\uf03a\\($count\\)](bg:$POWER_BACK green)"
 renamed = "\uf954"
 deleted = "\uf467"
 
 [kubernetes]
 disabled = false
-format = "[\u2571 ](bg:237)[$context $symbol $namespace ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$context $symbol $namespace ](bg:$POWER_BACK $style)"
 style = "#BA55D3 dimmed bold"
 symbol = "\ufd31"
 # [kubernetes.context_aliases]
@@ -153,80 +153,80 @@ symbol = "\ufd31"
 
 [docker_context]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$context ](bg:237$style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$context ](bg:$POWER_BACK$style)"
 
 [package]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [cmake]
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [golang]
 symbol = "ﳑ "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [lua]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [nim]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [java]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [rust]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [python]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ($virtualenv )](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ($virtualenv )](bg:$POWER_BACK $style)"
 
 [ruby]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [perl]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [helm]
 symbol = "ﴱ "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [nodejs]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
 [ocaml]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$version (\\(switch_indicator$switch_name\\))](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version (\\(switch_indicator$switch_name\\))](bg:$POWER_BACK $style)"
 
 [terraform]
 symbol = " "
-format = "[\u2571 ](bg:237)[$symbol$workspace ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$workspace ](bg:$POWER_BACK $style)"
 
 # TODO(@jakob): add langs here
 
 [gcloud]
 symbol = ""
 disabled = true
-format = "[\u2571 ](bg:237)[$symbol ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol ](bg:$POWER_BACK $style)"
 
 [cmd_duration]
 min_time = 500
 show_milliseconds = false
-format = "[\u2571 ](bg:237)[took](bg:237 dimmed)[ $duration ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[took](bg:$POWER_BACK dimmed)[ $duration ](bg:$POWER_BACK $style)"
 style = "bold yellow"
 # show_notification = true
 # min_time_to_notify = 10_000
 
 [jobs]
-format = "[\u2571 ](bg:237)[$symbol$number ](bg:237 $style)"
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$number ](bg:$POWER_BACK $style)"
 
 # NOTE(@jakob): new line from here on
 [line_break]

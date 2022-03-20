@@ -6,16 +6,21 @@
 export VISUAL="nvim"
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
-if which bat &> /dev/null; then
-  export BAT_THEME="gruvbox-dark"
-  export MANPAGER="sh -c 'col -bx | bat --theme=default -l man -p'"
-fi
 
 if [[ $(cat ~/.config/kitty/active-theme) == "dark" ]]; then
+  if which bat &> /dev/null; then
+    export BAT_THEME="gruvbox-dark"
+    export MANPAGER="sh -c 'col -bx | bat --theme=gruvbox-dark -l man -p'"
+  fi
   export POWER_BACK=237
   export KITTY_THEME=dark
   export COLORFGBG="7;0"
 else
+  if which bat &> /dev/null; then
+    export BAT_THEME="gruvbox-light"
+    export MANPAGER="sh -c 'col -bx | bat --theme=gruvbox-light -l man -p'"
+  fi
+  export BAT_THEME="gruvbox-light"
   export POWER_BACK=249
   export KITTY_THEME=light
   export COLORFGBG="7;0"
