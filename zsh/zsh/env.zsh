@@ -11,6 +11,16 @@ if which bat &> /dev/null; then
   export MANPAGER="sh -c 'col -bx | bat --theme=default -l man -p'"
 fi
 
+if [[ $(cat ~/.config/kitty/active-theme) == "dark" ]]; then
+  export POWER_BACK=237
+  export KITTY_THEME=dark
+  export COLORFGBG="7;0"
+else
+  export POWER_BACK=249
+  export KITTY_THEME=light
+  export COLORFGBG="7;0"
+fi
+
 # ZSH
 setopt INC_APPEND_HISTORY
 setopt sharehistory
