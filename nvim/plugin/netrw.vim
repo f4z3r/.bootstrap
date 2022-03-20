@@ -4,7 +4,7 @@
 
 " Treeview is problematic when creating files and directories, as some
 " directories will be handles as files.
-let g:netrw_liststyle=1
+let g:netrw_liststyle=3
 " Use special syntax highlighting.
 let g:netrw_special_syntax=1
 " Use human readable sizes with uppercase letters.
