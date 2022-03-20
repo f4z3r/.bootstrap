@@ -31,6 +31,8 @@ configure-ctags:
 configure-git:
 	@[ -L $(HOME)/.gitconfig ] || ln -s $(CURRENT_DIR)/conf/.gitconfig $(HOME)/.gitconfig
 	@[ -L $(HOME)/.gitignore ] || ln -s $(CURRENT_DIR)/conf/.gitignore $(HOME)/.gitignore
+	@[ -L $(HOME)/.config/git ] || ln -s $(CURRENT_DIR)/conf/git $(HOME)/.config/git
+	@[ -L $(HOME)/.config/git/active.conf ] || ln -s $(CURRENT_DIR)/conf/git/dark.conf $(HOME)/.config/git/active.conf
 	@echo "[+] Linked git configuration"
 
 .PHONY: configure-zsh-root

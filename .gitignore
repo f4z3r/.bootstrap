@@ -2,4 +2,4 @@
 /fish/fishd.*
 /nvim/spell/*.spl
 /nvim/spell/*.sug
-
+/conf/git/active.conf
