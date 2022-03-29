@@ -83,6 +83,10 @@ alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
 alias fgrep="fgrep --color=auto"
 
+# bitwarden
+alias bwu='export BW_SESSION="$(bw unlock --raw)"'
+alias bwl='export BW_SESSION='
+
 # pomorodo
 alias pomo='(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
               "System pomorodo completed" \
