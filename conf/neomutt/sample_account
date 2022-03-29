@@ -1,0 +1,25 @@
+## Receive options.
+set my_cirus_user = cirusthevirus130212
+set imap_user     = $my_cirus_user@gmail.com
+set imap_pass     = "****"
+set folder        = imaps://$my_cirus_user@imap.gmail.com/
+set spoolfile     = +INBOX
+set postponed     = +Drafts
+set record        = +Sent
+
+## Send options.
+set smtp_url      = smtps://$my_cirus_user:$imap_pass@smtp.gmail.com
+set realname      = 'Jakob Beckmann'
+set from          = $my_cirus_user@gmail.com
+set hostname      = "gmail.com"
+set signature     = "~/.config/neomutt/signature.html"
+# Connection options
+set ssl_force_tls = yes
+unset ssl_starttls
+
+## Hook
+account-hook $folder "set imap_user=$my_cirus_user@gmail.com imap_pass=$imap_pass"
+
+
+# vim:ft=neomuttrc
+

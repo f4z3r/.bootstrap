@@ -3,7 +3,7 @@ SHELL := /bin/bash
 CURRENT_DIR := $(shell pwd)
 
 .PHONY: configure
-configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux configure-asdf configure-pier configure-luakit
+configure: configure-vim configure-zsh configure-tools configure-bash configure-kitty configure-git configure-awesome configure-pinky configure-pacman configure-logind thesaurus configure-ctags configure-tmux configure-asdf configure-pier configure-luakit configure-neomutt
 
 .PHONY: configure-root
 configure-root: configure-zsh-root
@@ -75,6 +75,11 @@ configure-tools:
 configure-pier:
 	@[ -L $(HOME)/.config/pier.toml ] || ln -s $(CURRENT_DIR)/conf/pier.toml $(HOME)/.config/pier.toml
 	@echo "[+] Linked pier configuration"
+
+.PHONY: configure-neomutt
+configure-neomutt:
+	@[ -L $(HOME)/.config/neomutt ] || ln -s $(CURRENT_DIR)/conf/neomutt $(HOME)/.config/neomutt
+	@echo "[+] Linked neomutt configuration"
 
 .PHONY: configure-bash
 configure-bash:

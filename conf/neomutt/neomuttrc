@@ -1,0 +1,41 @@
+## General options
+set header_cache   = "~/.cache/neomutt"
+set imap_check_subscribed
+set imap_keepalive = 300
+unset imap_passive
+set mail_check     = 60
+set mbox_type      = Maildir
+
+## Aliases
+set alias_file    = "~/.config/neomutt/aliases"
+set sort_alias    = alias
+set reverse_alias = yes
+source $alias_file
+
+## Theme
+source "~/.config/neomutt/colors"
+
+set beep         = no
+set editor       = "nvim -c 'set tw=74' -c 'set wrap'"
+set sort         = threads
+set auto_tag     = yes
+set sort_aux     = reverse-last-date-received
+set index_format = "%4C %Z %{%b %d %R} %-15.15L (%?l?%4l&%4c?) %s"
+
+set sidebar_visible
+set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
+set mail_check_stats
+
+## Vim bindings
+source "~/.config/neomutt/bindings"
+
+## Private Account
+source "~/.config/neomutt/accounts/cirus"
+folder-hook $folder 'source ~/.config/neomutt/accounts/cirus'
+
+## IPT Account
+source "~/.config/neomutt/accounts/ipt"
+folder-hook $folder 'source ~/.config/neomutt/accounts/ipt'
+
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/ipt<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/cirus<enter><change-folder>!<enter>'

@@ -1,0 +1,35 @@
+# Moving around
+bind attach,browser,index,pager g   noop
+bind attach,browser,index       gg  first-entry
+bind attach,browser,index       G   last-entry
+bind pager                      gg  top
+bind pager                      G   bottom
+bind pager                      k   previous-line
+bind pager                      j   next-line
+
+# Scrolling
+bind attach,browser,pager,index \Cj next-page
+bind attach,browser,pager,index \Ck previous-page
+
+bind pager,index                d   noop
+bind pager,index                dd  delete-message
+
+# Mail & Reply
+bind pager,index                gr  group-reply
+
+# Threads
+bind browser,pager,index        N   search-opposite
+bind pager,index                dT  delete-thread
+bind pager,index                dt  delete-subthread
+bind pager,index                gt  next-thread
+bind pager,index                gT  previous-thread
+bind index                      za  collapse-thread
+bind index                      zA  collapse-all # Missing :folddisable/foldenable
+
+# Sidebar binds
+bind index,pager \Cp sidebar-prev                 # Ctrl-p to select previous folder
+bind index,pager \Cn sidebar-next                 # Ctrl-n to select next folder
+bind index,pager \Co sidebar-open                 # Ctrl-o to open selected folder
+bind index,pager \Cb sidebar-toggle-visible       # Ctrl-b to toggle visibility of the sidebar
+
+# vim:ft=neomuttrc
