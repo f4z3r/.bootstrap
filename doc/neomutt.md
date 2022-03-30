@@ -2,7 +2,7 @@
 
 ## Installation
 
-Install via `pacman`. Also install `msmtp`, and `pass`.
+Install via `pacman`. Also install `msmtp`, and `elinks`.
 
 ## Configuration
 

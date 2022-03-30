@@ -12,6 +12,10 @@ set sort_alias    = alias
 set reverse_alias = yes
 source $alias_file
 
+## Types
+set mailcap_path = "~/.config/neomutt/mailcap"
+auto_view text/html
+
 ## Theme
 source "~/.config/neomutt/colors"
 
@@ -33,9 +37,14 @@ source "~/.config/neomutt/bindings"
 source "~/.config/neomutt/accounts/cirus"
 folder-hook $folder 'source ~/.config/neomutt/accounts/cirus'
 
+## Private Account
+source "~/.config/neomutt/accounts/hotmailfr"
+folder-hook $folder 'source ~/.config/neomutt/accounts/hotmailfr'
+
 ## IPT Account
 source "~/.config/neomutt/accounts/ipt"
 folder-hook $folder 'source ~/.config/neomutt/accounts/ipt'
 
 macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/ipt<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/cirus<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/hotmailfr<enter><change-folder>!<enter>'
+macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/cirus<enter><change-folder>!<enter>'

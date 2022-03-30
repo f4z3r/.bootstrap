@@ -1,0 +1,3 @@
+text/html; elinks -dump -dump-color-mode 1; copiousoutput;
+application/pdf; mkdir -p /tmp/mutt \; cp %s /tmp/mutt \; mupdf /tmp/mutt/$(basename %s)
+image/*; mkdir -p /tmp/mutt \; cp %s /tmp/mutt \; feh /tmp/mutt/$(basename %s)
