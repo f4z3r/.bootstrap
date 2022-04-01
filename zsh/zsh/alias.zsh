@@ -12,7 +12,7 @@ alias -g syst="systemctl start"
 alias -g sysp="systemctl stop"
 
 # go to project root
-alias rt='cd $( if git rev-parse --show-toplevel &> /dev/null; then; git rev-parse --show-toplevel; else; echo ""; fi; )'
+alias rt='cd $( if git rev-parse --show-toplevel &> /dev/null; then; git rev-parse --show-toplevel; else; echo "."; fi; )'
 
 # vim
 alias vi="nvim"
