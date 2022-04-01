@@ -1,10 +1,18 @@
 ## General options
-set header_cache   = "~/.cache/neomutt"
-set imap_check_subscribed
-set imap_keepalive = 300
+set   imap_check_subscribed
+set   imap_keepalive = 300
 unset imap_passive
-set mail_check     = 60
-set mbox_type      = Maildir
+set   mail_check     = 60
+set   mbox_type      = Maildir
+unset move
+set   delete
+unset confirmappend
+set   quit
+unset mark_old
+set   pipe_decode
+set   thorough_search
+set header_cache     = ~/.cache/neomutt/headers
+set message_cachedir = ~/.cache/neomutt/bodies
 
 ## Aliases
 set alias_file    = "~/.config/neomutt/aliases"
@@ -16,6 +24,22 @@ source $alias_file
 set mailcap_path = "~/.config/neomutt/mailcap"
 auto_view text/html
 
+## View
+set sidebar_visible = yes
+set sidebar_width   = 24
+set sidebar_format  = "%B%?F? [%F]?%* %?N?%N/?%S"
+set status_chars    = " *%A"
+set status_format   = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+ignore *                                # ignore all headers
+unignore from: to: cc: date: subject:   # show only these
+unhdr_order *                           # some distros order things by default
+hdr_order from: to: cc: date: subject:  # and in this order
+
+## Address Management
+set query_command= "mates mutt-query '%s'"
+
 ## Theme
 source "~/.config/neomutt/colors"
 
@@ -24,10 +48,10 @@ set editor       = "nvim -c 'set tw=74' -c 'set wrap'"
 set sort         = threads
 set auto_tag     = yes
 set sort_aux     = reverse-last-date-received
-set index_format = "%4C %Z %{%b %d %R} %-15.15L (%?l?%4l&%4c?) %s"
+set uncollapse_jump
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
 
-set sidebar_visible
-set sidebar_format="%B%?F? [%F]?%* %?N?%N/?%S"
 set mail_check_stats
 
 ## Vim bindings
@@ -48,3 +72,5 @@ folder-hook $folder 'source ~/.config/neomutt/accounts/ipt'
 macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/ipt<enter><change-folder>!<enter>'
 macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/hotmailfr<enter><change-folder>!<enter>'
 macro index,pager <f4> '<sync-mailbox><enter-command>source ~/.config/neomutt/accounts/cirus<enter><change-folder>!<enter>'
+
+# mailboxes

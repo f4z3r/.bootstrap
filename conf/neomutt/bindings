@@ -17,6 +17,15 @@ bind pager,index                dd  delete-message
 # Mail & Reply
 bind pager,index                gr  group-reply
 
+# Email Composition
+bind editor                     <Tab> complete-query  # use tab for address completion
+bind editor                     ^T    complete
+
+# Address Management
+macro index,pager A \
+    "<pipe-message>mates add | xargs sh -c 'mates edit \"$@\" < /dev/tty || rm -v \"$@\"' mates<enter>" \
+    "add the sender address"
+
 # Threads
 bind browser,pager,index        N   search-opposite
 bind pager,index                dT  delete-thread

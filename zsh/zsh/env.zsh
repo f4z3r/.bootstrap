@@ -45,6 +45,10 @@ setopt sharehistory
 # XDG
 export XDG_CONFIG_PATH="${HOME}/.config"
 
+# Mates
+export MATES_DIR="$HOME/.local/share/contacts"
+export MATES_INDEX="$HOME/.local/share/mates-index"
+
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore .cache -g ""'
