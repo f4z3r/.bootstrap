@@ -1,3 +1,4 @@
+api.Hints.characters              = 'asdfgweruio';
 api.Hints.numericHints            = false;        // Whether to use digit as hint label, if it is on, you could type text to filter links.
 settings.showModeStatus           = false;        // Whether always to show mode status.
 settings.richHintsForKeystroke    = 500;          // Timeout(ms) to show rich hints for keystroke, 0 will disable rich hints.
@@ -34,7 +35,7 @@ settings.cursorAtEndOfInput       = true;         // Whether to put cursor at en
 settings.digitForRepeat           = true;         // Whether digits are reserved for repeats, by false to enable mapping of numeric keys.
 settings.editableBodyCare         = true;         // Insert mode is activated automatically when an editable element is focused, so if document.body is editable for some window/iframe (such as docs.google.com), Insert mode is always activated on the window/iframe, which means all shortcuts from Normal mode will not be available. With editableBodyCare as true, Insert mode will not be activated automatically in this case.
 
-api.imap('fd', '<Esc>');
+api.imap(';;', '<Esc>');
 api.cmap('<Ctrl-j>', '<Tab>');
 api.cmap('<Ctrl-k>', '<Shift-Tab>');
 
