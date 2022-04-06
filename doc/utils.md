@@ -320,3 +320,11 @@ Installed from the AUR.
 ### Installation
 
 Installed via `pacman`.
+
+## watchexec
+
+> Automatically execute command when files change.
+
+### Installation
+
+Installed via `pacman`.
