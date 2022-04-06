@@ -78,8 +78,8 @@ end
 
 -- {{{ Variable definitions
 
-local modkey       = "Mod4"
-local altkey       = "Mod1"
+local modkey       = "Mod1"
+local altkey       = "Mod4"
 local terminal     = "kitty tmux"
 local editor       = os.getenv("EDITOR") or "nvim"
 local guieditor    = "kitty tmux new -s vim"

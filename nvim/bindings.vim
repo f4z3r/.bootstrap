@@ -150,14 +150,14 @@ nnoremap <c-k> 10k
 vnoremap <c-j> 10j
 vnoremap <c-k> 10k
 " Scrolling by visual line
-nnoremap <a-j> gj
-nnoremap <a-k> gk
-vnoremap <a-j> gj
-vnoremap <a-k> gk
-nnoremap <a-h> g0
-nnoremap <a-l> g$
-vnoremap <a-h> g0
-vnoremap <a-l> g$
+nnoremap <M-j> gj
+nnoremap <M-k> gk
+vnoremap <M-j> gj
+vnoremap <M-k> gk
+nnoremap <M-h> g0
+nnoremap <M-l> g$
+vnoremap <M-h> g0
+vnoremap <M-l> g$
 " Fast front back line movement
 nnoremap <c-h> zH_
 nnoremap <c-l> $
@@ -458,7 +458,7 @@ xnoremap <silent> p p:let @"=@0<cr>
 " Copy default register contents to system copy clipboard
 nnoremap <silent> <leader>yy :call bootstrap#system#copy_to_clipboard()<cr>
 " change last written word to UPPER_CASE
-inoremap <a-l> <esc>bviwUea
+inoremap <M-l> <esc>bviwUea
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
