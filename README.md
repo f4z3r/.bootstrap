@@ -21,9 +21,10 @@ scratch.
 Configure minimal `vim` and `zsh` (or `bash`) setup using:
 
 ```bash
-make vim-minimal
-make zsh-minimal
-make bash-minimal
+# also possible via make
+just vim-minimal  
+just zsh-minimal
+just bash-minimal
 ```
 
 ## Manjaro Install
@@ -41,7 +42,7 @@ Install `git` to clone this repository. Also generate ssh keys.
 > Maybe configure the appropriate mirror list before performing the `pacman` udpate:
 >
 > ```bash
-> make configure-pacman-mirrors    # (in .bootstrap) or
+> just configure-pacman-mirrors    # (in .bootstrap) or
 > sudo pacman-mirrors -c Switzerland,Austria,Germany,Italy,Belgium
 > ```
 
@@ -55,7 +56,7 @@ ssh-keygen -t rsa -b 4096
 Install `zsh` and configure it.
 
 ```bash
-sudo pacman -S zsh zsh-syntax-highlighting zsh-completions zsh-autosuggestions exa ripgrep
+sudo pacman -S zsh zsh-syntax-highlighting zsh-completions zsh-autosuggestions exa ripgrep just
 ```
 
 > Note `exa` can also be installed via `cargo install`.
@@ -64,7 +65,7 @@ Set `zsh` to the default shell using `chsh -s`. Link configuration all files.
 
 ```bash
 cd ~/.bootstrap/
-make configure
+just configure
 ```
 
 ### Install Fura Code
