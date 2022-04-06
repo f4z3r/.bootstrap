@@ -16,7 +16,7 @@ settings.modeAfterYank            = '';           // Which mode to fall back aft
 settings.scrollStepSize           = 350;          // A step size for each move by j/k
 settings.scrollFriction           = 0;            // A force that is needed to start continuous scrolling after initial scroll step. A bigger number will cause a flicker after initial step, but help to keep the first step precise.
 settings.hintAlign                = 'center';     // Alignment of hints on their target elements. ["left", "center", "right"]
-settings.defaultSearchEngine      = 'g';          // The default search engine used in Omnibar.
+settings.defaultSearchEngine      = 'd';          // The default search engine used in Omnibar.
 settings.blacklistPattern         = undefined;    // A regex to match the sites that will have Surfingkeys disabled.
 settings.focusAfterClosed         = 'right';      // Which side of tab will be focused after current tab closed. ["left", "right"]
 settings.repeatThreshold          = 99;           // The maximum of actions to be repeated.
@@ -36,6 +36,8 @@ settings.digitForRepeat           = true;         // Whether digits are reserved
 settings.editableBodyCare         = true;         // Insert mode is activated automatically when an editable element is focused, so if document.body is editable for some window/iframe (such as docs.google.com), Insert mode is always activated on the window/iframe, which means all shortcuts from Normal mode will not be available. With editableBodyCare as true, Insert mode will not be activated automatically in this case.
 
 api.imap(';;', '<Esc>');
+api.vmap(';;', '<Esc>');
+api.cmap(';;', '<Esc>');
 api.cmap('<Ctrl-j>', '<Tab>');
 api.cmap('<Ctrl-k>', '<Shift-Tab>');
 
