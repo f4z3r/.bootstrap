@@ -10,6 +10,7 @@ regular their regular counterpart.
 * [fd](#fd)
 * [bat](#bat)
 * [exa](#exa)
+* [rip](#rip)
 * [procs](#procs)
   * [Configuration](#configuration)
 * [sd](#sd)
@@ -29,6 +30,10 @@ regular their regular counterpart.
   * [Installation](#installation)
   * [Usage](#usage)
 * [feh](#feh)
+  * [Installation](#installation)
+* [gfold](#gfold)
+  * [Installation](#installation)
+* [t-rec](#t-rec)
   * [Installation](#installation)
 * [peek](#peek)
   * [Installation](#installation)
@@ -144,6 +149,14 @@ Can syntax highlight a lot of files. Uses `ncurses` to achieve a cleaner interfa
 Has more colourful output. Integrates with `git` to show changes on long list.
 
 > Installed via `pacman`.
+
+## rip
+
+> Alternative to `rm`.
+
+Uses trash and recovery.
+
+> Installed via `pacman` as `rm-improved`.
 
 ## procs
 
@@ -283,6 +296,22 @@ zr /foo     # remove /foo from the database
 ### Installation
 
 Installed via `pacman`.
+
+## gfold
+
+> Finds git repositories on your machine.
+
+### Installation
+
+Installed via `pacman`.
+
+## t-rec
+
+> Records terminal sessions and turns them into GIFs.
+
+### Installation
+
+Installed from the AUR.
 
 ## peek
 

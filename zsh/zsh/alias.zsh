@@ -46,6 +46,11 @@ alias cset=' clipcat-menu --finder=builtin insert'
 alias l="exa -Fa"
 alias ll="exa -alF --git"
 
+# rm (use rip instead)
+if command rip &> /dev/null; then
+  alias rm="rip"
+fi
+
 # kubernetes
 alias k="kubectl"
 alias -g pf="port-forward"
