@@ -38,3 +38,12 @@ xrandr --newmode <modeline>                 # create mode
 xrandr --addmode <output> <mode-name>       # add mode to output source
 xrandr --output <output> --mode <mode-name> # activate the mode
 ```
+
+## Changing Resolution
+
+```sh
+# get IDs of the connected displays
+xrandr | grep -w connected
+# then set new resolution
+xrandr --output <ID> --mode 5120x1440
+```
