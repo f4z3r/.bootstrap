@@ -12,10 +12,10 @@ let mapleader = "\<Space>"
 
 " ==== ESC remaps ========================================================{{{
 " <Esc> remaps
-nnoremap fd <esc>
-inoremap fd <esc>
-vnoremap fd <esc>
-cnoremap fd <esc>
+nnoremap yu <esc>
+inoremap yu <esc>
+vnoremap yu <esc>
+cnoremap yu <esc>
 tnoremap <esc> <c-\><c-N>
 " }}}
 
@@ -145,6 +145,10 @@ imap <c-j> <Plug>(coc-snippets-expand-jump)
 
 " ==== Movement =========================================================={{{
 " Fast scrolling
+nnoremap <c-e> k
+nnoremap <c-n> j
+nnoremap <c-i> $
+nnoremap <c-m> zH_
 nnoremap <c-j> 10j
 nnoremap <c-k> 10k
 vnoremap <c-j> 10j

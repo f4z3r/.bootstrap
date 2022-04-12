@@ -27,6 +27,22 @@ just zsh-minimal
 just bash-minimal
 ```
 
+## Setup Colemak
+
+Modify `/etc/X11/xorg.conf.d/00-keyboard.conf` to contain:
+
+```conf
+# Read and parsed by systemd-localed. It's probably wise not to edit this file
+# manually too freely.
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "us"
+        Option "XkbModel" "pc105"
+        Option "XkbVariant" "colemak_dh"
+EndSection
+```
+
 ## Manjaro Install
 
 Get a live bootable USB with XFCE version of Manjaro. Install it with `cryptomount` but without any

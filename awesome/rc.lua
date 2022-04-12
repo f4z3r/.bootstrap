@@ -392,7 +392,7 @@ globalkeys = my_table.join(
 
   -- == Client ==
   -- focus down
-  awful.key({ modkey }, "j",
+  awful.key({ modkey }, "n",
     function()
       awful.client.focus.global_bydirection("down")
       if client.focus then client.focus:raise() end
@@ -400,7 +400,7 @@ globalkeys = my_table.join(
     {description = "focus down", group = "client"}),
 
   -- focus up
-  awful.key({ modkey }, "k",
+  awful.key({ modkey }, "e",
     function()
       awful.client.focus.global_bydirection("up")
       if client.focus then client.focus:raise() end
