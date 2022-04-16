@@ -145,39 +145,56 @@ imap <c-j> <Plug>(coc-snippets-expand-jump)
 
 " ==== Movement =========================================================={{{
 " Fast scrolling
-nnoremap <c-e> k
-nnoremap <c-n> j
-nnoremap <c-i> $
-nnoremap <c-m> zH_
-nnoremap <c-j> 10j
-nnoremap <c-k> 10k
-vnoremap <c-j> 10j
-vnoremap <c-k> 10k
+nnoremap n j
+nnoremap e k
+nnoremap i l
+nnoremap N J
+nnoremap E K
+nnoremap I L
+vnoremap n j
+vnoremap e k
+vnoremap i l
+vnoremap N J
+vnoremap E K
+vnoremap I L
+
+" Remap overrides
+nnoremap u i
+vnoremap U I
+nnoremap l u
+vnoremap L U
+
+" Fast scrolling
+nnoremap <c-n> 10j
+nnoremap <c-e> 10k
+vnoremap <c-n> 10j
+vnoremap <c-e> 10k
+
 " Scrolling by visual line
-nnoremap <M-j> gj
-nnoremap <M-k> gk
-vnoremap <M-j> gj
-vnoremap <M-k> gk
+nnoremap <M-n> gj
+nnoremap <M-e> gk
+vnoremap <M-n> gj
+vnoremap <M-e> gk
 nnoremap <M-h> g0
-nnoremap <M-l> g$
+nnoremap <M-i> g$
 vnoremap <M-h> g0
-vnoremap <M-l> g$
+vnoremap <M-i> g$
 " Fast front back line movement
 nnoremap <c-h> zH_
-nnoremap <c-l> $
+nnoremap <c-i> $
 vnoremap <c-h> zH_
-vnoremap <c-l> $
+vnoremap <c-i> $
 onoremap <c-h> _
-onoremap <c-l> $
+onoremap <c-i> $
 " Enable camelCase inner word motion with WORD
 map <silent> W <Plug>CamelCaseMotion_w
 map <silent> B <Plug>CamelCaseMotion_b
-map <silent> E <Plug>CamelCaseMotion_e
-map <silent> gE <Plug>CamelCaseMotion_ge
+map <silent> F <Plug>CamelCaseMotion_e
+map <silent> gF <Plug>CamelCaseMotion_ge
 sunmap W
 sunmap B
-sunmap E
-sunmap gE
+sunmap F
+sunmap gF
 
 " Easy movement in insert mode
 " delete word and char already default <c-w> and <c-h> respectively
@@ -233,8 +250,8 @@ vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
 " (s)earch (n)otes
 nnoremap <leader>sn :Pad search<cr>
 " make all searches appear in the middle of the screen
-nnoremap n nzz
-nnoremap N Nzz
+nnoremap k nzz
+nnoremap K Nzz
 nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
