@@ -160,8 +160,12 @@ vnoremap I L
 
 " Remap overrides
 nnoremap u i
+nnoremap U I
+vnoremap u i
 vnoremap U I
 nnoremap l u
+nnoremap L U
+vnoremap l u
 vnoremap L U
 
 " Fast scrolling

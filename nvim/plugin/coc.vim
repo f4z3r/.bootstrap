@@ -34,7 +34,7 @@ function! s:show_documentation()
     call CocAction('doHover')
   endif
 endfunction
-nnoremap <silent> K :call <SID>show_documentation()<cr>
+nnoremap <silent> H :call <SID>show_documentation()<cr>
 
 function! s:check_back_space() abort
   let col = col('.') - 1

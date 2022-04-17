@@ -12,8 +12,14 @@ bindkey '^x^e' edit-command-line
 bindkey "yu" vi-cmd-mode
 bindkey "^n" vi-down-line-or-history
 bindkey "^e" vi-up-line-or-history
+bindkey -a "^n" vi-down-line-or-history
+bindkey -a "^e" vi-up-line-or-history
+bindkey -a "i" vi-forward-char
+bindkey -a "u" vi-insert
+bindkey -a "U" vi-insert-bol
+bindkey -a "l" undo
 bindkey -a "^h" vi-beginning-of-line
-bindkey -a "^l" vi-end-of-line
+bindkey -a "^i" vi-end-of-line
 bindkey "^f" forward-char
 
 
