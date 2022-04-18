@@ -43,6 +43,10 @@ api.cmap('<Ctrl-j>', '<Tab>');
 api.cmap('<Ctrl-k>', '<Shift-Tab>');
 api.map('n', 'j')
 api.map('e', 'k')
+api.map('i', 'l')
+api.map('u', 'i')
+api.map('U', 'I')
+api.map('l', 'u')
 
 api.Hints.style(`
   background: initial !important;
