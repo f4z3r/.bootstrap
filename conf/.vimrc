@@ -54,10 +54,10 @@ let mapleader = "\<Space>"
 
 " ==== ESC remaps ========================================================{{{
 " <Esc> remaps
-nnoremap fd <esc>
-inoremap fd <esc>
-vnoremap fd <esc>
-cnoremap fd <esc>
+nnoremap yu <esc>
+inoremap yu <esc>
+vnoremap yu <esc>
+cnoremap yu <esc>
 if has('nvim')
   tnoremap <esc> <c-\><c-N>
 endif
@@ -99,18 +99,51 @@ nnoremap <leader>lc :lclose<cr>
 
 
 " ==== Movement =========================================================={{{
+nnoremap n j
+nnoremap e k
+nnoremap i l
+nnoremap N J
+nnoremap E K
+nnoremap I L
+vnoremap n j
+vnoremap e k
+vnoremap i l
+vnoremap N J
+vnoremap E K
+vnoremap I L
+
+" Remap overrides
+nnoremap u i
+nnoremap U I
+vnoremap u i
+vnoremap U I
+nnoremap l u
+nnoremap L U
+vnoremap l u
+vnoremap L U
+
 " Fast scrolling
-nnoremap <c-j> 10j
-nnoremap <c-k> 10k
-vnoremap <c-j> 10j
-vnoremap <c-k> 10k
+nnoremap <c-n> 10j
+nnoremap <c-e> 10k
+vnoremap <c-n> 10j
+vnoremap <c-e> 10k
+
+" Scrolling by visual line
+nnoremap <M-n> gj
+nnoremap <M-e> gk
+vnoremap <M-n> gj
+vnoremap <M-e> gk
+nnoremap <M-h> g0
+nnoremap <M-i> g$
+vnoremap <M-h> g0
+vnoremap <M-i> g$
 " Fast front back line movement
 nnoremap <c-h> zH_
-nnoremap <c-l> $
+nnoremap <c-i> $
 vnoremap <c-h> zH_
-vnoremap <c-l> $
+vnoremap <c-i> $
 onoremap <c-h> _
-onoremap <c-l> $
+onoremap <c-i> $
 
 " Easy movement in insert mode
 " delete word and char already default <c-w> and <c-h> respectively
@@ -191,18 +224,18 @@ nnoremap <leader>ws :split<cr>
 " (w)indow (r)esize (balances all windows)
 nnoremap <leader>wr <c-w>=
 " (w)indow focus l
-nnoremap <leader>wl <c-w>lzH
+nnoremap <leader>wi <c-w>lzH
 " (w)indow focus h
 nnoremap <leader>wh <c-w>hzH
 " (w)indow focus j
-nnoremap <leader>wj <c-w>jzH
+nnoremap <leader>wn <c-w>jzH
 " (w)indow focus k
-nnoremap <leader>wk <c-w>kzH
+nnoremap <leader>we <c-w>kzH
 if has('nvim')
-  tnoremap <leader>wl <c-\><c-N><c-w>lzH
+  tnoremap <leader>wi <c-\><c-N><c-w>lzH
   tnoremap <leader>wh <c-\><c-N><c-w>hzH
-  tnoremap <leader>wj <c-\><c-N><c-w>jzH
-  tnoremap <leader>wk <c-\><c-N><c-w>kzH
+  tnoremap <leader>wn <c-\><c-N><c-w>jzH
+  tnoremap <leader>we <c-\><c-N><c-w>kzH
 endif
 " (w)indow (t)ab new
 nnoremap <leader>wt :$tabnew<cr>

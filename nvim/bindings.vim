@@ -144,7 +144,7 @@ imap <c-j> <Plug>(coc-snippets-expand-jump)
 
 
 " ==== Movement =========================================================={{{
-" Fast scrolling
+" Scrolling
 nnoremap n j
 nnoremap e k
 nnoremap i l
@@ -163,8 +163,8 @@ nnoremap u i
 nnoremap U I
 vnoremap u i
 vnoremap U I
-nnoremap l <Plug>(RepeatUndo)
-nnoremap L <Plug>(RepeatUndoLine)
+nnoremap l u
+nnoremap L U
 vnoremap l u
 vnoremap L U
 
@@ -372,17 +372,17 @@ nnoremap <leader>wr <c-w>=
 " (w)indow = equalize
 nnoremap <leader>w= <c-w>=
 " (w)indow focus l
-nnoremap <leader>wl <c-w>lzH
-tnoremap <leader>wl <c-\><c-N><c-w>lzH
+nnoremap <leader>wi <c-w>lzH
+tnoremap <leader>wi <c-\><c-N><c-w>lzH
 " (w)indow focus h
 nnoremap <leader>wh <c-w>hzH
 tnoremap <leader>wh <c-\><c-N><c-w>hzH
 " (w)indow focus j
-nnoremap <leader>wj <c-w>jzH
-tnoremap <leader>wj <c-\><c-N><c-w>jzH
+nnoremap <leader>wn <c-w>jzH
+tnoremap <leader>wn <c-\><c-N><c-w>jzH
 " (w)indow focus k
-nnoremap <leader>wk <c-w>kzH
-tnoremap <leader>wk <c-\><c-N><c-w>kzH
+nnoremap <leader>we <c-w>kzH
+tnoremap <leader>we <c-\><c-N><c-w>kzH
 " (w)indow (t)ab new
 nnoremap <leader>wt :$tabnew<cr>
 " }}}
