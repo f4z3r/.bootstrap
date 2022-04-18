@@ -163,8 +163,8 @@ nnoremap u i
 nnoremap U I
 vnoremap u i
 vnoremap U I
-nnoremap l u
-nnoremap L U
+nnoremap l <Plug>(RepeatUndo)
+nnoremap L <Plug>(RepeatUndoLine)
 vnoremap l u
 vnoremap L U
 
