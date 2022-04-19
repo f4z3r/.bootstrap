@@ -165,8 +165,6 @@ vnoremap u i
 vnoremap U I
 nnoremap l u
 nnoremap L <Plug>(RepeatUndo)
-vnoremap l u
-vnoremap L U
 
 " Fast scrolling
 nnoremap <c-n> 10j
