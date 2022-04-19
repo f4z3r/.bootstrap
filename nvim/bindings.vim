@@ -164,7 +164,7 @@ nnoremap U I
 vnoremap u i
 vnoremap U I
 nnoremap l u
-nnoremap L U
+nnoremap L <Plug>(RepeatUndo)
 vnoremap l u
 vnoremap L U
 
