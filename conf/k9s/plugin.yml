@@ -9,3 +9,14 @@ plugin:
     background: false
     args:
       - $COL-IMAGE
+  move-down:
+    shortCut: n
+    confirm: false
+    description: "Move down"
+    scopes:
+      - all
+    command: xdotool
+    background: true
+    args:
+      - key
+      - j

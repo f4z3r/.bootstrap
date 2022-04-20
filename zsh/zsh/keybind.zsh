@@ -9,17 +9,13 @@ zle -N edit-command-line
 bindkey '^x^e' edit-command-line
 
 # Add custom binds
-bindkey "yu" vi-cmd-mode
+bindkey "^y" vi-cmd-mode
 bindkey "^n" vi-down-line-or-history
-bindkey "^e" vi-up-line-or-history
+bindkey "^k" vi-up-line-or-history
 bindkey -a "^n" vi-down-line-or-history
-bindkey -a "^e" vi-up-line-or-history
-bindkey -a "i" vi-forward-char
-bindkey -a "u" vi-insert
-bindkey -a "U" vi-insert-bol
-bindkey -a "l" undo
+bindkey -a "^k" vi-up-line-or-history
 bindkey -a "^h" vi-beginning-of-line
-bindkey -a "^i" vi-end-of-line
+bindkey -a "^l" vi-end-of-line
 bindkey "^f" forward-char
 
 

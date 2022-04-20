@@ -400,7 +400,7 @@ globalkeys = my_table.join(
     {description = "focus down", group = "client"}),
 
   -- focus up
-  awful.key({ modkey }, "e",
+  awful.key({ modkey }, "k",
     function()
       awful.client.focus.global_bydirection("up")
       if client.focus then client.focus:raise() end
@@ -416,7 +416,7 @@ globalkeys = my_table.join(
     {description = "focus left", group = "client"}),
 
   -- focus right
-  awful.key({ modkey }, "i",
+  awful.key({ modkey }, "l",
     function()
       awful.client.focus.global_bydirection("right")
       if client.focus then client.focus:raise() end
@@ -424,25 +424,25 @@ globalkeys = my_table.join(
     {description = "focus right", group = "client"}),
 
   -- focus next
-  awful.key({ modkey, altkey }, "u",
+  awful.key({ modkey, altkey }, "y",
     function ()
       awful.client.focus.byidx( 1)
     end,
     {description = "focus next by index", group = "client"}),
 
   -- focus previous
-  awful.key({ modkey, altkey }, "l",
+  awful.key({ modkey, altkey }, "u",
     function ()
       awful.client.focus.byidx(-1)
     end,
     {description = "focus previous by index", group = "client"}),
 
   -- swap with next
-  awful.key({ modkey,        }, "u", function () awful.client.swap.byidx(  1)    end,
+  awful.key({ modkey,        }, "y", function () awful.client.swap.byidx(  1)    end,
     {description = "swap with next client by index", group = "client"}),
 
   -- swap with previous
-  awful.key({ modkey,        }, "l", function () awful.client.swap.byidx( -1)    end,
+  awful.key({ modkey,        }, "u", function () awful.client.swap.byidx( -1)    end,
     {description = "swap with previous client by index", group = "client"}),
 
   -- cycle clients

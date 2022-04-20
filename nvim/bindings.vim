@@ -12,10 +12,10 @@ let mapleader = "\<Space>"
 
 " ==== ESC remaps ========================================================{{{
 " <Esc> remaps
-nnoremap yu <esc>
-inoremap yu <esc>
-vnoremap yu <esc>
-cnoremap yu <esc>
+nnoremap <c-y> <esc>
+inoremap <c-y> <esc>
+vnoremap <c-y> <esc>
+cnoremap <c-y> <esc>
 tnoremap <esc> <c-\><c-N>
 " }}}
 
@@ -146,57 +146,41 @@ imap <c-j> <Plug>(coc-snippets-expand-jump)
 " ==== Movement =========================================================={{{
 " Scrolling
 nnoremap n j
-nnoremap e k
-nnoremap i l
 nnoremap N J
-nnoremap E K
-nnoremap I L
 vnoremap n j
-vnoremap e k
-vnoremap i l
 vnoremap N J
-vnoremap E K
-vnoremap I L
-
-" Remap overrides
-nnoremap u i
-nnoremap U I
-vnoremap u i
-vnoremap U I
-nnoremap l u
-nnoremap L <Plug>(RepeatUndo)
 
 " Fast scrolling
 nnoremap <c-n> 10j
-nnoremap <c-e> 10k
+nnoremap <c-k> 10k
 vnoremap <c-n> 10j
-vnoremap <c-e> 10k
+vnoremap <c-k> 10k
 
 " Scrolling by visual line
 nnoremap <M-n> gj
-nnoremap <M-e> gk
+nnoremap <M-k> gk
 vnoremap <M-n> gj
-vnoremap <M-e> gk
+vnoremap <M-k> gk
 nnoremap <M-h> g0
-nnoremap <M-i> g$
+nnoremap <M-l> g$
 vnoremap <M-h> g0
-vnoremap <M-i> g$
+vnoremap <M-l> g$
 " Fast front back line movement
 nnoremap <c-h> zH_
-nnoremap <c-i> $
+nnoremap <c-l> $
 vnoremap <c-h> zH_
-vnoremap <c-i> $
+vnoremap <c-l> $
 onoremap <c-h> _
-onoremap <c-i> $
+onoremap <c-l> $
 " Enable camelCase inner word motion with WORD
 map <silent> W <Plug>CamelCaseMotion_w
 map <silent> B <Plug>CamelCaseMotion_b
-map <silent> F <Plug>CamelCaseMotion_e
-map <silent> gF <Plug>CamelCaseMotion_ge
+map <silent> E <Plug>CamelCaseMotion_e
+map <silent> gE <Plug>CamelCaseMotion_ge
 sunmap W
 sunmap B
-sunmap F
-sunmap gF
+sunmap E
+sunmap gE
 
 " Easy movement in insert mode
 " delete word and char already default <c-w> and <c-h> respectively
@@ -252,8 +236,8 @@ vnoremap // y/\V<c-r>=escape(@",'/\')<cr><cr>
 " (s)earch (n)otes
 nnoremap <leader>sn :Pad search<cr>
 " make all searches appear in the middle of the screen
-nnoremap k nzz
-nnoremap K Nzz
+nnoremap j nzz
+nnoremap J Nzz
 nnoremap * *zz
 nnoremap # #zz
 nnoremap g* g*zz
@@ -370,8 +354,8 @@ nnoremap <leader>wr <c-w>=
 " (w)indow = equalize
 nnoremap <leader>w= <c-w>=
 " (w)indow focus l
-nnoremap <leader>wi <c-w>lzH
-tnoremap <leader>wi <c-\><c-N><c-w>lzH
+nnoremap <leader>wl <c-w>lzH
+tnoremap <leader>wl <c-\><c-N><c-w>lzH
 " (w)indow focus h
 nnoremap <leader>wh <c-w>hzH
 tnoremap <leader>wh <c-\><c-N><c-w>hzH
@@ -379,8 +363,8 @@ tnoremap <leader>wh <c-\><c-N><c-w>hzH
 nnoremap <leader>wn <c-w>jzH
 tnoremap <leader>wn <c-\><c-N><c-w>jzH
 " (w)indow focus k
-nnoremap <leader>we <c-w>kzH
-tnoremap <leader>we <c-\><c-N><c-w>kzH
+nnoremap <leader>wk <c-w>kzH
+tnoremap <leader>wk <c-\><c-N><c-w>kzH
 " (w)indow (t)ab new
 nnoremap <leader>wt :$tabnew<cr>
 " }}}
