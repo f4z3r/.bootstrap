@@ -232,6 +232,10 @@ if dein#load_state('~/.cache/dein')
         \'GolangTestFocused'
         \]})
 
+  " Support for tmux golang
+  call dein#add('sebdah/vim-delve',
+        \{'on_ft': ['go']})
+
   " javascript and typescript libraries
   call dein#add('othree/javascript-libraries-syntax.vim',
         \{'on_ft': ['javascript', 'typescript']})

@@ -22,7 +22,7 @@ Configure minimal `vim` and `zsh` (or `bash`) setup using:
 
 ```bash
 # also possible via make
-just vim-minimal  
+just vim-minimal
 just zsh-minimal
 just bash-minimal
 ```

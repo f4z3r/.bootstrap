@@ -2,7 +2,7 @@
 
 ## Binaries Installation
 
-Install the `go` and `go-tools` packages.
+Install the `go`, `delve`, and `go-tools` packages.
 
 ## Coc Extension
 
