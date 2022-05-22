@@ -18,13 +18,13 @@ let g:ale_sign_warning = ''
 " set error message format
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-" lint only on insert leave
+let g:ale_echo_msg_format = '[%linter% - %severity%] %s'
+" lint only on save
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
-" fix on save
+" never fix automatically, only manually
 let g:ale_fix_on_save = 0
 " disable some linters (clangd, hie) and enable others (mypy)
 let g:ale_linters = {
@@ -39,6 +39,7 @@ let g:ale_linters = {
       \ 'perl': ['perl', 'perlcritic'],
       \ 'json': ['jsonlint'],
       \ 'lua': ['luacheck'],
+      \ 'go': ['revive'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -51,6 +52,7 @@ let g:ale_fixers = {
       \ 'perl': ['perltidy'],
       \ 'json': ['jq', 'fixjson'],
       \ 'lua': ['stylua'],
+      \ 'go': ['gofmt'],
       \}
 " rust options
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')

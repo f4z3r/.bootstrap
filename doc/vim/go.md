@@ -2,7 +2,7 @@
 
 ## Binaries Installation
 
-Install the `go`, `delve`, and `go-tools` packages.
+Install the `go`, `delve`, `revive`, and `go-tools` packages.
 
 ## Coc Extension
 
@@ -12,7 +12,7 @@ Install the `coc` extension.
 CocInstall coc-go
 ```
 
-## Go Usage
+## Go Usage [DEPRECATED]
 
 Go uses the principle of a `$GOPATH`, where all source code (both self-written and dependencies),
 binaries, and packages live. By default it is at `$HOME/go`, but can be modified.
