@@ -50,12 +50,10 @@
 	d = diff
 	aa = add .
 	a = add
-	ac = commit -am
-	acs = commit -aSm
-	cc = commit -m
-	cs = commit -Sm
-	ca = commit --amend -C HEAD
-	ce = commit --amend -m
+	acs = commit -aS -m
+	cc = commit -S -m
+	ca = commit --amend -S -C HEAD
+	ce = commit --amend -S -m
 	co = checkout
 	re = reset
 	s  = status -sb
