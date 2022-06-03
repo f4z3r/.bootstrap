@@ -221,6 +221,14 @@ local service_widget = systemctl_widget:new({
         name = "NetworkManager.service",
         symbol = "\u{fbf3}"
       },
+      proton = {
+        name = "openvpn-client@proton-*.service",
+        symbol = "\u{fa62}"
+      },
+      proton_tor = {
+        name = "openvpn-client@proton-*-tor.service",
+        symbol = "\u{fa29}"
+      },
       cron = {
         name = "cronie.service",
         symbol = "\u{f01e}"
