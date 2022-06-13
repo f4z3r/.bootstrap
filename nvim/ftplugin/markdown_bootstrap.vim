@@ -33,8 +33,6 @@ setlocal nojoinspaces
 " ==== Indent ============================================================{{{
 setlocal shiftwidth=4
 setlocal tabstop=4
-setlocal smarttab
-setlocal noexpandtab
 " }}}
 
 
