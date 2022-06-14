@@ -15,4 +15,11 @@ Set the vault to be in `~/data/obsidian/` and ensure the following:
 
 You can sync the vault with Google drive via `rclone`.
 
-<!-- TODO(@jakob): document how to sync -->
+In order to then pull data you can use:
+
+```sh
+# copy remote to local
+rclone sync iptdrive:/ /home/jakob/data/obsidian/
+# copy local to remote
+rclone sync  /home/jakob/data/obsidian/ iptdrive:/
+```
