@@ -304,8 +304,14 @@ nnoremap <leader>gA :Git commit --amend<cr>
 nnoremap <leader>gm :Gmove
 " (g)it (b)lame
 nnoremap <leader>gb :Gblame<cr>
+" Use for merge conflicts, head refers to local changes, last refers to pulled
+" changes.
 " (g)it (d)iff
-nnoremap <leader>gd :Gdiffsplit<cr>
+nnoremap <leader>gd :Gvdiffsplit!<cr>
+" (g)it diff (h)ead
+nnoremap <leader>gh :diffset //2<cr>
+" (g)it diff last(z)
+nnoremap <leader>gz :diffset //3<cr>
 " }}}
 
 
