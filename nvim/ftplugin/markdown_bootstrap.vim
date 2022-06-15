@@ -30,12 +30,6 @@ setlocal nojoinspaces
 " }}}
 
 
-" ==== Indent ============================================================{{{
-setlocal shiftwidth=4
-setlocal tabstop=4
-" }}}
-
-
 " ==== Spelling =========================================================={{{
 setlocal spell
 " }}}
