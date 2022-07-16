@@ -222,13 +222,15 @@ nnoremap <leader>sS <cmd>lua require('telescope.builtin').search_history()<cr>
 nnoremap <leader>sh <cmd>lua require('telescope.builtin').command_history()<cr>
 
 " (s)earch (r)eferences
-nnoremap <leader>sr <cmd>lua require('telescope.builtin').lsp_references()<cr>
+nnoremap <leader>sr :Telescope coc references_used<cr>
 " (s)earch (d)efinitions
-nnoremap <leader>sd <cmd>lua require('telescope.builtin').lsp_definitions()<cr>
+nnoremap <leader>sd :Telescope coc definitions<cr>
 " (s)earch (i)mplementations
-nnoremap <leader>si <cmd>lua require('telescope.builtin').lsp_implementations()<cr>
+nnoremap <leader>si :Telescope coc implementations<cr>
 " (s)earch (s)ymbols
-nnoremap <leader>ss <cmd>lua require('telescope.builtin').lsp_workspace_symbols()<cr>
+nnoremap <leader>ss :Telescope coc document_symbols<cr>
+" (s)earch (w)orkspace symbols
+nnoremap <leader>sw :Telescope coc workspace_symbols<cr>
 
 " see plugin/grep-operator.vim (ss)
 " search for visual selection using //
@@ -246,8 +248,6 @@ nnoremap g# g#zz
 
 
 " ==== Machine (System) =================================================={{{
-" machine escape terminal mode
-tnoremap <leader>tt <c-\><c-N>
 " (m)achine open terminal in (t)ab
 nnoremap <leader>mt :tabnew<cr>:terminal<cr>a
 " (m)achine open terminal on (s)split
@@ -269,19 +269,19 @@ nnoremap <leader>mu :execute 'tcd' . bootstrap#system#get_project_root()<cr>
 
 " ==== Toggles ==========================================================={{{
 " (t)oggle (t)agbar
-nnoremap <leader>tt :TagbarToggle<cr>
+nnoremap <localleader>tt :TagbarToggle<cr>
 " (t)oggle colorcolumn (l)ine
-nnoremap <leader>tl :set colorcolumn=100<cr>
+nnoremap <localleader>tl :set colorcolumn=100<cr>
 " (t)oggle (g)olden ratio
-nnoremap <leader>tg :GoldenRatioToggle<cr>
+nnoremap <localleader>tg :GoldenRatioToggle<cr>
 " (t)oggle (u)ndo tree
-nnoremap <leader>tu :GundoToggle<cr>
+nnoremap <localleader>tu :GundoToggle<cr>
 " (t)oggle (b)ackground
-nnoremap <leader>tb :call bootstrap#system#toggle_background()<cr>
+nnoremap <localleader>tb :call bootstrap#system#toggle_background()<cr>
 " (t)oggle (s)yntax
-nnoremap <expr> <leader>ts exists('g:syntax_on') ? ':syntax off<cr>' : ':syntax enable<cr>'
+nnoremap <expr> <localleader>ts exists('g:syntax_on') ? ':syntax off<cr>' : ':syntax enable<cr>'
 " (t)oggle (w)rap
-nnoremap <leader>tw :call bootstrap#system#toggle_wrap()<cr>
+nnoremap <localleader>tw :call bootstrap#system#toggle_wrap()<cr>
 " }}}
 
 
@@ -316,6 +316,10 @@ nnoremap <leader>gz :diffset //3<cr>
 
 
 " ==== Files ============================================================={{{
+" Switch to alternate file
+nnoremap <localleader>s :A<enter>
+" Trigger dispatch maker
+nnoremap <leader>m :Dispatch!<enter>
 " (f)ile (s)ave
 nnoremap <leader>fs :update<cr>
 " (f)ile (n)ew (in buffer's dir)
@@ -451,6 +455,20 @@ nnoremap <leader>nl :Pad ls<cr>
 nnoremap <leader>nn :Pad new<cr>
 " (n)otes (f)ile (local)
 nnoremap <leader>nf :Pad! this<cr>
+" }}}
+
+
+" ==== Testing ==========================================================={{{
+" (t)est (n)earest
+nnoremap <leader>tn :TestNearest<cr>
+" (t)est (s)uite
+nnoremap <leader>ts :TestSuite<cr>
+" (t)est (f)ile
+nnoremap <leader>tf :TestFile<cr>
+" (t)est (l)ast
+nnoremap <leader>tl :TestLast<cr>
+" (t)est (v)isit
+nnoremap <leader>tv :TestVisit<cr>
 " }}}
 
 

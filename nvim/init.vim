@@ -59,6 +59,7 @@ if dein#load_state('~/.cache/dein')
         \{'build': 'make'})
   call dein#add('nvim-lua/plenary.nvim')
   call dein#add('nvim-telescope/telescope.nvim')
+  call dein#add('fannheyward/telescope-coc.nvim')
 
   " provide nice surround commands
   call dein#add('tpope/vim-surround')
@@ -158,10 +159,6 @@ if dein#load_state('~/.cache/dein')
         \ 'go',
         \]})
 
-  " switch from header to implementation and vice-versa
-  call dein#add('jakobbeckmann/a.vim',
-        \{'on_ft': ['c', 'cpp']})
-
   " enable project local vimrcs (.lvimrc)
   call dein#add('embear/vim-localvimrc')
 
@@ -222,19 +219,25 @@ if dein#load_state('~/.cache/dein')
         \ 'cc',
         \]})
 
+  " Alternative files
+  call dein#add('tpope/vim-projectionist')
+
   " Open vimux pane below vim
   call dein#add('benmills/vimux')
 
   " Support for tmux golang
-  call dein#add('benmills/vimux-golang',
-        \{'on_cmd': [
-        \'GolangTestCurrentPackage',
-        \'GolangTestFocused'
-        \]})
-
-  " Support for tmux golang
   call dein#add('sebdah/vim-delve',
         \{'on_ft': ['go']})
+
+  " Support full testing
+  call dein#add('vim-test/vim-test',
+        \{'on_cmd': [
+        \'TestNearest',
+        \'TestSuite',
+        \'TestFile',
+        \'TestLast',
+        \'TestVisit',
+        \]})
 
   " javascript and typescript libraries
   call dein#add('othree/javascript-libraries-syntax.vim',
@@ -243,9 +246,6 @@ if dein#load_state('~/.cache/dein')
   " add graphql support for libraries (TODO(@jakob): add reasonML ft)
   call dein#add('jparise/vim-graphql',
         \{'on_ft': ['graphql', 'javascript', 'typescript']})
-
-  call dein#add('wlemuel/vim-tldr',
-        \{'on_cmd': ['Tldr', 'TldrUpdateDocs']})
 
   call dein#add('tpope/vim-dispatch',
         \{'on_cmd': ['Make', 'Dispatch']})
