@@ -249,21 +249,23 @@ nnoremap g# g#zz
 
 " ==== Machine (System) =================================================={{{
 " (m)achine open terminal in (t)ab
-nnoremap <leader>mt :tabnew<cr>:terminal<cr>a
+nnoremap <leader>zt :tabnew<cr>:terminal<cr>a
 " (m)achine open terminal on (s)split
-nnoremap <leader>ms :split<cr>:terminal<cr>a
+nnoremap <leader>zs :split<cr>:terminal<cr>a
 " (m)achine open terminal on (v)ertical split
-nnoremap <leader>mv :vsplit<cr>:terminal<cr>a
+nnoremap <leader>zv :vsplit<cr>:terminal<cr>a
 " (m)achine vim (q)uit
-nnoremap <leader>mq :qa<cr>
+nnoremap <c-q> :qa<cr>
+" (m)achine vim (q)uit
+nnoremap <leader>zq :qa<cr>
 " (m)achine vim suspend (sleep zzz)
-nnoremap <leader>mz <c-z>
+nnoremap <leader>zz <c-z>
 " (m)achine vim hard (Q)uit
-nnoremap <leader>mQ :qa!<cr>
+nnoremap <leader>zQ :qa!<cr>
 " (m)achine (c)hange (d)irectory to directory of local file (only for tab)
-nnoremap <leader>mcd :tcd %:p:h<cr>
+nnoremap <leader>zcd :tcd %:p:h<cr>
 " (m)achine (u)ndo change directory (only for tab)
-nnoremap <leader>mu :execute 'tcd' . bootstrap#system#get_project_root()<cr>
+nnoremap <leader>zu :execute 'tcd' . bootstrap#system#get_project_root()<cr>
 " }}}
 
 
