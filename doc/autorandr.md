@@ -47,3 +47,14 @@ xrandr | grep -w connected
 # then set new resolution
 xrandr --output <ID> --mode 5120x1440
 ```
+
+## Changing Scaling
+
+You can scale your output of a specific monitor by using:
+
+```sh
+xrandr --output <ID> --scale 1.5
+```
+
+> Note that a value of 1.5 will reduce the size of the displayed entities, while a value smaller
+> than 1 will zoom in on the output.
