@@ -67,6 +67,5 @@ augroup LineNumberGroup
   autocmd InsertLeave * :set rnu
 augroup END
 " set signs to be displayed in number column
-" TODO(@jakob): waiting for release 0.5 (Dec 2020)
-" set signcolumn=number
+set signcolumn=number
 " }}}
