@@ -40,7 +40,10 @@ if dein#load_state('~/.cache/dein')
   call dein#add('w0rp/ale')
 
   " netrw in buffer nagivation
-  call dein#add('tpope/vim-vinegar')
+  call dein#add('lambdalisue/nerdfont.vim')
+  call dein#add('lambdalisue/fern.vim')
+  call dein#add('lambdalisue/fern-git-status.vim')
+  call dein#add('lambdalisue/fern-renderer-nerdfont.vim')
 
   " repeat plugin commands
   call dein#add('tpope/vim-repeat')

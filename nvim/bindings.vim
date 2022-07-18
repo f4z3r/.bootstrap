@@ -266,6 +266,8 @@ nnoremap <leader>zQ :qa!<cr>
 nnoremap <leader>zcd :tcd %:p:h<cr>
 " (m)achine (u)ndo change directory (only for tab)
 nnoremap <leader>zu :execute 'tcd' . bootstrap#system#get_project_root()<cr>
+" fern integration
+nnoremap - :execute 'Fern ' . bootstrap#system#get_project_root() . ' -drawer -toggle -reveal=%'<cr>
 " }}}
 
 

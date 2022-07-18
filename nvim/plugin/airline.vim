@@ -86,10 +86,6 @@ let g:airline#extensions#wordcount#formatter = 'kilo'
 let g:airline#extensions#wordcount#formatter#kilo#fmt = "%s\uf72c"
 let g:airline#extensions#wordcount#formatter#kilo#fmt_short = '%s'
 
-call airline#parts#define_function('pomo', 'bootstrap#pomo#status')
-
-let g:airline_section_z = airline#section#create(['pomo'])
-
-let g:airline_extensions = ['ale', 'branch', 'coc', 'csv',
-      \'fugitiveline', 'hunks', 'keymap', 'taskwarrior', 'netrw', 'po',
+let g:airline_extensions = ['ale', 'branch', 'coc', 'fern',
+      \'fugitiveline', 'hunks', 'keymap', 'netrw', 'po', 'tagbar',
       \'quickfix','tabline', 'vimtex', 'wordcount', 'gutentags']
