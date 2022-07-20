@@ -266,8 +266,6 @@ nnoremap <leader>zQ :qa!<cr>
 nnoremap <leader>zcd :tcd %:p:h<cr>
 " (m)achine (u)ndo change directory (only for tab)
 nnoremap <leader>zu :execute 'tcd' . bootstrap#system#get_project_root()<cr>
-" fern integration
-nnoremap - :execute 'Fern ' . bootstrap#system#get_project_root() . ' -drawer -toggle -reveal=%'<cr>
 " }}}
 
 
@@ -353,6 +351,9 @@ nnoremap <leader>fc <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fr :checktime %<cr>
 " (f)ile new (t)emp
 nnoremap <leader>ft :execute "e " . bootstrap#system#get_tmp_file()<cr>
+" fern integration
+nnoremap - :execute 'Fern ' . bootstrap#system#get_project_root() . ' -drawer -reveal=%'<cr>
+nnoremap + :execute 'Fern ' . bootstrap#system#get_project_root() . ' -drawer -toggle -reveal=%'<cr>
 " }}}
 
 
