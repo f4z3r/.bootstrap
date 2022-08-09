@@ -25,6 +25,7 @@ inoremap <silent><expr> <tab>
       \ <SID>check_back_space() ? "\<tab>" :
       \ coc#refresh()
 inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
+inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
 " Use K to show documentation in preview window
 function! s:show_documentation()
@@ -51,4 +52,4 @@ augroup END
 let g:coc_snippet_next = '<c-j>'
 
 " Use <C-k> for jump to previous placeholder, it's default of coc.nvim
-let g:coc_snippet_prev = '<c-k>'
+let g:coc_snippet_prev = '<c-p>'
