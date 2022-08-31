@@ -210,8 +210,6 @@ omap af <Plug>(coc-funcobj-a)
 
 
 " ==== Search ============================================================{{{
-" (s)earch (c)lear (highlighting)
-nnoremap <leader>sc :noh<cr>
 " (s)earch (t)ags
 nnoremap <leader>st <cmd>lua require('telescope.builtin').tags()<cr>
 " (s)earch local (t)ags
@@ -228,6 +226,10 @@ nnoremap <leader>sk <cmd>lua require('telescope.builtin').keymaps()<cr>
 nnoremap <leader>sS <cmd>lua require('telescope.builtin').search_history()<cr>
 " (s)earch command (h)istory
 nnoremap <leader>sh <cmd>lua require('telescope.builtin').command_history()<cr>
+" (s)earch (c)ontinue
+nnoremap <leader>sc <cmd>lua require('telescope.builtin').resume()<cr>
+" (s)earch silver searcher like for cusor word
+nnoremap <leader>sA <cmd>lua require('telescope.builtin').grep_string()<cr>
 
 " (s)earch (r)eferences
 nnoremap <leader>sr :Telescope coc references_used<cr>
