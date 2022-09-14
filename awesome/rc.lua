@@ -115,6 +115,7 @@ awful.layout.layouts = {
     --lain.layout.centerwork.horizontal,
     -- lain.laout.termfair,
     --lain.layout.termfair.center,
+    lain.layout.shifted,
 }
 
 awful.util.taglist_buttons = my_table.join(
@@ -638,10 +639,24 @@ globalkeys = my_table.join(
 
 
   -- == Layout ===
-  awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
-    {description = "select next", group = "layout"}),
-  awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
-    {description = "select previous", group = "layout"})
+  awful.key({ modkey,           }, "space", function ()
+    awful.layout.inc(1)
+    naughty.notify({
+      timeout = 2,
+      position = "top_middle",
+      title = "Current layout",
+      text = awful.layout.getname(),
+    })
+  end, {description = "select next", group = "layout"}),
+  awful.key({ modkey, "Shift"   }, "space", function ()
+    awful.layout.inc(-1)
+    naughty.notify({
+      timeout = 2,
+      position = "top_middle",
+      title = "Current layout",
+      text = awful.layout.getname(),
+    })
+  end, {description = "select previous", group = "layout"})
 )
 
 clientkeys = my_table.join(
