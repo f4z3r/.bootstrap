@@ -18,14 +18,11 @@ set shortmess+=c
 " always show signcolumns
 " set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <tab>
-      \ pumvisible() ? "\<c-n>" :
-      \ <SID>check_back_space() ? "\<tab>" :
-      \ coc#refresh()
-inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
 inoremap <expr><c-k> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+inoremap <expr><c-n> coc#pum#visible() ? coc#pum#next(1) : "\<C-h>"
+
+inoremap <silent><expr> <tab> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use K to show documentation in preview window
 function! s:show_documentation()
