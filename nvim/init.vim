@@ -107,6 +107,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('neoclide/jsonc.vim',
         \{'on_ft': 'json'})
 
+  call dein#add('f4z3r/cheat.vim',
+        \{'on_ft': 'cheat'})
+
   " rainbow parentheses
   call dein#add('luochen1990/rainbow')
 

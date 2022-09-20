@@ -1,0 +1,8 @@
+% sample
+
+# This is some descriptive text.
+echo "This is a command! Hello <name>!"
+
+$ name: whoami
+
+@ link
