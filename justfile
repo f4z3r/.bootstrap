@@ -56,6 +56,7 @@ backup:
   install {{ dir }}/zsh/zsh/utils/ytp {{ home }}/.local/bin/
   install {{ dir }}/zsh/zsh/utils/drawio {{ home }}/.local/bin/
   install {{ dir }}/zsh/zsh/utils/pass {{ home }}/.local/bin/
+  install {{ dir }}/zsh/zsh/utils/k9s-fblog.sh {{ home }}/.local/bin/
   install -d /{{ home }}/.local/share/man/man1
   install {{ dir }}/zsh/zsh/utils/ytp.1 /{{ home }}/.local/share/man/man1
   install {{ dir }}/zsh/zsh/utils/drawio.1 /{{ home }}/.local/share/man/man1

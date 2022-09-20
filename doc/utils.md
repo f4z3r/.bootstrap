@@ -37,6 +37,16 @@ regular their regular counterpart.
   * [Installation](#installation)
 * [peek](#peek)
   * [Installation](#installation)
+* [watchexec](#watchexec)
+  * [Installation](#installation)
+* [navi](#navi)
+  * [Installation](#installation)
+* [ttyper](#ttyper)
+  * [Installation](#installation)
+* [csview](#csview)
+  * [Installation](#installation)
+* [fblog](#fblog)
+  * [Installation](#installation)
 
 ## Clipboard Managers
 
@@ -317,6 +327,9 @@ Installed from the AUR.
 
 > Screen recorder to make GIFs.
 
+This tool is not full terminal based, but supports recordings that include stuff like `Ctrl-C`
+signals.
+
 ### Installation
 
 Installed via `pacman`.
@@ -328,3 +341,35 @@ Installed via `pacman`.
 ### Installation
 
 Installed via `pacman`.
+
+## navi
+
+> Cheat sheet management and fuzzy searcher.
+
+### Installation
+
+Installed from the AUR.
+
+## ttyper
+
+> Typing practice tool in the command line.
+
+### Installation
+
+Installed from the AUR.
+
+## csview
+
+> CSV viewer in the command line.
+
+### Installation
+
+Installed from the AUR.
+
+## fblog
+
+> JSON log output parser.
+
+### Installation
+
+Installed from the AUR.

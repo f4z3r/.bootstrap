@@ -20,3 +20,17 @@ plugin:
     args:
       - key
       - j
+  fblog:
+    shortCut: Ctrl-L
+    confirm: false
+    description: "JSON log"
+    scopes:
+      - pods
+    command: /home/jakob/.local/bin/k9s-fblog.sh
+    background: false
+    args:
+      - --context
+      - $CONTEXT
+      - --namespace
+      - $NAMESPACE
+      - $COL-NAME
