@@ -20,10 +20,12 @@ regular their regular counterpart.
 * [menyoki](#menyoki)
 * [tokei](#tokei)
 * [ripgrep](#ripgrep)
+* [gping](#gping)
 * [hyperfine](#hyperfine)
 * [bandwhich](#bandwhich)
 * [petname](#petname)
 * [pier](#pier)
+* [ouch](#ouch)
 * [pueue](#pueue)
 * [curlie](#curlie)
 * [zoxide](#zoxide)
@@ -42,6 +44,8 @@ regular their regular counterpart.
 * [navi](#navi)
   * [Installation](#installation)
 * [ttyper](#ttyper)
+  * [Installation](#installation)
+* [xsv](#xsv)
   * [Installation](#installation)
 * [csview](#csview)
   * [Installation](#installation)
@@ -227,6 +231,10 @@ An incredibly fast code line counter.
 An alternative to `grep` that can make recursive searching faster. On simple queries it is however
 slower than `grep`.
 
+## gping
+
+An alternative to `ping` that provides graphical output.
+
 ## hyperfine
 
 An application that allows to time and benchmark command line utilities.
@@ -248,6 +256,12 @@ A script manager for one liners on your system. Allows you to manage all your sc
 single application.
 
 > Installed via `cargo`.
+
+## ouch
+
+A simplified compression and decompression tool.
+
+> Installed via AUR.
 
 ## pueue
 
@@ -357,6 +371,14 @@ Installed from the AUR.
 ### Installation
 
 Installed from the AUR.
+
+## xsv
+
+> CSV viewer and editor for the command line.
+
+### Installation
+
+Installed via `pacman`.
 
 ## csview
 
