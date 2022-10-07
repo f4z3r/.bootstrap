@@ -36,6 +36,11 @@
   "python.jediEnabled": false,
   "python.linting.enabled" : false,
   "languageserver": {
+    "vlang": {
+      "command": "v",
+      "args": ["ls"],
+      "filetypes": ["vlang"]
+    },
     "nim": {
       "command": "nimlsp",
       "filetypes": ["nim"]

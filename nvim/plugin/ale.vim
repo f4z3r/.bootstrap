@@ -53,7 +53,9 @@ let g:ale_fixers = {
       \ 'json': ['jq', 'fixjson'],
       \ 'lua': ['stylua'],
       \ 'go': ['gofmt'],
+      \ 'vlang': ['vfmt'],
       \}
 " rust options
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')
 
+let g:ale_v_v_executable = '/usr/bin/v'
