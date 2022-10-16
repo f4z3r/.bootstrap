@@ -14,6 +14,16 @@ let g:projectionist_heuristics = {
       \            'dispatch': 'pipenv run pytest {file}',
       \         },
       \       },
+      \   '*.v': {
+      \       '*.v': {
+      \            'alternate': '{}_test.v',
+      \            'dispatch': 'v test {}_test.v',
+      \         },
+      \       '*_test.v': {
+      \            'alternate': '{}.v',
+      \            'dispatch': 'v test {file}',
+      \         },
+      \       },
       \   '*.go': {
       \       '*.go': {
       \            'alternate': '{}_test.go',

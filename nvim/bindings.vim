@@ -230,6 +230,12 @@ nnoremap <leader>sh <cmd>lua require('telescope.builtin').command_history()<cr>
 nnoremap <leader>sc <cmd>lua require('telescope.builtin').resume()<cr>
 " (s)earch silver searcher like for cusor word
 nnoremap <leader>sA <cmd>lua require('telescope.builtin').grep_string()<cr>
+" (s)earch (l)ocationlist
+nnoremap <leader>sl <cmd>lua require('telescope.builtin').loclist()<cr>
+" (s)earch (q)uicklist
+nnoremap <leader>sq <cmd>lua require('telescope.builtin').quickfix()<cr>
+" (s)earch all (Q)uicklists
+nnoremap <leader>sQ <cmd>lua require('telescope.builtin').quickfixhistory()<cr>
 
 " (s)earch (r)eferences
 nnoremap <leader>sr :Telescope coc references_used<cr>
@@ -331,7 +337,9 @@ nnoremap <leader>gz :diffset //3<cr>
 " Switch to alternate file
 nnoremap <localleader>s :A<enter>
 " Trigger dispatch maker
-nnoremap <leader>m :Dispatch!<enter>
+nnoremap <leader>m :Dispatch<enter>
+" Trigger dispatch maker in the background
+nnoremap <leader>p :Dispatch!<enter>
 " (f)ile (s)ave
 nnoremap <leader>fs :update<cr>
 " (f)ile (n)ew (in buffer's dir)
@@ -470,14 +478,6 @@ nnoremap <leader>tf :TestFile<cr>
 nnoremap <leader>tl :TestLast<cr>
 " (t)est (v)isit
 nnoremap <leader>tv :TestVisit<cr>
-" }}}
-
-
-" ==== Preferences ======================================================={{{
-" (p)references (v)im
-nnoremap <leader>pv :e ~/.config/nvim/<cr>
-" (p)references (s)nippets (for current filetype)
-nnoremap <leader>ps :CocCommand snippets.editSnippets<cr>
 " }}}
 
 
