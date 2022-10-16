@@ -15,7 +15,7 @@ First, ensure `coc` is properly set up.
 Install the `coc` extension.
 
 ```viml
-CocInstall coc-rls
+CocInstall coc-rust-analyzer
 ```
 
 ## Installation
@@ -29,5 +29,5 @@ sudo pacman -S rustup
 rustup default stable
 ```
 
-The installation of `rls` will be handled by `coc`.
+The installation of `rust-analyzer` will be handled by `coc`.
 
