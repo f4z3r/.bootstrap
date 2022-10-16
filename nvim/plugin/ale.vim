@@ -40,6 +40,7 @@ let g:ale_linters = {
       \ 'json': ['jsonlint'],
       \ 'lua': ['luacheck'],
       \ 'go': ['revive'],
+      \ 'crystal': ['crystal', 'ameba'],
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
@@ -54,6 +55,7 @@ let g:ale_fixers = {
       \ 'lua': ['stylua'],
       \ 'go': ['gofmt'],
       \ 'vlang': ['vfmt'],
+      \ 'crystal': ['crystal'],
       \}
 " rust options
 let g:ale_rust_cargo_use_clippy = executable('cargo-clippy')

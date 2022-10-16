@@ -56,6 +56,16 @@
       "args": ["-E", "/home/jakob/.local/opt/lua-language-server/main.lua"],
       "filetypes": ["lua"]
     },
+    "crystal": {
+      "command": "crystalline",
+      "args": [
+        "--stdio"
+      ],
+      "filetypes": [
+        "crystal"
+      ],
+      "rootPatterns": ["shard.yml"]
+    },
     "racket": {
       "command": "racket",
       "args": [

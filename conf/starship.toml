@@ -190,6 +190,10 @@ format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ($virtualenv )](bg:$POWER_BA
 symbol = " "
 format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
+[crystal]
+symbol = " "
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
+
 [perl]
 symbol = " "
 format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
