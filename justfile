@@ -12,8 +12,8 @@ backup:
   sudo mount /dev/sda1 /mnt/drive
   rsync -vau --delete-after {{ home }}/Music/ /mnt/drive/music
   rsync -vau --delete-after {{ home }}/.pad-notes/ /mnt/drive/notes
-  rsync -vau --delete-after {{ home }}/ipt/ /mnt/drive/ipt
-  rsync -vau --delete-after {{ home }}/Documents/ /mnt/drive/docs
+  rsync -vau --delete-after --delete-excluded --exclude='**/.git/' --exclude='**/target/' {{ home }}/ipt/ /mnt/drive/ipt
+  rsync -vau --delete-after --delete-excluded --exclude='**/.git/' --exclude='**/target/' {{ home }}/Documents/ /mnt/drive/docs
 
 @pacman-mirrors:
   sudo pacman-mirrors -c Switzerland,Austria,Germany,Italy,Belgium
