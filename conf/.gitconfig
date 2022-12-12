@@ -64,6 +64,7 @@
 	ph = push -q
 	phf = push -q --force-with-lease
 	pl = pull -q
+	w = worktree
 
 [filter "lfs"]
 	required = true
