@@ -46,7 +46,7 @@
 # Aliases
 [alias]
 	f = fetch -q
-	b = branch -vv
+	b = branch -vva
 	d = diff
 	aa = add .
 	a = add
@@ -55,6 +55,7 @@
 	ca = commit --amend -S -C HEAD
 	ce = commit --amend -S -m
 	co = checkout
+	sw = switch
 	re = reset
 	s  = status -sb
 	st = stash list
@@ -65,6 +66,8 @@
 	phf = push -q --force-with-lease
 	pl = pull -q
 	w = worktree
+	wl = worktree list
+	bc = !git branch -vva --color=always | grep -v '/HEAD\\s' | sk --ansi --tac | sed 's/^..//' | awk '{print $1}' | sed 's|^remotes/[^/]*/||' | xargs git switch
 
 [filter "lfs"]
 	required = true
