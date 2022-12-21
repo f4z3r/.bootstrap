@@ -11,7 +11,6 @@ backup:
   @[ -d /mnt/drive ] || sudo mkdir /mnt/drive
   sudo mount /dev/sda1 /mnt/drive
   rsync -vau --delete-after {{ home }}/Music/ /mnt/drive/music
-  rsync -vau --delete-after {{ home }}/.pad-notes/ /mnt/drive/notes
   rsync -vau --delete-after --delete-excluded --exclude='**/.git/' --exclude='**/target/' {{ home }}/ipt/ /mnt/drive/ipt
   rsync -vau --delete-after --delete-excluded --exclude='**/.git/' --exclude='**/target/' {{ home }}/Documents/ /mnt/drive/docs
 
