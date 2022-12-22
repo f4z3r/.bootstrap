@@ -88,6 +88,9 @@ if dein#load_state('~/.cache/dein')
   " language support (should be lazy by default)
   call dein#add('sheerun/vim-polyglot')
 
+  " language support for d2 diagrams
+  call dein#add('terrastruct/d2-vim')
+
   " EBNF support
   call dein#add('vim-scripts/ebnf.vim',
         \{'on_ft': 'ebnf'})
