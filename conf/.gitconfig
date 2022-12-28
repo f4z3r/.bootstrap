@@ -46,7 +46,8 @@
 # Aliases
 [alias]
 	f = fetch -q
-	b = branch -vva
+	b = branch -vv
+	ba = branch -vva
 	d = diff
 	aa = add .
 	a = add
