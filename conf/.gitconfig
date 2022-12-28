@@ -5,6 +5,7 @@
 [core]
 	editor = nvim
 	excludesfile = ~/.gitignore
+	hooksPath = ~/.bootstrap/git/hooks/
 
 [log]
 	date = format:%Y-%m-%d %H:%M
@@ -80,3 +81,29 @@
 [pull]
 	ff = only
 	rebase = true
+
+[trailer]
+	separators = ":#"
+
+[trailer "rel"]
+	key = "Relates-to: "
+	ifexists = addIfDifferent
+
+[trailer "impl"]
+	key = "Implements: "
+	ifexists = addIfDifferent
+	cmd = bash -c 'echo ${0^^}'
+
+[trailer "coa"]
+	key = "Co-authored-by: "
+	ifexists = addIfDifferent
+	cmd = ~/.local/bin/glog-find-author
+
+[trailer "help"]
+	key = "Helped-by: "
+	ifexists = addIfDifferent
+	cmd = ~/.local/bin/glog-find-author
+
+[trailer "fix"]
+	key = "Fix #"
+	ifexists = addIfDifferent
