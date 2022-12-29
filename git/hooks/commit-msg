@@ -6,7 +6,7 @@ from pathlib import Path
 
 TYPES = ["feat", "fix", "docs", "chore", "test", "ci", "refactor"]
 
-PATTERN = re.compile(r"(?P<type>\w+)(?:\((?P<scope>\w+)\))?!?:(?P<desc>[^$]+)")
+PATTERN = re.compile(r"(?P<type>\w+)(?:\((?P<scope>[\w-]+)\))?!?:(?P<desc>[^$]+)")
 
 
 def main(path):
