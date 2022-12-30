@@ -23,10 +23,10 @@ backup:
   echo "[+] Linked ctags configuration"
 
 @git:
-  [ -L {{ home }}/.gitconfig ] || ln -s {{ dir }}/conf/.gitconfig {{ home }}/.gitconfig
-  [ -L {{ home }}/.gitignore ] || ln -s {{ dir }}/conf/.gitignore {{ home }}/.gitignore
-  [ -L {{ home }}/.config/git ] || ln -s {{ dir }}/conf/git {{ home }}/.config/git
-  [ -L {{ home }}/.config/git/active.conf ] || ln -s {{ dir }}/conf/git/dark.conf {{ home }}/.config/git/active.conf
+  [ -L {{ home }}/.gitconfig ] || ln -s {{ dir }}/git/.gitconfig {{ home }}/.gitconfig
+  [ -L {{ home }}/.gitignore ] || ln -s {{ dir }}/git/.gitignore {{ home }}/.gitignore
+  [ -L {{ home }}/.config/git ] || ln -s {{ dir }}/git/git {{ home }}/.config/git
+  [ -L {{ home }}/.config/git/active.conf ] || ln -s {{ dir }}/git/git/dark.conf {{ home }}/.config/git/active.conf
   echo "[+] Linked git configuration"
 
 @zsh-root:

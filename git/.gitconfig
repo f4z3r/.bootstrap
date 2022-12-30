@@ -99,6 +99,11 @@
 	ifexists = addIfDifferent
 	cmd = ~/.local/bin/glog-find-author
 
+[trailer "rev"]
+	key = "Review-from: "
+	ifexists = addIfDifferent
+	cmd = ~/.local/bin/glog-find-author
+
 [trailer "help"]
 	key = "Helped-by: "
 	ifexists = addIfDifferent

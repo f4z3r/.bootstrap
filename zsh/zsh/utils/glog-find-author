@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-test -n "$1" && git log --author="$1" --pretty="%an <%ae>" -1 || true
+test -n "$1" && (git log --author="$1" --pretty="%an <%ae>" -1 | grep "^" || echo "$1") || true
 
 # vim: ft=bash
