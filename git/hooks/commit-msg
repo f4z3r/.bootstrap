@@ -4,7 +4,7 @@ import re
 import sys
 from pathlib import Path
 
-TYPES = ["feat", "impr", "fix", "docs", "chore", "test", "ci", "refactor"]
+TYPES = ["feat", "impr", "fix", "docs", "chore", "test", "ci", "refactor", "style"]
 
 PATTERN = re.compile(r"(?P<type>\w+)(?:\((?P<scope>[\w-]+)\))?!?:(?P<desc>[^$]+)")
 
