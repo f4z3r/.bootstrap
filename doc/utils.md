@@ -51,6 +51,8 @@ regular their regular counterpart.
   * [Installation](#installation)
 * [fblog](#fblog)
   * [Installation](#installation)
+* [fend](#fend)
+  * [Installation](#installation)
 
 ## Clipboard Managers
 
@@ -391,6 +393,14 @@ Installed from the AUR.
 ## fblog
 
 > JSON log output parser.
+
+### Installation
+
+Installed from the AUR.
+
+## fend
+
+> Unit aware precision calculator.
 
 ### Installation
 
