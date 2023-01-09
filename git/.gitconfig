@@ -10,6 +10,9 @@
 [log]
 	date = format:%Y-%m-%d %H:%M
 
+[push]
+	autoSetupRemote = true
+
 [pager]
 	diff = delta
 	log = delta
