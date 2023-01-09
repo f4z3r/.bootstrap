@@ -24,7 +24,7 @@ regular their regular counterpart.
 * [hyperfine](#hyperfine)
 * [bandwhich](#bandwhich)
 * [petname](#petname)
-* [pier](#pier)
+* [hoard](#hoard)
 * [ouch](#ouch)
 * [pueue](#pueue)
 * [curlie](#curlie)
@@ -52,6 +52,10 @@ regular their regular counterpart.
 * [fblog](#fblog)
   * [Installation](#installation)
 * [fend](#fend)
+  * [Installation](#installation)
+* [miniserve](#miniserve)
+  * [Installation](#installation)
+* [nomino](#nomino)
   * [Installation](#installation)
 
 ## Clipboard Managers
@@ -252,12 +256,12 @@ A name generator.
 
 > Installed via `cargo`.
 
-## pier
+## hoard
 
 A script manager for one liners on your system. Allows you to manage all your scripts within a
 single application.
 
-> Installed via `cargo`.
+> Installed from AUR.
 
 ## ouch
 
@@ -401,6 +405,22 @@ Installed from the AUR.
 ## fend
 
 > Unit aware precision calculator.
+
+### Installation
+
+Installed from the AUR.
+
+## miniserve
+
+> Serve files via minimal HTTP server.
+
+### Installation
+
+Installed from the community repositories.
+
+## nomino
+
+> Rename files in bulk.
 
 ### Installation
 
