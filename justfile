@@ -3,7 +3,7 @@ set shell := ["bash", "-c"]
 dir := justfile_directory()
 home := env_var('HOME')
 
-configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux asdf pier luakit neomutt navi
+configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux asdf pier luakit neomutt navi hoard
 
 configure-root: zsh-root
 
@@ -74,6 +74,10 @@ backup:
   [ -L {{ home }}/.config/navi ] || ln -s {{ dir }}/conf/navi {{ home }}/.config/navi
   [ -L {{ home }}/.cheats ] || ln -s {{ dir }}/cheats {{ home }}/.cheats
   echo "[+] Linked navi configuration"
+
+@hoard:
+  [ -L {{ home }}/.config/hoard ] || ln -s {{ dir }}/conf/hoard {{ home }}/.config/hoard
+  echo "[+] Linked hoard configuration"
 
 @bash:
   -[ -f {{ home }}/.bashrc ] && rm {{ home }}/.bashrc

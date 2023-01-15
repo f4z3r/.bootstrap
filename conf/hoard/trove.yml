@@ -1,0 +1,9 @@
+---
+version: 1.3.0
+commands:
+  - name: test
+    namespace: misc
+    tags:
+      - test
+    command: "echo test #name!"
+    description: "test stuff,"

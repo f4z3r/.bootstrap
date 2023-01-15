@@ -19,3 +19,5 @@ test -f /usr/share/fzf/key-bindings.zsh && . /usr/share/fzf/key-bindings.zsh || 
 
 # broot
 test -r ~/.config/broot/launcher/bash/br && source ~/.config/broot/launcher/bash/br || true
+
+test -r /usr/share/doc/hoard/hoard.zsh && bindkey '^o' _hoard_list_widget || true
