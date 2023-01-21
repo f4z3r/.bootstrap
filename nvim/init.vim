@@ -113,6 +113,9 @@ if dein#load_state('~/.cache/dein')
   call dein#add('f4z3r/cheat.vim',
         \{'on_ft': 'cheat'})
 
+  call dein#add('imsnif/kdl.vim',
+        \{'on_ft': 'kdl'})
+
   " rainbow parentheses
   call dein#add('luochen1990/rainbow')
 
