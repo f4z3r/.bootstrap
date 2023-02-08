@@ -66,12 +66,6 @@
       ],
       "rootPatterns": ["shard.yml"]
     },
-    "julia": {
-      "command": "/usr/bin/julia",
-      "args" : ["--startup-file=no", "--history-file=no", "--project=/home/jakob/.julia/environments/v1.8", "-e",
-        "using LanguageServer, LanguageServer.SymbolServer; runserver()" ],
-      "filetypes": ["julia"]
-    },
     "racket": {
       "command": "racket",
       "args": [

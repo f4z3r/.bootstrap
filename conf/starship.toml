@@ -178,6 +178,9 @@ format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 symbol = " "
 format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
 
+[julia]
+format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
+
 [rust]
 symbol = " "
 format = "[\u2571 ](bg:$POWER_BACK)[$symbol$version ](bg:$POWER_BACK $style)"
