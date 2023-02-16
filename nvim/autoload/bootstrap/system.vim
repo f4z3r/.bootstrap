@@ -10,7 +10,7 @@ endfunction
 
 
 function bootstrap#system#get_project_root()
-  return fnamemodify(finddir('.git', '.;'), ':h')
+  return trim(system('git rev-parse --show-toplevel'))
 endfunction
 
 function bootstrap#system#toggle_background()
