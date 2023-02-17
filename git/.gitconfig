@@ -7,11 +7,18 @@
 	excludesfile = ~/.gitignore
 	hooksPath = ~/.bootstrap/git/hooks/
 
+[include]
+	path = ~/.config/git/active.conf
+
 [log]
 	date = format:%Y-%m-%d %H:%M
 
 [push]
 	autoSetupRemote = true
+
+[pull]
+	ff = only
+	rebase = true
 
 [pager]
 	diff = delta
@@ -25,9 +32,6 @@
 	navigate = true
 	line-numbers = true
 	side-by-side = true
-
-[include]
-	path = ~/.config/git/active.conf
 
 [interactive]
 	diffFilter = delta --color-only
@@ -80,10 +84,6 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
-
-[pull]
-	ff = only
-	rebase = true
 
 [trailer]
 	separators = ":#"
