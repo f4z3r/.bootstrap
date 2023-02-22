@@ -17,8 +17,10 @@ def main(path):
 
 
 def validate_or_exit(msg):
-    match = PATTERN.match(msg)
     log = logging.getLogger("commit-msg hook")
+    if msg.startswith("Merge branch"):
+        return
+    match = PATTERN.match(msg)
     if match is None:
         log.fatal("commit message not in conventional commit form")
         log.info("aborting...")
