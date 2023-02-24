@@ -347,9 +347,9 @@ nnoremap <leader>fn :e %:p:h/
 " (f)ile (N)ew in project root
 nnoremap <leader>fN :e
 " control-p link
-nnoremap <c-p> <cmd>lua require('telescope.builtin').git_files()<cr>
+nnoremap <c-p> <cmd>lua require('telescope.builtin').find_files()<cr>
 " (f)iles in (p)roject
-nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
+nnoremap <leader>ff <cmd>lua require('telescope.builtin').git_files()<cr>
 " (f)iles (c)ontent
 nnoremap <leader>fc <cmd>lua require('telescope.builtin').live_grep()<cr>
 " nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
