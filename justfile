@@ -3,7 +3,7 @@ set shell := ["bash", "-c"]
 dir := justfile_directory()
 home := env_var('HOME')
 
-configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux asdf pier luakit neomutt navi hoard
+configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux asdf pier luakit neomutt navi hoard broot
 
 configure-root: zsh-root
 
@@ -111,6 +111,13 @@ backup:
 @logind:
   sudo cp -u {{ dir }}/conf/systemd/logind.conf /etc/systemd/logind.conf
   echo "[+] Copied logind configuration"
+
+@broot:
+  [ -d {{ home }}/.config/broot/ ] || mkdir -p {{ home }}/.config/broot
+  [ -L {{ home }}/.config/broot/conf.hjson ] || ln -s {{ dir }}/conf/broot.hjson {{ home }}/.config/broot/conf.hjson
+  [ -L {{ home }}/.config/broot/dark-gruvbox.hjson ] || ln -s {{ dir }}/conf/broot-dark-gruvbox.hjson {{ home }}/.config/broot/dark-gruvbox.hjson
+  [ -L {{ home }}/.config/broot/verbs.hjson ] || ln -s {{ dir }}/conf/broot-verbs.hjson {{ home }}/.config/broot/verbs.hjson
+  echo "[+] Linked broot configuration"
 
 #### Installs
 
