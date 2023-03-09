@@ -9,7 +9,7 @@ There are several options for diagram as code such as:
 
 ## D2
 
-`d2` is available from the AUR. General documentation can be found on their
+`d2-bin` is available from the AUR. General documentation can be found on their
 [GitHub](https://github.com/terrastruct/d2) or on their [official
 page](https://d2lang.com/tour/intro/).
 

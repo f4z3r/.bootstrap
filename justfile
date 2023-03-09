@@ -3,7 +3,7 @@ set shell := ["bash", "-c"]
 dir := justfile_directory()
 home := env_var('HOME')
 
-configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux asdf pier luakit neomutt navi hoard broot
+configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx
 
 configure-root: zsh-root
 
@@ -37,6 +37,10 @@ backup:
 @asdf:
   [ -d {{ home }}/.asdf ] || git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
   echo "[+] asdf is downloaded"
+
+@rtx:
+  [ -L {{ home }}/.config/rtx ] || ln -s {{ dir }}/conf/rtx {{ home }}/.config/rtx
+  echo "[+] rtx is configured"
 
 @zsh:
   [ -L {{ home }}/.zshrc ] || ln -s {{ dir }}/zsh/.zshrc {{ home }}/.zshrc

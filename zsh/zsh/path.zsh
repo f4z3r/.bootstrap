@@ -11,7 +11,6 @@ PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin"                        # sys
 [ -d "$HOME/.cargo/bin" ] && PATH="$PATH:$HOME/.cargo/bin"                 # rust bins
 [ -d "$HOME/.krew/bin" ] && PATH="$PATH:$HOME/.krew/bin"                   # krew bins
 [ -d "$HOME/go/bin" ] && PATH="$PATH:$HOME/go/bin"                         # go bins
-[ -d "$HOME/.asdf" ] && . $HOME/.asdf/asdf.sh                              # asdf bins
 export PATH
 
 # also provide local /bin -> /share/man pages

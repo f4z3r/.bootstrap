@@ -3,9 +3,6 @@
 #=================================================================================================
 
 fpath=($HOME/.config/zsh/completions $fpath)
-if [ -d ~/.asdf/completions/ ]; then
-  fpath=($HOME/.asdf/completions $fpath)
-fi
 
 if [ -r /usr/share/doc/hoard/hoard.zsh ]; then
   export HOARD_NOBIND=1

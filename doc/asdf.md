@@ -1,5 +1,7 @@
 # ASDF
 
+> ASDF is superseeded by `rtx`.
+
 ## Installation
 
 The installation should have been performed via the `make`. If this is not the case, it can be
