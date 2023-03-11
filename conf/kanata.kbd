@@ -1,0 +1,66 @@
+#|
+This is a configuration that:
+
+- Configures a colemak mod dh base layer.
+- Configures a clone of my EZ mod Plank setup (with very slight modifications)
+
+All layer keys are both hold and one-shot switches.
+
+https://github.com/jtroo/kanata/blob/main/docs/config.adoc
+|#
+
+
+;; BASE CONFIG
+(defcfg
+  process-unmapped-keys yes
+  danger-enable-cmd no
+  sequence-timeout 1000
+  sequence-input-mode visible-backspaced
+  log-layer-changes no
+  linux-dev /dev/input/event2
+  linux-continue-if-no-dev-found no
+  ;; linux-unicode-u-code v
+  linux-unicode-termination space
+  ;; windows-altgr add-lctl-release
+  ;; windows-interception-mouse-hwid "70, 0, 60, 0"
+)
+
+;; ALIAS DEFINITION
+(defalias
+  ;; layer toggles
+  lyu (one-shot 2000 (layer-while-held up))
+  lyd (one-shot 2000 (layer-while-held down))
+  col (layer-switch colemakdh)
+
+  ;; one-shot control
+  osc (one-shot 2000 lctl)
+)
+
+;; BASE LAYOUT
+(defsrc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]
+  caps a    s    d    f    g    h    j    k    l    ;    '    \    ret
+  lsft nubs z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rctl lft  down up   rght
+)
+
+(deflayer colemakdh
+  tab  q    w    f    p    b    j    l    u    y    ;    bspc rsft
+  lctl a    r    s    t    g    m    n    e    i    o    ret  @lyu ret
+  lsft @lyd x    c    d    v    z    k    h    ,    .    /    '
+  @col lmet lalt           spc            @lyu rctl lft  down up   rght
+)
+
+(deflayer down
+  esc  blup pgup brup volu pp   brk  7    8    9    .     bspc rsft
+  del  bldn pgdn brdn vold ins  home 4    5    6    0     ret  @lyu ret
+  S-6  @col _    _    mute sys  end  _    1    2    3    ,     '
+  _    _    _              _              @lyu @osc mute  volu vold pp
+)
+
+(deflayer up
+  grv  S-1  [    ]    S-4  S-5  _    f9   f10  f11  f12  S-2   ]
+  +    =    S-9  S-0  S--  S-3  _    f5   f6   f7   f8   S-\   @col ret
+  S-8  @lyd \    S-[  S-]  -    S-7  _    f1   f2   f3   f4   S-`
+  _    _    _              _              @col rctl lft  down  up   rght
+)

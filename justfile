@@ -3,7 +3,7 @@ set shell := ["bash", "-c"]
 dir := justfile_directory()
 home := env_var('HOME')
 
-configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx
+configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata
 
 configure-root: zsh-root
 
@@ -115,6 +115,11 @@ backup:
 @logind:
   sudo cp -u {{ dir }}/conf/systemd/logind.conf /etc/systemd/logind.conf
   echo "[+] Copied logind configuration"
+
+@kanata:
+  [ -d {{ home }}/.config/systemd/user/ ] || mkdir -p {{ home }}/.config/systemd/user
+  [ -L {{ home }}/.config/systemd/user/kanata.service ] || ln -s {{ dir }}/conf/kanata.service {{ home }}/.config/systemd/user/kanata.service
+  echo "[+] Configured kanata service"
 
 @broot:
   [ -d {{ home }}/.config/broot/ ] || mkdir -p {{ home }}/.config/broot

@@ -39,8 +39,27 @@ Section "InputClass"
         MatchIsKeyboard "on"
         Option "XkbLayout" "us"
         Option "XkbModel" "pc105"
-        Option "XkbVariant" "colemak_dh"
+        Option "XkbVariant" "alt-intl"
 EndSection
+```
+
+After having run `just` you will have to allow yourself to intercept keyboard inputs:
+
+```bash
+sudo groupadd uinput
+sudo usermod -aG input $USER
+sudo usermod -aG uinput $USER
+cat 'KERNEL=="uinput", MODE="0660", GROUP="uinput", OPTIONS+="static_node=uinput"' > /etc/udev/rules.d/42-kanata.rules
+sudo modprobe uinput
+```
+
+Then enable and disable Kanata for layered Colemak Mod-DH setup:
+
+```bash
+systemcl --user start kanata.service
+systemcl --user enable kanata.service  # always start, is configured by default
+systemcl --user status kanata.service  # check for issues
+systemcl --user stop kanata.service    # stop
 ```
 
 ## Manjaro Install
