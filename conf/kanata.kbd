@@ -32,6 +32,9 @@ https://github.com/jtroo/kanata/blob/main/docs/config.adoc
   lyd (one-shot 2000 (layer-while-held down))
   col (layer-switch colemakdh)
 
+  ;; tapped shift
+  tsh (tap-hold 200 200 ' rsft)
+
   ;; one-shot control
   osc (one-shot 2000 lctl)
 )
@@ -47,14 +50,14 @@ https://github.com/jtroo/kanata/blob/main/docs/config.adoc
 (deflayer colemakdh
   tab  q    w    f    p    b    j    l    u    y    ;    bspc rsft
   lctl a    r    s    t    g    m    n    e    i    o    ret  @lyu ret
-  lsft @lyd x    c    d    v    z    k    h    ,    .    /    '
+  lsft @lyd x    c    d    v    z    k    h    ,    .    /    @tsh
   @col lmet lalt           spc            @lyu rctl lft  down up   rght
 )
 
 (deflayer down
   esc  blup pgup brup volu pp   brk  7    8    9    .     bspc rsft
   del  bldn pgdn brdn vold ins  home 4    5    6    0     ret  @lyu ret
-  S-6  @col _    _    mute sys  end  _    1    2    3    ,     '
+  S-6  @col _    _    mute sys  end  _    1    2    3    ,     @tsh
   _    _    _              _              @lyu @osc mute  volu vold pp
 )
 
