@@ -502,12 +502,17 @@ globalkeys = my_table.join(
     end, {description = "take a screenshot", group = "hotkeys"}),
 
   -- brightness up
-  awful.key({ }, "XF86MonBrightnessUp", function () beautiful.brightness:up() end,
-    {description = "+10% brightness", group = "hotkeys"}),
+  awful.key({ }, "XF86MonBrightnessUp", function () beautiful.brightness:up() end),
 
   -- brightness down
-  awful.key({ }, "XF86MonBrightnessDown", function () beautiful.brightness:down() end,
-    {description = "-10% brightness", group = "hotkeys"}),
+  awful.key({ }, "XF86MonBrightnessDown", function () beautiful.brightness:down() end),
+
+  -- volume up
+  awful.key({ }, "XF86AudioRaiseVolume",
+    function ()
+      os.execute(string.format("amixer -q set %s 1%%+", beautiful.volume.channel))
+      beautiful.volume.update()
+    end),
 
   -- volume up
   awful.key({ altkey }, "Up",
@@ -517,11 +522,25 @@ globalkeys = my_table.join(
     end, {description = "volume up", group = "hotkeys"}),
 
   -- volume down
+  awful.key({ }, "XF86AudioLowerVolume",
+    function ()
+      os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
+      beautiful.volume.update()
+    end),
+
+  -- volume down
   awful.key({ altkey }, "Down",
     function ()
       os.execute(string.format("amixer -q set %s 1%%-", beautiful.volume.channel))
       beautiful.volume.update()
     end, {description = "volume down", group = "hotkeys"}),
+
+  -- volume mute
+  awful.key({ }, "XF86AudioMute",
+    function ()
+      os.execute(string.format("amixer -q set Master toggle", beautiful.volume.togglechannel or beautiful.volume.channel))
+      beautiful.volume.update()
+    end),
 
   -- volume mute
   awful.key({ altkey }, "m",
@@ -537,6 +556,12 @@ globalkeys = my_table.join(
       beautiful.volume.update()
     end, {description = "volume 0%", group = "hotkeys"}),
 
+  -- MPC control play/pause
+  awful.key({ }, "XF86AudioPlay",
+    function ()
+      os.execute("mpc toggle")
+      beautiful.mpd.update()
+    end),
 
   -- === Widget ===
   -- Pomodoro start
