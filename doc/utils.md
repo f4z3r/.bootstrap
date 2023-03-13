@@ -57,6 +57,8 @@ regular their regular counterpart.
   * [Installation](#installation)
 * [nomino](#nomino)
   * [Installation](#installation)
+* [tiny-irc-client-git](#tiny-irc-client-git)
+  * [Installation](#installation)
 
 ## Clipboard Managers
 
@@ -421,6 +423,14 @@ Installed from the community repositories.
 ## nomino
 
 > Rename files in bulk.
+
+### Installation
+
+Installed from the AUR.
+
+## tiny-irc-client-git
+
+> A tiny console-based IRC client written in Rust.
 
 ### Installation
 
