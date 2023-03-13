@@ -58,7 +58,7 @@ https://github.com/jtroo/kanata/blob/main/docs/config.adoc
   esc  blup pgup brup volu pp   brk  7    8    9    .     bspc rsft
   del  bldn pgdn brdn vold ins  home 4    5    6    0     ret  @lyu ret
   S-6  @col _    _    mute sys  end  _    1    2    3    ,     @tsh
-  _    _    _              _              @lyu @osc mute  volu vold pp
+  _    _    _              _              @lyu @osc mute  vold volu pp
 )
 
 (deflayer up
