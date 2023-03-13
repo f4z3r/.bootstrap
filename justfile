@@ -3,7 +3,7 @@ set shell := ["bash", "-c"]
 dir := justfile_directory()
 home := env_var('HOME')
 
-configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata
+configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata tiny
 
 configure-root: zsh-root
 
@@ -119,6 +119,12 @@ backup:
 @kanata:
   [ -d {{ home }}/.config/systemd/user/ ] || mkdir -p {{ home }}/.config/systemd/user
   [ -L {{ home }}/.config/systemd/user/kanata.service ] || ln -s {{ dir }}/conf/kanata.service {{ home }}/.config/systemd/user/kanata.service
+  echo "[+] Configured kanata service"
+
+@tiny:
+  [ -d {{ home }}/.local/log/tiny/ ] || mkdir -p {{ home }}/.local/log/tiny/
+  [ -d {{ home }}/.config/tiny/ ] || mkdir -p {{ home }}/.config/tiny/
+  [ -L {{ home }}/.config/tiny/config.yml ] || ln -s {{ dir }}/conf/tiny.yml {{ home }}/.config/tiny/config.yml
   echo "[+] Configured kanata service"
 
 @broot:
