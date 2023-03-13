@@ -58,7 +58,7 @@ Create a scanning script file:
 
 ```bash
 #!/bin/bash
-LOG_DIR=/home/jakob/.local/log
+LOG_DIR=/home/jakob/.local/log/clamav
 LOG=${LOG_DIR}/clamav.log
 TMP_LOG=/tmp/clam.weekly
 
@@ -98,7 +98,7 @@ sudo chmod +x /etc/cron.weekly/my-clamscan
 And add the following to `/etc/logrotate.d/clamav`:
 
 ```
-/home/jakob/.local/log/clamav.log {
+/home/jakob/.local/log/clamav/clamav.log {
 	daily
 	dateext
 	dateformat -%d%m%Y
