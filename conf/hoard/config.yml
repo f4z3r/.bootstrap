@@ -1,6 +1,6 @@
 ---
 version: 1.3.0
-default_namespace: ""
+default_namespace: "misc"
 config_home_path: /home/jakob/.config/hoard
 trove_path: /home/jakob/.config/hoard/trove.yml
 query_prefix: "  >"
