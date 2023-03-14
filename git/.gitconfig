@@ -7,6 +7,9 @@
 	excludesfile = ~/.gitignore
 	hooksPath = ~/.bootstrap/git/hooks/
 
+[advice]
+	skippedCherryPicks = false
+
 [include]
 	path = ~/.config/git/active.conf
 
