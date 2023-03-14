@@ -20,7 +20,7 @@ commands:
     tags:
       - git
       - branch
-    command: "git fetch -p && git for-each-ref --format '%s(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
+    command: "git fetch -p && git for-each-ref --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" {print $1}' | xargs -r git branch -D"
     description: "Prune local branches whose remote have been deleted."
   - name: prune-local-branches
     namespace: misc
