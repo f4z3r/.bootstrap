@@ -33,7 +33,7 @@ https://github.com/jtroo/kanata/blob/main/docs/config.adoc
   col (layer-switch colemakdh)
 
   ;; tapped shift
-  tsh (tap-hold 200 200 ' rsft)
+  tsh (tap-hold 100 100 ' rsft)
 
   ;; one-shot control
   osc (one-shot 2000 lctl)
