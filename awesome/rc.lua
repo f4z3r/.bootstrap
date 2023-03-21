@@ -578,13 +578,6 @@ globalkeys = my_table.join(
   awful.key({ altkey, "Control" }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,
     {description = "show calendar", group = "widgets"}),
 
-  -- MPC control start stop
-  awful.key({ altkey, "Control" }, "Up",
-    function ()
-      os.execute("mpc toggle")
-      beautiful.mpd.update()
-    end, {description = "mpc toggle", group = "widgets"}),
-
   -- MPC control stop
   awful.key({ altkey, "Control" }, "Down",
     function ()
