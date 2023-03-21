@@ -59,6 +59,8 @@ regular their regular counterpart.
   * [Installation](#installation)
 * [tiny-irc-client-git](#tiny-irc-client-git)
   * [Installation](#installation)
+* [dua](#dua)
+  * [Installation](#installation)
 
 ## Clipboard Managers
 
@@ -435,3 +437,11 @@ Installed from the AUR.
 ### Installation
 
 Installed from the AUR.
+
+## dua
+
+> A CLI utility to manage disk usage and flag file for deletion.
+
+### Installation
+
+Installed as package `dua-cli` with Pacman.
