@@ -3,9 +3,14 @@ set shell := ["bash", "-c"]
 dir := justfile_directory()
 home := env_var('HOME')
 
-configure: vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata tiny
+configure: xsecurelock vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata tiny
 
 configure-root: zsh-root
+
+@xsecurelock:
+  sudo cp -u {{ dir }}/conf/xsecurelock /usr/lib/systemd/system-sleep/xsecurelock
+  sudo chmod 664 /usr/lib/systemd/system-sleep/xsecurelock
+  echo "[+] Configured xsecurelock on suspend wakeup"
 
 backup:
   @[ -d /mnt/drive ] || sudo mkdir /mnt/drive

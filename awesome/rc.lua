@@ -23,7 +23,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 
-local scrlocker    = "i3lock -c 249eca"
+local scrlocker    = "xsecurelock"
 
 
 -- {{{ Error handling
