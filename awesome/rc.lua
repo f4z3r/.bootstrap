@@ -218,6 +218,30 @@ local function utt_prompt()
 end
 -- }}}
 
+-- {{{ MPV
+local function mpv_prompt()
+    awful.prompt.run {
+        prompt       = "<b>Enter MPV command: </b>",
+        textbox      = awful.screen.focused().mypromptbox.widget,
+        hooks        = {
+          {{},'Return', function(cmd)
+            if (not cmd) or cmd == '' then
+                return run("xsel -bo")
+            end
+            return cmd
+          end},
+        },
+        exe_callback = function(t)
+            if t == "q" then
+                beautiful.mpv:stop()
+            else
+                beautiful.mpv:play(t)
+            end
+        end,
+        history_path = awful.util.getdir("cache") .. "/history_mpv"
+    }
+end
+-- }}}
 
 -- {{{ Menu
 local myawesomemenu = {
@@ -573,6 +597,10 @@ globalkeys = my_table.join(
   -- UTT run prompt
   awful.key({ altkey, "Control" }, "u", utt_prompt,
     {description = "run in utt prompt", group = "widgets"}),
+
+  -- MPV run prompt
+  awful.key({ altkey, "Control" }, "y", mpv_prompt,
+    {description = "run in mpv prompt", group = "widgets"}),
 
   -- calendar
   awful.key({ altkey, "Control" }, "c", function () if beautiful.cal then beautiful.cal.show(7) end end,

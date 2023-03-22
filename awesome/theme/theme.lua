@@ -12,6 +12,7 @@ local dpi   = require("beautiful.xresources").apply_dpi
 
 local k8s_widget        = require("k8s-widget")
 local utt_widget        = require("utt-widget")
+local mpv_widget        = require("mpv-widget")
 local optimus_widget    = require("optimus-widget")
 local brightness_widget = require("brightness-widget")
 local systemctl_widget  = require("systemctl-widget")
@@ -294,6 +295,12 @@ local service_widget = systemctl_widget:new({
     }
   })
 
+-- MPV widget
+theme.mpv = mpv_widget:new({
+  font  = theme.font,
+  color = theme.fg_normal,
+})
+
 -- UTT widget
 theme.utt = utt_widget:new({ font = theme.taglist_font })
 
@@ -526,6 +533,7 @@ function theme.at_screen_connect(s)
     { -- Right widgets
       layout = wibox.layout.fixed.horizontal,
       wibox.widget.systray(),
+      theme.mpv,
       musicwidget,
       theme.mpdbar,
       mpd_sliders,
