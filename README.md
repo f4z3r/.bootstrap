@@ -121,7 +121,7 @@ Install awesome and its main dependencies.
 
 ```bash
 sudo pacman -S dmenu mpc scrot unclutter brightnessctl kitty \
-  xsecurelock xss-lock xsel xclip youtube-dl git-delta
+  xsecurelock xss-lock xsel xclip yt-dlp git-delta mpv
 sudo pacman -S awesome
 ```
 

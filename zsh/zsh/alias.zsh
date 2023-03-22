@@ -94,6 +94,9 @@ alias colemak="setxkbmap -model pc105 -layout us -variant colemak_dh -option ctr
 alias qwerty="setxkbmap -model pc105 -layout us -variant alt-intl -option ctrl:swapcaps"
 alias noswap='setxkbmap -model pc105 -layout us -variant alt-intl'
 
+# music
+alias y="mpv --no-video --save-position-on-quit"
+
 # pomorodo
 alias pomo='(sleep 25m; notify-send -t 10000 -u critical -c user,pomorodo \
               "System pomorodo completed" \
