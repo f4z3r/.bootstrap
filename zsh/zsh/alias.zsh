@@ -80,6 +80,9 @@ alias tree="tree -C"
 # ip
 alias ip="ip -c"
 
+alias feh="feh -Fx"
+alias pdf="mupdf"
+
 # grep
 alias grep="grep --color=auto"
 alias egrep="egrep --color=auto"
@@ -90,9 +93,10 @@ alias bwu='export BW_SESSION="$(bw unlock --raw)"'
 alias bwl='export BW_SESSION='
 
 # keyboard
-alias colemak="setxkbmap -model pc105 -layout us -variant colemak_dh -option ctrl:swapcaps"
-alias qwerty="setxkbmap -model pc105 -layout us -variant alt-intl -option ctrl:swapcaps"
-alias noswap='setxkbmap -model pc105 -layout us -variant alt-intl'
+alias colemak="systemctl --user start kanata"
+alias qwerty="systemctl --user stop kanata"
+alias colemak_x="setxkbmap -model pc105 -layout us -variant colemak_dh -option ctrl:swapcaps"
+alias qwerty_x="setxkbmap -model pc105 -layout us -variant alt-intl -option ctrl:swapcaps"
 
 # music
 alias y="mpv --no-video --save-position-on-quit"
