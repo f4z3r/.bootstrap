@@ -61,6 +61,8 @@ regular their regular counterpart.
   * [Installation](#installation)
 * [dua](#dua)
   * [Installation](#installation)
+* [lynis](#lynis)
+  * [Installation](#installation)
 
 ## Clipboard Managers
 
@@ -445,3 +447,11 @@ Installed from the AUR.
 ### Installation
 
 Installed as package `dua-cli` with Pacman.
+
+## lynis
+
+> A system hardening tool to analyze the security of your linux system.
+
+### Installation
+
+Installed as package `lynis` with Pacman.

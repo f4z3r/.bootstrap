@@ -1,5 +1,14 @@
 # System Hardening
 
+## Disable USB storage
+
+Add the following line to `/etc/modprobe.d/blacklist.conf` to disable USB storage by default, it can
+then be enabled by root by running `sudo modprobe usb-storage`:
+
+```conf
+blacklist usb-storage
+```
+
 ## Disable ICMP echo requests
 
 > This means that your device will not respond to pings anymore. This makes finding your device more
