@@ -2,17 +2,13 @@
 
 ## Installation
 
-Install the CLI from `yay`: `bitwarden-cli`.
-
-After installation, use `bw login` to login once with email and password. If prompted for an API
-key client secret, go to https://vault.bitwarden.com/#/settings/account and get the secret
-information.
+Install the unofficial rust CLI client from `community`: `rbw`.
 
 ## Usage
 
-You can use `bwu` to unlock the vault, and `bwl` to lock it again.
+You can use `rbw ls` to list the entries, and `rbw get` to get entries.
 
-Then use the configured script to copy username and password from the CLI:
+Then use the configured script to copy the password from the CLI:
 
 ```sh
 pass

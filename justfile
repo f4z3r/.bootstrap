@@ -3,7 +3,7 @@ set shell := ["bash", "-c"]
 dir := justfile_directory()
 home := env_var('HOME')
 
-configure: xsecurelock vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata tiny
+configure: xsecurelock vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata tiny rbw
 
 configure-root: zsh-root
 
@@ -92,6 +92,11 @@ backup:
   -[ -f {{ home }}/.bashrc ] && rm {{ home }}/.bashrc
   [ -L {{ home }}/.bashrc ] || ln -s {{ dir }}/conf/.bashrc {{ home }}/.bashrc
   echo "[+] Linked bash configuration"
+
+@rbw:
+  [ -d {{ home }}/.config/rbw/ ] || mkdir -p {{ home }}/.config/rbw
+  [ -L {{ home }}/.config/rbw/config.json ] || ln -s {{ dir }}/conf/rbw.json {{ home }}/.config/rbw/config.json
+  echo "[+] Configured rust bitwarden service"
 
 @vim: install-dein link-ultisnips
   -mkdir -p {{ home }}/.pad-notes/
