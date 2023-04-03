@@ -63,6 +63,13 @@ local yellow     = "#CCCC00"
 local back_norm  = "#383838"
 local back_light = "#4b4b4b"
 
+local function run(command)
+  local prog = io.popen(command)
+  local result = prog:read('*all')
+  prog:close()
+  return result
+end
+
 -- Clock
 local clockwidget = wibox.widget.textclock(markup("#FFFFFF", "\u{f64f} %H:%M " .. markup.font("Fira Code 4", " ")))
 clockwidget.font = theme.font
@@ -178,6 +185,11 @@ local bat = lain.widget.bat({
       widget:set_markup(markup.font(theme.font, markup(color, bat_header) .. bat_p))
     end
   })
+
+-- Kernel widget
+local kernel = run("uname -r")
+local kernel_widget = wibox.widget.textbox("\u{f312}  "..kernel)
+kernel_widget:set_font(theme.taglist_font)
 
 -- GPU switch
 local gpu_widget = optimus_widget:new({ font = theme.taglist_font })
@@ -540,6 +552,8 @@ function theme.at_screen_connect(s)
       theme.mpd_flags,
       mpd_icon,
       volumewidget,
+      last,
+      kernel_widget,
       last,
       gpu_widget,
       last,
