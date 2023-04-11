@@ -3,7 +3,7 @@ set shell := ["bash", "-c"]
 dir := justfile_directory()
 home := env_var('HOME')
 
-configure: xsecurelock vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata tiny rbw
+configure: xsecurelock vim zsh tools bash kitty git awesome pinky pacman logind thesaurus ctags tmux pier luakit neomutt navi hoard broot rtx kanata tiny rbw ruff
 
 configure-root: zsh-root
 
@@ -57,6 +57,10 @@ backup:
   [ -d {{ home }}/.tmux/plugins/tpm ] || git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   [ -L {{ home }}/.tmux.conf ] || ln -s {{ dir }}/conf/.tmux.conf {{ home }}/.tmux.conf
   echo "[+] Linked tmux configuration"
+
+@ruff:
+  [ -L {{ home }}/.ruff.toml ] || ln -s {{ dir }}/conf/ruff.toml {{ home }}/.ruff.toml
+  echo "[+] Linked ruff configuration"
 
 @tools:
   install -d /{{ home }}/.local/bin

@@ -10,6 +10,7 @@ let g:ale_python_auto_pipenv = 1
 let g:ale_python_mypy_auto_pipenv = 1
 let g:ale_python_bandit_auto_pipenv = 1
 let g:ale_python_black_auto_pipenv = 1
+let g:ale_python_ruff_auto_pipenv = 1
 " lua configuration
 let g:ale_lua_stylua_options = '-s'
 " ale sign update
@@ -28,7 +29,7 @@ let g:ale_lint_on_save = 1
 let g:ale_fix_on_save = 0
 " disable some linters (clangd, hie) and enable others (mypy)
 let g:ale_linters = {
-      \ 'python': ['bandit', 'mypy'],
+      \ 'python': ['ruff', 'bandit', 'mypy'],
       \ 'haskell': ['hlint', 'stack-build', 'hdevtools'],
       \ 'cpp': ['cppcheck', 'cpplint', 'flawfinder'],
       \ 'c': ['cppcheck', 'cpplint', 'flawfinder'],
@@ -44,7 +45,7 @@ let g:ale_linters = {
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'python': ['black', 'reorder-python-imports', 'yapf'],
+      \ 'python': ['ruff'],
       \ 'java': ['uncrustify'],
       \ 'haskell': ['floskell', 'stylish-haskell'],
       \ 'cpp': ['clang-format', 'uncrustify'],
