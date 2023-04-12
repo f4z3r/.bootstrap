@@ -59,7 +59,8 @@ backup:
   echo "[+] Linked tmux configuration"
 
 @ruff:
-  [ -L {{ home }}/.ruff.toml ] || ln -s {{ dir }}/conf/ruff.toml {{ home }}/.ruff.toml
+  [ -d {{ home }}/.config/ruff ] || mkdir -p {{ home }}/.config/ruff
+  [ -L {{ home }}/.config/ruff/pyproject.toml ] || ln -s {{ dir }}/conf/ruff.toml {{ home }}/.config/ruff/pyproject.toml
   echo "[+] Linked ruff configuration"
 
 @tools:

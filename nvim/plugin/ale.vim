@@ -45,7 +45,7 @@ let g:ale_linters = {
       \}
 let g:ale_fixers = {
       \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-      \ 'python': ['ruff'],
+      \ 'python': ['ruff', 'black'],
       \ 'java': ['uncrustify'],
       \ 'haskell': ['floskell', 'stylish-haskell'],
       \ 'cpp': ['clang-format', 'uncrustify'],

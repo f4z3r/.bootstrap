@@ -2,6 +2,7 @@ tags
 tags.temp
 tags.lock
 .mypy_cache/
+.ruff_cache/
 .pytest_cache/
 __pycache__/
 .*.un~
