@@ -52,6 +52,25 @@ sudo clamscan --recursive --infected --exclude-dir='^/sys|^/dev' /
 Use `--remove` or `--move=/dir` to delete or quarantine infected files. Using `-l /path` will log
 the results to the provided path.
 
+
+## On Access Scan
+
+This can make sense to activate on directories such as the `Downloads` directory in order to ensure
+that no malicious file is accessed. This can be done as follows:
+
+- Open `/etc/clamav/clamd.conf`.
+- Add the `/home/jakob/Downloads` path under `OnAccessIncludePath`.
+- Add the `/home/jakob/Documents` path under `OnAccessIncludePath`.
+- Add the `/home/jakob/Videos` path under `OnAccessIncludePath`.
+- Add the `/home/jakob/Public` path under `OnAccessIncludePath`.
+- Add the `/home/jakob/Music` path under `OnAccessIncludePath`.
+- Add the `/home/jakob/Desktop` path under `OnAccessIncludePath`.
+- Set `OnAccessPrevention` to `yes`.
+- Set `OnAccessExcludeUname` to `clamav`.
+- Add the `clamav` user to the `jakob` group to allow it to read files
+  (`sudo usermod -aG jakob clamav`)
+- Reboot, start and enable the `clamav-clamonacc.service` via SystemD.
+
 ## Cron Jobs
 
 Create a scanning script file:
@@ -60,7 +79,7 @@ Create a scanning script file:
 #!/bin/bash
 LOG_DIR=/home/jakob/.local/log/clamav
 LOG=${LOG_DIR}/clamav.log
-TMP_LOG=/tmp/clam.weekly
+TMP_LOG=/tmp/clam.monthly
 
 av_report() {
 	DATE=`date "+%F"`
@@ -89,7 +108,7 @@ av_scan
 av_report
 ```
 
-Save the file in `/etc/cron.weekly/` and make it executable:
+Save the file in `/etc/cron.monthly/` and make it executable:
 
 ```sh
 sudo chmod +x /etc/cron.weekly/my-clamscan
