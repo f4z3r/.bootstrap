@@ -13,9 +13,7 @@ binaries into `bin`, optional code and data into `opt`, shared runtime data into
 - `.local/bin`: external software binaries running on the system.
 - `.local/share`: runtime data for external software running on the system.
 - `.local/log`: log data for external software running on the system.
-- `dev`: for any development work we are doing.
-- `dev/opt`: for any external development code. Only if not pertaining to binaries that are running
-  on the system.
+- `opt`: for any development work we are doing.
 - `data`: for information meant to be long lasting. This does not include documents. It should only
   contain raw data.
 - `tmp`: for temporary information meant to be persistent across boots.
