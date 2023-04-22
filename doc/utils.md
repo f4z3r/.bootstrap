@@ -63,6 +63,8 @@ regular their regular counterpart.
   * [Installation](#installation)
 * [lynis](#lynis)
   * [Installation](#installation)
+* [dog](#dog)
+  * [Installation](#installation)
 
 ## Clipboard Managers
 
@@ -455,3 +457,11 @@ Installed as package `dua-cli` with Pacman.
 ### Installation
 
 Installed as package `lynis` with Pacman.
+
+## dog
+
+> A DNS resolution tool.
+
+### Installation
+
+Installed as package `dog` with Pacman.
