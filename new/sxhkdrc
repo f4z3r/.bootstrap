@@ -1,0 +1,87 @@
+XF86AudioLowerVolume
+  /nix/store/8qzwrm8g7m03b2ld0dqyfk9fhycjcvjb-alsa-utils-1.2.8/bin/amixer -q sset Master 1%-
+
+XF86AudioMute
+  /nix/store/8qzwrm8g7m03b2ld0dqyfk9fhycjcvjb-alsa-utils-1.2.8/bin/amixer -q sset Master toggle
+
+XF86AudioPlay
+  /nix/store/i1fv5mn561384szqclr2nqdbc90h7s6v-mpc-0.34/bin/mpc toggle
+
+XF86AudioRaiseVolume
+  /nix/store/8qzwrm8g7m03b2ld0dqyfk9fhycjcvjb-alsa-utils-1.2.8/bin/amixer -q sset Master 1%+
+
+XF86MonBrightnessDown
+  /nix/store/ls83d80vpw5zb3rdiwkavly1xiia5023-brightnessctl-0.5.1/bin/brightnessctl -c 'backlight' -d '*backlight*' s 5%-
+
+XF86MonBrightnessUp
+  /nix/store/ls83d80vpw5zb3rdiwkavly1xiia5023-brightnessctl-0.5.1/bin/brightnessctl -c 'backlight' -d '*backlight*' s +5%
+
+alt + Left
+  /nix/store/i1fv5mn561384szqclr2nqdbc90h7s6v-mpc-0.34/bin/mpc prev
+
+alt + Return
+  /nix/store/bi68an831k754lycara7i5dylhmk13i4-wezterm-20230408-112425-69ae8472/bin/wezterm start /nix/store/rnjps59h8nwijnkfmyhrjpl5hsl2y9wj-tmux-3.3a/bin/tmux
+
+alt + Right
+  /nix/store/i1fv5mn561384szqclr2nqdbc90h7s6v-mpc-0.34/bin/mpc next
+
+alt + c
+  /nix/store/68xq06w5i9qlivkxwx8ff53d0d0i4d5s-rofi-1.7.5/bin/rofi -modi "clipboard:greenclip print" -show clipboard '{cmd}' 
+
+alt + control + Enter
+  /nix/store/c0nsglhrs5z8hsgcv8q9gycjzvpw4fxc-rofi-rbw-1.1.0/bin/rofi-rbw -a copy -t password
+
+alt + control + p
+  /nix/store/9fymigv5cxgz6ifs7sfid3aqzq6vvnjw-uair-v0.5.1/bin/uairctl toggle
+
+alt + control + w
+  /nix/store/84gc0k0lq6j5zh0067si2f5ihm66j82d-brave-1.50.125/bin/brave
+
+alt + f
+  /nix/store/b8fjkgzz87x5f0ck41pb76fqs9zvzvnh-bspwm-0.9.10/bin/bspc node -t fullscreen
+
+alt + m
+  /nix/store/b8fjkgzz87x5f0ck41pb76fqs9zvzvnh-bspwm-0.9.10/bin/bspc node -m last --follow
+
+alt + q
+  /nix/store/68xq06w5i9qlivkxwx8ff53d0d0i4d5s-rofi-1.7.5/bin/rofi -show p -modi p:/nix/store/hav7vjg5gwhhggar6444cip5fnmm25yx-rofi-power-menu-3.0.2/bin/rofi-power-menu
+
+alt + r : {h,j,k,l}
+  STEP=20; SELECTION={1,2,3,4}; \
+/nix/store/b8fjkgzz87x5f0ck41pb76fqs9zvzvnh-bspwm-0.9.10/bin/bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
+/nix/store/b8fjkgzz87x5f0ck41pb76fqs9zvzvnh-bspwm-0.9.10/bin/bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
+
+
+alt + s : e
+  /nix/store/d5h9crkqg0mc7s1124yylda1yd4z7av4-bsp-layout-unstable-2022-06-19/bin/bsp-layout set grid
+
+alt + s : o
+  /nix/store/d5h9crkqg0mc7s1124yylda1yd4z7av4-bsp-layout-unstable-2022-06-19/bin/bsp-layout set tiled
+
+alt + s : t
+  /nix/store/d5h9crkqg0mc7s1124yylda1yd4z7av4-bsp-layout-unstable-2022-06-19/bin/bsp-layout set tall
+
+alt + s : w
+  /nix/store/d5h9crkqg0mc7s1124yylda1yd4z7av4-bsp-layout-unstable-2022-06-19/bin/bsp-layout set wide
+
+alt + shift + q
+  /nix/store/ijhpd05qjcqhyvalcqivf9crv50sp5mx-xsecurelock-1.8.0/bin/xsecurelock
+
+alt + shift + {1-9,0}
+  /nix/store/b8fjkgzz87x5f0ck41pb76fqs9zvzvnh-bspwm-0.9.10/bin/bspc node -d '^{1-9,10}' --follow
+
+alt + space
+  /nix/store/68xq06w5i9qlivkxwx8ff53d0d0i4d5s-rofi-1.7.5/bin/rofi -combi-modi window,drun -show combi
+
+alt + {1-9,0}
+  /nix/store/b8fjkgzz87x5f0ck41pb76fqs9zvzvnh-bspwm-0.9.10/bin/bspc desktop -f '^{1-9,10}'
+
+alt + {_,shift + }w
+  /nix/store/b8fjkgzz87x5f0ck41pb76fqs9zvzvnh-bspwm-0.9.10/bin/bspc node -{c,k}
+
+alt + {_,shift + }{h,j,k,l}
+  /nix/store/b8fjkgzz87x5f0ck41pb76fqs9zvzvnh-bspwm-0.9.10/bin/bspc node -{f,s} {west,south,north,east}
+
+control + Return
+  ~/.config/sxhkd/scripts/bspwm-scratchpad "quake" "wezterm start --class quake -- tmux"
+

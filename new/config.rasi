@@ -1,0 +1,8 @@
+configuration {
+cycle: true;
+location: 0;
+terminal: "/nix/store/bi68an831k754lycara7i5dylhmk13i4-wezterm-20230408-112425-69ae8472/bin/wezterm";
+xoffset: 0;
+yoffset: 0;
+}
+@theme "rounded-gray-dark"
